@@ -1,0 +1,106 @@
+import React from 'react';
+import ReactDOM from 'react-dom'; 
+import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
+import { MdClose } from "@react-icons/all-files/md/MdClose";
+import Modal from 'react-modal'; 
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+import {AppBar} from '@material-ui/core';
+import BasicTabs from './Employeetabs';
+import 'react-tabs/style/react-tabs.css';
+const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+     width: '75%',
+     boarder: '0',
+     color: '#000'
+    },
+  };
+  
+ 
+ 
+
+ 
+
+export default function Popupmodal(){
+
+   
+    const CustomTab = ({ children }) => (
+        <Tab >
+          <div >{children}</div>
+        </Tab>
+      );
+      CustomTab.tabsRole = 'Tab';
+    let subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+  
+    function openModal() {
+      setIsOpen(true);
+    }
+  
+    function afterOpenModal() {
+      // references are now sync'd and can be accessed.
+      subtitle.style.color = '#f00';
+    }
+  
+    function closeModal() {
+      setIsOpen(false);
+    }
+  
+    const [value, setValue]=React .useState(0)
+    const handlesTabs=(e, val)=>{
+      console.warn(val)
+    setValue(val)
+    }
+
+  return (
+    <div>
+     
+      <button type="button" class="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal" >
+        <div className="popup-head-sty">
+            <div className="popup-head-content-sty">
+                <h4 ref={(_subtitle) => (subtitle = _subtitle)} className="popup-head-h4">Candidate Details</h4>
+            </div>
+            <div className="popup-head-icon-sty">
+               <MdClose className="popup-close-btn" onClick={closeModal} />
+            </div>
+        </div>
+        <div className="popup-content-bg">
+            <div class="row ">
+                            <div class="col-md-4">
+                            <form class="form-group btn-secondary" >
+                                <input type="text" placeholder="Search.." name="search" class="form-control"></input>
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="col-md-8">
+                           
+                            </div>
+            </div>
+            <div class ="row">
+                <div class="col-md-12">
+                <BasicTabs /> 
+                </div>
+            </div>
+           
+        </div>
+        
+       
+                
+      </Modal>
+    </div>
+  );
+}
+ 

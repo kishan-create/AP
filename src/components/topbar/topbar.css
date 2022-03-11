@@ -1,0 +1,64 @@
+.maintop-bar{
+background: #8d448f; /* Old browsers */
+background: -moz-linear-gradient(left,  #8d448f 0%, #3f53c3 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #8d448f 0%,#3f53c3 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #8d448f 0%,#3f53c3 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d448f', endColorstr='#3f53c3',GradientType=1 ); /* IE6-9 */
+width: 100%;
+float: left;
+padding: 15px 15px 15px 220px;
+}
+.head-style{
+    background-color: bisque;
+    color: rgb(219, 0, 0);
+    padding: 15px 25px;
+    padding-left: 247px;
+    background-image: linear-gradient(to right, #8d448f , #3f53c3);
+    min-height: 60px;
+    width: 100%;
+    z-index: 12;
+    position: fixed;
+}
+.topbar-icon {
+    font-size: 30px;
+    color: #fff;
+}
+.topbar-col-right {
+    text-align: right;
+}
+.topbar-icon-right {
+    font-size: 24px;
+    color: #fff;
+    margin-right: 10px;
+}
+.topbar-icon-right-img {
+    border-radius: 30px;
+    width: 30px;
+    float: unset;
+    margin-top: -15px;
+}
+.topbar-icon-right-img-txt {
+    color: #fff;
+    font-size: 13px;
+}
+@media (min-width: 768px){
+.navbar-right {
+    float: right!important;
+    margin-right: 5px;
+}}
+
+.navbar-brand {
+    float: none !important;
+   
+    padding: 15px 15px;
+   
+    line-height: 20px;
+}
+.navbar {
+    position: relative;
+    min-height: auto;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+    float: right;
+    padding-right: 275px;
+}

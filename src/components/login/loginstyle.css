@@ -1,0 +1,176 @@
+.login-bg {
+    width: 100%;
+    z-index: 111;
+    position: absolute;
+    background: linear-gradient(to right, #ffffff 0%,#ffffff 99%);
+    height: 100%;
+}
+.loginbox{
+    width: 35%;
+    background-color: #4B56C0;
+    padding: 50px;
+    border-radius: 0px;
+    float: right;
+    height: 100%;
+}
+.leftside-box {
+    width: 65%;
+    float: left;
+    background-color: #ffffff;
+}
+.column {
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  .column2 {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .white-tx {
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-top: 27%;
+}
+.white-tx-sm {
+    color: #fff;
+    text-align: center;
+    margin-top: 0px;
+}
+.form-p {
+    padding: 35px;
+}
+.label-sty {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 10px;
+    color: #ffffff !important;
+    font-weight: normal;
+    font-size: 16px !important;
+}
+.btn-submit {
+    background-repeat: repeat-x;
+    border-color: #CF3A78 !important;
+    background-color: #CF3A78 !important;
+    background-image: -webkit-linear-gradient(top,#CF3A78 0,#CF3A78 100%);
+    background-image: -o-linear-gradient(top,#CF3A78 0,#CF3A78 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#CF3A78),to(#CF3A78));
+    background-image: linear-gradient(to bottom,#CF3A78 0,#CF3A78 100%);
+}
+.form-control-new {
+    font-size: 16px !important;
+    height: 41px !important; 
+    color: #fff !important;
+    background-color: #4b56bf !important; 
+    border: 0.8px solid #ffffff !important; 
+}
+.form-group { 
+    margin-bottom: 25px !important;
+}
+.check-mag {
+    margin-bottom: 20px;
+}
+.k-checkbox {
+    background: green;
+  }
+
+  /*Checked checkbox*/
+  .k-checkbox:checked {
+    background: red;
+    color: white;
+  }
+
+  .keep-login {
+    color: #fff;
+    padding-left: 5px;
+}
+.forgot-pass {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
+.logobg {
+    width: 100%;
+    margin-top: 5%;
+}
+@media only screen and (max-width: 1024px) {
+    .loginbox{
+        width: 45%;
+        background-color: #4B56C0;
+        padding: 50px;
+        border-radius: 0px;
+        float: right;
+        height: 100%;
+    }
+    .leftside-box {
+        width: 50%;
+        float: left;
+        background-color: #ffffff;
+    }
+    .logobg {
+        width: 100%;
+        margin-top: 35%;
+    }
+}
+@media only screen and (max-width: 980px) {
+    .loginbox{
+        width: 48%;
+        background-color: #4B56C0;
+        padding: 50px;
+        border-radius: 0px;
+        float: right;
+        height: 100%;
+    }
+    .leftside-box {
+        width: 50%;
+        float: left;
+        background-color: #ffffff;
+    }
+    .logobg {
+        width: 100%;
+        margin-top: 35%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .loginbox{
+        width: 100%;
+        background-color: #4B56C0;
+        padding: 50px;
+        border-radius: 0px;
+        float: right;
+        height: 100%;
+    }
+    .leftside-box {
+        width: 50%;
+        float: left;
+        background-color: #ffffff;
+        display: none;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .loginbox{
+        width: 100%;
+        background-color: #4B56C0;
+        padding: 50px;
+        border-radius: 0px;
+        float: right;
+        height: 100%;
+    }
+    .leftside-box {
+        width: 50%;
+        float: left;
+        background-color: #ffffff;
+        display: none;
+    }
+}

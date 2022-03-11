@@ -1,0 +1,276 @@
+.App {
+  text-align: left;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.App {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"; */
+/* @import "https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,600,700"; */
+
+
+body {
+  /*font-family: 'Poppins', sans-serif;*/
+  font-family: 'Nunito Sans', sans-serif;
+  /*background: #fafafa;*/
+  background-color: #f5f9fc;
+}
+
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.sidebar {
+  margin-left: 0;
+  transition: .5s;
+  position: fixed;
+  width: 250px;
+  background: #fff;    z-index: 15;
+   padding-right: 15px;
+  height: 100vh;    margin-left: -196px !important;
+}
+
+.sidebar.is-open {
+  margin-left: 0;    margin-left: 0px !important;
+  transition: .5s;
+}
+
+.sidebar-header {
+  background: #313b4c;
+  color: #adb5bd;
+}
+
+.sidebar-header h3{
+  color: #fff;
+  padding: 1em;
+}
+
+.sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+.collapse.show, 
+.collapsing {
+  background: #313b4c;
+}
+
+.nav-item {
+     /* color: #ced4da; */
+     color: #adb5bd;
+     width: 100%;
+     float: left;
+     display: block;
+    
+}
+.nav-item a
+{
+  width: 100%;
+  float: left;
+  font-weight: 300;
+  color: #000;
+  width: 99%;
+  font-size: 16px;
+  float: left;
+  padding-left: 0px;
+  padding-top: 8px;
+  border-radius: 0px 16.5px 16.5px 0px;
+  padding-bottom: 12px;
+  margin-bottom: 5px;
+}
+.sidebar.is-open .nav-item a {
+  width: 94%;
+}
+.sidebar.is-open .nav-item a svg{
+  margin-left: 15px;
+  margin-right: 10px;
+  float: left;    margin-top: 2px;
+  color: #282c34;
+}
+
+.nav-item a svg {
+  float: right;
+}
+.sidebar.is-open .nav-item.open a{
+  color: #000;
+}
+.sidebar.is-open .nav-item.open a svg{
+  color: #000;
+}
+.sidebar.is-open .nav-item.open  a.active, .sidebar.is-open .nav-item.open a:hover{
+  background: #cd3b78; /* Old browsers */
+  background: -moz-linear-gradient(left,  #cd3b78 0%, #5452e1 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #cd3b78 0%,#5452e1 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #cd3b78 0%,#5452e1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd3b78', endColorstr='#5452e1',GradientType=1 ); /* IE6-9 */
+   color: #fff !important;
+}
+.sidebar.is-open .nav-item.open svg{
+color: #fff;
+}
+.sidebar.is-open .nav-item.open a a{
+  padding: 0;    margin-bottom: 0;
+}
+.sidebar.is-open .nav-item a.active {
+  background: #cd3b78; /* Old browsers */
+  background: -moz-linear-gradient(left,  #cd3b78 0%, #5452e1 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #cd3b78 0%,#5452e1 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #cd3b78 0%,#5452e1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd3b78', endColorstr='#5452e1',GradientType=1 ); /* IE6-9 */
+  color: #fff !important;
+}
+.sidebar.is-open .nav-item a.active svg, .sidebar.is-open .nav-item a:hover svg{
+  color: #fff;
+}
+
+.sidebar.is-open .nav-item a:hover {
+  background: #cd3b78; /* Old browsers */
+  background: -moz-linear-gradient(left,  #cd3b78 0%, #5452e1 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #cd3b78 0%,#5452e1 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #cd3b78 0%,#5452e1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd3b78', endColorstr='#5452e1',GradientType=1 ); /* IE6-9 */
+   color: #fff !important;
+}
+.sidebar.is-open .nav-item.open .collapse.show, .sidebar.is-open .nav-item.open .collapsing {
+  background: none;
+  padding-top: 0;
+  margin-bottom: -7px;
+  float: left;
+} 
+
+
+.nav-item svg:not(:root).svg-inline--fa {
+  float: right;
+}
+
+.sidebar.is-open  .nav-item  svg:not(:root).svg-inline--fa {
+  float: left;
+}
+.float-right{
+  float: right !important;
+}
+
+.nav-item {
+  width: 98%;
+}
+.nav-item a{
+  line-height: 18px;
+}
+.sidebar.is-open .nav-item {
+  width:100%;
+}
+
+.nav-item .svg-inline--fa {
+  color: inherit;
+  margin-right:0px;
+  margin-left: 15px;
+
+}
+.btn-outline-info .svg-inline--fa.fa-w-14 {
+  font-size: 25px;
+}
+
+li a.dropdown-toggle::after {
+  display: inline-flex;
+  position: relative;
+  left: 60%;
+  top: 10%
+}
+
+.sidebar-header > button {
+  position: relative;
+  float: right;
+  margin: .5em;
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+.content {
+  padding: 0px 0;
+  margin-left: 0;    width: 100%;
+  height: 100vh;
+}
+.inner-content-box {
+  padding-left: 46px;
+}
+.wrapper .is-open.content .inner-content-box {
+  padding-left: 241px;
+}
+.nav-item.active a, .nav-item:hover a {
+  color: #B93E87;
+}
+.wrapper .is-open .nav-item.active a{
+  color: #101010;
+}
+.collapse.show .nav-item a {
+  color: #000 !important;
+}.nav-item.open a {
+  color: #000 !important;
+}
+
+.sidebar.is-open .nav-item.open a {
+  background: linear-gradient(to right, #cd3b78 0%,#5452e1 100%);
+}
+.sidebar.is-open .nav-item.open .collapse a{
+  background: none;
+}
+
+.sidebar.is-open .nav-item.open .collapse a:hover, .sidebar.is-open .nav-item.open .collapse a.active  {
+  background: #cd3b78;
+  background: linear-gradient(to right, #cd3b78 0%,#5452e1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd3b78', endColorstr='#5452e1',GradientType=1 );
+  color: #fff;
+}

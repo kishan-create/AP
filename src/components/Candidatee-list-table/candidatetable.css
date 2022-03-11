@@ -1,0 +1,41 @@
+.listing-table{
+    width: 100%;
+    float: left;
+}
+.listing-table thead {
+    background: #D6D8F6;
+    border-radius: 7px 7px 0px 1px;
+}
+ .listing-table td{
+    font-size: 12px;
+    color: #504F4F;
+    font-weight: 300;
+}
+.listing-table th{
+    font-size: 12px;
+     font-weight: 500;
+    color: #292929;
+}
+.width-10{
+width: 10%;
+}
+.width-12{
+    width: 12%;
+    }
+    .width-15{
+        width: 15%;
+        }
+        .width-8{
+            width: 8%;
+            }
+.status-nprogress{
+    width: auto;
+    padding: 2px 10px 6px;
+    border-radius: 13px;
+    color: #fff;
+    line-height: 0;
+    background: #6555B4;
+    font-size: 11px;
+    min-width: 80px;
+    text-align: center;
+}            
