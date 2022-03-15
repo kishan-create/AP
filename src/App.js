@@ -10,6 +10,7 @@ import { AuthProvider } from "./context/auth.context";
 import "./App.css";
 import './css/style.css';
 import './css/responsvie.css';
+import Employee_content from "./components/content/Employee_content";
 const App = () => {
   const [sidebarIsOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
@@ -37,7 +38,7 @@ const App = () => {
                     return (
                       <div className="App wrapper">
                   <Employee_Sidebar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
-                        <Content toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen} />
+                        <Employee_content toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen} />
                     </div>
                     )
                   }
