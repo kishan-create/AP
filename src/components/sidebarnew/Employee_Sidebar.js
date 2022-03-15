@@ -20,7 +20,7 @@ import { IconName } from "react-icons/ai";
 import { MdPersonSearch, MdOutlineScreenSearchDesktop, MdBusinessCenter, MdOutlineAccountTree } from "react-icons/md";
 import SubMenu from "./SubMenu";
 import logout_new from "../login/Logout_new";
-
+import Employeeprofile from "../pages/Employeeprofile";
 
 const $ = window.$;
  var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
@@ -88,7 +88,7 @@ const $ = window.$;
       <div className="nav-taxt">Navigation</div>
    
          <NavItem>
-          <NavLink exact tag={Link} to={"/Employee_Dashboard"} exact activeClassName="active" className="mob-menu-clik" >
+          <NavLink exact tag={Link} to={"/Employeeprofile"} exact activeClassName="active" className="mob-menu-clik" >
           < MdBusinessCenter/>
             Dashboard  
           </NavLink>

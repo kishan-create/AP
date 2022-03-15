@@ -40,8 +40,8 @@ const Employee_content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Switch>
   
     
-        <Router path="/Employee_Dashboard">
-        < Employee_Dashboard/>
+        <Router path="/Employeeprofile">
+        < Employeeprofile/>
         </Router>
         
     </Switch>
