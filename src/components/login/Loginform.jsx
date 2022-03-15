@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import { useHistory } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./loginstyle.css";
@@ -18,7 +19,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { setUser } = useAuth();
-  let history = useHistory();
+  const history = createBrowserHistory({forceRefresh:true});
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -36,18 +37,31 @@ export default function Login() {
       let user = { ...response.data.user };
       user.token = response.data.token;
       user = JSON.stringify(user);
+      console.log(user);
       setUser(user);
       localStorage.setItem("user", user);
-      history.push("/Dashboard");
+     
+      if(user.name==='shanu')
+      {
+      history.push("/Employee_Dashboard");
+      }
+      else {
+        history.push("/Dashboard");
+      }
       }
       if (
         response.data.status === "failed" &&
         response.data.success === undefined
       )
+      {
       setErrors({
         errMsgEmail: response.data.validation_error.email,
         errMsgPwd: response.data.validation_error.password,
       });
+      setTimeout(() => {
+        setErrors({ errMsgEmail: "", errMsgPwd: "" });
+      }, 3000);
+      }
       else if (
         response.data.status === "failed" &&
         response.data.success === false
@@ -57,7 +71,7 @@ export default function Login() {
         });
         setTimeout(() => {
           setErrors({ errMsg: "" });
-        }, 3000);
+        }, 2000);
       }
    
       
@@ -83,17 +97,17 @@ export default function Login() {
       <Form onSubmit={handleSubmit} className="form-p">
         <Form.Group size="lg" controlId="email">
           <Form.Label className="label-sty">Username</Form.Label>
-          <Form.Control  className="form-control-new m-b-8" placeholder="Enter Username" autoFocus  type="email"  value={email}  onChange={(e) => setEmail(e.target.value)}
+          <Form.Control  className="form-control-new" placeholder="Enter Username" autoFocus  type="email"  value={email}  onChange={(e) => setEmail(e.target.value)}
           />
-           <span className="text-danger txt-warng">{errors.msg}</span>
-            <span className="text-danger txt-warng">{errors.errMsgEmail}</span>
+           <span className="text-danger">{errors.msg}</span>
+            <span className="text-danger">{errors.errMsgEmail}</span>
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label className="label-sty">Password</Form.Label>
           <Form.Control className="form-control-new"  placeholder="Enter Password" type="password" value={password}  onChange={(e) => setPassword(e.target.value)}
           />
-            <p className="text-danger txt-warng">{errors.errMsg}</p>
-             <span className="text-danger txt-warng">{errors.errMsgPwd}</span>
+            <p className="text-danger">{errors.errMsg}</p>
+             <span className="text-danger">{errors.errMsgPwd}</span>
         </Form.Group>
         <div className="check-mag">
         <div className="topping">

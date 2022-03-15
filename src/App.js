@@ -17,7 +17,7 @@ const App = () => {
   let user = localStorage.getItem("user");  
 
   user = JSON.parse(user);
-  console.log(user);
+  
   return ( 
     <div>   
     <AuthProvider userData={user}>
