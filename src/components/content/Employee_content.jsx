@@ -32,6 +32,7 @@ import Offboarding from "../pages/Offboarding";
 //import Login from "../admin/auth/Login";
 import Loginform from "../login/Loginform";
 import logout_new from "../login/Logout_new";
+import Employee_Dashboard from "../pages/Employee_Dashboard";
 const Employee_content = ({ sidebarIsOpen, toggleSidebar }) => (
   <Container
     fluid
@@ -40,44 +41,11 @@ const Employee_content = ({ sidebarIsOpen, toggleSidebar }) => (
     
     <Topbar toggleSidebar={toggleSidebar} />
     <Switch>
+  
     
-    <Route exactly path="/Loginform" component={Loginform} />    
-    <Route exactly path="/Dashboard" component={Dashboard} />
-    <Route exactly path="/Kanban" component={Kanban} />
-    <Route exact path="/Assets" component={Assets} />
-    <Route exact path="/Assetsdetails" component={Assetsdetails} />
-    <Route exact path="/Emplyelist" component={Emplyelist} />
-    <Route exact path="/Employeeprofile" component={Employeeprofile} />
-    <Route exact path="/Job" component={Job} />
-    <Route exact path="/Addemployeetab" component={Addemployeetab} />  
-
-    <Route exact path="/OfferReleasereport" component={OfferReleasereport} />  
-    <Route exact path="/Offboarding" component={Offboarding} />  
-        <Router path="/Addemployeetab">
-        <Addemployeetab/>
-        </Router> 
-        <Router path="/Organization">
-        <Organization/>
-        </Router> 
-        <Router path="/Addassets">
-        <Addassets/>
-        </Router> 
-        <Router path="/Addcategory">
-        <Addcategory/>
-        </Router> 
-             <Router path="/Addproperty">
-        < Addproperty/>
-        </Router> 
-        <Router path="/Organizationlist">
-        <Organizationlist/>
+        <Router path="/Employee_Dashboard">
+        < Employee_Dashboard/>
         </Router>
-        <Router path="/Organizationold">
-        <Organizationold/>
-        </Router>
-        <Router path="/Organizationold">
-        < Organizationold/>
-        </Router>
-       
         
     </Switch>
   </Container>
