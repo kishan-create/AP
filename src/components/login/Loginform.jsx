@@ -36,12 +36,13 @@ export default function Login() {
      
       let user = { ...response.data.user };
       user.token = response.data.token;
+      let username=user.name;
       user = JSON.stringify(user);
       console.log(user);
       setUser(user);
       localStorage.setItem("user", user);
-     
-      if(user.name==='shanu')
+      alert(username);
+      if(username==='shanu')
       {
       history.push("/Employee_Dashboard");
       }
