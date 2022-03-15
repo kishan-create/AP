@@ -32,6 +32,7 @@ import Offboarding from "../pages/Offboarding";
 //import Login from "../admin/auth/Login";
 import Loginform from "../login/Loginform";
 import logout_new from "../login/Logout_new";
+
 const Employee_content = ({ sidebarIsOpen, toggleSidebar }) => (
   <Container
     fluid
