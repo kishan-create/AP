@@ -16,6 +16,7 @@ export default function Login() {
   const value = React.useContext(UserContext);  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
   const { setUser } = useAuth();
   let history = useHistory();
   function validateForm() {
@@ -39,6 +40,27 @@ export default function Login() {
       localStorage.setItem("user", user);
       history.push("/Dashboard");
       }
+      if (
+        response.data.status === "failed" &&
+        response.data.success === undefined
+      )
+      setErrors({
+        errMsgEmail: response.data.validation_error.email,
+        errMsgPwd: response.data.validation_error.password,
+      });
+      else if (
+        response.data.status === "failed" &&
+        response.data.success === false
+      ) {
+        setErrors({
+          errMsg: response.data.message,
+        });
+        setTimeout(() => {
+          setErrors({ errMsg: "" });
+        }, 3000);
+      }
+   
+      
     })
     
   }
@@ -63,11 +85,15 @@ export default function Login() {
           <Form.Label className="label-sty">Username</Form.Label>
           <Form.Control  className="form-control-new" placeholder="Enter Username" autoFocus  type="email"  value={email}  onChange={(e) => setEmail(e.target.value)}
           />
+           <span className="text-danger">{errors.msg}</span>
+            <span className="text-danger">{errors.errMsgEmail}</span>
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label className="label-sty">Password</Form.Label>
           <Form.Control className="form-control-new"  placeholder="Enter Password" type="password" value={password}  onChange={(e) => setPassword(e.target.value)}
           />
+            <p className="text-danger">{errors.errMsg}</p>
+             <span className="text-danger">{errors.errMsgPwd}</span>
         </Form.Group>
         <div className="check-mag">
         <div className="topping">
