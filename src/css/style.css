@@ -3501,3 +3501,17 @@ margin-left: 5px;
 .MuiTableCell-root { 
     border-bottom: 1px solid rgb(255 255 255); 
 }
+.txt-warng {
+    color: #ff3f3f;
+    padding-top: 8px;
+}
+
+.m-b-8 {
+    margin-bottom: 8px;
+}
+.logout-sty {
+    background-color: #4352c0;
+    color: #fff;
+    font-size: 23px;
+    margin-top: 0px;
+}

@@ -83,17 +83,17 @@ export default function Login() {
       <Form onSubmit={handleSubmit} className="form-p">
         <Form.Group size="lg" controlId="email">
           <Form.Label className="label-sty">Username</Form.Label>
-          <Form.Control  className="form-control-new" placeholder="Enter Username" autoFocus  type="email"  value={email}  onChange={(e) => setEmail(e.target.value)}
+          <Form.Control  className="form-control-new m-b-8" placeholder="Enter Username" autoFocus  type="email"  value={email}  onChange={(e) => setEmail(e.target.value)}
           />
-           <span className="text-danger">{errors.msg}</span>
-            <span className="text-danger">{errors.errMsgEmail}</span>
+           <span className="text-danger txt-warng">{errors.msg}</span>
+            <span className="text-danger txt-warng">{errors.errMsgEmail}</span>
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label className="label-sty">Password</Form.Label>
           <Form.Control className="form-control-new"  placeholder="Enter Password" type="password" value={password}  onChange={(e) => setPassword(e.target.value)}
           />
-            <p className="text-danger">{errors.errMsg}</p>
-             <span className="text-danger">{errors.errMsgPwd}</span>
+            <p className="text-danger txt-warng">{errors.errMsg}</p>
+             <span className="text-danger txt-warng">{errors.errMsgPwd}</span>
         </Form.Group>
         <div className="check-mag">
         <div className="topping">

@@ -103,14 +103,7 @@ const $ = window.$;
       
 
 
-      
-        <NavItem>
-          <NavLink tag={Link} to={"/logout_new"} className="mob-menu-clik">
-          < MdOutlineAccountTree/>
-        Logout
-          </NavLink>
-          
-        </NavItem>
+       
       </Nav>
     </div>
   </div>

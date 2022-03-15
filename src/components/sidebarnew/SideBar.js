@@ -88,7 +88,7 @@ const $ = window.$;
       <div className="nav-taxt">Navigation</div>
    
          <NavItem>
-          <NavLink exact tag={Link} to={"/Dashboard"} exact activeClassName="active" className="mob-menu-clik" >
+          <NavLink exact tag={Link} to={""} exact activeClassName="active" className="mob-menu-clik" >
           < MdBusinessCenter/>
             Dashboard  
           </NavLink>

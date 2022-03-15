@@ -44,7 +44,7 @@ const Topbar = ({ toggleSidebar }) => {
         <div class="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
-                 <button onClick={logout}>Logout</button>
+                 <button onClick={logout}><i class="fa fa-power-off logout-sty"></i></button>
                  <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">shanu</sup></span>
                 
                </div>
