@@ -1410,6 +1410,15 @@ color: #000;
 margin-top: 10px;
 text-align: center;
 }
+.emp-card-prfl-name {
+    font-weight: 600;
+    float: left;
+    padding-left: 15px;
+    color: #000;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    }
 .inprograss-style {
     background: #4A54D1;
     border: 0.5px solid #4A54D1;
@@ -3395,3 +3404,100 @@ margin-left: 5px;
             padding: 7px;
             
         }
+
+.emp-ico-img {
+    width: 130px;
+}
+
+.emp-box-right-txt {
+    font-size: 31px;
+    color: #fff;
+}
+.emp-box-footer {
+    text-align: left;
+    width: 100%;
+    float: left;
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: -19px;
+    border-radius: 4px;
+    border: 1px solid #6455b4;
+    font-weight: 600;
+    color: #000;
+}
+.emp-box-padd {
+    
+    padding-left: 0px;
+    padding-right: 0px;
+   
+}
+.p-0{
+    
+    padding: 0px !important;
+}
+
+.p-15 {
+    padding: 20px 15px !important;
+}
+.f-r {
+    float: right;
+}
+.emp-footer-txt-col {
+    font-size: 18px;
+    color: #ac4780;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+.emp-footer-txt-col-rigt {
+    font-size: 18px;
+    color: #5452E1;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+.heading-samml-sty {
+    font-weight: 600;
+    color: #000;
+}
+.m-t-20 {
+    margin-top: 20px;
+}
+.m-t-26 {
+    margin-top: 26px;
+}
+
+.holiday-datesty {
+    background-color: #DBF2BD;
+    text-align: center;
+    padding: 7px;
+    width: 58px;
+    height: 58px;
+    border-radius: 7px;
+    font-size: 13px !important;
+    font-weight: 500;
+}
+.p-tb-12 {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
+.holiday-name-sty {
+    font-size: 15px;
+    font-weight: 500;
+}
+.holiday-sub-name-sty{
+    font-size: 13px;
+    font-weight: 300;
+}
+.holiday-sub-days-rght {
+    font-size: 13px !important;
+    float: right !important;
+    text-align: right !important;
+    margin-right: 15px !important;
+    padding-top: 20px !important;
+}
+.holiday-tcell-row {
+    background: #ffffff !important;
+}
+.MuiTableCell-root { 
+    border-bottom: 1px solid rgb(255 255 255); 
+}

@@ -29,6 +29,7 @@
     "chakra-ui-simple-autocomplete": "^1.0.0",
     "datasource": "0.0.1",
     "devextreme-react": "^21.1.6",
+    "framer-motion": "^4.1.10",
     "immutability-helper": "^3.1.1",
     "jquery": "^3.6.0",
     "material-design-icons": "^3.0.1",
