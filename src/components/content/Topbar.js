@@ -16,8 +16,11 @@ import { FiAlignRight } from "@react-icons/all-files/fi/FiAlignRight";
 import { BiTimeFive } from "@react-icons/all-files/bi/BiTimeFive";
 import { BsBell } from "@react-icons/all-files/bs/BsBell";
 import {dashboard,asste,Grouplog, logomob} from '../../images';
+import {useAuth}  from "../../context/auth.context";
+const Topbar = ({ toggleSidebar,userData }) => {
+  const userdata = useAuth(userData);
+ 
 
-const Topbar = ({ toggleSidebar }) => {
   const [topbarIsOpen, setTopbarOpen] = useState(true);
   const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
   const logout = () => {
@@ -45,7 +48,7 @@ const Topbar = ({ toggleSidebar }) => {
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
                  <button onClick={logout}><i class="fa fa-power-off logout-sty"></i></button>
-                 <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">shanu</sup></span>
+                 <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">{userdata.user.name}</sup></span>
                 
                </div>
         </Navbar>

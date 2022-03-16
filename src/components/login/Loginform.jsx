@@ -41,13 +41,14 @@ export default function Login() {
       console.log(user);
       setUser(user);
       localStorage.setItem("user", user);
-      alert(username);
-      if(username==='shanu')
+    
+      if(username==='admin')
       {
-      history.push("/Employee_Dashboard");
+        history.push("/Dashboard");
+     
       }
       else {
-        history.push("/Dashboard");
+        history.push("/Employeeprofile");
       }
       }
       if (
