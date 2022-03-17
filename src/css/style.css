@@ -3077,6 +3077,7 @@ input[type="radio"]:focus {
   margin-top: 10px;
 }
 .org-edit {
+  cursor: pointer;
   color: #4a54d1;
 }
 .org-delete {
@@ -3567,7 +3568,7 @@ input[type="radio"]:focus {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* .p-0 {
+.p-0 {
   padding: 0px !important;
 }
 
@@ -3582,13 +3583,13 @@ input[type="radio"]:focus {
   color: #ac4780;
   padding-left: 10px;
   vertical-align: middle;
-} */
-/* .emp-footer-txt-col-rigt {
+}
+.emp-footer-txt-col-rigt {
   font-size: 18px;
   color: #5452e1;
   padding-left: 10px;
   vertical-align: middle;
-} */
+}
 .heading-samml-sty {
   font-weight: 600;
   color: #000;
@@ -3601,7 +3602,6 @@ input[type="radio"]:focus {
 }
 
 .holiday-datesty {
-<<<<<<< HEAD
   background-color: #dbf2bd;
   text-align: center;
   padding: 7px;
@@ -3610,17 +3610,6 @@ input[type="radio"]:focus {
   border-radius: 7px;
   font-size: 13px !important;
   font-weight: 500;
-=======
-    background-color: #DBF2BD;
-    text-align: center;
-    padding: 7px;
-    width: 58px;
-    height: 58px;
-    border-radius: 7px;
-    font-size: 15px !important;
-    font-weight: 500;
-    line-height: 18px;
->>>>>>> b8f6d2abcaf6069d49088153e5c6037d90825854
 }
 .p-tb-12 {
   padding-top: 12px !important;
@@ -3656,7 +3645,6 @@ input[type="radio"]:focus {
   margin-bottom: 8px;
 }
 .logout-sty {
-<<<<<<< HEAD
   background-color: #4352c0;
   color: #fff;
   font-size: 23px;
@@ -3666,17 +3654,3 @@ input[type="radio"]:focus {
 .red-alert {
   color: rgb(200, 17, 17);
 }
-=======
-    background-color: #4352c0;
-    color: #fff;
-    font-size: 23px;
-    margin-top: 0px;
-}
-
-.holiday-date-clrsty {
-    background-color: #F2E6BD;
-}
-.MuiPaper-root {
-    background-color: transparent !important;
-}
->>>>>>> b8f6d2abcaf6069d49088153e5c6037d90825854
