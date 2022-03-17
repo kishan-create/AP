@@ -26,7 +26,6 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     axios
-<<<<<<< HEAD
       .post("http://localhost:8000/api/user-login", {
         email: email,
         password: password,
@@ -71,40 +70,6 @@ export default function Login() {
             setErrors({ errMsg: "" });
           }, 2000);
         }
-=======
-    .post("http://localhost:8000/api/user-login", {
-      email: email,
-      password:password,
-    }) .then((response) => {
-      if (response.data.status === 200) {
-      //  setProfile(response);
-     
-      let user = { ...response.data.user };
-      user.token = response.data.token;
-      let username=user.name;
-      user = JSON.stringify(user);
-      console.log(user);
-      setUser(user);
-      localStorage.setItem("user", user);
-    
-      if(username==='admin')
-      {
-        history.push("/Dashboard");
-     
-      }
-      else {
-        history.push("/Employeeprofile");
-      }
-      }
-      if (
-        response.data.status === "failed" &&
-        response.data.success === undefined
-      )
-      {
-      setErrors({
-        errMsgEmail: response.data.validation_error.email,
-        errMsgPwd: response.data.validation_error.password,
->>>>>>> b8f6d2abcaf6069d49088153e5c6037d90825854
       });
   };
 
