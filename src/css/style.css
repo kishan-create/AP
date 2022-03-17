@@ -3567,7 +3567,7 @@ input[type="radio"]:focus {
   padding-left: 0px;
   padding-right: 0px;
 }
-.p-0 {
+/* .p-0 {
   padding: 0px !important;
 }
 
@@ -3582,13 +3582,13 @@ input[type="radio"]:focus {
   color: #ac4780;
   padding-left: 10px;
   vertical-align: middle;
-}
-.emp-footer-txt-col-rigt {
+} */
+/* .emp-footer-txt-col-rigt {
   font-size: 18px;
   color: #5452e1;
   padding-left: 10px;
   vertical-align: middle;
-}
+} */
 .heading-samml-sty {
   font-weight: 600;
   color: #000;
