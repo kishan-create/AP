@@ -4,7 +4,11 @@ import {dashboard,asste,Grouplog} from '../../images';
 import { FiAlignRight } from "@react-icons/all-files/fi/FiAlignRight";
 import { BiTimeFive } from "@react-icons/all-files/bi/BiTimeFive";
 import { BsBell } from "@react-icons/all-files/bs/BsBell";
+import {useAuth}  from "../../context/auth.context";
 export default function Topbar(){
+  const user = useContext(useAuth); 
+  alert('hii');
+  alert()
     return(
       <div className=' head-style' >
       <div className='' >
