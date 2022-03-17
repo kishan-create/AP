@@ -21,7 +21,7 @@ import { MdPersonSearch, MdOutlineScreenSearchDesktop, MdBusinessCenter, MdOutli
 import SubMenu from "./SubMenu";
 import logout_new from "../login/Logout_new";
 import Employeeprofile from "../pages/Employeeprofile";
-
+import Employee_Dashboard from "../pages/Employee_Dashboard";
 const $ = window.$;
  var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
   $('.side-menu .nav-item a').each(function() {
@@ -88,7 +88,7 @@ const $ = window.$;
       <div className="nav-taxt">Navigation</div>
    
          <NavItem>
-          <NavLink exact tag={Link} to={"/Employeeprofile"} exact activeClassName="active" className="mob-menu-clik" >
+          <NavLink exact tag={Link} to={"/Employee_Dashboard"} exact activeClassName="active" className="mob-menu-clik" >
           < MdBusinessCenter/>
             Dashboard  
           </NavLink>

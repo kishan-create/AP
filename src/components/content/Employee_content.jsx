@@ -29,7 +29,7 @@ import Assetsdetails from "../pages/Assetsdetails";
 import Organizationlist from "../pages/Organizationlist";
 import OfferReleasereport from "../pages/Onboarding";
 import Offboarding from "../pages/Offboarding";
-
+import Employee_Dashboard from "../pages/Employee_Dashboard";
 const Employee_content = ({ sidebarIsOpen, toggleSidebar }) => (
   <Container
     fluid
@@ -40,8 +40,8 @@ const Employee_content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Switch>
   
     
-        <Router path="/Employeeprofile">
-        < Employeeprofile/>
+        <Router path="/Employee_Dashboard">
+        < Employee_Dashboard/>
         </Router>
         
     </Switch>

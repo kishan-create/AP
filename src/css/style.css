@@ -939,6 +939,39 @@ label {
       .recruitment-tabele  td.inprogress-td{
         line-height: 18px;
     }
+    .recruitment-tabele .SimpleTable-tableCell-10 {
+        padding-left: 15px;
+        padding-right: 4px;
+    }
+
+
+    .leave-tabele thead{
+        background: #D6D8F6;
+        border-top-right-radius: 7px;
+        border-top-left-radius: 7px;    float: left;
+        width: 100%;
+    }
+    .leave-tabele tr {
+        color: inherit;
+        display: table-row;
+        width: 100%;    display: flex;
+        float: left;
+        outline: 0;
+        vertical-align: middle;
+    }
+    
+    .leave-tabele th, .leave-tabele td{
+        font-size: 14px;
+        line-height: 24px;
+        padding: 14px 15px 9px;
+    }
+      .leave-tabele  td.inprogress-td{
+        line-height: 18px;
+    }
+    .leave-tabele .SimpleTable-tableCell-10 {
+        padding-left: 15px;
+        padding-right: 4px;
+    }
     .inprograss-style{
         background: #B93E87;
         border: 0.5px solid #B93E87;
@@ -952,10 +985,7 @@ label {
         font-size: 14px;    font-weight: 400;
     }
     
-    .recruitment-tabele .SimpleTable-tableCell-10 {
-        padding-left: 15px;
-        padding-right: 4px;
-    }
+   
     .tab-outer-head{
        margin-left: 12px;
     }
@@ -2945,7 +2975,7 @@ color: #4A54D1;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 16%) !important;
     border-radius: 7px !important;
 }
-.job-main-tb-outer  .recruitment-table-outer {
+.job-main-tb-outer  .recruitment-table-outer .leave-table-outer{
     margin-top: 10px;
 }
 .org-edit {
@@ -3293,7 +3323,7 @@ margin-left: 5px;
         float: left;
         background: #6555B4;
         border-radius: 5px;
-        padding: 20px;
+        padding: 0px !important;
     }
     .onboarding-top-outer  .onboard-ligt-gray{
         background: #6A6580;
@@ -3410,8 +3440,9 @@ margin-left: 5px;
 }
 
 .emp-box-right-txt {
-    font-size: 31px;
+    font-size: 35px;
     color: #fff;
+    line-height: 29px;
 }
 .emp-box-footer {
     text-align: left;
@@ -3425,6 +3456,7 @@ margin-left: 5px;
     border: 1px solid #6455b4;
     font-weight: 600;
     color: #000;
+    font-size: 12px;
 }
 .emp-box-padd {
     
@@ -3438,7 +3470,8 @@ margin-left: 5px;
 }
 
 .p-15 {
-    padding: 20px 15px !important;
+    padding-top: 20px;
+    padding-left: 15px;
 }
 .f-r {
     float: right;
