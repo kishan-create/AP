@@ -476,7 +476,7 @@ export default function Organizationold() {
       <header className="main-otrer-top"> Organization Branches </header>
       <section className="main-content-area">
         <div className="main-content-area-inner">
-          <div className="sub-head organization-sub-head"> Branch Details -
+          <div className="sub-head organization-sub-head"> Branch Details 
             <div className="top-right-outer add-btn-div organization-top-rt">
               <div className="organization-button" >
                 <Addorganization method={fetchData} />

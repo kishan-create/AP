@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlignLeft } from "@fortawesome/free-solid-svg-icons";
-
+import './Topbar.css';
 import {
   Navbar,
   Button,
@@ -47,9 +47,15 @@ const Topbar = ({ toggleSidebar,userData }) => {
         <div class="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
-                 <button onClick={logout}><i class="fa fa-power-off logout-sty"></i></button>
-                 <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">{userdata.user.name}</sup></span>
                 
+                 <span> 	<img className="topbar-icon-right-img" src={Grouplog}/>  </span>
+                 <div class="dropdown">
+                        <button class="dropbtn">{userdata.user.name} <i class="fa fa-caret-down"></i></button>
+                        <div class="dropdown-content">
+                        
+                        <span onClick={logout}>Logout</span>
+                        </div>
+                      </div>
                </div>
         </Navbar>
        </Navbar>

@@ -51,10 +51,10 @@ function createData1(Category, PropertyBrand , AssetId, ConnectorType ) {
   return { Category, PropertyBrand , AssetId, ConnectorType };
 }
 const data1 = [
-  createData1('Vacation', '5.5','4.5', '10',  ),  
-  createData1('Sick Leave', '4.5','7.5', '12', ),
-  createData1('Unpaid leave', '5','360', '365', ),
-  createData1('Work from Home', '4','6', '10',  ), 
+  createData1('1 MAR', 'Public Holiday','4 days to left', '10',  ),  
+  createData1('13 APR', 'Public Holiday','55 days to left', '12', ),
+  createData1('14 APR', 'Public Holiday','56 days to left', '365', ),
+   
 ];
 const options = [
   {
@@ -171,7 +171,7 @@ const Employee_Dashboard = () => {
 
 </div>
                   </div>
-                  <div className="col-md-4 job-main-tb-outer m-t-26">    
+                  <div className="col-md-4   m-t-26">    
                     <Paper className=" job-outer organazation-table-top">
       <Table className="recruitment-tabele">
         <TableHead>
@@ -187,11 +187,13 @@ const Employee_Dashboard = () => {
         <TableBody>
         {data1.map(n1 => {
             return (
-              <TableRow  key={n1.id} >
-                    <TableCell  className="col-md-3 p-tb-12"> {n1.Category}</TableCell>
-                    <TableCell numeric className="col-md-3 p-tb-12">{n1.PropertyBrand}</TableCell>                          
-                    <TableCell numeric className=" col-md-3 p-tb-12">{n1.AssetId} </TableCell>
-                    <TableCell numeric className="col-md-3 p-tb-12">{n1.ConnectorType} </TableCell>
+              <TableRow  className="holiday-tcell-row "  key={n1.id} >
+                    <TableCell  className="col-md-3 "><div className="holiday-datesty">{n1.Category}</div> </TableCell>
+                    <TableCell numeric className="col-md-5  holiday-name-sty">{n1.PropertyBrand}
+                    <div className="holiday-sub-name-sty">Sivarathri</div>
+                    </TableCell>                          
+                    <TableCell numeric className="col-md-4 holiday-sub-days-rght">{n1.AssetId} </TableCell>
+                   
               </TableRow>
              
             );
@@ -204,7 +206,7 @@ const Employee_Dashboard = () => {
        
        </Paper>          
        </div>    
-       <div className="col-md-8 job-main-tb-outer m-t-26">    
+       <div className="col-md-8   m-t-26">    
                     <Paper className="recruitment-table-outer job-outer organazation-table-top">
       <Table className="recruitment-tabele">
         <TableHead>
