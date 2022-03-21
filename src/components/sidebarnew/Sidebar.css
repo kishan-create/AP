@@ -325,3 +325,6 @@ section {
     margin-top: 2px;
     color: #282c34;
 }
+.sidebar.is-open .show  a svg.show-only-icon{
+    color: #fff;
+}

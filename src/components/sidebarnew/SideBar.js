@@ -82,7 +82,7 @@ const $ = window.$;
         </NavItem>
         <UncontrolledButtonDropdown  className="btin-nam-main" nav inNavbar>
                 <DropdownToggle  nav caret size="md" className="dropname-main" setActiveFromChild >
-                Recruitment < MdOutlineLaptopWindows/> <FontAwesomeIcon icon={faCaretDown} className="mr-2  float-right close-tog" />
+                Recruitment < MdOutlineLaptopWindows className="show-only-icon"/> <FontAwesomeIcon icon={faCaretDown} className="mr-2  float-right close-tog" />
                 </DropdownToggle>
                 <DropdownMenu className="show-subm-menu">
                   <NavLink tag={nlink} to={"/Kanban"}>Recruitment<MdPersonSearch/></NavLink>
@@ -114,7 +114,7 @@ const $ = window.$;
 
         <UncontrolledButtonDropdown  className="btin-nam-main" nav inNavbar>
                 <DropdownToggle  nav caret size="md" className="dropname-main" activeClassName="active" >
-                Administration < MdAdminPanelSettings/> <FontAwesomeIcon icon={faCaretDown} className="mr-2  float-right close-tog"  />
+                Administration < MdAdminPanelSettings  className="show-only-icon"/> <FontAwesomeIcon icon={faCaretDown} className="mr-2  float-right close-tog"  />
                 </DropdownToggle>
                 <DropdownMenu className="show-subm-menu">
                 <NavLink tag={nlink} to={"/Organization"} className="mob-menu-clik " activeClassName="active" >
