@@ -79,6 +79,9 @@
 .recruitment-tabele th, .recruitment-tabele td {
     font-size: 13px;   padding: 11px 8px;
 }
+.leave-tabele th, .leave-tabele td {
+    font-size: 13px;   padding: 11px 8px;
+}
 .in-progress-card--bt-top {
     font-size: 14px;
 }
@@ -119,6 +122,10 @@
     font-size: 25px;
   }
   .recruitment-tabele th:first-child {
+    padding-left: 10px;
+    padding-right: 4px;
+}
+.leave-tabele th:first-child {
     padding-left: 10px;
     padding-right: 4px;
 }
@@ -178,6 +185,9 @@
     .recruitment-tabele th, .recruitment-tabele td {
         font-size: 12px;
         }
+        .leave-tabele th, .leave-tabele td {
+            font-size: 12px;
+            }
         .in-progress-name-thre-colm {
             font-size: 9px;
         }
@@ -229,7 +239,7 @@
                 width: 77%;
             }
             .onboarding-top-outer .box-inner .left p {
-                font-size: 17px;
+                font-size: 15px;
             }
             .onboarding-top-outer .box-inner .left span {
                          font-size: 37px;
@@ -267,6 +277,37 @@
         float: left;    display: grid;
     }
     .recruitment-table-outer table tr {
+        width: auto;
+        display: flex;
+    }
+
+    .leave-table-outer {
+        width: 97%;
+        float: left;
+        display: block;
+        overflow: scroll;
+        display: block;
+        display: block !important;
+        flex-wrap: nowrap!important;
+        overflow: auto !important;
+      }
+    .leave-table-outer  table {
+        border-collapse: collapse;
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+        float: left;
+        margin-top: 0;
+       
+     }
+    .leave-table-outer table thead {
+        width: auto;
+    }
+    .leave-table-outer table tbody {
+        width: 100%;
+        float: left;    display: grid;
+    }
+    .leave-table-outer table tr {
         width: auto;
         display: flex;
     }
@@ -462,7 +503,15 @@
     width: 75px;
     padding: 9px 7px;
 }
+.onboarding-top-outer .box-inner .left p {
+    font-size: 14px !important;
 }
+
+.leave-table-sm {
+    width: 25%;
+}
+}
+ 
 @media only screen and (max-width: 980px){
     .sidebar.is-open {
         margin-left: -250px !important;
@@ -779,6 +828,12 @@ display:block;
 .collapse.show .nav-item a.active {
     color: #fff !important;
 }
+.onboarding-top-outer .box-inner .left p {
+    font-size: 14px !important;
+}
+.leave-table-sm {
+    width: 25%;
+}
 }
 @media only screen and (max-width: 767px){
 .calendar-width {
@@ -1030,6 +1085,15 @@ display:block;
 .candiate-modal-inner-tab .col-md-4, .candiate-modal-inner-tab .col-md-12, .candiate-modal-inner-tab .col-md-8 {
     padding-left: 15px;
 }
+.onboarding-top-outer .box {
+    grid-template-columns: repeat(1,1fr);
+     }
+.onboarding-top-outer .box-inner .left p {
+    font-size: 13px !important;
+}
+.leave-table-sm {
+    width: 25%;
+}
 }
 @media only screen and (max-width:650px){
     .listview-mob-top .col-2 {
@@ -1088,6 +1152,9 @@ display:block;
                                                      padding-left: 15px;
                                                     padding-right:15px;
                                      }
+                                     .onboarding-top-outer .box-inner .left p {
+                                        font-size: 13px !important;
+                                    }
 }
 
 @media only screen and (max-width:573px)

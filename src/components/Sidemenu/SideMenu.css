@@ -1,0 +1,11 @@
+.sidebar-container{
+    width:200px;
+    position: fixed;
+    top:0px;
+    bottom: 0px;;
+}
+
+.dropdown-menu.show{
+    position: relative!important;
+    margin-top: -40px;
+}
