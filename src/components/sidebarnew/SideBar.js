@@ -9,42 +9,26 @@ import {
   faImage,
   faCopy
 } from "@fortawesome/free-solid-svg-icons";
-import { NavItem, NavLink, Nav } from "reactstrap";
+import { NavItem, NavLink, Nav ,
+  UncontrolledButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
 import classNames from "classnames";
-import { Link , useLocation } from "react-router-dom";
+import { Link , NavLink as nlink, useLocation } from "react-router-dom";
 import {dashboard,asste,logonew} from '../../images';
 import {FaThLarge, FaChartLine, FaTools } from "react-icons/fa";
 import { FaUserTie } from "@react-icons/all-files/fa/FaUserTie";
 import { FaFileAlt } from "@react-icons/all-files/fa/FaFileAlt";
 import { IconName } from "react-icons/ai";
-import { MdPersonSearch, MdOutlineScreenSearchDesktop, MdBusinessCenter, MdOutlineAccountTree } from "react-icons/md";
+import { MdPersonSearch, MdOutlineScreenSearchDesktop, MdBusinessCenter, MdOutlineAccountTree, MdDashboard, MdOutlineLaptopWindows,
+   MdTextSnippet , MdInsertDriveFile, MdAdminPanelSettings, MdSettingsSuggest, MdPersonPin} from "react-icons/md";
 import SubMenu from "./SubMenu";
-import logout_new from "../login/Logout_new";
-
+import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { RiLoginCircleFill } from "react-icons/ri";
 
 const $ = window.$;
- var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-  $('.side-menu .nav-item a').each(function() {
-   if (this.href === path) {
-    $(this).addClass('active');
-   }
-  });
-
-
-  $(document).ready(function () {
-    $(".side-menu .nav-item a").click(function (e) {
-     $(".side-menu .nav-item a").removeClass("active");
-     $(this).addClass("active");
-      });
-
-
-
-  });
-
-  $(function() {
-    //   $('.side-menu .nav-item a[href^="/' + window.location.pathname.split("/")[1] + '"]').addClass('active');
-  });
-
  
   $(document).ready(function(){
     if(window.matchMedia("(max-width: 980px)").matches){
@@ -53,9 +37,6 @@ const $ = window.$;
         $( '.side-menu .nav-item a.mob-menu-clik' ).on("click", function(){
           $('.hamber-icon').click();
           });
-          
-
-
 
     } else{
         // The viewport is at least 768 pixels wide
@@ -88,20 +69,28 @@ const $ = window.$;
       <div className="nav-taxt">Navigation</div>
    
          <NavItem>
-          <NavLink exact tag={Link} to={""} exact activeClassName="active" className="mob-menu-clik" >
-          < MdBusinessCenter/>
+          <NavLink exact tag={nlink} to={""} exact  className="mob-menu-clik" >
+          < MdDashboard/>
             Dashboard  
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink exact tag={Link} to={"/Job"}  className="mob-menu-clik">
+          <NavLink exact tag={nlink} to={"/Job"}  className="mob-menu-clik">
           < MdBusinessCenter/>
             Job Portal
           </NavLink>
         </NavItem>
-    
-
-        <SubMenu title="Recruitment" icon={faCopy} items={submenus[1]} />
+        <UncontrolledButtonDropdown  className="btin-nam-main" nav inNavbar>
+                <DropdownToggle  nav caret size="md" className="dropname-main" setActiveFromChild >
+                Recruitment < MdOutlineLaptopWindows/> <FontAwesomeIcon icon={faCaretDown} className="mr-2  float-right close-tog" />
+                </DropdownToggle>
+                <DropdownMenu className="show-subm-menu">
+                  <NavLink tag={nlink} to={"/Kanban"}>Recruitment<MdPersonSearch/></NavLink>
+                  <NavLink tag={nlink} to={"/OfferReleasereport"}>Onboarding< MdTextSnippet/></NavLink>
+                  <NavLink tag={nlink} to={"/Offboarding"}> Offboarding< MdInsertDriveFile/> </NavLink>
+                  
+                </DropdownMenu>
+              </UncontrolledButtonDropdown>
         <NavItem>
           <NavLink tag={Link} to={"/Emplyelist"} className="mob-menu-clik" >
           <FaUserTie/>
@@ -123,81 +112,43 @@ const $ = window.$;
         </NavItem>
           
 
-        <SubMenu title="Administration" icon={faCopy} items={submenus[2]} />
-
-
-        
+        <UncontrolledButtonDropdown  className="btin-nam-main" nav inNavbar>
+                <DropdownToggle  nav caret size="md" className="dropname-main" activeClassName="active" >
+                Administration < MdAdminPanelSettings/> <FontAwesomeIcon icon={faCaretDown} className="mr-2  float-right close-tog"  />
+                </DropdownToggle>
+                <DropdownMenu className="show-subm-menu">
+                <NavLink tag={nlink} to={"/Organization"} className="mob-menu-clik " activeClassName="active" >
+                Organization< MdOutlineAccountTree/>
+          </NavLink>
+          <NavLink tag={nlink} to={"/Addcategory"} className="mob-menu-clik" activeClassName="active" >
+          Configuration< MdSettingsSuggest/>
+          </NavLink>
+               
+                </DropdownMenu>
+              </UncontrolledButtonDropdown>
+       
         <NavItem>
-          <NavLink tag={Link} to={"/Organizationold"} className="mob-menu-clik">
+          <NavLink tag={nlink} to={"/Organizationold"} className="mob-menu-clik">
           < MdOutlineAccountTree/>
              Organization  
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to={"/Loginform"} className="mob-menu-clik">
-          < MdOutlineAccountTree/>
+          <NavLink tag={nlink} to={"/Loginform"} className="mob-menu-clik">
+          < MdPersonPin/>
           Loginform  1
           </NavLink>
           
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to={"/logout_new"} className="mob-menu-clik">
-          < MdOutlineAccountTree/>
+          <NavLink tag={nlink} to={"/logout_new"} className="mob-menu-clik">
+          < RiLoginCircleFill/>
         Logout
           </NavLink>
-          
         </NavItem>
       </Nav>
     </div>
   </div>
 );
-
-const submenus = [
-  [
-    {
-      title: "Home 1",
-      target: "Home-1"
-    },
-    {
-      title: "Home 2",
-      target: "Home-2"
-    },
-    {
-      itle: "Home 3",
-      target: "Home-3"
-    }
-  ],
-  [
-    {
-      icon: <MdPersonSearch/>,
-         title: "Recruitment",  
-      target: "Kanban",
-  
-    },
-    {
-      icon:< FaTools/>,
-      title: "Onboarding",
-      target: "OfferReleasereport"
-    },
-    {
-      icon:< FaTools/>,
-      title: "Offboarding",
-      target: "Offboarding"
-    }
-  ],
-  [
-    {
-      icon: < MdOutlineAccountTree/>,
-         title: "Organization",  
-      target: "Organization",
-  
-    },
-    {
-      icon:< FaTools/>,
-      title: "Configuration",
-      target: "Addcategory"
-    }
-  ]
-];
 
 export default SideBar;

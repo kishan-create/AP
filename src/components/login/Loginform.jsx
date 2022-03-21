@@ -41,10 +41,11 @@ export default function Login() {
       console.log(user);
       setUser(user);
       localStorage.setItem("user", user);
-      alert(username);
+    
       if(username==='admin')
       {
         history.push("/Dashboard");
+     
       }
       else {
         history.push("/Employeeprofile");
