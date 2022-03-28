@@ -43,7 +43,7 @@ import { v4 as uuid } from "uuid";
 
 import Select from 'react-select';
 
-
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Accordion,
   AccordionItem,
@@ -54,6 +54,9 @@ import {
 
 // Demo styles, see 'Styles' section below for some notes on use.
 import 'react-accessible-accordion/dist/fancy-example.css';
+import Multiselect from "multiselect-react-dropdown";
+import { SplitButton } from "react-bootstrap";
+
 const options = [
   { value: 'javascript', label: 'Javascript' },
   { value: 'chakra', label: 'Chakra' },
@@ -67,7 +70,7 @@ const Kanban = () => {
     c_name: ''
   })
   const [value, setValue] = React.useState(0);
-
+  const chunkSize = 10;
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [modalIsOpenedit, setIsOpenedit] = React.useState(false);
@@ -77,12 +80,22 @@ const Kanban = () => {
   const [isShowingreleasepopup, setIsShowingreleasepopup] = useState(false);
   const [isShowingreleasepopupedit, setIsShowingreleasepopupEdit] = useState(false);
   const [isviewlog, setIsViewLog] = useState(false);
+  const [skill, setSkill] = useState(["PHP", "JAVA", "MYSQL","HTML","PYTHON","JAVASCRIPT","JQUERY"]);
+  const [dropvalue, setDropvalue] = useState(["PHP", "JAVA"]);
   const handlesTabs = (e, val) => {
     console.warn(val)
     setValue(val)
   }
-
-
+  
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      "& .MuiFilledInput-root": {
+        background: "white",
+        
+      }
+    }
+  }));
+  const classes = useStyles();
   const itemsFromBackend = [
     { id: uuid(), content: "First task", title: "JAVA DEVELOPER2", name: "shanu", status: "Inprogress", Skill: "HTML, CSS, JavaScript", view: "", exp: "4.6Yrs", ctc: " 5LK/A", exctc: " 5LK/A", location: "kakkand", np: "2 Mth" },
     { id: uuid(), content: "First task", title: "JAVA DEVELOPER", name: "shanu", status: "Inprogress", Skill: "HTML, CSS, JavaScript", view: "", exp: "4.6Yrs", ctc: " 5LK/A", exctc: " 5LK/A", location: "kakkand", np: "2 Mth" },
@@ -161,7 +174,7 @@ const Kanban = () => {
   useEffect(() => {
     loadData();
   }, []);
-
+ 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     subtitle.style.color = '#f00';
@@ -320,7 +333,7 @@ const Kanban = () => {
   ];
   // const [columns, setColumns] = useState(columnsFromBackend);
 
-  const { getBasicdetails, editvalues, edithandleChange, handleSubmit_edit, handleImage, Viewlog, log } = EditKanbanboard(setEditstate, setIsViewLog);
+  const { getBasicdetails, editvalues, edithandleChange,skillremove,editedskill,editedprimaryskill,editedsecondaryskill,handleSubmit_edit, handleImage, Viewlog, log } = EditKanbanboard(setEditstate, setIsViewLog);
   const { handleChange, values, handleSubmit, errors } = ScheduleInterviewform(schedule_validation, loadData);
   const { handleChangerejection, valuesrejection, handleSubmitrejection, errorsrejection } = Rejectionform(rejection_validation);
   const { handleChangeRelease, valuesrelease, handleSubmitrelease, errorsrelease } = Releaseform(release_validation);
@@ -329,6 +342,7 @@ const Kanban = () => {
     //console.log(params)
     console.log(searchvalues);
   }
+  
   return (
 
     <div>
@@ -712,12 +726,14 @@ const Kanban = () => {
                   <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
                       <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                        <div class="">Leave empty to keep the same
-                          <input type="file" accept='.doc,.docx,application/pdf' name="resume" onChange={handleImage} class="form-control" />
+                        <div class="basic">Leave empty to keep the same
+                        <br></br><br></br>
+                          <input type="file" accept='.doc,.docx,application/pdf' name="resume" value={editvalues.resume} onChange={handleImage} class="form-control" />
                         </div>
+                        <br></br>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="exampleFormControlInput1">Name</label>
+                          <label for="exampleFormControlInput1">Name</label>
                             <input type="text" name="username" onChange={edithandleChange} value={editvalues.username} class="form-control" ></input>
                           </div>
                         </div>
@@ -731,10 +747,25 @@ const Kanban = () => {
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="exampleFormControlInput1">Skill Set</label>
-                            <input type="text" name="skillset" onChange={edithandleChange} value={editvalues.skillset} class="form-control" ></input>
+                            <label for="skillset">Skill Set</label>
+                          
+                           
+                                    <Multiselect
+                                      isObject={false}
+                                      onRemove={editedskill}
+                                       
+                                      //onSelect={edithandleChange}
+                                      onSelect={editedskill}
+                                      options={skill}                                 
+                                      selectedValues={editvalues.skillset.split(',')}  
+                                      //value={editvalues.skillset}
+                                      showCheckbox 
+                                      name="skillset"
+                                      class="form-control"                                     
+                                    />
                           </div>
                         </div>
+                        
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Personal Email ID </label>
@@ -807,19 +838,45 @@ const Kanban = () => {
                             <input type="date" name="app_date" onChange={edithandleChange} value={editvalues.app_date} class="form-control" ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleFormControlInput1">Primary Skills</label>
-                            <textarea class="form-control" onChange={edithandleChange} value={editvalues.primary_skill} name="primary_skill" rows="2" > </textarea>
+                            <label for="primarySkill">Primary Skills</label>
+                           
+                            <Multiselect
+                                      isObject={false}
+                                      onRemove={editedprimaryskill}
+                                      onSelect={editedprimaryskill}
+                                     
+                                      options={skill}   
+                                      selectedValues={editvalues.primary_skill.split(',')}  
+                                      showCheckbox 
+                                      name="primary_skill" 
+                                     
+                                     
+                                      
+                                    />
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleFormControlInput1">Secondary Skills</label>
-                            <textarea class="form-control" name="secskill" onChange={edithandleChange} value={editvalues.secskill} rows="2" > </textarea>
-                          </div>
+                            <label for="secondarySkill">Secondary Skills</label>
+                          
+                            <Multiselect
+                                      isObject={false}
+                                      onRemove={editedsecondaryskill}
+                                      onSelect={editedsecondaryskill}
+                                     
+                                      options={skill}   
+                                      selectedValues={editvalues.secskill.split(',')}  
+                                      showCheckbox 
+                                      name="secskill" 
+                                     
+                                     
+                                      
+                                    />
+                  </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                           <div class="form-group">
                             <label for="exampleFormControlInput1">References</label>
                             <textarea class="form-control" name="ref" onChange={edithandleChange} value={editvalues.ref} rows="2" > </textarea>
@@ -842,8 +899,9 @@ const Kanban = () => {
           <div>
             <button type="submit" class="btn  btn-save "  > Save</button>
             <button type="button" class="btn  btn-cancel " onClick={closeModaledit} > Cancel </button>
-            <a target="_blank" name="edit_resume" onChange={edithandleChange} href={"http://localhost/audit_portal/public/uploads/resume/" + editvalues.edit_resume}>View Resume</a>
-          </div>
+            <div class="A">
+            <a target="_blank" class="btn  btn-save  " name="edit_resume" onChange={edithandleChange} href={"http://localhost/audit_portal/public/uploads/resume/" + editvalues.edit_resume}>View Resume</a>
+            </div> </div>
 
 
         </form>
@@ -880,7 +938,7 @@ const Kanban = () => {
                 <div class="candidate-tab-outer">
                   <ul class="nav nav-tabs">
 
-                    <li><a href="#tab2" data-toggle="tab">Schedule Details Candidates</a></li>
+                    <li><a href="#tab2" class="Sheduletab" data-toggle="tab">Schedule Details Candidates</a></li>
 
                   </ul>
 
@@ -996,7 +1054,7 @@ const Kanban = () => {
                 <div class="candidate-tab-outer">
                   <ul class="nav nav-tabs">
 
-                    <li><a href="#tab2" data-toggle="tab">Rejection  Details</a></li>
+                    <li><a href="#tab2" class="rejectiontab" data-toggle="tab">Rejection  Details</a></li>
 
                   </ul>
 
@@ -1182,17 +1240,23 @@ const Kanban = () => {
                       <option value="Release">Release</option>
                     </select>
                   </div>
-                  <div className="calendar-width mobile-search-none">
-
-                    <Autocomplete
+                  
+                  <div className="calendar-width candidatenameinput">
+                  <Autocomplete
                       disablePortal
                       id="combo-box-demo"
                       options={topcandidates}
-                      sx={{ width: 140 }}
+                      
+                      sx={{ width:140,marginRight: 8}}
+                      
                       renderInput={(params) =>
-
-                        <TextField {...params} onChange={handleSearch} value={params} name="c_name" label="Candidates name" />}
+                     
+                        <TextField {...params} 
+                          onChange={handleSearch}
+                         value={params} name="c_name" label="Candidates name" variant="outlined"  className=""    />}
                     />
+                    
+                  
                   </div>
 
                   <div className="search-icon-width mobile-search-none ">
@@ -1201,13 +1265,7 @@ const Kanban = () => {
                         <FaSearch className="add-btn-icon" /></button>
 
                     </div>               </div>
-                  <div className="search-icon-width  mobile-seardh-show">
-                    <div class="search-box add-btn-div ">
-                      <input type="text" class="search-box-input" placeholder="Candidate name" />
-                      <button type="button" class="btn  btn-maincolor search-box-btn"> <FaSearch className="add-btn-icon" /></button>
-
-                    </div>
-                  </div>
+                 
 
                 </div>
               </form>
@@ -1452,20 +1510,22 @@ const Kanban = () => {
                                                         <div className="skill-box">
                                                           {item.skillset}
                                                         </div>
-                                                        <div className=" in-progress-card-bx">
-                                                          <div className="in-progress-name-thre-colm p-l-0 ">EXP : {item.total_exp}</div>
-                                                          <div className="in-progress-name-thre-colm  ">CTC :{item.ctc}</div>
-                                                          <div className="in-progress-name-thre-colm b-r-0 ">EXCTC : {item.exp_ctc}</div>
+                                                        <div className="in-progress-card-bx">
+                                                          <div className="in-progress-name-thre-colm p-l-0 ">EXP <div>{item.total_exp}</div></div>                                             
+                                                   
+                                                          <div className="in-progress-name-thre-colm  ">CTC <div>{item.ctc}</div></div>
+                                                          <div className="in-progress-name-thre-colm b-r-0 ">EXCTC <div>{item.exp_ctc}</div></div>
                                                         </div>
                                                         <div className=" in-progress-card-bx location-outer border-bottom-0">
                                                           <div className="in-progress-location ">
                                                             <img src={location} />  <span>{item.location}</span>
                                                           </div>
                                                           <div class="in-progress-location t-r">
-                                                            NP: {item.notice_prd} Months
+                                                            NP :{item.notice_prd} Months
                                                           </div>
+                                                          <br></br>
                                                           <div class="in-progress-location t-r">
-                                                            <span onClick={() => Viewlog(item.id)}>View Log</span>
+                                                            <span  onClick={() => Viewlog(item.id)}>View Log</span>
                                                           </div>
                                                         </div>
 

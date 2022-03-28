@@ -42,12 +42,20 @@ export default function Login() {
       setUser(user);
       localStorage.setItem("user", user);
       alert(username);
-      if(username==='shanu')
+      if(username==='admin')
+
       {
-      history.push("/Employee_Dashboard");
-      }
-      else {
+
         history.push("/Dashboard");
+
+     
+
+      }
+
+      else {
+
+        history.push("/Employeeprofile");
+
       }
       }
       if (
