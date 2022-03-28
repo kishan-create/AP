@@ -340,16 +340,18 @@ const onDragEnd = (result, columns, setColumns) => {
                             {item.Skill}
                             </div>
                             <div className=" in-progress-card-bx">
-                                <div className="in-progress-name-thre-colm p-l-0 ">EXP : {item.exp}</div>
+                                <div className="in-progress-name-thre-colm p-l-0">EXP <div>{item.exp}
+                                  </div></div>
+                               
                                 <div className="in-progress-name-thre-colm  ">CTC :{item.ctc}</div>
                                 <div className="in-progress-name-thre-colm b-r-0 ">EXCTC : {item.exctc}</div>
-                                </div>
+                              </div>
                                 <div className=" in-progress-card-bx location-outer border-bottom-0">
                                <div className="in-progress-location ">
                                <img src={location}/>  <span>{item.location}</span> 
                                    </div>
                                    <div class="in-progress-location t-r">
-                                   NP: {item.np}
+                                   NP:{item.np}
                  </div>
                                 </div>
 

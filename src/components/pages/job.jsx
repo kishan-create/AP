@@ -452,7 +452,7 @@ export default function Job(props) {
                     <AccordionItemPanel>
                       <div className="accord-detals-box">
                         <div className="left">Job ID</div>
-                        <div className="right">1234</div>
+                        <div className="right">{n.id}</div>
                       </div>
                       <div className="accord-detals-box">
                         <div className="left">Skill Set </div>
@@ -462,20 +462,22 @@ export default function Job(props) {
                       </div>
                       <div className="accord-detals-box">
                         <div className="left">Exp </div>
-                        <div className="right">10 Years</div>
+                        <div className="right">{n.job_experience}</div>
                       </div>
                       <div className="accord-detals-box">
                         <div className="left">Posted Date</div>
-                        <div className="right">20-10-2021</div>
+                        <div className="right">{n.job_date_open}</div>
                       </div>
                       <div className="accord-detals-box">
                         <div className="left">Post Close</div>
-                        <div className="right">10-11-2021</div>
+                        <div className="right">{n.job_date_close}</div>
                       </div>
                       <div className="accord-detals-box">
                         <div className="accordion-bottom-button">
                           <div className="more-button">View</div>
-                          <div className="more-button more-outer">Edit</div>
+                          <div className="more-button more-outer"><button onClick={() => Edit_job(n.id)} className="mobile-job-edit-icon" > Edit 
+                                                           
+                                                        </button></div>
                           <div className="more-button more-outer">Delete</div>
                         </div>
                       </div>

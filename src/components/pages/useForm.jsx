@@ -34,6 +34,8 @@ const[values, SetValues] = useState ({
 })
 const[pics, SetPics] = useState ([]);
 const [selectedOption, setSelectedOption] = useState(0);
+const [selectedSecsskill, setSelectedSecsskill] = useState(0);
+const [selectedPrimaryskill, setSelectedPrimaryskill] = useState(0);
 const itemsFromBackend = [
     { id: uuid(), applied_date: "2022-01-12", c_company: "Bourntec", contact_number: "1234567891", ctc: 5, dob: "2022-01-18", domain_exp: 5, education: "Btech", email: "teenu@gmail.com", exp_ctc: 15, job_id: 1,name: "shanuxcx",notice_prd: 3,position: 0,post: "PHP Developer",primary_skill: "test,css",ref: "ref",sec_skill: "testcss2",skillset: "Html,css,React js",status: "Inprogress",title: "JAVA DEVELOPER",total_exp: 6 }
 ];
@@ -95,8 +97,16 @@ const onSelect= (event) =>
 {
    // console.log(event);
     setSelectedOption(event)
+    
 }
-
+const onSelectPrimarySkill=(event)=>
+{
+    setSelectedPrimaryskill(event)
+}
+const onSelectSecondaryskill=(event)=>
+{
+    setSelectedSecsskill(event)
+}
 const onSubmitform = e => {
     const formData = new FormData();  
     formData.append('resume', pics.resume);
@@ -113,7 +123,7 @@ const onSubmitform = e => {
     formData.append('current_company',values.current_company);
     formData.append('domain_exp',values.domain_exp);
     formData.append('app_date',values.app_date);
-    formData.append('primary_skill',values.primary_skill);
+    formData.append('primary_skill',selectedPrimaryskill);
     formData.append('ref',values.ref);
     formData.append('p_members',values.p_members);
     formData.append('idatetime',values.idatetime);
@@ -124,7 +134,7 @@ const onSubmitform = e => {
     formData.append('reason',values.reason);
     formData.append('skillset',values.skillset);
     formData.append('noticeprd',values.noticeprd);
-    formData.append('secskill',values.secskill);
+    formData.append('secskill',selectedSecsskill);
     formData.append('skillset_input',selectedOption);
     //values.append('resume',pics.resume);
     const promise= axios.post('http://localhost:8000/api/add_employee_first', formData);
@@ -138,6 +148,7 @@ const onSubmitform = e => {
              icon: "success",    
              button: "ok",
          });
+         console.log(selectedOption);
          values.username = '';
          values.postvalue = '';
          values.p_email = '';
@@ -170,7 +181,7 @@ const onSubmitform = e => {
     
 
 
-return {handleChange1,values,handleSubmit,errors,getpostName,job,handleImage,onSelect};
+return {handleChange1,values,handleSubmit,errors,getpostName,job,handleImage,onSelect,onSelectPrimarySkill,onSelectSecondaryskill};
 
 }
 export default useForm;

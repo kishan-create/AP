@@ -1,7 +1,7 @@
 const logout_new=()=>
 {
     alert("hii");
-    localStorage.clear();
+    localStorage.clear()
     window.location.href = '/Loginform';
 }
 export default logout_new;
