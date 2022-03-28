@@ -45,11 +45,8 @@ const $ = window.$;
         $('.sidebar').show();
         });
     }
+  
 });
-
-
-
- 
 
 
   const SideBar = ({ isOpen, toggle }) => (
@@ -69,43 +66,43 @@ const $ = window.$;
       <div className="nav-taxt">Navigation</div>
    
          <NavItem>
-          <NavLink exact tag={nlink} to={""} exact  className="mob-menu-clik" >
+          <NavLink exact  active={window.location.pathname === "/"} tag={nlink} to={""} exact  className="mob-menu-clik" >
           < MdDashboard/>
             Dashboard  
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink exact tag={nlink} to={"/Job"}  className="mob-menu-clik">
+          <NavLink active={window.location.pathname === "/Job"} exact tag={nlink} to={"/Job"}  className="mob-menu-clik">
           < MdBusinessCenter/>
             Job Portal
           </NavLink>
         </NavItem>
         <UncontrolledButtonDropdown  className="btin-nam-main" nav inNavbar>
-                <DropdownToggle  nav caret size="md" className="dropname-main" setActiveFromChild >
+                <DropdownToggle  nav caret size="md" className="dropname-main" setActiveFromChild  >
                 Recruitment < MdOutlineLaptopWindows className="show-only-icon"/> <FontAwesomeIcon icon={faCaretDown} className="mr-2  float-right close-tog" />
                 </DropdownToggle>
                 <DropdownMenu className="show-subm-menu">
-                  <NavLink tag={nlink} to={"/Kanban"}>Recruitment<MdPersonSearch/></NavLink>
+                  <NavLink tag={nlink} to={"/Kanban"} >Recruitment<MdPersonSearch/></NavLink>
                   <NavLink tag={nlink} to={"/OfferReleasereport"}>Onboarding< MdTextSnippet/></NavLink>
                   <NavLink tag={nlink} to={"/Offboarding"}> Offboarding< MdInsertDriveFile/> </NavLink>
                   
                 </DropdownMenu>
               </UncontrolledButtonDropdown>
         <NavItem>
-          <NavLink tag={Link} to={"/Emplyelist"} className="mob-menu-clik" >
+          <NavLink active={window.location.pathname === "/Emplyelist"} tag={Link} to={"/Emplyelist"} className="mob-menu-clik" >
           <FaUserTie/>
               Employee
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to={"/Assets"}  className="mob-menu-clik">
+          <NavLink active={window.location.pathname === "/Assets"} tag={Link} to={"/Assets"}  className="mob-menu-clik">
           <FaChartLine/>
              Asset
           </NavLink>
         </NavItem>
 
         <NavItem>
-          <NavLink tag={Link} to={"/"} className="mob-menu-clik" >
+          <NavLink active={window.location.pathname === "/"} tag={Link} to={"/"} className="mob-menu-clik" >
           <FaFileAlt/>
             Projects
           </NavLink>
@@ -128,23 +125,17 @@ const $ = window.$;
               </UncontrolledButtonDropdown>
        
         <NavItem>
-          <NavLink tag={nlink} to={"/Organizationold"} className="mob-menu-clik">
+          <NavLink active={window.location.pathname === "/Organizationold"} tag={nlink} to={"/Organizationold"} className="mob-menu-clik">
           < MdOutlineAccountTree/>
              Organization  
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={nlink} to={"/Loginform"} className="mob-menu-clik">
+          <NavLink active={window.location.pathname === "/Loginform"} tag={nlink} to={"/Loginform"} className="mob-menu-clik">
           < MdPersonPin/>
           Loginform  1
           </NavLink>
           
-        </NavItem>
-        <NavItem>
-          <NavLink tag={nlink} to={"/logout_new"} className="mob-menu-clik">
-          < RiLoginCircleFill/>
-        Logout
-          </NavLink>
         </NavItem>
       </Nav>
     </div>

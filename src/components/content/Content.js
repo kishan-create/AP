@@ -33,7 +33,10 @@ import Offboarding from "../pages/Offboarding";
 import Loginform from "../login/Loginform";
 import logout_new from "../login/Logout_new";
 
+
+
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
+  
   <Container
     fluid
     className={classNames("content", { "is-open": sidebarIsOpen })}
@@ -69,7 +72,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
              <Router path="/Addproperty">
         < Addproperty/>
         </Router> 
-        <Router path="/Organizationlist">
+        <Router path="/Organizationlist" >
         <Organizationlist/>
         </Router>
         <Router path="/Organizationold">
