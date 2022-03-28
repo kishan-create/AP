@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlignLeft } from "@fortawesome/free-solid-svg-icons";
-
+import './Topbar.css';
 import {
   Navbar,
   Button,
   NavbarToggler,
   Collapse,
-  Nav,
+  Nav,  UncontrolledButtonDropdown,
   NavItem,
-  NavLink,
+  NavLink, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { FiAlignRight } from "@react-icons/all-files/fi/FiAlignRight";
 import { BiTimeFive } from "@react-icons/all-files/bi/BiTimeFive";
 import { BsBell } from "@react-icons/all-files/bs/BsBell";
 import {dashboard,asste,Grouplog, logomob} from '../../images';
+import {useAuth}  from "../../context/auth.context";
+const Topbar = ({ toggleSidebar,userData }) => {
 
-const Topbar = ({ toggleSidebar }) => {
+  
+  const userdata = useAuth(userData);
+ 
+
   const [topbarIsOpen, setTopbarOpen] = useState(true);
   const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
   const logout = () => {
@@ -26,6 +31,8 @@ const Topbar = ({ toggleSidebar }) => {
 // you can also like localStorage.removeItem('Token');
     window.location.href = "/Loginform";
   }
+
+  
   return (
     <Navbar
       color="light"
@@ -44,10 +51,18 @@ const Topbar = ({ toggleSidebar }) => {
         <div class="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
-                 <button onClick={logout}><i class="fa fa-power-off logout-sty"></i></button>
-                 <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">shanu</sup></span>
-                
-               </div>
+           <UncontrolledButtonDropdown  className="log-out-show">
+                <DropdownToggle  caret size="md" className="" >
+                <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">{userdata.user.name}</sup></span>
+                </DropdownToggle>
+                <DropdownMenu className="">
+                <a href="" onClick={logout}>
+                <i class="fa fa-power-off logout-new"></i> Logout 
+          </a>
+                </DropdownMenu>
+              </UncontrolledButtonDropdown>
+       
+       </div>
         </Navbar>
        </Navbar>
   );

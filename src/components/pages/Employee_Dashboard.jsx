@@ -51,10 +51,10 @@ function createData1(Category, PropertyBrand , AssetId, ConnectorType ) {
   return { Category, PropertyBrand , AssetId, ConnectorType };
 }
 const data1 = [
-  createData1('Vacation', '5.5','4.5', '10',  ),  
-  createData1('Sick Leave', '4.5','7.5', '12', ),
-  createData1('Unpaid leave', '5','360', '365', ),
-  createData1('Work from Home', '4','6', '10',  ), 
+  createData1('1 MAR', 'Public Holiday','4 days to left', '10',  ),  
+  createData1('13 APR', 'Public Holiday','55 days to left', '12', ),
+  createData1('14 APR', 'Public Holiday','56 days to left', '365', ),
+   
 ];
 const options = [
   {
@@ -133,15 +133,15 @@ const Employee_Dashboard = () => {
  
                                           
 <div className='onboarding-top-outer emp-box-padd m-t-20'>
-<div className='box'>
+<div className='box '>
 <div className="box-inner p-0">
   <div className='left p-15'>
-  <p>Total Projects</p>
+  <p>Total Projects    </p>
   </div>
   <div className="emp-box-right-txt p-15">50</div>
   
   <div className='emp-box-footer'>
-  Project in progress :<span className="emp-footer-txt-col">4</span>  <span className="f-r">completed projects  : <span className="emp-footer-txt-col-rigt">8</span> </span>
+  Project in Progress :<span className="emp-footer-txt-col">4</span>   
   </div>
 </div>
 <div className="box-inner onboard-ligt-violet  p-0">
@@ -152,7 +152,7 @@ const Employee_Dashboard = () => {
   <div className="emp-box-right-txt p-15">150</div>
   
   <div className='emp-box-footer'>
-  Absent :<span className="emp-footer-txt-col">3</span>  <span className="f-r">Balance Leave   : <span className="emp-footer-txt-col-rigt">7</span> </span>
+  Balance Leave  :<span className="emp-footer-txt-col">7</span>  
   </div>
    
 </div>
@@ -164,16 +164,16 @@ const Employee_Dashboard = () => {
   <div className="emp-box-right-txt p-15"></div>
   
   <div className='emp-box-footer'>
-  Reeba Kurien
+  Reeba Kurien<span className="emp-footer-txt-col"></span>  
   </div>
 </div>
 </div>
 
 </div>
                   </div>
-                  <div className="col-md-4 job-main-tb-outer m-t-26">    
-                    <Paper className=" job-outer organazation-table-top">
-      <Table className="recruitment-tabele">
+                  <div className="col-md-4   m-t-26">    
+                    <Paper className=" job-outer organazation-table-top leave-table-outer ">
+      <Table className="leave-tabele">
         <TableHead>
         
         <TableRow>
@@ -187,11 +187,13 @@ const Employee_Dashboard = () => {
         <TableBody>
         {data1.map(n1 => {
             return (
-              <TableRow  key={n1.id} >
-                    <TableCell  className="col-md-3 p-tb-12"> {n1.Category}</TableCell>
-                    <TableCell numeric className="col-md-3 p-tb-12">{n1.PropertyBrand}</TableCell>                          
-                    <TableCell numeric className=" col-md-3 p-tb-12">{n1.AssetId} </TableCell>
-                    <TableCell numeric className="col-md-3 p-tb-12">{n1.ConnectorType} </TableCell>
+              <TableRow  className="holiday-tcell-row "  key={n1.id} >
+                    <TableCell  className="col-md-3 "><div className="holiday-datesty">{n1.Category}</div> </TableCell>
+                    <TableCell numeric className="col-md-5  holiday-name-sty">{n1.PropertyBrand}
+                    <div className="holiday-sub-name-sty">Sivarathri</div>
+                    </TableCell>                          
+                    <TableCell numeric className="col-md-4 holiday-sub-days-rght">{n1.AssetId} </TableCell>
+                   
               </TableRow>
              
             );
@@ -204,17 +206,17 @@ const Employee_Dashboard = () => {
        
        </Paper>          
        </div>    
-       <div className="col-md-8 job-main-tb-outer m-t-26">    
-                    <Paper className="recruitment-table-outer job-outer organazation-table-top">
-      <Table className="recruitment-tabele">
+       <div className="col-md-8   m-t-26">    
+                    <Paper className="leave-table-outer job-outer organazation-table-top">
+      <Table className="leave-tabele">
         <TableHead>
         
         <TableRow>
         
-            <TableCell className="col-md-3">Leave Balance</TableCell>
-            <TableCell className="col-md-3">Used</TableCell>
-            <TableCell className="col-md-3">Available</TableCell>
-            <TableCell className="col-md-3">Allowance</TableCell>
+            <TableCell className="col-md-3 leave-table-sm ">Leave Balance</TableCell>
+            <TableCell className="col-md-3 leave-table-sm ">Used</TableCell>
+            <TableCell className="col-md-3 leave-table-sm ">Available</TableCell>
+            <TableCell className="col-md-3 leave-table-sm ">Allowance</TableCell>
              
            
           </TableRow>
@@ -223,10 +225,10 @@ const Employee_Dashboard = () => {
         {data.map(n => {
             return (
               <TableRow  key={n.id} >
-                    <TableCell  className="col-md-3 p-tb-12"> {n.Category}</TableCell>
-                    <TableCell numeric className="col-md-3 p-tb-12">{n.PropertyBrand}</TableCell>                          
-                    <TableCell numeric className=" col-md-3 p-tb-12">{n.AssetId} </TableCell>
-                    <TableCell numeric className="col-md-3 p-tb-12">{n.ConnectorType} </TableCell>
+                    <TableCell  className="col-md-3 p-tb-12 leave-table-sm "> {n.Category}</TableCell>
+                    <TableCell numeric className="col-md-3 p-tb-12 leave-table-sm ">{n.PropertyBrand}</TableCell>                          
+                    <TableCell numeric className=" col-md-3 p-tb-12 leave-table-sm ">{n.AssetId} </TableCell>
+                    <TableCell numeric className="col-md-3 p-tb-12 leave-table-sm ">{n.ConnectorType} </TableCell>
               </TableRow>
              
             );
