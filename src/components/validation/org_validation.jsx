@@ -12,10 +12,10 @@ export default function org_validation(values) {
     errors.org_type = "Organization type required";
   }
   if (!values.org_category.trim()) {
-    errors.org_category = "Organization Category required";
+    errors.org_category = "Organization category required";
   }
   if (!values.org_registration.trim()) {
-    errors.org_registration = "Organization Registration required";
+    errors.org_registration = "Organization registration required";
   }
   if (!values.org_location.trim()) {
     errors.org_location = "Organization location required";
