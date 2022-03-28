@@ -2063,6 +2063,7 @@ select {
   display: none;
 }
 .recruitment-box-padding {
+  padding-top: 20%;
   padding-right: 19px;
 }
 
@@ -3693,3 +3694,64 @@ border-top-left-radius:0;
 .red-alert {
   color: rgb(200, 17, 17);
 }
+.abc {
+  height: 1cm;
+}
+
+.accord-branch {
+  /* text-align: right; */
+  border: solid #000;
+  height: 100%;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  /* vertical-align: middle; */
+
+  /* border-bottom-style: dotted; */
+  /* border-left-style: solid; */
+  /* border-width: 5px 20px; */
+  /* border: solid #000;
+  padding: 40px; */
+  /* border: solid #000; */
+}
+
+.laccord-branch {
+  text-align: left;
+
+  width: 70%;
+
+  padding: 10px;
+}
+.test_container {
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  border: 1px solid #000;
+  height: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.test_container div {
+  flex: 1;
+}
+.left-branch {
+  color: #000;
+}
+
+.organization-name {
+  font-weight: bold;
+}
+
+.org-name span {
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+/* .branch-name {
+  width: 100%;
+  float: left;
+  margin-top: 20px;
+  display: block;
+} */
