@@ -320,7 +320,7 @@ const Kanban = () => {
   ];
   // const [columns, setColumns] = useState(columnsFromBackend);
 
-  const { getBasicdetails, editvalues, edithandleChange, handleSubmit_edit, handleImage, Viewlog, log } = EditKanbanboard(setEditstate, setIsViewLog);
+  const { getBasicdetails, editvalues, edithandleChange,skillremove,editedskill,editedprimaryskill,editedsecondaryskill, handleSubmit_edit, handleImage, Viewlog, log } = EditKanbanboard(setEditstate, setIsViewLog);
   const { handleChange, values, handleSubmit, errors } = ScheduleInterviewform(schedule_validation, loadData);
   const { handleChangerejection, valuesrejection, handleSubmitrejection, errorsrejection } = Rejectionform(rejection_validation);
   const { handleChangeRelease, valuesrelease, handleSubmitrelease, errorsrelease } = Releaseform(release_validation);
@@ -690,6 +690,9 @@ const Kanban = () => {
               <MdClose className="popup-close-btn" onClick={closeModaledit} />
             </div>
           </div>
+          
+          
+          
           <div class="candidate-tab-outer">
             <ul class="nav nav-tabs">
               <li class="active">
@@ -713,8 +716,10 @@ const Kanban = () => {
                     <div class="panel-body">
                       <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
                         <div class="">Leave empty to keep the same
+                          <br></br><br></br>
                           <input type="file" accept='.doc,.docx,application/pdf' name="resume" onChange={handleImage} class="form-control" />
                         </div>
+                        <br></br>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Name</label>
@@ -732,7 +737,19 @@ const Kanban = () => {
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Skill Set</label>
-                            <input type="text" name="skillset" onChange={edithandleChange} value={editvalues.skillset} class="form-control" ></input>
+                            <Multiselect
+                                      isObject={false}
+                                      onRemove={editedskill}
+                                       
+                                      //onSelect={edithandleChange}
+                                      onSelect={editedskill}
+                                      options={skill}                                 
+                                      selectedValues={editvalues.skillset.split(',')}  
+                                      //value={editvalues.skillset}
+                                      showCheckbox 
+                                      name="skillset"
+                                      class="form-control"                                     
+                                    />
                           </div>
                         </div>
                         <div class="col-md-4">
@@ -807,19 +824,43 @@ const Kanban = () => {
                             <input type="date" name="app_date" onChange={edithandleChange} value={editvalues.app_date} class="form-control" ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Primary Skills</label>
-                            <textarea class="form-control" onChange={edithandleChange} value={editvalues.primary_skill} name="primary_skill" rows="2" > </textarea>
+                            <Multiselect
+                                      isObject={false}
+                                      onRemove={editedprimaryskill}
+                                      onSelect={editedprimaryskill}
+                                     
+                                      options={skill}   
+                                      selectedValues={editvalues.primary_skill.split(',')}  
+                                      showCheckbox 
+                                      name="primary_skill" 
+                                     
+                                     
+                                      
+                                    />
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Secondary Skills</label>
-                            <textarea class="form-control" name="secskill" onChange={edithandleChange} value={editvalues.secskill} rows="2" > </textarea>
+                            <Multiselect
+                                      isObject={false}
+                                      onRemove={editedsecondaryskill}
+                                      onSelect={editedsecondaryskill}
+                                     
+                                      options={skill}   
+                                      selectedValues={editvalues.secskill.split(',')}  
+                                      showCheckbox 
+                                      name="secskill" 
+                                     
+                                     
+                                      
+                                    />
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                           <div class="form-group">
                             <label for="exampleFormControlInput1">References</label>
                             <textarea class="form-control" name="ref" onChange={edithandleChange} value={editvalues.ref} rows="2" > </textarea>
@@ -834,15 +875,16 @@ const Kanban = () => {
                   </div>
                 </div>
               </div>
-
-
             </div>
-
           </div>
+
+
+
+
           <div>
             <button type="submit" class="btn  btn-save "  > Save</button>
             <button type="button" class="btn  btn-cancel " onClick={closeModaledit} > Cancel </button>
-            <a target="_blank" name="edit_resume" onChange={edithandleChange} href={"http://localhost/audit_portal/public/uploads/resume/" + editvalues.edit_resume}>View Resume</a>
+            <a target="_blank" class="btn  btn-save" name="edit_resume" onChange={edithandleChange} href={"http://localhost/audit_portal/public/uploads/resume/" + editvalues.edit_resume}>View Resume</a>
           </div>
 
 
@@ -880,7 +922,7 @@ const Kanban = () => {
                 <div class="candidate-tab-outer">
                   <ul class="nav nav-tabs">
 
-                    <li><a href="#tab2" data-toggle="tab">Schedule Details Candidates</a></li>
+                    <li><a href="#tab2"class="Sheduletab" data-toggle="tab">Schedule Details Candidates</a></li>
 
                   </ul>
 
@@ -973,7 +1015,7 @@ const Kanban = () => {
         <form onSubmit={handleSubmitrejection} className='form' noValidate>
           <div className="popup-head-sty candidate-tab-outer">
             <div className="popup-head-content-sty">
-              <h4 ref={(_subtitle) => (subtitle = _subtitle)} className="popup-head-h4">Candidate Rejection Details</h4>
+              <h4 ref={(_subtitle) => (subtitle = _subtitle)}  className="popup-head-h4">Candidate Rejection Details</h4>
             </div>
             <div className="popup-head-icon-sty">
               <MdClose className="popup-close-btn" onClick={closeModalRejection} />
@@ -996,7 +1038,7 @@ const Kanban = () => {
                 <div class="candidate-tab-outer">
                   <ul class="nav nav-tabs">
 
-                    <li><a href="#tab2" data-toggle="tab">Rejection  Details</a></li>
+                    <li><a href="#tab2" class="rejectiontab" data-toggle="tab">Rejection  Details</a></li>
 
                   </ul>
 
@@ -1188,7 +1230,7 @@ const Kanban = () => {
                       disablePortal
                       id="combo-box-demo"
                       options={topcandidates}
-                      sx={{ width: 140 }}
+                      sx={{ width: 140,marginRight: 8 }}
                       renderInput={(params) =>
 
                         <TextField {...params} onChange={handleSearch} value={params} name="c_name" label="Candidates name" />}
@@ -1453,9 +1495,9 @@ const Kanban = () => {
                                                           {item.skillset}
                                                         </div>
                                                         <div className=" in-progress-card-bx">
-                                                          <div className="in-progress-name-thre-colm p-l-0 ">EXP : {item.total_exp}</div>
-                                                          <div className="in-progress-name-thre-colm  ">CTC :{item.ctc}</div>
-                                                          <div className="in-progress-name-thre-colm b-r-0 ">EXCTC : {item.exp_ctc}</div>
+                                                          <div className="in-progress-name-thre-colm p-l-0 ">EXP</div><div> {item.total_exp}</div>
+                                                          <div className="in-progress-name-thre-colm  ">CTC </div><div>{item.ctc}</div>
+                                                          <div className="in-progress-name-thre-colm b-r-0 ">EXCTC </div><div> {item.exp_ctc}</div>
                                                         </div>
                                                         <div className=" in-progress-card-bx location-outer border-bottom-0">
                                                           <div className="in-progress-location ">
@@ -1464,6 +1506,7 @@ const Kanban = () => {
                                                           <div class="in-progress-location t-r">
                                                             NP: {item.notice_prd} Months
                                                           </div>
+                                                          <br></br>
                                                           <div class="in-progress-location t-r">
                                                             <span onClick={() => Viewlog(item.id)}>View Log</span>
                                                           </div>
