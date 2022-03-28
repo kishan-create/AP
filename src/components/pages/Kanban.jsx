@@ -54,6 +54,7 @@ import {
 
 // Demo styles, see 'Styles' section below for some notes on use.
 import 'react-accessible-accordion/dist/fancy-example.css';
+import Multiselect from "multiselect-react-dropdown";
 const options = [
   { value: 'javascript', label: 'Javascript' },
   { value: 'chakra', label: 'Chakra' },
@@ -67,7 +68,7 @@ const Kanban = () => {
     c_name: ''
   })
   const [value, setValue] = React.useState(0);
-
+  const [skill, setSkill] = useState(["PHP", "JAVA", "MYSQL","HTML","PYTHON","JAVASCRIPT","JQUERY"]);
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [modalIsOpenedit, setIsOpenedit] = React.useState(false);
@@ -1495,18 +1496,18 @@ const Kanban = () => {
                                                           {item.skillset}
                                                         </div>
                                                         <div className=" in-progress-card-bx">
-                                                          <div className="in-progress-name-thre-colm p-l-0 ">EXP</div><div> {item.total_exp}</div>
-                                                          <div className="in-progress-name-thre-colm  ">CTC </div><div>{item.ctc}</div>
-                                                          <div className="in-progress-name-thre-colm b-r-0 ">EXCTC </div><div> {item.exp_ctc}</div>
+                                                          <div className="in-progress-name-thre-colm p-l-0">EXP<div>{item.total_exp}</div></div>
+                                                          <div className="in-progress-name-thre-colm  ">CTC<div>{item.ctc}</div></div>
+                                                          <div className="in-progress-name-thre-colm b-r-0 ">EXCTC<div>{item.exp_ctc}</div></div>
                                                         </div>
                                                         <div className=" in-progress-card-bx location-outer border-bottom-0">
                                                           <div className="in-progress-location ">
                                                             <img src={location} />  <span>{item.location}</span>
                                                           </div>
                                                           <div class="in-progress-location t-r">
-                                                            NP: {item.notice_prd} Months
+                                                            NP:{item.notice_prd} Months
                                                           </div>
-                                                          <br></br>
+                                                        
                                                           <div class="in-progress-location t-r">
                                                             <span onClick={() => Viewlog(item.id)}>View Log</span>
                                                           </div>

@@ -823,8 +823,11 @@ label {
     .location-outer .in-progress-location {
         float: left;
         width: 50%;
+
         font-size: 11px;
     }
+
+    
     .location-outer .in-progress-location-map {
         float: left;
         width: 60%;
