@@ -63,6 +63,10 @@
   .in-progress-name-sty {
     font-size: 17px;
   }
+  .job-new-outer td:last-child.tf,
+  .job-new-outer th:last-child.tf {
+    width: 13%;
+  }
 }
 .ReactModal__Overlay {
   position: fixed;
@@ -79,11 +83,6 @@
   }
   .recruitment-tabele th,
   .recruitment-tabele td {
-    font-size: 13px;
-    padding: 11px 8px;
-  }
-  .leave-tabele th,
-  .leave-tabele td {
     font-size: 13px;
     padding: 11px 8px;
   }
@@ -129,10 +128,6 @@
     font-size: 25px;
   }
   .recruitment-tabele th:first-child {
-    padding-left: 10px;
-    padding-right: 4px;
-  }
-  .leave-tabele th:first-child {
     padding-left: 10px;
     padding-right: 4px;
   }
@@ -187,15 +182,18 @@
   .inprograss-style {
     min-width: 80px;
   }
+  .btn-active {
+    min-width: 53px;
+  }
+  .job-new-outer td:last-child.tf,
+  .job-new-outer th:last-child.tf {
+    width: 14.5%;
+  }
 }
 
 @media only screen and (max-width: 1360px) {
   .recruitment-tabele th,
   .recruitment-tabele td {
-    font-size: 12px;
-  }
-  .leave-tabele th,
-  .leave-tabele td {
     font-size: 12px;
   }
   .in-progress-name-thre-colm {
@@ -251,13 +249,17 @@
     width: 77%;
   }
   .onboarding-top-outer .box-inner .left p {
-    font-size: 15px;
+    font-size: 17px;
   }
   .onboarding-top-outer .box-inner .left span {
     font-size: 37px;
   }
   .onboard-top-select-outer .select-inner .left {
     width: 85px;
+  }
+  .job-new-outer td:last-child.tf,
+  .job-new-outer th:last-child.tf {
+    width: 15%;
   }
 }
 
@@ -290,37 +292,6 @@
     display: grid;
   }
   .recruitment-table-outer table tr {
-    width: auto;
-    display: flex;
-  }
-
-  .leave-table-outer {
-    width: 97%;
-    float: left;
-    display: block;
-    overflow: scroll;
-    display: block;
-    display: block !important;
-    flex-wrap: nowrap !important;
-    overflow: auto !important;
-  }
-  .leave-table-outer table {
-    border-collapse: collapse;
-    overflow-x: auto;
-    display: block;
-    width: 100%;
-    float: left;
-    margin-top: 0;
-  }
-  .leave-table-outer table thead {
-    width: auto;
-  }
-  .leave-table-outer table tbody {
-    width: 100%;
-    float: left;
-    display: grid;
-  }
-  .leave-table-outer table tr {
     width: auto;
     display: flex;
   }
@@ -429,6 +400,10 @@
     width: 85px;
     padding: 9px 7px;
   }
+  .job-new-outer td:last-child.tf,
+  .job-new-outer th:last-child.tf {
+    width: 140px;
+  }
 }
 @media only screen and (max-width: 1200px) {
   .recruitment-top-right-box {
@@ -525,15 +500,11 @@
     width: 75px;
     padding: 9px 7px;
   }
-  .onboarding-top-outer .box-inner .left p {
-    font-size: 14px !important;
-  }
-
-  .leave-table-sm {
-    width: 25%;
+  .job-new-outer td:last-child.tf,
+  .job-new-outer th:last-child.tf {
+    width: 140px;
   }
 }
-
 @media only screen and (max-width: 980px) {
   .sidebar.is-open {
     margin-left: -250px !important;
@@ -855,12 +826,6 @@
   .collapse.show .nav-item a.active {
     color: #fff !important;
   }
-  .onboarding-top-outer .box-inner .left p {
-    font-size: 14px !important;
-  }
-  .leave-table-sm {
-    width: 25%;
-  }
 }
 @media only screen and (max-width: 767px) {
   .calendar-width {
@@ -1136,15 +1101,6 @@
   .candiate-modal-inner-tab .col-md-8 {
     padding-left: 15px;
   }
-  .onboarding-top-outer .box {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .onboarding-top-outer .box-inner .left p {
-    font-size: 13px !important;
-  }
-  .leave-table-sm {
-    width: 25%;
-  }
 }
 @media only screen and (max-width: 650px) {
   .listview-mob-top .col-2 {
@@ -1204,9 +1160,6 @@
   .sub-head {
     padding-left: 15px;
     padding-right: 15px;
-  }
-  .onboarding-top-outer .box-inner .left p {
-    font-size: 13px !important;
   }
 }
 
@@ -1493,7 +1446,7 @@
   .organization-sub-head {
     padding-bottom: 14px;
     margin-bottom: 20px;
-    margin-bottom: -43px;
+    margin-bottom: 0px;
     border: 0;
   }
   .categroy-top .col-md-3 {
@@ -1542,7 +1495,7 @@
   .org-box-rsp-pad {
     padding-left: 0px;
     padding-right: 0px;
-    padding-top: 15px;
+    padding-top: -15px;
   }
 
   .org-name span {

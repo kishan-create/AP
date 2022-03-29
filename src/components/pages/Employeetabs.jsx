@@ -55,7 +55,7 @@ export default function BasicTabs({setColumns}) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const { handleChange1, values, handleSubmit, errors,getpostName,job,handleImage,onSelect} = useForm(validate,setColumns);
+  const { handleChange1, values, handleSubmit, errors,getpostName,job,handleImage,onSelect,onSelectPrimarySkill,onSelectSecondaryskill} = useForm(validate,setColumns);
   const options = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
@@ -115,16 +115,30 @@ export default function BasicTabs({setColumns}) {
             </a>
           </h4>
         </div>
-        <input type="file" accept='.doc,.docx,application/pdf' name="resume" onChange={handleImage} class="form-control"/>
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body">
+        
+       
+        
+       
+        <div id="collapseOne" class="panel-collapse collapse">
+       
+          <div class="panel-body"> 
+          
           <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+          <div class="col-md-12">
+          <input type="file" class="form-control" accept='.doc,.docx,application/pdf' name="resume"  onChange={handleImage}/>
+          {errors.filevalue && <p className="EmptabValidation">{errors.filevalue}</p>}
+          </div>
+         
+          <br></br>
+          <br></br> <br></br> <br></br>
+         
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Name</label>
                                 <input type="text" name="username" onChange={handleChange1} value={values.username} class="form-control" ></input>
+                                {errors.namevalue && <p className="EmptabValidation">{errors.namevalue}</p>}
                             </div>
-                            </div>
+                        </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Post</label>
@@ -135,7 +149,7 @@ export default function BasicTabs({setColumns}) {
                                 <option value={post_name} >{post_name}</option>
                                 )} 
  </select>
-                                    {errors.postvalue && <p>{errors.postvalue}</p>}
+                                    {errors.postvalue && <p className="EmptabValidation">{errors.postvalue}</p>}
                                 </div>
                                
                             </div>
@@ -150,129 +164,143 @@ export default function BasicTabs({setColumns}) {
         }}
         onSelect={onSelect}
         options={skill}
-       
+        class="form-control"
         showCheckbox
         name="skillset"
       
       />
-                                   
+                       {errors.Skillsetvalue && <p className="EmptabValidation">{errors.Skillsetvalue}</p>}            
                                 </div>
                               
                             </div>
+                            
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Personal Email ID </label>
                                     <input type="email" name="p_email"  onChange={handleChange1} value={values.p_email} class="form-control" ></input>
+                                    {errors.Emailvalue && <p className="EmptabValidation">{errors.Emailvalue}</p>}  
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Contact Number</label>
                                     <input type="text" onChange={handleChange1}   value={values.phonenumber} name="phonenumber" class="form-control" ></input>
+                                    {errors.contactvalue && <p className="EmptabValidation">{errors.contactvalue}</p>}  
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Education</label>
                                     <input type="text" onChange={handleChange1} name="qualification" value={values.qualification} class="form-control" ></input>
+                                    {errors.educationvalue && <p className="EmptabValidation">{errors.educationvalue}</p>}  
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Total years of experience</label>
                                     <input type="text" onChange={handleChange1} name="exp" value={values.exp} class="form-control" ></input>
+                                    {errors.experiencevalue && <p className="EmptabValidation">{errors.experiencevalue}</p>} 
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">CTC</label>
                                     <input type="text" name="ctc" onChange={handleChange1} value={values.ctc} class="form-control" ></input>
-                                </div>
+                                    {errors.CTCvalue && <p className="EmptabValidation">{errors.CTCvalue}</p>} 
+                               </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">EXP CTC</label>
                                     <input type="text" name="expect_ctc" onChange={handleChange1} value={values.expect_ctc} class="form-control" ></input>
+                                    {errors.EXPCTCvalue && <p className="EmptabValidation">{errors.EXPCTCvalue}</p>} 
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Notice Period</label>
                                     <input type="text" name="noticeprd" onChange={handleChange1} value={values.noticeprd} class="form-control" ></input>
-                                </div>
+                                    {errors.NPvalue && <p className="EmptabValidation">{errors.NPvalue}</p>} 
+                               </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Date Of Birth </label>
                                     <input type="date" name="dob" onChange={handleChange1} value={values.dob} class="form-control" ></input>
+                                    {errors.DOBvalue && <p className="EmptabValidation">{errors.DOBvalue}</p>} 
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Location</label>
                                     <input type="text" name="location" onChange={handleChange1} value={values.location} class="form-control" ></input>
+                                    {errors.locvalue && <p className="EmptabValidation">{errors.locvalue}</p>} 
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Current Company</label>
                                     <input type="text" name="current_company"  onChange={handleChange1} value={values.current_company} class="form-control" ></input>
-                                </div>
+                               
+                                    {errors.currentcompanyvalue && <p className="EmptabValidation">{errors.currentcompanyvalue}</p>}  </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Domain Experience</label>
                                     <input type="text" name="domain_exp"  onChange={handleChange1} value={values.domain_exp} class="form-control" ></input>
+                                    {errors.domainexperiencevalue && <p className="EmptabValidation">{errors.domainexperiencevalue}</p>} 
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Apply date</label>
                                     <input type="date" name="app_date" onChange={handleChange1} value={values.app_date} class="form-control" ></input>
+                                    {errors.applaydatevalue && <p className="EmptabValidation">{errors.applaydatevalue}</p>}
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Primary Skills</label>
+                                    <label for="primarySkill"  >Primary Skills</label>
                                     <Multiselect
-        isObject={false}
-        onRemove={(event) => {
-         // console.log(event);
-        }}
-        onSelect={onSelect}
-        options={skill}
-       
-        showCheckbox
-        name="primary_skill"
-      
-      />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Secondary Skills</label>
-                                    <Multiselect
-        isObject={false}
-        onRemove={(event) => {
-         // console.log(event);
-        }}
-        onSelect={onSelect}
-        options={skill}
-       
-        showCheckbox
-        name="secskill"
-      
-      />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">References</label>
-                                    <textarea class="form-control" onChange={handleChange1} name="ref" value={values.ref} rows="2" > </textarea>
+                                      isObject={false}
+                                      onRemove={(event) => {
+                                      // console.log(event);
+                                      }}
+                                      onSelect={onSelectPrimarySkill}
+                                      
+                                      options={skill}      
+                                      showCheckbox
+                                      name="primary_skill" 
+                                      
+                                    />
+                                     {errors.primaryskillvalue && <p className="EmptabValidation">{errors.primaryskillvalue}</p>}
                                 </div>
                             </div>
 
-                           
+                            <div class="col-md-6">
+                                <div className="form-group">
+                                    <label for="secondaryskill">Secondary Skills</label>
+                                    <Multiselect
+                                      isObject={false}
+                                      onRemove={(event) => {
+                                      }}
+                                      onSelect={onSelectSecondaryskill}
+                                      options={skill}      
+                                      showCheckbox
+                                      name="secskill"     
+                                     
+                                      />
+                                      {errors.secondaryskillvalue && <p className="EmptabValidation">{errors.secondaryskillvalue }</p>}
+                                </div>
+                            </div>  
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">References</label>
+                                    <textarea class="form-control" onChange={handleChange1} name="ref" value={values.ref} rows="3" > </textarea>
+                                    {errors.referencevalue && <p className="EmptabValidation">{errors.referencevalue }</p>}
+                                </div>
+                            </div>            
                         
                      </div>
           </div>

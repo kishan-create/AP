@@ -73,7 +73,7 @@ export default function Popupmodal(){
         contentLabel="Example Modal" >
         <div className="popup-head-sty">
             <div className="popup-head-content-sty">
-                <h4 ref={(_subtitle) => (subtitle = _subtitle)} className="popup-head-h4">Candidate Details </h4>
+                <h4 ref={(_subtitle) => (subtitle = _subtitle)} className="popup-head-h4">Candidate Detail </h4>
             </div>
             <div className="popup-head-icon-sty">
                <MdClose className="popup-close-btn" onClick={closeModal} />
