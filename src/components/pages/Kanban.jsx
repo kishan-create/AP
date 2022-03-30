@@ -1210,7 +1210,7 @@ const Kanban = () => {
 
               </div>
               <form onSubmit={search_handle} className='form' noValidate>
-                <div className="recruitment-top-right-box recruitment-box-padding">
+                <div className="recruitment-top-right-box recruitment-box-padding new-rc-rt">
                   <div className="calendar-width">
                     <input className="form-control" type="date" id="dj" name="dj" onChange={handleSearch} value={searchvalues.dj} />
                   </div>
@@ -1225,7 +1225,7 @@ const Kanban = () => {
                       <option value="Release">Release</option>
                     </select>
                   </div>
-                  <div className="calendar-width mobile-search-none">
+                  <div className="calendar-width mobile-search-none candidatename-list">
 
                     <Autocomplete
                       disablePortal
@@ -1508,11 +1508,11 @@ const Kanban = () => {
                                                             NP:{item.notice_prd} Months
                                                           </div>
                                                         
-                                                          <div class="in-progress-location t-r">
+                                                        
+                                                        </div>
+                                                        <div class="in-progress-location t-r viewlog-button">
                                                             <span onClick={() => Viewlog(item.id)}>View Log</span>
                                                           </div>
-                                                        </div>
-
                                                       </div>
 
                                                     </div>
