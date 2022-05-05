@@ -504,6 +504,15 @@
   .job-new-outer th:last-child.tf {
     width: 140px;
   }
+  .cal-width-50{
+    width: 45%;
+  }
+  .cal-width-20{
+    width: 20%;
+  }
+  .cal-width-10{
+    width: 15%;
+  }
 }
 @media only screen and (max-width: 980px) {
   .sidebar.is-open {
@@ -826,6 +835,9 @@
   .collapse.show .nav-item a.active {
     color: #fff !important;
   }
+  .holiday-table-main-outer{
+    display: block;    float: left;    width: 100%;
+  }
 }
 @media only screen and (max-width: 767px) {
   .calendar-width {
@@ -1101,6 +1113,9 @@
   .candiate-modal-inner-tab .col-md-8 {
     padding-left: 15px;
   }
+  .logo img {
+    width: 149px;
+}
 }
 @media only screen and (max-width: 650px) {
   .listview-mob-top .col-2 {
@@ -1161,6 +1176,46 @@
     padding-left: 15px;
     padding-right: 15px;
   }
+  .holiday-table-list{
+    width: 100%;
+    float: left;
+    display: block;
+    overflow: scroll;
+    display: block;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    margin-bottom: 15px;
+}
+.holiday-table-list table {
+  border-collapse: collapse;
+  /* overflow-x: auto; */
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  width: auto !important;
+  float: left;
+}
+.holiday-table-list table thead {
+  width: auto !important;
+}
+.holiday-table-list table tbody {
+  width: auto !important;
+}
+.holiday-table-list table tr {
+  width: auto;
+  display: flex;
+}
+.cal-width-50{
+  width: 300px;
+}
+.cal-width-20{
+  width: 150px;
+}
+.cal-width-10{
+  width: 100px;
+}
 }
 
 @media only screen and (max-width: 573px) {
@@ -1500,6 +1555,15 @@
 
   .org-name span {
     padding-bottom: 15px;
+  }
+  .cal-width-50{
+    width: 200px;
+  }
+  .cal-width-20{
+    width: 120px;
+  }
+  .cal-width-10{
+    width: 100px;
   }
 }
 
