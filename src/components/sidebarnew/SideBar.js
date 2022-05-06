@@ -135,8 +135,7 @@ const $ = window.$;
           < MdPersonPin/>
           Loginform  1
           </NavLink>
-          
-        </NavItem>
+          </NavItem>
         <NavItem>
           <NavLink active={window.location.pathname === "/HolidayList"} tag={nlink} to={"/HolidayList"} activeClassName="active">
           < MdDateRange/>
