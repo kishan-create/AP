@@ -154,7 +154,11 @@ export default function Job(props) {
     setIsOpen(false);
     window.location.reload();
   }
- 
+  const data = [
+    { id: 1, name: "John Doe" },
+    { id: 2, name: "Victor Wayne" },
+    { id: 3, name: "Jane Doe" },
+  ];
   return (
     <div>
       <Modal
@@ -299,6 +303,7 @@ export default function Job(props) {
                       </TableRow>
                     </TableHead>
                     <TableBody>
+                      
                       {joblist.map(n => {
                         return (
                           <TableRow key={n.id} >
@@ -332,14 +337,19 @@ export default function Job(props) {
 
                 </Paper>
               </div>
-
+              
               <div className="accrodion-mob-outer">
-                <Accordion preExpanded={"a"} className="job-accrodion">
-                  <AccordionItem uuid="a">
+                <Accordion preExpanded= "0" className="job-accrodion">
+                
+                {joblist.map((k,i) => {
+                    return (
+                  <div>
+                   
+                  <AccordionItem uuid={i}>
                     <AccordionItemHeading className="accordion-active-status">
                       <AccordionItemButton >
                         <div className="accordion-head-text">
-                          <div className="name notificatio-outer">Java developer
+                          <div className="name notificatio-outer">Java
                             <div className="notification-label">
                               12
                             </div>
@@ -383,144 +393,11 @@ export default function Job(props) {
                       </div>
                     </AccordionItemPanel>
                   </AccordionItem>
+                  </div>
+                    );
+ })}
 
-                  <AccordionItem uuid="b">
-                    <AccordionItemHeading className="accordion-inactive-status">
-                      <AccordionItemButton>  <div className="accordion-head-text">
-                        <div className="name notificatio-outer">Java developer <div className="notification-label">
-                          12
-                        </div></div>
-                        <div className="desi joblocation">
-                          <img src={location} />
-                          <span>Kakkanad</span>
-                        </div>
-                      </div>   <div className="col-4 acc-status-change">
-                          <div class="active-status-style">0123</div>
-                        </div></AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <div className="accord-detals-box">
-                        <div className="left">Job ID</div>
-                        <div className="right">1234</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Skill Set </div>
-                        <div className="right">HTML, CSS, JavaScript, Figma</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Exp </div>
-                        <div className="right">10 Years</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Posted Date</div>
-                        <div className="right">20-10-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Post Close</div>
-                        <div className="right">10-11-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="accordion-bottom-button">
-                          <div className="more-button">View</div>
-                          <div className="more-button more-outer">Edit</div>
-                          <div className="more-button more-outer">Delete</div>
-                        </div>
-                      </div>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-                  <AccordionItem uuid="c">
-                    <AccordionItemHeading className="accordion-active-status">
-                      <AccordionItemButton >
-                        <div className="accordion-head-text">
-                          <div className="name notificatio-outer">Java developer
-                            <div className="notification-label">
-                              12
-                            </div>
-
-                          </div>
-                          <div className="desi joblocation">
-                            <img src={location} />
-                            <span>Kakkanad</span>
-                          </div>
-                        </div>   <div className="col-4 acc-status-change">
-                          <div class="active-status-style">0123</div>
-                        </div></AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <div className="accord-detals-box">
-                        <div className="left">Job ID</div>
-                        <div className="right">123</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Skill Set </div>
-                        <div className="right">HTML, CSS, JavaScript, Figma</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Exp </div>
-                        <div className="right">10 Years</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Posted Date</div>
-                        <div className="right">20-10-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Post Close</div>
-                        <div className="right">10-11-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="accordion-bottom-button">
-                          <div className="more-button">View</div>
-                          <div className="more-button more-outer">Edit</div>
-                          <div className="more-button more-outer">Delete</div>
-                        </div>
-                      </div>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-
-                  <AccordionItem uuid="d">
-                    <AccordionItemHeading className="accordion-inactive-status">
-                      <AccordionItemButton>  <div className="accordion-head-text">
-                        <div className="name notificatio-outer">Java developer <div className="notification-label">
-                          12
-                        </div></div>
-                        <div className="desi joblocation">
-                          <img src={location} />
-                          <span>Kakkanad</span>
-                        </div>
-                      </div>   <div className="col-4 acc-status-change">
-                          <div class="active-status-style">0123</div>
-                        </div></AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <div className="accord-detals-box">
-                        <div className="left">Job ID</div>
-                        <div className="right">1234</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Skill Set </div>
-                        <div className="right">HTML, CSS, JavaScript, Figma</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Exp </div>
-                        <div className="right">10 Years</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Posted Date</div>
-                        <div className="right">20-10-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Post Close</div>
-                        <div className="right">10-11-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="accordion-bottom-button">
-                          <div className="more-button">View</div>
-                          <div className="more-button more-outer">Edit</div>
-                          <div className="more-button more-outer">Delete</div>
-                        </div>
-                      </div>
-                    </AccordionItemPanel>
-                  </AccordionItem>
+              
                 </Accordion>
               </div>
 
