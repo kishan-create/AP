@@ -64,7 +64,7 @@ const data = [
       <header className="main-otrer-top"> Holiday Calendar</header>
              <section  className="main-content-area">
                 <div className="main-content-area-inner">
-                    <div className="sub-head organization-sub-head">Holidays
+                    <div className="sub-head organization-sub-head">Holidays List
                     <div className="top-right-outer add-btn-div">
                     <Addholidaymodal />
   </div>
