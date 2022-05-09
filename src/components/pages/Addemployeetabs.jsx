@@ -30,6 +30,7 @@ import personal_validation from "../validation/personal_validation";
 
 
 export default function Addemployeetab() {
+  const [myimage, setMyImage] = React.useState(null);
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
     var href = $(e.target).attr('href');
@@ -43,7 +44,7 @@ export default function Addemployeetab() {
 });
 
 
-const [myimage, setMyImage] = React.useState(null);
+
 const uploadImage = e => {
   setMyImage(URL.createObjectURL(e.target.files[0]));
 };
@@ -239,7 +240,7 @@ window.addEventListener("resize", () => {
           <div className="tab-outer">
       <div className="basic-inform-outer">
 <div className="row basic-inform-background ">
-<div className="sub-head basic-inform-main-head">Employee List
+<div className="sub-head basic-inform-main-head">Employee List-Add
                                 <div className="top-right-outer add-btn-div">
                                 <button type="button" class="btn  btn-save "  > Save</button>
             <button type="button" class="btn  btn-cancel " > Cancel </button> 

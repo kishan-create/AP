@@ -67,7 +67,7 @@ export default function BasicTabs({setColumns}) {
       setMyImage(URL.createObjectURL(e.target.files[0]));
     };
     const [skill, setSkill] = useState(["PHP", "JAVA", "MYSQL","HTML","PYTHON","JAVASCRIPT","JQUERY"]);
-   
+    const[setdropvalue, setDropvalue]=useState(["PHP", "JAVA"]);
   return (
 
 

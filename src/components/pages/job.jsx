@@ -93,7 +93,7 @@ export default function Job(props) {
     getLocation();
   }, []);
   const loadJobs = async () => {
-    const res = await fetch("http://localhost:8000/api/getJobs");
+    const res = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getJobs");
     const data = await res.json();
     const list = data.job;
     SetJoblist(list);
@@ -101,7 +101,7 @@ export default function Job(props) {
 
   }
   const getLocation = async () => {
-    const res = await fetch("http://localhost:8000/api/getLocationBranch");
+    const res = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getLocationBranch");
     const data = await res.json();
     const list = data.location;
     SetLocation(list);
@@ -109,14 +109,14 @@ export default function Job(props) {
 
   }
   const getPostname = async () => {
-    const response = await fetch("http://localhost:8000/api/getposttype");
+    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getposttype");
     const data = await response.json();
     const list = data.post;
     SetPostvalues(list);
   }
   const Edit_job = async (id) => {
     const job_id = id;
-    const reponse = await axios.get(`http://localhost:8000/api/editfecthjobdata/${job_id}`)
+    const reponse = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/editfecthjobdata/${job_id}`)
     console.log(reponse.data.job[0]);
     if (reponse.data.status == 200) {
       SetValues({
@@ -148,7 +148,7 @@ export default function Job(props) {
   }
   const updateOrganization = async (e) => {
     e.preventDefault();
-    const res = await axios.put('http://localhost:8000/api/update_job', values);
+    const res = await axios.put('http://auditportal.bourntec.com:3001/audit_portal/public/api/update_job', values);
     if (res.data.status == 200) {
       swal({
         title: "Good job!",
@@ -167,7 +167,11 @@ export default function Job(props) {
   function closeModal() {
     setIsOpen(false);
   }
- 
+  const data = [
+    { id: 1, name: "John Doe" },
+    { id: 2, name: "Victor Wayne" },
+    { id: 3, name: "Jane Doe" },
+  ];
   return (
     <div>
       <Modal
@@ -322,6 +326,7 @@ export default function Job(props) {
                       </TableRow>
                     </TableHead>
                     <TableBody>
+                      
                       {joblist.map(n => {
                         return (
                           <TableRow key={n.id} >
@@ -369,7 +374,7 @@ export default function Job(props) {
 
                 </Paper>
               </div>
-
+              
               <div className="accrodion-mob-outer">
                 <Accordion preExpanded ="0"className="job-accrodion">
                 {joblist.map((res_data,i) => {

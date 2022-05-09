@@ -43,7 +43,7 @@ const handleSubmit =e => {
     setIsSubmitting(true);
     if (Object.keys(errors).length === 0 && isSubmitting) 
   {
-   const promise= axios.post('http://localhost:8000/api/add_employee_first', values);
+   const promise= axios.post('http://auditportal.bourntec.com:3001/audit_portal/public/api/add_employee_first', values);
    promise.then(function(res) {
     if(res.data.status===200)
     {

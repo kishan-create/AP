@@ -35,7 +35,7 @@ const Releaseform = release_validation => {
         }
     }, [errorsrelease]);
     const onSubmitform = e => {
-        const response = axios.post('http://localhost:8000/api/add_offerletter', valuesrelease);
+        const response = axios.post('http://auditportal.bourntec.com:3001/audit_portal/public/api/add_offerletter', valuesrelease);
         response.then(function (res) {
             if (res.data.status === 200) {
                 //console.log(res.data.message);

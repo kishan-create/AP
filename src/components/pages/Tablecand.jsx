@@ -55,7 +55,7 @@ function SimpleTable(props) {
   }, []);
   const loadCandidates = async() =>
   {
-    const res = await fetch('http://localhost:8000/api/getcandidatesdetails');
+    const res = await fetch('http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidatesdetails');
     const data = await res.json();
     const candidates = data.candidate;
     SetCandidatelist(candidates);
@@ -75,7 +75,7 @@ function SimpleTable(props) {
   console.log(values);
   const editCandidates = async(id,e) => {
     const can_id=id;
-     const response = await axios.get(`http://localhost:8000/getCandidatefullDetails/${can_id}`);
+     const response = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/getCandidatefullDetails/${can_id}`);
      console.log(response.data.candidate);
      if (response.data.status == 200) {
       values.username=response.data.candidate[0].name;
