@@ -437,29 +437,26 @@ export default class OfferReleasereport extends Component {
 
                       <TableRow>
 
-                        <TableCell className="width-15">Job Offer ID</TableCell>
-                        <TableCell className="width-15">Candidate Name</TableCell>
-                        <TableCell className="width-15">Post</TableCell>
-                        <TableCell className="width-12">Joining Date</TableCell>
-                        <TableCell className="width-15">Location</TableCell>
-                        <TableCell className="width-15">Status</TableCell>
-                        <TableCell className="width-20 offer-map-width ">Action</TableCell>
-
+                      <TableCell className="width-15">Job Offer ID</TableCell>
+                      <TableCell className="width-15">Candidate Name</TableCell>
+                      <TableCell className="width-15">Post</TableCell>
+                      <TableCell className="width-12">Joining Date</TableCell>
+                      <TableCell className="width-12">Location</TableCell>
+                      <TableCell className="width-12">Status</TableCell>
+                      <TableCell className="width-20 offer-map-width ">Action</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       {
-                        this.state.release_data.map(n => {
-                          
+                        this.state.release_data.map(n => {                     
                           return (
                             <TableRow key={n.id} >
                               <TableCell className="width-15"> {n.offer_code}</TableCell>
                               <TableCell numeric className="width-15">{n.name}</TableCell>
                               <TableCell numeric className=" width-15">{n.post} </TableCell>
                               <TableCell numeric className="width-12">{n.offer_release_date}</TableCell>
-                              <TableCell numeric className="width-15">{n.location}</TableCell>
-                              <TableCell numeric className="width-15">
-                             
+                              <TableCell numeric className="width-12">{n.location}</TableCell>
+                              <TableCell numeric className="width-12">                          
                               <div className="emp-edit-new-icon ">
                               {n.emp_status == 0?  <input type="checkbox" name="empstatus" onClick={() => this.ViewEmployeeStatus(n.id)}  />: <input type="checkbox" checked   /> }
                              

@@ -7,9 +7,9 @@ import {
   Button,
   NavbarToggler,
   Collapse,
-  Nav,
+  Nav,  UncontrolledButtonDropdown,
   NavItem,
-  NavLink,
+  NavLink, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { FiAlignRight } from "@react-icons/all-files/fi/FiAlignRight";
@@ -18,15 +18,20 @@ import { BsBell } from "@react-icons/all-files/bs/BsBell";
 import {dashboard,asste,Grouplog, logomob} from '../../images';
 import {useAuth}  from "../../context/auth.context";
 const Topbar = ({ toggleSidebar,userData }) => {
+
+  
   const userdata = useAuth(userData);
   const [topbarIsOpen, setTopbarOpen] = useState(true);
   const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
   const logout = () => {
-  
+  alert("logout");
     localStorage.clear();
+    window.location.href = "http://localhost:3000/Loginform";
 // you can also like localStorage.removeItem('Token');
-    window.location.href = "/Loginform";
+    //window.location.href = "http://localhost:3000/Loginform";
   }
+
+  
   return (
     <Navbar
       color="light"
@@ -45,6 +50,7 @@ const Topbar = ({ toggleSidebar,userData }) => {
         <div class="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
+<<<<<<< HEAD
                  
                 
                  <span> 	<img className="topbar-icon-right-img" src={Grouplog}/>  </span>
@@ -56,6 +62,20 @@ const Topbar = ({ toggleSidebar,userData }) => {
                         </div>
                       </div>
                </div>
+=======
+           <UncontrolledButtonDropdown  className="log-out-show">
+                <DropdownToggle  caret size="md" className="" >
+                <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">{userdata.user.name}</sup></span>
+                </DropdownToggle>
+                <DropdownMenu className="">
+                <a  onClick={logout}>
+                <i class="fa fa-power-off logout-new"></i> Logout 
+          </a>
+                </DropdownMenu>
+              </UncontrolledButtonDropdown>
+       
+       </div>
+>>>>>>> acd99ff026428685d49bc95ae11ae32967d23cad
         </Navbar>
        </Navbar>
   );

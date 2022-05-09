@@ -6,7 +6,14 @@ import ReactDOM from 'react-dom';
 const EditKanbanboard = (setEditstate,setIsViewLog) => {
   const [modalState, setModalState] = useState(true);
   const[resume, SetResume] = useState ([]);
+  
   const[log, SetLog] = useState ([]);
+  const[editskill,seteditedSkill]=useState(0);
+  //const[editprimaryskill,seteditedprimarySkill]=useState(0);
+  const[editprimaryskill,seteditedprimarySkill]=useState(0);
+  const[editsecondaryskill,seteditedsecondarySkill]=useState(0);
+  const[removedskill,setremovedSkill]=useState(0);
+  
   const [editvalues, SetEditValues] = useState({
     username: '',
     postvalue: '',
@@ -46,12 +53,16 @@ const EditKanbanboard = (setEditstate,setIsViewLog) => {
     edit_resume:'',
     resume:''
   });
+ 
   const edithandleChange = e => {
     const { name, value } = e.target
     SetEditValues({
       ...editvalues,
       [name]: value
+      
+     
     })
+    console.log(e);
   }
   const handleImage =e =>
   {
@@ -59,6 +70,7 @@ const EditKanbanboard = (setEditstate,setIsViewLog) => {
           resume:e.target.files[0]
       });
   };
+  
   const Viewlog = async(id) =>
   {
     const response = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/viewlog/${id}`);
@@ -66,6 +78,9 @@ const EditKanbanboard = (setEditstate,setIsViewLog) => {
   SetLog(response.data.log);
   setIsViewLog(true);
   }
+
+
+
   const getBasicdetails = async (id, column) => {
     const basic_id = id;
     //alert(column);
@@ -142,14 +157,56 @@ const EditKanbanboard = (setEditstate,setIsViewLog) => {
       }
     }
   }
+  const skillremove= (event) =>
+  { 
+     setremovedSkill(event)  
+      console.log(event)   
+  }
 
+  const editedskill= (event) =>
+  {
+    
+     
+      seteditedSkill(event)
+    
+      console.log(event)
+     
+  }
+
+  const editedprimaryskill=(event)=>
+  {
+   
+      seteditedprimarySkill(event)
+    
+    
+    console.log(event)
+    
+  }
+  const editedsecondaryskill= (event) =>
+  {
+     // console.log(event);
+    
+      seteditedsecondarySkill(event)
+    
+    console.log(event)
+    
+  }
+  
   const handleSubmit_edit = async(e) => {
     e.preventDefault();
     const formData = new FormData(); 
     formData.append('resume', resume.resume);
     formData.append('username', editvalues.username);
     formData.append('post', editvalues.post);
-    formData.append('skillset', editvalues.skillset);
+    if(editskill==0||editskill==editvalues.skillset)
+    {
+      formData.append('skillset',editvalues.skillset);
+    }
+    else
+    {
+      formData.append('skillset',editskill);
+    }
+    
     formData.append('p_email', editvalues.p_email);
     formData.append('phonenumber', editvalues.phonenumber);
     formData.append('qualification', editvalues.qualification);
@@ -162,8 +219,23 @@ const EditKanbanboard = (setEditstate,setIsViewLog) => {
     formData.append('current_company', editvalues.current_company);
     formData.append('domain_exp', editvalues.domain_exp);
     formData.append('app_date', editvalues.app_date);
+    if(editprimaryskill==0||editprimaryskill==editvalues.primary_skill)
+    {
     formData.append('primary_skill', editvalues.primary_skill);
-    formData.append('secskill', editvalues.secskill);
+    }
+    else
+    {
+      formData.append('primary_skill', editprimaryskill);
+    }
+    if(editsecondaryskill==0||editsecondaryskill==editvalues.secskill)
+    {
+      formData.append('secskill',editvalues.secskill);
+    }
+    else
+    {
+      formData.append('secskill',editsecondaryskill);
+    }
+  
     formData.append('ref', editvalues.ref);
     formData.append('edit_b_id', editvalues.edit_b_id);
     formData.append('edit_basic_column_name', editvalues.edit_basic_column_name);
@@ -189,11 +261,19 @@ const EditKanbanboard = (setEditstate,setIsViewLog) => {
     {
 
        alert("Updated successfully");
+       console.log(editskill);
+       console.log(editprimaryskill);
+       console.log(editsecondaryskill);
+       console.log(editvalues.skillset);
+       console.log(editvalues.primary_skill);
+       console.log(editvalues.secskill);
+    
        setEditstate(false);
+       window.location.reload();
       }
-     
+      
   }
-  return { getBasicdetails, editvalues, edithandleChange ,handleSubmit_edit,handleImage,Viewlog,log};
+  return { getBasicdetails, editvalues, edithandleChange ,skillremove,editedskill,handleSubmit_edit,editedskill,editedprimaryskill,editedsecondaryskill,handleImage,Viewlog,log};
 
 }
 
