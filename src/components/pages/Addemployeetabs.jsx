@@ -21,6 +21,9 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import {BsPersonBadge, BsPersonBoundingBox, BsMenuApp } from "react-icons/bs";
+
+import Personalform from "./Personalform";
+import personal_validation from "../validation/personal_validation";
  
 
 
@@ -173,6 +176,14 @@ const setDirection = () => {
   }
 };
 
+const {
+  handleChange,
+  values,
+  handleSubmit,
+  errors,
+  options,
+} =  Personalform(personal_validation);
+
 setDirection();
 
 let timeout = false;
@@ -181,6 +192,8 @@ window.addEventListener("resize", () => {
   clearTimeout(timeout);
   timeout = setTimeout(setDirection, 200);
 });
+
+
 
     return (
       <main className="inner-content-box">
@@ -386,7 +399,9 @@ window.addEventListener("resize", () => {
   </div>
 
 <div className="subbody-background">
-  <div class="form-group"><label for="exampleFormControlInput1">Address</label><textarea className="form-control" rows="3" spellcheck="false"> </textarea></div>
+  <div class="form-group"><label for="exampleFormControlInput1">Address</label><textarea className="form-control" rows="3" spellcheck="false"> </textarea>
+  {errors.personal_address && (<p className="red-alert">{errors.personal_address}</p>
+   )}{" "}</div>
   <div class="form-group"><label for="exampleFormControlInput1">City</label><input type="email" className="form-control"/></div>
   <div class="form-group"><label for="exampleFormControlInput1">Zipcode</label><input type="email" className="form-control"/></div>
   <div class="form-group"><label for="exampleFormControlInput1">Contact Number</label><input className="form-control" type="date" id="" name="birthday"/></div>
@@ -497,7 +512,7 @@ window.addEventListener("resize", () => {
   </div>
 
   <div className="bottom-button-bg  mrg-top-30  mrg-left-0 mrg-right-0">
-            <button type="button" class="btn  btn-save "  > Save</button>
+            <button type="button" onClick={handleSubmit} class="btn  btn-save "  > Save</button>
             <button type="button" class="btn  btn-cancel " > Cancel </button> 
         </div>
   
@@ -613,7 +628,7 @@ window.addEventListener("resize", () => {
     </FormGroup>
 </div>
 
-
+      
 </div>
 
   </div>
