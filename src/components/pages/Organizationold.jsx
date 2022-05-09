@@ -118,7 +118,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   }
   const editbranch = async (id) => {
     const branch_id = id;
-    const reponse = await axios.get(`http://localhost:8000/api/editfecthbranchdata/${branch_id}`);
+    const reponse = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/editfecthbranchdata/${branch_id}`);
     if (reponse.data.status == 200) {
       SetValues({
         branch_name: reponse.data.branch.branch_name,
@@ -139,7 +139,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   const edit = async (id) => {
 
     const org_id = id;
-    const reponse = await axios.get(`http://localhost:8000/api/editfecthorgdata/${org_id}`);
+    const reponse = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/editfecthorgdata/${org_id}`);
     // setIsOpen(true);
     if (reponse.data.status == 200) {
       SetValues({
@@ -156,18 +156,18 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   }
   const updateOrganization = async (e) => {
     e.preventDefault();
-    const res = await axios.put('http://localhost:8000/api/update_organization', values);
+    const res = await axios.put('http://auditportal.bourntec.com:3001/audit_portal/public/api/update_organization', values);
     alert("Organization updated successfully");
   }
   const updateBranch = async (e) => {
     e.preventDefault();
-    const res = await axios.put('http://localhost:8000/api/update_branch', values);
+    const res = await axios.put('http://auditportal.bourntec.com:3001/audit_portal/public/api/update_branch', values);
     alert("Branch updated successfully");
   }
   const deleteOrganization = async (e, id) => {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
-    const res = await axios.delete(`http://localhost:8000/api/delete_organization/${id}`);
+    const res = await axios.delete(`http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_organization/${id}`);
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
       console.log(res.data.message);
@@ -177,14 +177,14 @@ function Row(props: { row: ReturnType<typeof createData> }) {
     e.preventDefault();
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
-    const res = await axios.delete(`http://localhost:8000/api/delete_branches/${id}`);
+    const res = await axios.delete(`http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_branches/${id}`);
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
       alert("Branch Deleted successfully")
     }
   }
   const getCompanyName = async () => {
-    const response = await fetch("http://localhost:8000/api/getOrgnaizationname");
+    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrgnaizationname");
     const data = await response.json();
 
     const listnewtest = data.org;
@@ -458,7 +458,7 @@ export default function Organizationold() {
   const [rows, setRows] = useState([]);
 
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:8000/api/getOrganizationvalues");
+    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrganizationvalues");
     const org = res.data.org;
 
     setRows(org);

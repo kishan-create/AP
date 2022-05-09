@@ -19,8 +19,6 @@ import {dashboard,asste,Grouplog, logomob} from '../../images';
 import {useAuth}  from "../../context/auth.context";
 const Topbar = ({ toggleSidebar,userData }) => {
   const userdata = useAuth(userData);
- 
-
   const [topbarIsOpen, setTopbarOpen] = useState(true);
   const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
   const logout = () => {
@@ -47,6 +45,7 @@ const Topbar = ({ toggleSidebar,userData }) => {
         <div class="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
+                 
                 
                  <span> 	<img className="topbar-icon-right-img" src={Grouplog}/>  </span>
                  <div class="dropdown">

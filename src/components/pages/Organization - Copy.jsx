@@ -89,7 +89,7 @@ const data = [
       });
     };
     async componentDidMount(){
-     const res=await axios.get("http://localhost:8000/api/getOrganization/");
+     const res=await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrganization/");
      //console.log(res.data.sta);
      if(res.data.sta===200)
      {
@@ -105,7 +105,7 @@ const data = [
     
    async edit (id) { 
      const org_id=id;
-      const reponse=await axios.get(`http://localhost:8000/api/editfecthorgdata/${org_id}`)
+      const reponse=await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/editfecthorgdata/${org_id}`)
       if(reponse.data.status==200)
       {
        
@@ -129,14 +129,14 @@ const data = [
   {
   
     e.preventDefault();
-   const res=await axios.put('http://localhost:8000/api/update_organization',this.state.formData);
+   const res=await axios.put('http://auditportal.bourntec.com:3001/audit_portal/public/api/update_organization',this.state.formData);
 
    
   };
   deleteOrganization =async(e,id) => {
     const thisclickrow=e.currentTarget;
     thisclickrow.innerText="Deleting";
-  const res= await axios.delete(`http://localhost:8000/api/delete_organization/${id}`);
+  const res= await axios.delete(`http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_organization/${id}`);
      if(res.data.status==200)
      {
       thisclickrow.closest("tr").remove();
