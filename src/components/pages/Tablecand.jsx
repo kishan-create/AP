@@ -383,25 +383,25 @@ function SimpleTable(props) {
       <Table className="recruitment-tabele">
         <TableHead>
         <TableRow>
-            <TableCell className="width-15">Name1</TableCell>
-            <TableCell className="width-12">Post</TableCell>
-            <TableCell className="width-15">Skill set</TableCell>
-            <TableCell className="width-8">Exp</TableCell>
-            <TableCell className="width-8">CTC</TableCell>
-            <TableCell className="width-8">EXP CTC</TableCell>
-            <TableCell className="width-10">Notice period</TableCell>
-            <TableCell className="width-10">Location</TableCell>
-            <TableCell className="width-8">Status</TableCell>
-            <TableCell className="width-8">Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {candidatelist.map(n => {
-            return (
-              <TableRow key={n.id}>
-              <TableCell  className="width-15">
-                {n.name}
-              </TableCell>
+              <TableCell className="width-15">Name</TableCell>
+              <TableCell className="width-12">Post</TableCell>
+              <TableCell className="width-15">Skill set</TableCell>
+              <TableCell className="width-8">Exp</TableCell>
+              <TableCell className="width-8">CTC</TableCell>
+              <TableCell className="width-8">EXP CTC</TableCell>
+              <TableCell className="width-12">Notice period</TableCell>
+              <TableCell className="width-10">Location</TableCell>          
+              <TableCell className="width-8">Status</TableCell>
+              <TableCell className="width-8">Action</TableCell>
+              </TableRow>
+              </TableHead>
+              <TableBody>
+              {candidatelist.map(n => {
+              return (
+                <TableRow key={n.id}>
+                <TableCell  className="width-15">
+                  {n.name}
+                  </TableCell>
               <TableCell numeric className="width-12">{n.post}</TableCell>
               <TableCell numeric className=" width-15">{n.skillset}</TableCell>
               <TableCell numeric className="width-8">{n.total_exp}</TableCell>

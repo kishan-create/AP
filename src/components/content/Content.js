@@ -32,8 +32,12 @@ import Offboarding from "../pages/Offboarding";
 //import Login from "../admin/auth/Login";
 import Loginform from "../login/Loginform";
 import logout_new from "../login/Logout_new";
+import HolidayList from "../pages/Holiday-calendar-list"
+
+
 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
+  
   <Container
     fluid
     className={classNames("content", { "is-open": sidebarIsOpen })}
@@ -69,7 +73,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
              <Router path="/Addproperty">
         < Addproperty/>
         </Router> 
-        <Router path="/Organizationlist">
+        <Router path="/Organizationlist" >
         <Organizationlist/>
         </Router>
         <Router path="/Organizationold">
@@ -78,7 +82,9 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
         <Router path="/Organizationold">
         < Organizationold/>
         </Router>
-       
+        <Router exact  path="/HolidayList"  component={HolidayList}>
+        < HolidayList/>
+        </Router>
         
     </Switch>
   </Container>
