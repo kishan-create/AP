@@ -1449,6 +1449,10 @@
     margin-bottom: 0px;
     border: 0;
   }
+
+  .sub-head-bottom-pad {
+    margin-bottom: -40px;
+  }
   .categroy-top .col-md-3 {
     width: 80%;
   }
@@ -1496,6 +1500,10 @@
     padding-left: 0px;
     padding-right: 0px;
     padding-top: -15px;
+  }
+
+  .org-box-pad {
+    padding-top: -35px;
   }
 
   .org-name span {

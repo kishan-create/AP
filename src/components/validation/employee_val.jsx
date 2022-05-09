@@ -1,30 +1,119 @@
-import React from 'react'
+import React from "react";
 
-export default function employee_val(values) {   
-    let errors ={}
-    
-   
-    if (!values.postvalue) {
-        errors.postvalue = 'Post is required';
-        errors.namevalue = 'Name is required';
-        errors.Skillsetvalue = 'Skillset is required';
-        errors.Emailvalue= 'Email is required';
-        errors.contactvalue= 'Contact is required';
-        errors.educationvalue= 'Education is required';
-        errors.experiencevalue= 'Experience is required';
-        errors.CTCvalue= 'CTC is required';
-        errors.EXPCTCvalue= 'Expected CTC is required';
-        errors.NPvalue= 'Notice period is required';
-        errors.DOBvalue= 'Date of birth is required';
-        errors.locvalue= 'Location is required';
-        errors.currentcompanyvalue= 'Current company is required';
-        errors.domainexperiencevalue= 'Domain experience is required';
-        errors.applaydatevalue= 'Apply date is required';
-        errors.primaryskillvalue= 'Primary skill is required';
-        errors.secondaryskillvalue = 'Secondary skill is required';
-        errors.referencevalue= 'Reference is required';
-        errors.filevalue= 'Resume is required';
-      }
-    return errors;
+export default function employee_val(values) {
+  let errors = {};
+
+  if (!values.emp_name.trim()) {
+    errors.emp_name = "employee name reqiured";
+  }
+  if (!values.emp_code.trim()) {
+    errors.emp_code = "employee code reqiured";
+  }
+  if (!values.emp_desigination.trim()) {
+    errors.emp_desigination = "employee designination reqiured";
+  }
+  if (!values.emp_joindate.trim()) {
+    errors.emp_joindate = "employee join date reqiured";
+  }
+  if (!values.emp_email.trim()) {
+    errors.emp_email = "employee email reqiured";
+  }
+  if (!values.emp_reportperson.trim()) {
+    errors.emp_reportperson = "employee report person reqiured";
+  }
+  if (!values.emp_teamsactiondate.trim()) {
+    errors.emp_teamsactiondate = "employee trasaction date reqiured";
+  }
+  if (!values.emp_effectivedate.trim()) {
+    errors.emp_effectivedate = "employee effective date reqiured";
+  }
+  if (!values.emp_positionno.trim()) {
+    errors.emp_positionno = "employee postion number reqiured";
+  }
+  if (!values.emp_ou.trim()) {
+    errors.emp_ou = "employee ou reqiured";
+  }
+
+  if (!values.parent_ou.trim()) {
+    errors.parent_ou = "employee paret ou reqiured";
+  }
+  if (!values.emp_region.trim()) {
+    errors.emp_region = "employee region reqiured";
+  }
+
+  if (!values.emp_reporting_person.trim()) {
+    errors.emp_reporting_person = "employee reporting person reqiured";
+  }
+  if (!values.emp_function.trim()) {
+    errors.emp_function = "employee function reqiured";
+  }
+  if (!values.emp_employment_status.trim()) {
+    errors.emp_employment_status = "employee status reqiured";
+  }
+  if (!values.emp_status.trim()) {
+    errors.emp_status = "employee status reqiured";
+  }
+  if (!values.emp_next_status.trim()) {
+    errors.emp_next_status = "employee next status reqiured";
+  }
+
+  if (!values.emp_next_statuson.trim()) {
+    errors.emp_next_statuson = "employee status on reqiured";
+  }
+  if (!values.emp_cost_center.trim()) {
+    errors.emp_cost_center = "employee cost center reqiured";
+  }
+
+  if (!values.emp_grade.trim()) {
+    errors.emp_grade = "employee grade reqiured";
+  }
+
+  if (!values.emp_grade_band.trim()) {
+    errors.emp_grade_band = "employee grade band reqiured";
+  }
+
+  if (!values.emp_department.trim()) {
+    errors.emp_department = "employee department reqiured";
+  }
+
+  if (!values.emp_location.trim()) {
+    errors.emp_location = "employee location reqiured";
+  }
+
+  if (!values.emp_country.trim()) {
+    errors.emp_country = "employee grade country reqiured";
+  }
+
+  if (!values.emp_region.trim()) {
+    errors.emp_region = "employee region reqiured";
+  }
+
+  if (!values.emp_orginal_hire_date.trim()) {
+    errors.emp_orginal_hire_date = "employee hire date reqiured";
+  }
+
+  if (!values.emp_holiday_calender.trim()) {
+    errors.emp_holiday_calender = "employee holiday calender reqiured";
+  }
+
+  if (!values.emp_reporting_manager.trim()) {
+    errors.emp_reporting_manager = "employee reporting manger reqiured";
+  }
+
+  if (!values.emp_functional_manager.trim()) {
+    errors.emp_functional_manager = "employee functional manager reqiured";
+  }
+
+  if (!values.emp_desigination.trim()) {
+    errors.emp_desigination = "employee designation reqiured";
+  }
+
+  if (!values.emp_number.trim()) {
+    errors.emp_number = "employee number reqiured";
+  }
+  if (!values.emp_gender.trim()) {
+    errors.emp_gender = "employee gender reqiured";
+  }
+
+  return errors;
 }
-

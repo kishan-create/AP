@@ -4014,3 +4014,7 @@ li.option {
   padding-right: 5px;
   margin-top: 2px;
 }
+
+.red-alert {
+  color: red;
+}
