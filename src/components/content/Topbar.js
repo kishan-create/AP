@@ -50,17 +50,18 @@ const Topbar = ({ toggleSidebar,userData }) => {
         <div class="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
-                 
-                
-                 <span> 	<img className="topbar-icon-right-img" src={Grouplog}/>  </span>
-                 <div class="dropdown">
-                        <button class="dropbtn">{userdata.user.name} <i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content">
-                        
-                        <span onClick={logout}>Logout</span>
-                        </div>
-                      </div>
-               </div>
+           <UncontrolledButtonDropdown  className="log-out-show">
+                <DropdownToggle  caret size="md" className="" >
+                <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">{userdata.user.name}</sup></span>
+                </DropdownToggle>
+                <DropdownMenu className="">
+                <a  onClick={logout}>
+                <i class="fa fa-power-off logout-new"></i> Logout 
+          </a>
+                </DropdownMenu>
+              </UncontrolledButtonDropdown>
+       
+       </div>
         </Navbar>
        </Navbar>
   );

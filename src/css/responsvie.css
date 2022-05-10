@@ -278,7 +278,7 @@
     border-collapse: collapse;
     overflow-x: auto;
     display: block;
-    width: 100%;
+    width: 100% !important;
     float: left;
     margin-top: 0;
     width: auto;
@@ -838,6 +838,14 @@
   .holiday-table-main-outer{
     display: block;    float: left;    width: 100%;
   }
+  .accordion-head-text-right{
+    padding: 18px 10px;
+    float: left;
+}
+.public-optional-bordr {
+  border-top: 1px solid #ebeaea;
+  margin-top: 25px;
+}
 }
 @media only screen and (max-width: 767px) {
   .calendar-width {
