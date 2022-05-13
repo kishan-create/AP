@@ -143,6 +143,13 @@ const $ = window.$;
           </NavLink>
           
         </NavItem>
+        <NavItem>
+          <NavLink active={window.location.pathname === "/Holidaycalendar"} tag={nlink} to={"/Holidaycalendar"} activeClassName="active">
+          < MdDateRange/>
+          Holiday Calendar List
+          </NavLink>
+          
+        </NavItem>
       </Nav>
     </div>
   </div>

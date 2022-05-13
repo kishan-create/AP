@@ -33,7 +33,10 @@ import Offboarding from "../pages/Offboarding";
 import Loginform from "../login/Loginform";
 import logout_new from "../login/Logout_new";
 import HolidayList from "../pages/Holiday-calendar-list"
-
+import Holidaycalendar from "../pages/Holidaycalendar";
+import Multyselect from "../pages/Multyselect";
+import Holidaypopup from "../pages/Holidaypopup";
+import Holidayview from "../pages/Holidayview";
 
 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
@@ -58,6 +61,11 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
 
     <Route exact path="/OfferReleasereport" component={OfferReleasereport} />  
     <Route exact path="/Offboarding" component={Offboarding} />  
+    <Route exact path="/Holidaypopup" component={Holidaypopup} />  
+    <Route exact path="/Holidayview" component={Holidayview} />  
+    <Route exact path="/Holidaycalendar" component={Holidaycalendar} />
+    
+    <Route exact path="/Multyselect" component={Multyselect} />
         <Router path="/Addemployeetab">
         <Addemployeetab/>
         </Router> 

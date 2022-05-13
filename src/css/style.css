@@ -4138,3 +4138,93 @@ li.option {
   padding-right: 4px;
 }
 /*==========Holiday Style END=======*/
+
+/*==========Holiday Calander START=======*/
+
+.india-flag {
+  width: 40px;
+  margin-top: 5px;
+}
+.us-flag {
+  width: 33px;
+  margin-top: 5px;
+  float: left;
+}
+.star-black{
+  float: left;
+  margin-right: 15px;
+  margin-top: 16px;
+  font-size: 20px;
+  color: #c5c4c4;
+}
+.star-green {
+  float: left;
+  margin-right: 15px;
+  margin-top: 16px;
+  font-size: 20px;
+  color: #11b71a;
+}
+.calander-countryname{
+  float: left;
+  margin-left: 15px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+.accordion-head-text-right{
+  padding: 4px 10px;
+  float: right;
+}
+.accordion-active-status1 .accordion__button:before {
+  background: #c5c4c4;
+}
+.m-b-25{
+  margin-bottom: 25px;
+}
+.m-t-25{
+  margin-top: 25px;
+}
+.highlightOption {
+  background: #fff;
+  color: #515151;
+}
+.multiSelectContainer li:hover {
+  background: #ad4680;
+  color: #fff;
+  cursor: pointer;
+}
+.chip {
+  padding: 4px 10px;
+  background: #4A54D1;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: 11px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  line-height: 19px;
+  color: #fff;
+}
+.optionListContainer {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 4px;
+  margin-top: 1px;
+  z-index: 112;
+}
+.width-45{
+  width: 45%;
+}
+.public-optional-bordr {
+  border-top: 0px solid #ebeaea;
+  margin-top: 0px;
+}
+.multiSelectContainer input {
+  border: none;
+  margin-top: 8px;
+  background: transparent;
+}
+.f-w-norml {
+  font-weight: normal;
+}
+/*==========Holiday Calander END=======*/

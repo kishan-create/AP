@@ -1,6 +1,8 @@
-import React, {  useEffect, useState ,Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { MdOutlineFileDownload, MdOutlinePrint, MdPhone, MdCheck, MdLocationPin } from "react-icons/md";
+
+import { AiFillStar } from "@react-icons/all-files/ai/AiFillStar";
 import { withStyles } from '@material-ui/core/styles';
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
@@ -10,8 +12,14 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Addholidaymodal from './addholidaymodal';
-import axios from 'axios';
+import Jobdetailsmodal from "./Jobdetailsmodal"; 
+import {location} from '../../images';
+import {profilei} from '../../images/profilei.svg'; 
+import Addorganization from './Addorgaization';
+import Addbranches from './Addbranches';
+import Multyselect from './Multyselect';
+import {india, us} from '../../images';
+import Holidaypopup from './Holidaypopup';
 import {
   Accordion,
   AccordionItem,
@@ -38,98 +46,72 @@ const styles = theme => ({
 });
 
 let id = 0;
-function createData(HolidayName, HolidayDate , HolidDay, action) {
+function createData(Category, PropertyBrand , AssetId, ConnectorType, SpecialFeature,NumberofKeys, action) {
   id += 1;
-  return { HolidayName, HolidayDate , HolidDay,  action };
+  return { Category, PropertyBrand , AssetId, ConnectorType, SpecialFeature,NumberofKeys, action };
 }
 
 const data = [
-  createData('Republic Day', '26 Jan, 2022',  'Wednesday'), 
-  createData('Maha Shivratri', '1 Mar, 2022',  'Tuesday'),  
-  createData('Maundy Thursday', '14 Apr, 2022',  'Thursday'),  
-  createData('Good Friday', '15 Apr, 2022',  'Friday'),  
-  createData('Independence Day', '15 Aug, 2022',  'Monday'),  
-  createData('Sree Krishna Jayanthi', '18 Aug, 2022',  'Thursday'),  
-  createData('First Onam', '7 Sept 2022',  'Wednesday'),  
-  createData('Thiruvonam', '8 Sept 2022',  'Thursday'),  
-  createData('Maha Navami', '4 Oct, 2022',  'Tuesday'),   
-  createData('Diwali', '24 Oct, 2022',  'Monday'), 
+  createData('NEW YEAR', ' JAN 1',  ''),  
+  createData('REPUBLIC DAY', 'JAN 26',  ''),
+  createData('MAUNDY THURSDAY', 'APR 14',  ''),
+  createData('GOOD FRIDAY', 'APR 15',  ''),
+  createData('INDEPENDENCE DAY', 'AUG 15',  ''),
+  createData('SREE KRISHNA JAYANTHI  ', 'AUG 18',  ''),
+  createData('FIRST ONAM   ', 'SEP 7',  ''),
+  createData('THIRUVONAM  ', 'SEP 8',  ''),
+  createData('MAHANAVAMI  ', 'OCT 4',  ''),
+  createData('DEEPAVALI  ', 'OCT 24',  ''),
 ];
 
 
-  export default class HolidayList extends Component {
-    constructor() {
-      super();
-      this.state = {
-        holiday: [],
-        }
-      };
-     
-    
-    async componentDidMount() {
-      const res = await axios.get("http://localhost:8000/api/getHolidays/");
-      
-      if (res.data.status === 200) {
-        this.setState({
-          holiday: res.data.holiday,
-          loading: false,
-       });
-     }
-     console.log(this.state.holiday);
-    }
-    
+  export default class Holidayview extends Component {
   render() {
     return (
         <main className="inner-content-box">
-      <header className="main-otrer-top"> Holiday Calendar</header>
+      <header className="main-otrer-top"> Holiday      </header>
              <section  className="main-content-area">
                 <div className="main-content-area-inner">
-                    <div className="sub-head organization-sub-head">Holidays List
+                    <div className="sub-head organization-sub-head">Holiday List
                     <div className="top-right-outer add-btn-div">
-                    <Addholidaymodal />
-  </div>
+                  <Holidaypopup/>
+
+                                </div>
                     </div>
-            
-                    <div className="col-md-12 job-main-tb-outer holiday-table-main-outer">    
-                    <Paper className="holiday-table-list">
-      <Table className="">
+                     
+                            <div id="app"></div>
+                            
+    <div className="col-md-12 ">
+    <div className=" ">    
+                    <Paper className="recruitment-table-outer job-outer organazation-table-top">
+      <Table className="recruitment-tabele">
         <TableHead>
         
-        <TableRow> 
-            <TableCell className="cal-width-50">Name</TableCell>
+        <TableRow>
+        
+            <TableCell className="cal-width-50">Holiday</TableCell>
             <TableCell className="cal-width-20">Date</TableCell>
-            <TableCell className="cal-width-20">Day</TableCell>
-                  <TableCell className="cal-width-10">Action</TableCell>
+            <TableCell className="cal-width-20">Optional Holidays</TableCell>
+            <TableCell className="cal-width-10">Action</TableCell>
            
           </TableRow>
         </TableHead>
         <TableBody>
-        {this.state.holiday.map(n => {
+        {data.map(n => {
             return (
               <TableRow  key={n.id} >
-                    <TableCell  className="cal-width-50"> {n.hol_name}</TableCell>
-                    <TableCell numeric className="cal-width-20">{n.date}</TableCell>   
-                    <TableCell numeric className="cal-width-20">{n.hol_day}</TableCell>                         
+                    <TableCell  className="cal-width-50">  {n.Category}</TableCell>
+                    <TableCell numeric className="cal-width-20">{n.PropertyBrand}</TableCell>                          
+                    <TableCell numeric className="cal-width-20"> <div className="edit-new-icon ">
+               <a href="/ ">
+               <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
+
+</a>
+                             </div></TableCell>   
                     <TableCell numeric className="cal-width-10">
                     <div className="action-outer">
              
-             <div className="edit-new-icon ">
-               <a href="/Assetsdetails">
-               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_853_552)">
-<path d="M11.3309 7.47133L3.89176 0.0321975C3.75248 -0.107087 3.52679 -0.107087 3.38765 0.0321975L0.0322586 3.38759C-0.107026 3.52687 -0.107026 3.75256 0.0322586 3.8917L7.4714 11.3308L11.3309 7.47133Z" fill="#3F53C3"/>
-<path d="M12.4018 12.9159L7.83289 11.6917L11.6925 7.83203L12.9168 12.401C13.0004 12.7136 12.7145 12.9996 12.4018 12.9159Z" fill="#3F53C3"/>
-</g>
-<defs>
-<clipPath id="clip0_853_552">
-<rect width="13" height="13" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-
-</a>
-                             </div>
+            
 <div className="delete-icon">
   <a href="">
 <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -155,8 +137,9 @@ const data = [
        
        </Paper>          
                     </div>
+      </div>             
 
-  
+                    
 
                 </div>
             </section>
