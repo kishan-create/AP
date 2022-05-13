@@ -21,15 +21,14 @@ const Topbar = ({ toggleSidebar,userData }) => {
 
   
   const userdata = useAuth(userData);
- 
-
   const [topbarIsOpen, setTopbarOpen] = useState(true);
   const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
   const logout = () => {
-  
+  alert("logout");
     localStorage.clear();
+    window.location.href = "http://localhost:3000/Loginform";
 // you can also like localStorage.removeItem('Token');
-    window.location.href = "/Loginform";
+    //window.location.href = "http://localhost:3000/Loginform";
   }
 
   
@@ -56,7 +55,7 @@ const Topbar = ({ toggleSidebar,userData }) => {
                 <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">{userdata.user.name}</sup></span>
                 </DropdownToggle>
                 <DropdownMenu className="">
-                <a href="" onClick={logout}>
+                <a  onClick={logout}>
                 <i class="fa fa-power-off logout-new"></i> Logout 
           </a>
                 </DropdownMenu>

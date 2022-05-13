@@ -34,7 +34,7 @@ export default class Emplyelist extends Component {
 
                     <section className="main-content-area">
                         <div className="main-content-area-inner">
-                            <div className="sub-head">Employee List
+                            <div className="sub-head">Employee Lists
                                 <div className="top-right-outer add-btn-div">
                                     <div className="buttons-outer">
                                         <a href="add" className="blue-button">
