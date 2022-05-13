@@ -87,7 +87,7 @@ const a=  [{"b_id":1,"applied_date":null,"post":"1","skillset":"ui\/ux","email":
   const loadData=async() =>
    {
     // alert("hii");
-    const response=await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates/");
+    const response=await fetch("http://localhost:8000/api/getcandidates/");
     
     const data=await response.json();
    // console.log(data);

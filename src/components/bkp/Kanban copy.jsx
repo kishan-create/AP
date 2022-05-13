@@ -62,7 +62,7 @@ const Kanban = () => {
   const loadData=async() =>
   {
    // alert("hii");
-   const response=await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates/");
+   const response=await fetch("http://localhost:8000/api/getcandidates/");
    
    const data=await response.json();
   // console.log(data);
@@ -154,7 +154,7 @@ const Kanban = () => {
       });
       //alert(source.index);
     }
-   // const res= axios.post('http://auditportal.bourntec.com:3001/audit_portal/public/api/updatecolumn', source.droppableId);
+   // const res= axios.post('http://localhost:8000/api/updatecolumn', source.droppableId);
   };
   
   //const [columns, setColumns] = useState(columnsFromBackend);

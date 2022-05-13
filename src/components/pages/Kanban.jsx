@@ -106,11 +106,11 @@ const Kanban = () => {
   const [columns, setColumns] = useState([]);
   const loadData = async (id) => {
     //alert("hii");
-    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates");
-    const scheduleresponse = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates_schedule");
-    const rejectionresponse = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates_rejection");
-    const waitingresponse = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates_waiting");
-    const releaseresponse = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates_release");
+    const response = await fetch("http://localhost:8000/api/getcandidates");
+    const scheduleresponse = await fetch("http://localhost:8000/api/getcandidates_schedule");
+    const rejectionresponse = await fetch("http://localhost:8000/api/getcandidates_rejection");
+    const waitingresponse = await fetch("http://localhost:8000/api/getcandidates_waiting");
+    const releaseresponse = await fetch("http://localhost:8000/api/getcandidates_release");
     const data = await response.json();
     const scheduledata = await scheduleresponse.json();
     const rejectiondata = await rejectionresponse.json();
@@ -293,7 +293,7 @@ const Kanban = () => {
         values['index'] = destination.index;
         values['itemsnew'] = destItems;
         values['type'] = "another";
-        const update = axios.post('http://auditportal.bourntec.com:3001/audit_portal/public/api/updatecolumn', values);
+        const update = axios.post('http://localhost:8000/api/updatecolumn', values);
       }
     } else {
       const column = columns[source.droppableId];
@@ -310,7 +310,7 @@ const Kanban = () => {
       values['type'] = "self";
 
       values['itemsnew'] = copiedItems;
-      const update = axios.post('http://auditportal.bourntec.com:3001/audit_portal/public/api/updatecolumn', values);
+      const update = axios.post('http://localhost:8000/api/updatecolumn', values);
       // console.log(copiedItems);
     }
   };

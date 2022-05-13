@@ -12,6 +12,12 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Addholidaymodal from './addholidaymodal';
 import axios from 'axios';
+import swal from 'sweetalert';
+import Modal from "react-modal";
+import { MdClose } from "@react-icons/all-files/md/MdClose";
+
+
+
 import {
   Accordion,
   AccordionItem,
@@ -43,6 +49,40 @@ function createData(HolidayName, HolidayDate , HolidDay, action) {
   return { HolidayName, HolidayDate , HolidDay,  action };
 }
 
+ 
+
+  
+
+//  const edit_holidays = async (id) => {
+//     const holiday_id = id;
+//     const reponse = await axios.get(`http://localhost:8000/api/edit_holidays/{id}'`)
+//     console.log(reponse.data.holiday[0]);
+//     if (reponse.data.status == 200) {
+//       SetValues({
+//         holiday_id: reponse.data.holiday[0].holiday_id,
+//         holiday_hol_name: reponse.data.holiday[0].holiday_hol_name,
+//         holiday_date: reponse.data.holiday[0].holiday_date,
+//         holiday_hol_day: reponse.data.holiday[0].holiday_hol_day,
+        
+//       })
+//       setIsOpen(true);
+//     }
+//   }
+
+
+
+  // const updateHolidays = async (e) => {
+  //   e.preventDefault();
+  //   const res = await axios.put('http://localhost:8000/api/update_holidays', values);
+  //   if (res.data.status == 200) {
+  //     swal({
+  //       title: "Good job!",
+  //       text: "Job Updated successfully",
+  //       icon: "success",
+  //       button: "ok",
+  //     });
+  //   }
+  // }
 const data = [
   createData('Republic Day', '26 Jan, 2022',  'Wednesday'), 
   createData('Maha Shivratri', '1 Mar, 2022',  'Tuesday'),  
@@ -57,27 +97,99 @@ const data = [
 ];
 
 
-  export default class HolidayList extends Component {
-    constructor() {
-      super();
-      this.state = {
-        holiday: [],
-        }
-      };
-     
+
+  
+
+  
+export default class HolidayList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      holiday: [],
+      options: ["IT service", "Design"],
+      loading: true,
+      modalIsOpen: false,
+
+      formData: {
+        hol_name: "",
+        hol_date: "",
+        // hol_day: "",
+       
+      }
+    };
+    this.closeModal = this.closeModal.bind(this);
+  }  
+
+
+   
+  async componentDidMount() {
+    const res = await axios.get("http://localhost:8000/api/getHolidays/");
     
-    async componentDidMount() {
-      const res = await axios.get("http://localhost:8000/api/getHolidays/");
-      
-      if (res.data.status === 200) {
-        this.setState({
-          holiday: res.data.holiday,
-          loading: false,
-       });
-     }
-     console.log(this.state.holiday);
+    if (res.data.status === 200) {
+      this.setState({
+        holiday: res.data.holiday,
+        loading: false,
+      });
     }
+   console.log(this.state.holiday);
+  
+}
+
+
+
+
+  async edit(id) {
+
     
+    const holiday_id = id;
+    const reponse = await axios.get(
+      `http://localhost:8000/api/edit_holidays/${holiday_id}`
+    );
+    if (reponse.data.status == 200) {
+      
+      this.setState({
+        formData: {
+          hol_name: reponse.data.branch.hol_name,
+          hol_date: reponse.data.branch.hol_date,
+
+          // hol_day: reponse.data.branch.hol_day,
+          
+          id: reponse.data.branch.id,
+        },
+         modalIsOpen: true,
+
+
+      });
+     }
+  }
+  
+  updateHolidays = async (e) => {
+    e.preventDefault();
+    const res = await axios.put(
+      "http://localhost:8000/api/update_holidays",
+      this.state.formData
+    );
+
+  };
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+
+  }
+
+  handleInputs = (e) => {
+    this.setState({
+      formData: {
+        ...this.state.formData,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+
+
+   
+      
   render() {
     return (
         <main className="inner-content-box">
@@ -87,9 +199,109 @@ const data = [
                     <div className="sub-head organization-sub-head">Holidays List
                     <div className="top-right-outer add-btn-div">
                     <Addholidaymodal />
-  </div>
                     </div>
-            
+                    </div>
+
+
+                    <Modal
+                isOpen={this.state.modalIsOpen}
+                onAfterOpen={this.afterOpenModal}
+                onRequestClose={this.closeModal}
+                className="job-detils-modal addabrch-modal"
+                contentLabel="Example Modal"
+              >
+                <form
+                  onSubmit={this.updateHolidays}
+                  className="form"
+                  noValidate
+                >
+                  <div className="popup-head-sty modal-button-bg">
+                    <div className="popup-head-content-sty">
+                      <h4>Edit Holidays</h4>
+                    </div>
+                    <div className="popup-head-icon-sty">
+                      <MdClose
+                        className="popup-close-btn"
+                        onClick={this.closeModal}
+                      />
+                    </div>
+                  </div>
+                  <div className="popup-content-bg">
+                    <div class="row addabrch-content-box">
+                      <div class="col-md-12">
+                        <div class="row ">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">
+                                Holiday Name
+                              </label>
+                              <input
+                                name="hol_name"
+                                type="text"
+                                onChange={this.handleInputs}
+                                value={this.state.formData.hol_name}
+                                class="form-control"
+                              ></input>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">
+                                Date
+                              </label>
+                              <input
+                                name="hol_date"
+                                onChange={this.handleInputs}
+                                value={this.state.formData.hol_date}
+                                type="date"
+                                class="form-control"
+                              ></input>
+                            </div>
+                          </div>
+                          {/* <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">
+                                Holiday Day
+                              </label>
+                              <input
+                                name="hol_day"
+                                onChange={this.handleInputs}
+                                value={this.state.formData.hol_day}
+                                type="text"
+                                class="form-control"
+                              ></input>
+                            </div>
+                          </div> */}
+                         
+                          
+                         
+
+                          <input
+                            type="hidden"
+                            name="id"
+                            value={this.state.id}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className=" modal-footer-button-bg">
+                    <button type="submit" class="btn  btn-save ">
+                      {" "}
+                      Update
+                    </button>
+                    <button
+                      type="button"
+                      class="btn  btn-cancel "
+                      onClick={this.closeModal}
+                    >
+                      {" "}
+                      Cancel{" "}
+                    </button>
+                  </div>
+                </form>
+              </Modal>
+             
                     <div className="col-md-12 job-main-tb-outer holiday-table-main-outer">    
                     <Paper className="holiday-table-list">
       <Table className="">
@@ -114,8 +326,8 @@ const data = [
                     <TableCell numeric className="cal-width-10">
                     <div className="action-outer">
              
-             <div className="edit-new-icon ">
-               <a href="/Assetsdetails">
+             <div className="edit-new-icon "  button onClick={() => this.edit(n.id)}>
+               {/* <a href="/Assetsdetails"> */}
                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_853_552)">
 <path d="M11.3309 7.47133L3.89176 0.0321975C3.75248 -0.107087 3.52679 -0.107087 3.38765 0.0321975L0.0322586 3.38759C-0.107026 3.52687 -0.107026 3.75256 0.0322586 3.8917L7.4714 11.3308L11.3309 7.47133Z" fill="#3F53C3"/>
@@ -128,8 +340,8 @@ const data = [
 </defs>
 </svg>
 
-
-</a>
+{/* 
+</a> */}
                              </div>
 <div className="delete-icon">
   <a href="">
@@ -163,6 +375,7 @@ const data = [
             </section>
     </main>
     
-    )
+    );
+ }
+  
 }
-  }
