@@ -23,7 +23,7 @@ import { FaUserTie } from "@react-icons/all-files/fa/FaUserTie";
 import { FaFileAlt } from "@react-icons/all-files/fa/FaFileAlt";
 import { IconName } from "react-icons/ai";
 import { MdPersonSearch, MdOutlineScreenSearchDesktop, MdBusinessCenter, MdOutlineAccountTree, MdDashboard, MdOutlineLaptopWindows,
-   MdTextSnippet , MdInsertDriveFile, MdAdminPanelSettings, MdSettingsSuggest, MdPersonPin, MdDateRange} from "react-icons/md";
+   MdTextSnippet , MdInsertDriveFile, MdAdminPanelSettings, MdSettingsSuggest, MdPersonPin, MdDateRange, MdLibraryBooks} from "react-icons/md";
 import SubMenu from "./SubMenu";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { RiLoginCircleFill } from "react-icons/ri";
@@ -137,18 +137,23 @@ const $ = window.$;
           </NavLink>
           </NavItem>
         <NavItem>
-          <NavLink active={window.location.pathname === "/HolidayList"} tag={nlink} to={"/HolidayList"} activeClassName="active">
+          <NavLink active={window.location.pathname === "/HolidayList"} tag={nlink} to={"/HolidayList"}  className="mob-menu-clik">
           < MdDateRange/>
           Holiday Calendar
           </NavLink>
           
         </NavItem>
         <NavItem>
-          <NavLink active={window.location.pathname === "/Holidaycalendar"} tag={nlink} to={"/Holidaycalendar"} activeClassName="active">
+          <NavLink active={window.location.pathname === "/Holidaycalendar"} tag={nlink} to={"/Holidaycalendar"}  className="mob-menu-clik">
           < MdDateRange/>
           Holiday Calendar List
           </NavLink>
-          
+          </NavItem>
+  <NavItem>
+          <NavLink active={window.location.pathname === "/Department"} tag={Link} to={"/Department"} className="mob-menu-clik" >
+          < MdLibraryBooks/>
+          Department Settings
+          </NavLink>
         </NavItem>
       </Nav>
     </div>
