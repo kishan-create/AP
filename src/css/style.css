@@ -4143,13 +4143,11 @@ li.option {
   padding-left: 15px;
   padding-right: 4px;
 }
-<<<<<<< HEAD
 
 .red-alert {
   color: red;
 }
 /*==========Holiday Style END=======*/
-=======
 /*==========Holiday Style END=======*/
 
 /*==========Holiday Calander START=======*/
@@ -4163,7 +4161,7 @@ li.option {
   margin-top: 5px;
   float: left;
 }
-.star-black{
+.star-black {
   float: left;
   margin-right: 15px;
   margin-top: 16px;
@@ -4177,23 +4175,23 @@ li.option {
   font-size: 20px;
   color: #11b71a;
 }
-.calander-countryname{
+.calander-countryname {
   float: left;
   margin-left: 15px;
   margin-top: 18px;
   font-size: 14px;
 }
-.accordion-head-text-right{
+.accordion-head-text-right {
   padding: 4px 10px;
   float: right;
 }
 .accordion-active-status1 .accordion__button:before {
   background: #c5c4c4;
 }
-.m-b-25{
+.m-b-25 {
   margin-bottom: 25px;
 }
-.m-t-25{
+.m-t-25 {
   margin-top: 25px;
 }
 .highlightOption {
@@ -4207,7 +4205,7 @@ li.option {
 }
 .chip {
   padding: 4px 10px;
-  background: #4A54D1;
+  background: #4a54d1;
   margin-right: 5px;
   margin-bottom: 5px;
   border-radius: 11px;
@@ -4225,7 +4223,7 @@ li.option {
   margin-top: 1px;
   z-index: 112;
 }
-.width-45{
+.width-45 {
   width: 45%;
 }
 .public-optional-bordr {
@@ -4241,19 +4239,20 @@ li.option {
   font-weight: normal;
 }
 /*==========Holiday Calander END=======*/
-.department-table .cal-width-40{
+.department-table .cal-width-40 {
   width: 40%;
 }
-.department-table  table tr td table th:first-child, .department-table  table tr td table td:first-child{
+.department-table table tr td table th:first-child,
+.department-table table tr td table td:first-child {
   width: 40%;
 }
-.department-table  table tr td table th:last-child, .department-table  table tr td table td:last-child{ 
+.department-table table tr td table th:last-child,
+.department-table table tr td table td:last-child {
   width: 10%;
 }
-.department-table  .sub-table td:first-child table td {
+.department-table .sub-table td:first-child table td {
   width: 40%;
 }
-.department-table  .sub-table td:first-child table td:last-child{
+.department-table .sub-table td:first-child table td:last-child {
   width: 10%;
 }
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab

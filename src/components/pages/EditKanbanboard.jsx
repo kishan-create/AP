@@ -62,13 +62,6 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
     });
     console.log(e);
   };
-<<<<<<< HEAD
-  const handleImage = (e) => {
-    SetResume({
-      resume: e.target.files[0],
-    });
-  };
-=======
   
   const Viewlog = async(id) =>
   {
@@ -77,7 +70,6 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
   SetLog(response.data.log);
   setIsViewLog(true);
   }
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
 
   const Viewlog = async (id) => {
     const response = await axios.get(`http://localhost:8000/api/viewlog/${id}`);
@@ -89,15 +81,8 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
   const getBasicdetails = async (id, column) => {
     const basic_id = id;
     //alert(column);
-<<<<<<< HEAD
-    if (column == "Inprogress") {
-      const reponse = await axios.get(
-        `http://localhost:8000/api/editfecthbasicdata/${basic_id}`
-      );
-=======
     if (column == 'Inprogress') {
       const reponse = await axios.get(`http://localhost:8000/api/editfecthbasicdata/${basic_id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       console.log(reponse.data.candidate[0]);
       if (reponse.data.status == 200) {
         SetEditValues({
@@ -125,17 +110,10 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
           resume: resume.resume,
         });
       }
-<<<<<<< HEAD
-    } else if (column == "Schedule") {
-      const reponse = await axios.get(
-        `http://localhost:8000/api/getscheduledata/${basic_id}`
-      );
-=======
 
     }
     else if (column == 'Schedule') {
       const reponse = await axios.get(`http://localhost:8000/api/getscheduledata/${basic_id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       if (reponse.data.status == 200) {
         SetEditValues({
           edit_panel_members: reponse.data.schedule[0].panelmembers,
@@ -149,16 +127,9 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
           edit_basic_column_name: column,
         });
       }
-<<<<<<< HEAD
-    } else if (column == "Rejection") {
-      const reponse = await axios.get(
-        `http://localhost:8000/api/getrejectdata/${basic_id}`
-      );
-=======
     }
     else if (column == 'Rejection') {
       const reponse = await axios.get(`http://localhost:8000/api/getrejectdata/${basic_id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       if (reponse.data.status == 200) {
         SetEditValues({
           edit_release_date: reponse.data.rejectdata[0].c_status,
@@ -168,17 +139,10 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
           edit_basic_column_name: column,
         });
       }
-<<<<<<< HEAD
-    } else if (column == "Release") {
-      const response = await axios.get(
-        `http://localhost:8000/api/getreleasedata/${basic_id}`
-      );
-=======
     }
     else if(column == 'Release')
     {
       const response = await axios.get(`http://localhost:8000/api/getreleasedata/${basic_id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       if (response.data.status == 200) {
         SetEditValues({
           edit_release_date: response.data.releasedata[0].offer_release_date,
@@ -223,8 +187,6 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
     } else {
       formData.append("skillset", editskill);
     }
-<<<<<<< HEAD
-=======
     else
     {
       formData.append('skillset',editskill);
@@ -282,7 +244,6 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
    
     if(response.data.status===200)
     {
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
 
     formData.append("p_email", editvalues.p_email);
     formData.append("phonenumber", editvalues.phonenumber);

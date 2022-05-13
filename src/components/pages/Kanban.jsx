@@ -191,7 +191,6 @@ const Kanban = () => {
   const loadData = async (id) => {
     //alert("hii");
     const response = await fetch("http://localhost:8000/api/getcandidates");
-<<<<<<< HEAD
     const scheduleresponse = await fetch(
       "http://localhost:8000/api/getcandidates_schedule"
     );
@@ -204,12 +203,6 @@ const Kanban = () => {
     const releaseresponse = await fetch(
       "http://localhost:8000/api/getcandidates_release"
     );
-=======
-    const scheduleresponse = await fetch("http://localhost:8000/api/getcandidates_schedule");
-    const rejectionresponse = await fetch("http://localhost:8000/api/getcandidates_rejection");
-    const waitingresponse = await fetch("http://localhost:8000/api/getcandidates_waiting");
-    const releaseresponse = await fetch("http://localhost:8000/api/getcandidates_release");
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     const data = await response.json();
     const scheduledata = await scheduleresponse.json();
     const rejectiondata = await rejectionresponse.json();
@@ -365,7 +358,6 @@ const Kanban = () => {
         ViewRejectionpopUp(result.draggableId);
       } else if (destColumn.name == "Release") {
         ViewReleasePopup(result.draggableId);
-<<<<<<< HEAD
       } else {
         values["id"] = result.draggableId;
         values["column"] = destColumn;
@@ -376,18 +368,6 @@ const Kanban = () => {
           "http://localhost:8000/api/updatecolumn",
           values
         );
-=======
-
-      }
-
-      else {
-        values['id'] = result.draggableId;
-        values['column'] = destColumn;
-        values['index'] = destination.index;
-        values['itemsnew'] = destItems;
-        values['type'] = "another";
-        const update = axios.post('http://localhost:8000/api/updatecolumn', values);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       }
     } else {
       const column = columns[source.droppableId];
@@ -403,16 +383,11 @@ const Kanban = () => {
       });
       values["type"] = "self";
 
-<<<<<<< HEAD
       values["itemsnew"] = copiedItems;
       const update = axios.post(
         "http://localhost:8000/api/updatecolumn",
         values
       );
-=======
-      values['itemsnew'] = copiedItems;
-      const update = axios.post('http://localhost:8000/api/updatecolumn', values);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       // console.log(copiedItems);
     }
   };
@@ -2280,7 +2255,9 @@ const Kanban = () => {
                                                             </div>
                                                             <div class="in-progress-location t-r">
                                                               NP:
-                                                              {item.notice_prd}{" "}
+                                                              {
+                                                                item.notice_prd
+                                                              }{" "}
                                                               Months
                                                             </div>
                                                           </div>
