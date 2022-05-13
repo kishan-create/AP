@@ -67,7 +67,7 @@ const data = [
      
     
     async componentDidMount() {
-      const res = await axios.get("http://localhost:8000/api/getHolidays/");
+      const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidays");
       
       if (res.data.status === 200) {
         this.setState({

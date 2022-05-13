@@ -128,14 +128,13 @@ export default class Organization extends Component {
     });
   };
   async componentDidMount() {
-    const res = await axios.get("http://localhost:8000/api/getOrganization/");
+    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrganization/");
     //console.log(res.data.sta);
     if (res.data.sta === 200) {
       this.setState({
         organization: res.data.org,
         loading: false,
       });
-<<<<<<< HEAD
     };
     async componentDidMount(){
      const res=await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrganization/");
@@ -158,20 +157,6 @@ export default class Organization extends Component {
       if(reponse.data.status==200)
       {
        
-=======
-    }
-  }
-  closeModal() {
-    this.setState({ modalIsOpen: false });
-  }
-
-  async edit(id) {
-    const org_id = id;
-    const reponse = await axios.get(
-      `http://localhost:8000/api/editfecthorgdata/${org_id}`
-    );
-    if (reponse.data.status == 200) {
->>>>>>> acd99ff026428685d49bc95ae11ae32967d23cad
       this.setState({
         formData: {
           org_name: reponse.data.org.org_name,
@@ -182,7 +167,6 @@ export default class Organization extends Component {
           org_registration: reponse.data.org.org_registration,
           id: reponse.data.org.id,
         },
-<<<<<<< HEAD
        
          modalIsOpen: true
          });
@@ -194,8 +178,6 @@ export default class Organization extends Component {
   
     e.preventDefault();
    const res=await axios.put('http://auditportal.bourntec.com:3001/audit_portal/public/api/update_organization',this.state.formData);
-=======
->>>>>>> acd99ff026428685d49bc95ae11ae32967d23cad
 
         modalIsOpen: true,
       });
@@ -204,26 +186,16 @@ export default class Organization extends Component {
   updateOrganization = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_organization",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/update_organization",
       this.state.formData
     );
   };
-<<<<<<< HEAD
   deleteOrganization =async(e,id) => {
     const thisclickrow=e.currentTarget;
     thisclickrow.innerText="Deleting";
   const res= await axios.delete(`http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_organization/${id}`);
      if(res.data.status==200)
      {
-=======
-  deleteOrganization = async (e, id) => {
-    const thisclickrow = e.currentTarget;
-    thisclickrow.innerText = "Deleting";
-    const res = await axios.delete(
-      `http://localhost:8000/api/delete_organization/${id}`
-    );
-    if (res.data.status == 200) {
->>>>>>> acd99ff026428685d49bc95ae11ae32967d23cad
       thisclickrow.closest("tr").remove();
       console.log(res.data.message);
     }

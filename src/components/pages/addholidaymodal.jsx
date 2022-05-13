@@ -29,7 +29,7 @@ const customStyles = {
 
 
 export default function Addholidaymodal({location, method}) {
-  console.log(location);
+ 
   const CustomTab = ({ children }) => (
     <Tab >
       <div >{children}</div>
