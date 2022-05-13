@@ -37,6 +37,9 @@ import Holidaycalendar from "../pages/Holidaycalendar";
 import Multyselect from "../pages/Multyselect";
 import Holidaypopup from "../pages/Holidaypopup";
 import Holidayview from "../pages/Holidayview";
+import Department from "../pages/Department";
+import AddDepartment from "../pages/Add-department";
+import AddDesignation from "../pages/Add-designation";
 
 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
@@ -64,6 +67,8 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/Holidaypopup" component={Holidaypopup} />  
     <Route exact path="/Holidayview" component={Holidayview} />  
     <Route exact path="/Holidaycalendar" component={Holidaycalendar} />
+    <Route exact path="/AddDepartment" component={AddDepartment} />
+    <Route exact path="/AddDesignation" component={AddDesignation} />
     
     <Route exact path="/Multyselect" component={Multyselect} />
         <Router path="/Addemployeetab">
@@ -92,6 +97,9 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
         </Router>
         <Router exact  path="/HolidayList"  component={HolidayList}>
         < HolidayList/>
+        </Router>
+        <Router exact  path="/Department"  component={Department}>
+        < Department/>
         </Router>
         
     </Switch>

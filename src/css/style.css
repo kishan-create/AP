@@ -1369,6 +1369,7 @@ a.download-bt svg {
   float: left;
   margin-top: 20px;
   display: block;
+  margin-bottom: 20px;
 }
 .profile-name span {
   text-align: center;
@@ -4228,3 +4229,18 @@ li.option {
   font-weight: normal;
 }
 /*==========Holiday Calander END=======*/
+.department-table .cal-width-40{
+  width: 40%;
+}
+.department-table  table tr td table th:first-child, .department-table  table tr td table td:first-child{
+  width: 40%;
+}
+.department-table  table tr td table th:last-child, .department-table  table tr td table td:last-child{ 
+  width: 10%;
+}
+.department-table  .sub-table td:first-child table td {
+  width: 40%;
+}
+.department-table  .sub-table td:first-child table td:last-child{
+  width: 10%;
+}
