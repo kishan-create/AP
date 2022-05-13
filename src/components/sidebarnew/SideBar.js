@@ -23,7 +23,7 @@ import { FaUserTie } from "@react-icons/all-files/fa/FaUserTie";
 import { FaFileAlt } from "@react-icons/all-files/fa/FaFileAlt";
 import { IconName } from "react-icons/ai";
 import { MdPersonSearch, MdOutlineScreenSearchDesktop, MdBusinessCenter, MdOutlineAccountTree, MdDashboard, MdOutlineLaptopWindows,
-   MdTextSnippet , MdInsertDriveFile, MdAdminPanelSettings, MdSettingsSuggest, MdPersonPin, MdDateRange} from "react-icons/md";
+   MdTextSnippet , MdInsertDriveFile, MdAdminPanelSettings, MdSettingsSuggest, MdPersonPin, MdDateRange, MdLibraryBooks} from "react-icons/md";
 import SubMenu from "./SubMenu";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { RiLoginCircleFill } from "react-icons/ri";
@@ -151,7 +151,7 @@ const $ = window.$;
           </NavItem>
           <NavItem>
           <NavLink active={window.location.pathname === "/Department"} tag={nlink} to={"/Department"} activeClassName="active">
-          < MdDateRange/>
+          < MdLibraryBooks/>
           Department Settings
           </NavLink>
           </NavItem>
