@@ -34,7 +34,11 @@ const Jobform = (job_validation) => {
     }
   }, [errors]);
 
+<<<<<<< HEAD
   /* const loadOrganization = async () => {
+=======
+ /* const loadOrganization = async () => {
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
     setOrg(orgresponse.data);
   }*/
@@ -52,8 +56,13 @@ const Jobform = (job_validation) => {
   };
   const onSubmitform = (e) => {
     //console.log(values)
+<<<<<<< HEAD
     const response = axios.post("http://localhost:8000/api/add_jobs", values);
     response.then(function(res) {
+=======
+    const response = axios.post('http://localhost:8000/api/add_jobs', values);
+    response.then(function (res) {
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       if (res.data.status === 200) {
         //console.log(res.data.message);
         swal({

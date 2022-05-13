@@ -164,10 +164,16 @@ export default class OfferReleasereport extends Component {
   async componentDidMount() {
     this.getDetails();
   }
+<<<<<<< HEAD
   async getDetails() {
     const res = await axios.get(
       "http://localhost:8000/api/getcandidates_release_details"
     );
+=======
+  async getDetails()
+  {
+    const res = await axios.get("http://localhost:8000/api/getcandidates_release_details");
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     // console.log(res.data.users)
     if (res.data.status === 200) {
       this.setState({
@@ -185,10 +191,16 @@ export default class OfferReleasereport extends Component {
       });
     }
   }
+<<<<<<< HEAD
   async ViewEmployeeStatus(id) {
     const response = await axios.get(
       `http://localhost:8000/api/editfetchCandidatestatusdata/${id}`
     );
+=======
+  async ViewEmployeeStatus(id)
+  {
+    const response = await axios.get(`http://localhost:8000/api/editfetchCandidatestatusdata/${id}`);
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     console.log(response.data.users);
     this.setState({
       modalIsStatus: true,
@@ -202,6 +214,7 @@ export default class OfferReleasereport extends Component {
     });
   }
   async editLog(id) {
+<<<<<<< HEAD
     const reponse = await axios.get(
       `http://localhost:8000/api/editfetchCandidatefulldata/${id}`
     );
@@ -214,9 +227,23 @@ export default class OfferReleasereport extends Component {
         },
       });
     }
+=======
+    const reponse = await axios.get(`http://localhost:8000/api/editfetchCandidatefulldata/${id}`)
+    if(reponse.data.status==200)
+      {
+       
+    this.setState({
+      modalIsOpenedit: true,
+      formData:{
+        edit_release_date:reponse.data.users[0].offer_release_date,	
+        edit_release_id:reponse.data.users[0].offer_id	
+      }
+    })
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
   }
   updaterelease = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     const res = await axios.post(
       "http://localhost:8000/api/Updateboarddetails",
       this.state.formData
@@ -227,9 +254,22 @@ export default class OfferReleasereport extends Component {
         modalIsOpenedit: false,
       });
     }
+=======
+   const res=await axios.post('http://localhost:8000/api/Updateboarddetails',this.state.formData);
+  if(res.data.status==200)
+  {
+    alert("data updated successfully");
+    this.setState({
+      modalIsOpenedit: false,
+    })
+
+  }
+   
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
   };
   addEmpolyeeFirst = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     const res = await axios.post(
       "http://localhost:8000/api/Addemployee",
       this.state.formData
@@ -241,6 +281,19 @@ export default class OfferReleasereport extends Component {
       });
       this.getDetails();
     }
+=======
+   const res=await axios.post('http://localhost:8000/api/Addemployee',this.state.formData);
+  if(res.data.status==200)
+  {
+    alert("data updated successfully");
+    this.setState({
+      modalIsStatus: false,
+    })
+    this.getDetails();
+
+  }
+   
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
   };
 
   render() {

@@ -136,6 +136,7 @@ export default class Organization extends Component {
         loading: false,
       });
 <<<<<<< HEAD
+<<<<<<< HEAD
     };
     async componentDidMount(){
      const res=await axios.get("http://localhost:8000/api/getOrganization/");
@@ -159,6 +160,8 @@ export default class Organization extends Component {
       {
        
 =======
+=======
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     }
   }
   closeModal() {
@@ -171,7 +174,6 @@ export default class Organization extends Component {
       `http://localhost:8000/api/editfecthorgdata/${org_id}`
     );
     if (reponse.data.status == 200) {
->>>>>>> acd99ff026428685d49bc95ae11ae32967d23cad
       this.setState({
         formData: {
           org_name: reponse.data.org.org_name,
@@ -182,6 +184,7 @@ export default class Organization extends Component {
           org_registration: reponse.data.org.org_registration,
           id: reponse.data.org.id,
         },
+<<<<<<< HEAD
 <<<<<<< HEAD
        
          modalIsOpen: true
@@ -196,6 +199,8 @@ export default class Organization extends Component {
    const res=await axios.put('http://localhost:8000/api/update_organization',this.state.formData);
 =======
 >>>>>>> acd99ff026428685d49bc95ae11ae32967d23cad
+=======
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
 
         modalIsOpen: true,
       });
@@ -209,6 +214,7 @@ export default class Organization extends Component {
     );
   };
 <<<<<<< HEAD
+<<<<<<< HEAD
   deleteOrganization =async(e,id) => {
     const thisclickrow=e.currentTarget;
     thisclickrow.innerText="Deleting";
@@ -216,6 +222,8 @@ export default class Organization extends Component {
      if(res.data.status==200)
      {
 =======
+=======
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
   deleteOrganization = async (e, id) => {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
@@ -223,7 +231,6 @@ export default class Organization extends Component {
       `http://localhost:8000/api/delete_organization/${id}`
     );
     if (res.data.status == 200) {
->>>>>>> acd99ff026428685d49bc95ae11ae32967d23cad
       thisclickrow.closest("tr").remove();
       console.log(res.data.message);
     }

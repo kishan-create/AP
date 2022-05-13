@@ -31,6 +31,7 @@ const Rejectionform = (rejection_validation) => {
     if (Object.keys(errorsrejection).length === 0 && isSubmitting) {
       onSubmitform();
     }
+<<<<<<< HEAD
   }, [errorsrejection]);
   const onSubmitform = (e) => {
     const response = axios.post(
@@ -57,4 +58,31 @@ const Rejectionform = (rejection_validation) => {
     errorsrejection,
   };
 };
+=======
+    useEffect(() => {
+
+
+        if (Object.keys(errorsrejection).length === 0 && isSubmitting) {
+            onSubmitform();
+        }
+    }, [errorsrejection]);
+    const onSubmitform = e => {
+        const response = axios.post('http://localhost:8000/api/add_rejection', valuesrejection);
+        response.then(function (res) {
+            if (res.data.status === 200) {
+                //console.log(res.data.message);
+                swal({
+                    title: "Good job!",
+                    text: "Schedule added successfully",
+                    icon: "success",
+                    button: "ok",
+                });
+                //setIsOpen(false);
+            }
+        })
+
+    }
+    return { handleChangerejection, valuesrejection, handleSubmitrejection, errorsrejection };
+}
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
 export default Rejectionform;

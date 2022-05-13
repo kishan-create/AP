@@ -31,12 +31,19 @@ const ScheduleInterviewform = (schedule_validation, loadData) => {
       onSubmitform();
     }
   }, [errors]);
+<<<<<<< HEAD
   const onSubmitform = (e) => {
     const response = axios.post(
       "http://localhost:8000/api/add_schedule",
       values
     );
     response.then(function(res) {
+=======
+  const onSubmitform = e => 
+  {
+    const response = axios.post('http://localhost:8000/api/add_schedule', values);
+    response.then(function (res) {
+>>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       if (res.data.status === 200) {
         //console.log(res.data.message);
         swal({
