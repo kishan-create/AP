@@ -33,17 +33,18 @@ export default function Multyselect() {
 
   return (
     <div className="Multyselect">
-      <form onSubmit={handleSubmit}>
+     
         <Multiselect  class="form-control "
           options={options} // Options to display in the dropdown
           selectedValues={items} // Preselected value to persist in dropdown
           onSelect={handleSelect} // Function will trigger on select event
           onRemove={handleRemove} // Function will trigger on remove event
           displayValue="name" // Property name to display in the dropdown options
+          name="holiday_name_drop"
           
         />
        
-      </form>
+    
     </div>
   );
 }

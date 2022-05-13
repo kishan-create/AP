@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { MdOutlineFileDownload, MdOutlinePrint, MdPhone, MdCheck, MdLocationPin } from "react-icons/md";
-
+import {Link} from 'react-router-dom';
 import { AiFillStar } from "@react-icons/all-files/ai/AiFillStar";
 import { withStyles } from '@material-ui/core/styles';
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
@@ -30,6 +30,7 @@ import {
 
 // Demo styles, see 'Styles' section below for some notes on use.
 import 'react-accessible-accordion/dist/fancy-example.css';
+import axios from 'axios';
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -66,6 +67,23 @@ const data = [
 
 
   export default class Holidaycalendar extends Component {
+      constructor() {
+            super();
+            this.state = {
+                  holidaylist: [],
+            };
+      }
+      async componentDidMount() {
+            const res = await axios.get("http://localhost:8000/api/getHolidaynames/");
+            if (res.data.sta === 200) {
+                  this.setState({
+                    holidaylist: res.data.holidaylist,
+                    loading: false,
+                  });
+                }
+                
+      }
+
   render() {
     return (
         <main className="inner-content-box">
@@ -82,27 +100,36 @@ const data = [
                             <div id="app"></div>
                             <div className="col-md-8 col-sm-12 col-xs-12">
   <Accordion preExpanded={"a"} className="job-accrodion ">
+  {this.state.holidaylist.map((n) => {
+        return (
   <AccordionItem uuid="a">
-      <a href="Holidayview" className=" ">
+    
+      <Link
+  to={{
+    pathname: `/Holidayview/${n.id}`,
+    data: n.id // your data array of objects
+  }}
+>
+  
       <AccordionItemHeading className="accordion-active-status accordion-active-status1">
       <AccordionItemButton >
             <div className='col-md-5 col-sm-12 col-xs-12'>
                   <AiFillStar className='star-black'/> 
                   <img className='india-flag' src={us} />
-                  <span className='calander-countryname'>US</span>
+                  <span className='calander-countryname'>{n.hol_calendar_name}</span>
             </div>
             
             
             <div className='col-md-7 col-sm-12 col-xs-12 public-optional-bordr '> 
                 <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">2 
+                      <div className="name notificatio-outer">{n.optionalcount}
                       </div>
                       <div className="desi joblocation f-w-norml">
                       Optional Holidays        
                       </div>
                 </div>
                 <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">10 
+                      <div className="name notificatio-outer">{n.publicount}
                       </div>
                       <div className="desi joblocation f-w-norml">
                       Public Holidays        
@@ -111,161 +138,14 @@ const data = [
             </div>
         </AccordionItemButton>
         </AccordionItemHeading>
-        </a>
+        </Link>
       </AccordionItem>
-  <AccordionItem uuid="a">
-  <a href="Holidayview" className=" ">
-        <AccordionItemHeading className="accordion-active-status accordion-active-status1">
-          <AccordionItemButton >
-            <div className='col-md-5 col-sm-12 col-xs-12'>
-                  <AiFillStar className='star-green'/> 
-                  <img className='india-flag' src={india} />
-                  <span className='calander-countryname'>Cochin, India</span>
-            </div>
-            
-            
-            <div className='col-md-7 col-sm-12 col-xs-12 public-optional-bordr '> 
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">2 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Optional Holidays        
-                      </div>
-                </div>
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">10 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Public Holidays        
-                      </div>
-                </div> 
-            </div>
-        </AccordionItemButton>
-        </AccordionItemHeading>
-        </a>
-      </AccordionItem>
-      <AccordionItem uuid="a">
-  <a href="Holidayview" className=" ">
-        <AccordionItemHeading className="accordion-active-status accordion-active-status1">
-          <AccordionItemButton >
-            <div className='col-md-5 col-sm-12 col-xs-12'>
-                  <AiFillStar className='star-black'/> 
-                  <img className='india-flag' src={india} />
-                  <span className='calander-countryname'>Hyderabad, India</span>
-            </div>
-            
-            
-            <div className='col-md-7 col-sm-12 col-xs-12 public-optional-bordr '> 
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">2 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Optional Holidays        
-                      </div>
-                </div>
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">10 
-                      </div>
-                      <div className="desi joblocation  f-w-norml">
-                      Public Holidays        
-                      </div>
-                </div> 
-            </div>
-        </AccordionItemButton>
-        </AccordionItemHeading>
-        </a>
-      </AccordionItem>
-      <AccordionItem uuid="a">
-  <a href="Holidayview" className=" ">
-        <AccordionItemHeading className="accordion-active-status accordion-active-status1">
-          <AccordionItemButton >
-            <div className='col-md-5 col-sm-12 col-xs-12'>
-                  <AiFillStar className='star-black'/> 
-                  <img className='india-flag' src={india} />
-                  <span className='calander-countryname'>Bhubaneswar, India</span>
-            </div>
-            
-            
-            <div className='col-md-7 col-sm-12 col-xs-12 public-optional-bordr '> 
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">2 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Optional Holidays        
-                      </div>
-                </div>
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">10 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Public Holidays        
-                      </div>
-                </div> 
-            </div>
-        </AccordionItemButton>
-        </AccordionItemHeading>
-        </a>
-      </AccordionItem>
+        )
+})}
       
-      <AccordionItem uuid="a">
-      <a href="Holidayview" className=" ">
-      <AccordionItemHeading className="accordion-active-status accordion-active-status1">
-      <AccordionItemButton >
-            <div className='col-md-5 col-sm-12 col-xs-12'>
-                  <AiFillStar className='star-black'/> 
-                  <img className='india-flag' src={rand} />
-                  <span className='calander-countryname'>RandLog</span>
-            </div>
-            <div className='col-md-7 col-sm-12 col-xs-12 public-optional-bordr '> 
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">2 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Optional Holidays        
-                      </div>
-                </div>
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">10 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Public Holidays        
-                      </div>
-                </div> 
-            </div>
-        </AccordionItemButton>
-        </AccordionItemHeading>
-        </a>
-      </AccordionItem>
+     
 
-      <AccordionItem uuid="a">
-      <a href="Holidayview" className=" ">
-      <AccordionItemHeading className="accordion-active-status accordion-active-status1">
-      <AccordionItemButton >
-            <div className='col-md-5 col-sm-12 col-xs-12'>
-                  <AiFillStar className='star-black'/> 
-                  <img className='india-flag' src={wnc} />
-                  <span className='calander-countryname'>WNC</span>
-            </div>
-            <div className='col-md-7 col-sm-12 col-xs-12 public-optional-bordr '> 
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">2 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Optional Holidays        
-                      </div>
-                </div>
-                <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">10 
-                      </div>
-                      <div className="desi joblocation f-w-norml">
-                      Public Holidays        
-                      </div>
-                </div> 
-            </div>
-        </AccordionItemButton>
-        </AccordionItemHeading>
-        </a>
-      </AccordionItem>
+     
      
      
     </Accordion>

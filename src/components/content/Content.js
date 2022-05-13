@@ -62,7 +62,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/OfferReleasereport" component={OfferReleasereport} />  
     <Route exact path="/Offboarding" component={Offboarding} />  
     <Route exact path="/Holidaypopup" component={Holidaypopup} />  
-    <Route exact path="/Holidayview" component={Holidayview} />  
+    <Route exact path="/Holidayview/:id" component={Holidayview} />  
     <Route exact path="/Holidaycalendar" component={Holidaycalendar} />
     
     <Route exact path="/Multyselect" component={Multyselect} />
