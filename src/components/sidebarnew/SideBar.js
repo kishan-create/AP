@@ -137,24 +137,24 @@ const $ = window.$;
           </NavLink>
           </NavItem>
         <NavItem>
-          <NavLink active={window.location.pathname === "/HolidayList"} tag={nlink} to={"/HolidayList"} activeClassName="active">
+          <NavLink active={window.location.pathname === "/HolidayList"} tag={nlink} to={"/HolidayList"}  className="mob-menu-clik">
           < MdDateRange/>
           Holiday Calendar
           </NavLink>
           
         </NavItem>
         <NavItem>
-          <NavLink active={window.location.pathname === "/Holidaycalendar"} tag={nlink} to={"/Holidaycalendar"} activeClassName="active">
+          <NavLink active={window.location.pathname === "/Holidaycalendar"} tag={nlink} to={"/Holidaycalendar"}  className="mob-menu-clik">
           < MdDateRange/>
           Holiday Calendar List
           </NavLink>
           </NavItem>
-          <NavItem>
-          <NavLink active={window.location.pathname === "/Department"} tag={nlink} to={"/Department"} activeClassName="active">
+  <NavItem>
+          <NavLink active={window.location.pathname === "/Department"} tag={Link} to={"/Department"} className="mob-menu-clik" >
           < MdLibraryBooks/>
           Department Settings
           </NavLink>
-          </NavItem>
+        </NavItem>
       </Nav>
     </div>
   </div>
