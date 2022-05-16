@@ -64,6 +64,26 @@ const Personalform = (personal_validation) => {
           personal_city: "",
       
           personal_zipcode: "",
+          personal_contactnumber: "",
+          personal_hometelephone: "",
+          personal_workmobile: "",
+          personal_extensionnumber: "",
+          personal_preferredemaillanguage: "",
+          personal_workemail: "",
+          personal_faxnumber: "",
+          personal_name: "",
+          personal_relationship: "",
+          personal_emailid: "",
+          personal_relationshipaddress: "",
+          personal_homephone: "",
+          personal_mobile: "",
+          personal_physicianname: "",
+          personal_physicianaddress: "",
+          personal_phone: "",
+
+          
+
+
         });
       }
     });

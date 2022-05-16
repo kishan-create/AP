@@ -96,6 +96,18 @@ const data = [
   createData('Diwali', '24 Oct, 2022',  'Monday'), 
 ];
 
+const delete_holidays = async (e, id) => {
+  e.preventDefault();
+  const thisclickrow = e.currentTarget;
+  thisclickrow.innerText = "Deleting";
+  const res = await axios.delete(
+    `http://localhost:8000/api/delete_holidays/${id}`
+  );
+  if (res.data.status == 200) {
+    thisclickrow.closest("tr").remove();
+    alert("holiday Deleted successfully");
+  }
+};
 
 
   
@@ -357,7 +369,7 @@ export default class HolidayList extends Component {
 {/* 
 </a> */}
                              </div>
-<div className="delete-icon">
+<div className="delete-icon" onClick={(e) => delete_holidays(e, n.id)}>
   <a href="">
 <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.242676 0.31216H2.19897V0.261343C2.19897 0.117019 2.30763 0 2.44165 0H4.43799C4.57201 0 4.68067 0.117019 4.68067 0.261343V0.31216H6.63696C6.77098 0.31216 6.87964 0.429179 6.87964 0.573503V1.60566C6.87964 1.74998 6.77098 1.867 6.63696 1.867H0.242676C0.108661 1.867 0 1.74998 0 1.60566V0.573503C0 0.429179 0.108661 0.31216 0.242676 0.31216Z" fill="#EB140A"/>
