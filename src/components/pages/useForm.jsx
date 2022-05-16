@@ -78,7 +78,6 @@ const useForm = (validate) => {
       ...values,
       [name]: value,
     });
-<<<<<<< HEAD
   };
   const handleImage = (e) => {
     SetPics({
@@ -86,10 +85,6 @@ const useForm = (validate) => {
     });
   };
   const getpostName = async () => {
-=======
-}
-const getpostName = async () => {
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     const response = await fetch("http://localhost:8000/api/getJobs");
     const data = await response.json();
 
@@ -154,14 +149,10 @@ const getpostName = async () => {
     formData.append("secskill", selectedSecsskill);
     formData.append("skillset_input", selectedOption);
     //values.append('resume',pics.resume);
-<<<<<<< HEAD
     const promise = axios.post(
       "http://localhost:8000/api/add_employee_first",
       formData
     );
-=======
-    const promise= axios.post('http://localhost:8000/api/add_employee_first', formData);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     promise.then(function(res) {
       if (res.data.status === 200) {
         swal({

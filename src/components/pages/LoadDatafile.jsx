@@ -9,7 +9,6 @@ const LoadDatafile = () => {
   const loadData = async () => {
     // alert("hii");
     const response = await fetch("http://localhost:8000/api/getcandidates");
-<<<<<<< HEAD
     const scheduleresponse = await fetch(
       "http://localhost:8000/api/getcandidates_schedule"
     );
@@ -22,12 +21,6 @@ const LoadDatafile = () => {
     const releaseresponse = await fetch(
       "http://localhost:8000/api/getcandidates_release"
     );
-=======
-    const scheduleresponse = await fetch("http://localhost:8000/api/getcandidates_schedule");
-    const rejectionresponse = await fetch("http://localhost:8000/api/getcandidates_rejection");
-    const waitingresponse = await fetch("http://localhost:8000/api/getcandidates_waiting");
-    const releaseresponse = await fetch("http://localhost:8000/api/getcandidates_release");
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     const data = await response.json();
     const scheduledata = await scheduleresponse.json();
     const rejectiondata = await rejectionresponse.json();

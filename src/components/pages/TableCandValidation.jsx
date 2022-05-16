@@ -40,19 +40,11 @@ const TableCandValidation = (setIsOpen) => {
   const handleChange1 = (e) => {
     const { name, value } = e.target;
     SetValues({
-<<<<<<< HEAD
       ...values,
       [name]: value,
     });
   };
   const getpostName = async () => {
-=======
-        ...values,
-        [name]:value
-    })
-}
-const getpostName = async () => {
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     const response = await fetch("http://localhost:8000/api/getJobs");
     const data = await response.json();
 
@@ -65,13 +57,9 @@ const getpostName = async () => {
   const deleteCandidate = async (e, id) => {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
-<<<<<<< HEAD
     const res = await axios.get(
       `http://localhost:8000/api/deleteCandidate/${id}`
     );
-=======
-    const res = await axios.get(`http://localhost:8000/api/deleteCandidate/${id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
       console.log(res.data.message);
@@ -79,7 +67,6 @@ const getpostName = async () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     // setErrors(validate(values));
     // setIsSubmitting(true);
 
@@ -89,15 +76,6 @@ const getpostName = async () => {
     );
     promise.then(function(res) {
       if (res.data.status === 200) {
-=======
-   // setErrors(validate(values));
-   // setIsSubmitting(true);
-   
-   const promise= axios.post(`http://localhost:8000/api/updaterecruitement`, values);
-   promise.then(function(res) {
-    if(res.data.status===200)
-    {
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
         swal({
           title: "Good job!",
           text: "updated successfully",

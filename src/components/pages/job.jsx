@@ -200,13 +200,9 @@ export default function Job(props) {
   };
   const Edit_job = async (id) => {
     const job_id = id;
-<<<<<<< HEAD
     const reponse = await axios.get(
       `http://localhost:8000/api/editfecthjobdata/${job_id}`
     );
-=======
-    const reponse = await axios.get(`http://localhost:8000/api/editfecthjobdata/${job_id}`)
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     console.log(reponse.data.job[0]);
     if (reponse.data.status == 200) {
       SetValues({
@@ -240,11 +236,7 @@ export default function Job(props) {
   };
   const updateOrganization = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     const res = await axios.put("http://localhost:8000/api/update_job", values);
-=======
-    const res = await axios.put('http://localhost:8000/api/update_job', values);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     if (res.data.status == 200) {
       swal({
         title: "Good job!",

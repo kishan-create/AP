@@ -140,14 +140,8 @@ function SimpleTable(props) {
   useEffect(() => {
     loadCandidates();
   }, []);
-<<<<<<< HEAD
   const loadCandidates = async () => {
     const res = await fetch("http://localhost:8000/api/getcandidatesdetails");
-=======
-  const loadCandidates = async() =>
-  {
-    const res = await fetch('http://localhost:8000/api/getcandidatesdetails');
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
     const data = await res.json();
     const candidates = data.candidate;
     SetCandidatelist(candidates);
