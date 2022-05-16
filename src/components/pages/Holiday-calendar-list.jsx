@@ -170,6 +170,21 @@ export default class HolidayList extends Component {
       this.state.formData
     );
 
+    // if (res.data.status == 200) {
+    //   swal({
+    //     title: "Good job!",
+    //     text: "Holiday Updated successfully",
+    //     icon: "success",
+    //     button: "ok",
+    //   });
+
+
+    // }
+    window.location.reload();
+
+
+
+
   };
 
   closeModal() {
