@@ -4244,3 +4244,9 @@ li.option {
 .department-table  .sub-table td:first-child table td:last-child{
   width: 10%;
 }
+.cla-count {
+  font-size: 18px !important;
+  margin-top: -6px;
+  padding-right: 8px;
+  color: #4a54d1;
+}
