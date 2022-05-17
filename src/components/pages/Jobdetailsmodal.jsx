@@ -88,7 +88,7 @@ export default function Jobdetailsmodal({location, method}) {
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Job ID</label>
                       <input type="text" name="job_id" onChange={handleChange} value={values.job_id} class="form-control" ></input>
-                      {errors.job_id && <p>{errors.job_id}</p>}
+                      {errors.job_id && <p className="message">{errors.job_id}</p>}
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -100,7 +100,7 @@ export default function Jobdetailsmodal({location, method}) {
                           <option value={id} >{post_name}</option>
                         )}
                       </select>
-                      {errors.job_post && <p>{errors.job_post}</p>}
+                      {errors.job_post && <p className="message">{errors.job_post}</p>}
                     </div>
                     
                   </div>
@@ -108,21 +108,21 @@ export default function Jobdetailsmodal({location, method}) {
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Skill Set</label>
                       <input type="text" name="job_skillset" onChange={handleChange} value={values.job_skillset} class="form-control" ></input>
-                      {errors.job_skillset && <p>{errors.job_skillset}</p>}
+                      {errors.job_skillset && <p className="message">{errors.job_skillset}</p>}
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Experience</label>
                       <input type="text" name="job_experience" onChange={handleChange} value={values.job_experience} class="form-control" ></input>
-                      {errors.job_experience && <p>{errors.job_experience}</p>}
+                      {errors.job_experience && <p className="message">{errors.job_experience}</p>}
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Openings</label>
                       <input type="email" name="job_openings" onChange={handleChange} value={values.job_openings} class="form-control" ></input>
-                      {errors.job_openings && <p>{errors.job_openings}</p>}
+                      {errors.job_openings && <p className="message">{errors.job_openings}</p>}
                     </div>
                   </div>
 
@@ -135,21 +135,21 @@ export default function Jobdetailsmodal({location, method}) {
                         <option value="1">open</option>
                         <option value="0">close</option>
                       </select>
-                      {errors.job_status && <p>{errors.job_status}</p>}
+                      {errors.job_status && <p className="message">{errors.job_status}</p>}
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Date Open</label>
                       <input type="date" name="job_date_open" onChange={handleChange} value={values.job_date_open} class="form-control" ></input>
-                      {errors.job_date_open && <p>{errors.job_date_open}</p>}
+                      {errors.job_date_open && <p className="message">{errors.job_date_open}</p>}
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Date Close</label>
                       <input type="date" name="job_date_close" onChange={handleChange} value={values.job_date_close} class="form-control" ></input>
-                      {errors.job_date_close && <p>{errors.job_date_close}</p>}
+                      {errors.job_date_close && <p className="message">{errors.job_date_close}</p>}
                     </div>
                   </div>
                   <div class="col-md-4 mob-full">
@@ -163,14 +163,14 @@ export default function Jobdetailsmodal({location, method}) {
                         )}
 
                       </select>
-                      {errors.job_location && <p>{errors.job_location}</p>}
+                      {errors.job_location && <p className="message">{errors.job_location}</p>}
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Description</label>
                       <input type="email" name="job_description" onChange={handleChange} value={values.job_description} class="form-control" ></input>
-                      {errors.job_description && <p>{errors.job_description}</p>}
+                      {errors.job_description && <p className="message">{errors.job_description}</p>}
                     </div>
                   </div>
 

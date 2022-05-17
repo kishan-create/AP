@@ -205,7 +205,7 @@ export default function Addbranches({ method }) {
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">
-                        Brach Landline
+                        Branch Landline
                       </label>
                       <input
                         type="text"

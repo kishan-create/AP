@@ -845,34 +845,12 @@ export default function Organizationold() {
     fetchData();
   }, []);
 
-  //debugger;
-  // const onClickBranchEdit = async (branch_id) => {
-  //   const reponse = await axios.get(
-  //     `http://localhost:8000/api/editfecthbranchdata/${branch_id}`
-  //   );
-  //   if (reponse.data.status == 200) {
-  //     SetValues({
-  //       branch_name: reponse.data.branch.branch_name,
-  //       branch_code: reponse.data.branch.branch_code,
-  //       branch_company: reponse.data.branch.branch_company,
-  //       branch_type: reponse.data.branch.branch_type,
-  //       branch_location: reponse.data.branch.branch_location,
-  //       branch_date: reponse.data.branch.branch_date,
-  //       branch_landline: reponse.data.branch.branch_landline,
-  //       branch_email: reponse.data.branch.branch_email,
-  //       b_id: reponse.data.branch.id,
-  //     });
-  //   }
-
-  //   setIsOpenMobOrgModal(!isOpenMobOrgModal);
-  // };
-
   return (
     <main className="inner-content-box">
       <header className="main-otrer-top"> Organization Branches </header>
       <section className="main-content-area">
         <div className="main-content-area-inner">
-          <div className="sub-head organization-sub-head">
+          <div className="sub-head organization-sub-head sub-head-bottom-pad">
             {" "}
             Branch Details
             <div className="top-right-outer add-btn-div organization-top-rt">
@@ -928,153 +906,78 @@ export default function Organizationold() {
                     <AccordionItem uuid="a">
                       <AccordionItemHeading className="accordion-active-status">
                         <AccordionItemButton className="accordion-active-branch">
-                          {org_data.branch.map((branch_data) => {
-                            return (
-                              <>
-                                <div className="width-25 org-box-rsp-pad">
-                                  <Card>
-                                    <Card.Content className="emplyee-card-top">
-                                      <Card.Header className="profile-name org-name">
-                                        <span>{org_data.org_name}</span>
-                                      </Card.Header>
-                                      <Card.Description className="profile-content">
-                                        <div className="inner-section">
-                                          <div className="left">
-                                            Branch code
+                          {org_data.branch.length > 0 ? (
+                            org_data.branch.map((branch_data) => {
+                              return (
+                                <>
+                                  <div className="width-25 org-box-rsp-pad org-box-pad">
+                                    <Card>
+                                      <Card.Content className="emplyee-card-top">
+                                        <Card.Header className="profile-name org-name">
+                                          <span>{org_data.org_name}</span>
+                                        </Card.Header>
+                                        <Card.Description className="profile-content">
+                                          <div className="inner-section">
+                                            <div className="left">test</div>
+                                            <div className="right">
+                                              {org_data.org_name}
+                                            </div>
                                           </div>
-                                          <div className="right">
-                                            {branch_data.branch_code}
-                                          </div>
-                                        </div>
-                                        <div className="inner-section">
-                                          <div className="left">
-                                            Branch name
-                                          </div>
-                                          <div className="right">
-                                            {branch_data.branch_name}
-                                          </div>
-                                        </div>
-                                        <div className="inner-section">
-                                          <div className="left">Place name</div>
-                                          <div className="right">
-                                            {branch_data.branch_location}
-                                          </div>
-                                        </div>
-                                        {/* <div className="inner-section">
-                                          <div className="left">
-                                            Total Experience
-                                          </div>
-                                          <div className="right">10.5</div>
-                                        </div>
-                                        <div className="inner-section">
-                                          <div className="left">Department</div>
-                                          <div className="right">Python</div>
-                                        </div> */}
-                                      </Card.Description>
-                                    </Card.Content>
-                                    <Card.Content
-                                      extra
-                                      className="profile-card-bottom"
-                                    >
-                                      <div className="profile-location"></div>
-                                      {/* <div className="profile-location-right">
-                                        <div className="buttons-outer maring-left-15">
-                                          <a
-                                            href="Employeeprofile"
-                                            className="white-button download-bt"
-                                          >
-                                            View Profile
-                                          </a>
-                                        </div>
-                                        <div className="buttons-outer maring-left-15">
-                                          <a
-                                            href="add"
-                                            className="white-button download-bt"
-                                          >
-                                            <svg
-                                              width="10"
-                                              height="10"
-                                              viewBox="0 0 10 10"
-                                              fill="none"
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <path
-                                                d="M8.76911 5.80111L3.04833 0.0803333C2.94122 -0.0267778 2.76767 -0.0267778 2.66067 0.0803333L0.0803334 2.66067C-0.0267778 2.76778 -0.0267778 2.94133 0.0803334 3.04833L5.80111 8.76911L8.76911 5.80111Z"
-                                                fill="#4A54D1"
-                                              />
-                                              <path
-                                                d="M9.59266 9.98866L6.0791 9.04722L9.04722 6.0791L9.98866 9.59266C10.053 9.83311 9.83311 10.053 9.59266 9.98866Z"
-                                                fill="#4A54D1"
-                                              />
-                                            </svg>
-                                          </a>
-                                        </div>
-                                      </div> */}
-                                    </Card.Content>
-                                  </Card>
-                                </div>
 
-                                {/****************
- * first modifiled
- * 
- *  <div className="test_container">
-                                  <div className="left-branch">
-                                    <div className="organization-name">
-                                      {org_data.org_name}
-                                    </div>
-                                    <div>{branch_data.branch_location}</div>
-                                    <div className="desi joblocation">
-                                      <img src={location} />
-                                    </div>
+                                          <div className="inner-section">
+                                            <div className="left">
+                                              Branch code
+                                            </div>
+                                            <div className="right">
+                                              {branch_data.branch_code}
+                                            </div>
+                                          </div>
+                                          <div className="inner-section">
+                                            <div className="left">
+                                              Branch name
+                                            </div>
+                                            <div className="right">
+                                              {branch_data.branch_name}
+                                            </div>
+                                          </div>
+                                          <div className="inner-section">
+                                            <div className="left">
+                                              Place name
+                                            </div>
+                                            <div className="right">
+                                              {branch_data.branch_location}
+                                            </div>
+                                          </div>
+                                        </Card.Description>
+                                      </Card.Content>
+                                      <Card.Content
+                                        extra
+                                        className="profile-card-bottom"
+                                      >
+                                        <div className="profile-location"></div>
+                                      </Card.Content>
+                                    </Card>
                                   </div>
-                                  <div>
-                                    <div>
-                                      <span>Branch Name </span>
-                                      <span>: {branch_data.branch_name}</span>
-                                    </div>
-                                    <div>
-                                      <span>Branch Code </span>
-                                      <span>: {branch_data.branch_code}</span>
-                                    </div>
-                                  </div>
-                                </div> 
- * 
- * 
- * ****/}
-
-                                {/* <div className="accord-detals-box">
-                                <div className="left">Branch Type </div>
-                                <div className="right">
-                                  :{branch_data.branch_type}{" "}
-                                </div>
-                              </div>
-                              <div className="accord-detals-box">
-                                <div className="left">Location </div>
-                                <div className="right">
-                                  : {branch_data.branch_location}
-                                </div>
-                              </div> */}
-
-                                {/* <div className="accord-detals-box">
-                                <div className="accordion-bottom-button"> */}
-                                {/* <div className="more-button">View</div> */}
-                                {/* <div className="more-button more-outer"> */}
-                                {/* <div
-                                    // onClick={() =>
-                                    //   onClickBranchEdit(branch_data.bid)
-                                    // }
-                                    className="more-button more-outer"
-                                  >
-                                    Edit
-                                  </div>
-                                  <div className="more-button more-outer">
-                                    Delete
-                                  </div> */}
-                                {/* </div>
-                              </div> */}
-                              </>
-                            );
-                          })}
+                                </>
+                              );
+                            })
+                          ) : (
+                            <div className="width-25 org-box-rsp-pad org-box-pad">
+                              <Card>
+                                <Card.Content className="emplyee-card-top">
+                                  <Card.Header className="profile-name org-name">
+                                    <span>{org_data.org_name}</span>
+                                  </Card.Header>
+                                </Card.Content>
+                                <Card.Content
+                                  extra
+                                  className="profile-card-bottom"
+                                >
+                                  <div className="profile-location"></div>
+                                </Card.Content>
+                              </Card>
+                            </div>
+                          )}
                         </AccordionItemButton>
                       </AccordionItemHeading>
                     </AccordionItem>

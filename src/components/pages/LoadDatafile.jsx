@@ -1,18 +1,26 @@
 import { useState, useEffect } from "react";
-import axios from 'axios';
-import swal from 'sweetalert';
-import Modal from 'react-modal';
-import ReactDOM from 'react-dom';
+import axios from "axios";
+import swal from "sweetalert";
+import Modal from "react-modal";
+import ReactDOM from "react-dom";
 import { v4 as uuid } from "uuid";
 const LoadDatafile = () => {
-    const [columns, setColumns] = useState([]);
+  const [columns, setColumns] = useState([]);
   const loadData = async () => {
     // alert("hii");
     const response = await fetch("http://localhost:8000/api/getcandidates");
-    const scheduleresponse = await fetch("http://localhost:8000/api/getcandidates_schedule");
-    const rejectionresponse = await fetch("http://localhost:8000/api/getcandidates_rejection");
-    const waitingresponse = await fetch("http://localhost:8000/api/getcandidates_waiting");
-    const releaseresponse = await fetch("http://localhost:8000/api/getcandidates_release");
+    const scheduleresponse = await fetch(
+      "http://localhost:8000/api/getcandidates_schedule"
+    );
+    const rejectionresponse = await fetch(
+      "http://localhost:8000/api/getcandidates_rejection"
+    );
+    const waitingresponse = await fetch(
+      "http://localhost:8000/api/getcandidates_waiting"
+    );
+    const releaseresponse = await fetch(
+      "http://localhost:8000/api/getcandidates_release"
+    );
     const data = await response.json();
     const scheduledata = await scheduleresponse.json();
     const rejectiondata = await rejectionresponse.json();
@@ -34,39 +42,35 @@ const LoadDatafile = () => {
       [uuid()]: {
         name: "Inprogress",
         items: inprogessObj,
-        count: 2
-
+        count: 2,
       },
       [uuid()]: {
         name: "Schedule",
         items: scheduleObj,
-        count: 1
+        count: 1,
       },
       [uuid()]: {
         name: "Rejection",
         items: rejectionObj,
-        count: 3
-
+        count: 3,
       },
       [uuid()]: {
         name: "Waiting",
         items: waitingObj,
-        count: 4
+        count: 4,
       },
       [uuid()]: {
         name: "Release",
         items: releaseObj,
-        count: 5
-      }
-    })
-    
+        count: 5,
+      },
+    });
   };
   //loadData();
- 
- // console.log("shanu");
- 
-  return {columns };
 
-}
+  // console.log("shanu");
+
+  return { columns };
+};
 
 export default LoadDatafile;
