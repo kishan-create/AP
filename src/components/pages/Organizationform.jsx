@@ -29,12 +29,14 @@ const Organizationform = (org_validation) => {
     }
   }, [errors]);
 
- /* const loadOrganization = async () => {
-    const orgresponse=await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrganization/");
+  /* const loadOrganization = async () => {
+    const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
     setOrg(orgresponse.data);
   }*/
   const getSelectDropdown = async () => {
-    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrgnaization_type");
+    const response = await fetch(
+      "http://localhost:8000/api/getOrgnaization_type"
+    );
     const data = await response.json();
     const list = data.list;
   };
@@ -45,8 +47,11 @@ const Organizationform = (org_validation) => {
   };
   const onSubmitform = (e) => {
     //console.log(values)
-    const response = axios.post('http://auditportal.bourntec.com:3001/audit_portal/public/api/add_organization', values);
-    response.then(function (res) {
+    const response = axios.post(
+      "http://localhost:8000/api/add_organization",
+      values
+    );
+    response.then(function(res) {
       if (res.data.status === 200) {
         //console.log(res.data.message);
         swal({

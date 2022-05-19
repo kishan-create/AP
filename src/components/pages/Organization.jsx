@@ -819,8 +819,10 @@ export default function Organizationold() {
     branch_email: "",
   });
   const fetchData = async () => {
-    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrganizationvalues");
-   
+    const res = await axios.get(
+      "http://localhost:8000/api/getOrganizationvalues"
+    );
+
     const org = res.data.org;
 
     setRows(org);

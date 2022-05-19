@@ -95,8 +95,7 @@ const data = [
       <Table className="">
         <TableHead>
         
-        <TableRow>
-        
+        <TableRow> 
             <TableCell className="cal-width-50">Name</TableCell>
             <TableCell className="cal-width-20">Date</TableCell>
             <TableCell className="cal-width-20">Day</TableCell>
