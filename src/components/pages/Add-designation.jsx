@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
@@ -6,7 +6,8 @@ import Modal from "react-modal";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-dropdown/style.css";
 import "react-tabs/style/react-tabs.css";
-
+import designation_validation from "../validation/designation_validation";
+import Designationfunction from "./includes/Designationfunction";
 export default function AddDesignation({ method }) {
   const CustomTab = ([children]) => (
     <Tab>
@@ -19,6 +20,7 @@ export default function AddDesignation({ method }) {
 
   function openModal() {
     setIsOpen(true);
+   
   }
 
   function afterOpenModal() {
@@ -28,8 +30,11 @@ export default function AddDesignation({ method }) {
 
   function closeModal() {
     setIsOpen(false);
+    method();
   }
-return (
+ 
+  const { handleChange, values, listnew, handleSubmit, errors  } = Designationfunction(designation_validation);
+  return (
     <div>
       <button
         type="button"
@@ -46,7 +51,7 @@ return (
         className="job-detils-modal addabrch-modal"
         contentLabel="Example Modal"
       >
-        <form className="form" noValidate>
+        <form onSubmit={handleSubmit} className="form" noValidate>
           <div className="popup-head-sty modal-button-bg">
             <div className="popup-head-content-sty">
               <h4
@@ -66,13 +71,47 @@ return (
                 <div class="row ">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Designation Name</label>
-                      <input type="text" name="" class="form-control"/> </div>
+                      <label for="exampleFormControlInput1">Department Name</label>
+                      <select
+                        id="dropdown"
+                        name="department_name"
+                        onChange={handleChange}
+                        value={values.department_name}
+                        class="form-control"
+                      >
+                        <option value="">Select DEpartment name</option>
+                        {listnew.map(({ department_name, id }, index) => (
+                          <option value={id}>{department_name}</option>
+                        ))}
+                      </select> </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Designation Code</label>
-                      <input type="text" name="" class="form-control"/></div>
+                      <label for="exampleFormControlInput1">Designation name</label>
+                      <input type="text"  onChange={handleChange} name="designation_name" value={values.designation_name} class="form-control" />
+                      {errors.designation_name && <p>{errors.designation_name}</p>}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1"> Designation code</label>
+                      <input type="text" onChange={handleChange} name="designation_code" value={values.designation_code} class="form-control" />
+                      {errors.designation_code && <p>{errors.designation_code}</p>}
+                       </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Level Name</label>
+                      <select id="level_id" onChange={handleChange} name="level_name" value={values.level_name} class="form-control">
+                        <option value="">Choose Level</option>
+                        <option value="level1">Level 1</option>
+                        <option value="level2">Level 2</option>
+                        <option value="level3">Level 3</option>
+                        <option value="level4">Level 4</option>
+                        <option value="level5">Level 5</option>
+                        <option value="level6">Level 6</option>
+                      </select>
+                    </div>
                   </div>
 
                 </div>

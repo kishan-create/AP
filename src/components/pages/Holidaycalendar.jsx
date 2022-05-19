@@ -74,6 +74,7 @@ const data = [
             };
       }
       async componentDidMount() {
+        
             const res = await axios.get("http://localhost:8000/api/getHolidaynames/");
             if (res.data.sta === 200) {
                   this.setState({

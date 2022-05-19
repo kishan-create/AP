@@ -7,8 +7,8 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "react-tabs/style/react-tabs.css";
-
-
+import Departmentfunctions from "./includes/Departmentfunctions";
+import department_validation from "../validation/department_validation";
 export default function AddDepartment({ method }) {
   const CustomTab = ([children]) => (
     <Tab>
@@ -30,7 +30,9 @@ export default function AddDepartment({ method }) {
 
   function closeModal() {
     setIsOpen(false);
+    method();
   }
+  const { handleChange, values, handleSubmit, errors } = Departmentfunctions(department_validation);
   return (
     <div>
       <button
@@ -48,7 +50,7 @@ export default function AddDepartment({ method }) {
         className="job-detils-modal addabrch-modal"
         contentLabel="Example Modal"
       >
-        <form  className="form" noValidate>
+        <form  onSubmit={handleSubmit} className="form" noValidate>
           <div className="popup-head-sty modal-button-bg">
             <div className="popup-head-content-sty">
               <h4
@@ -68,25 +70,18 @@ export default function AddDepartment({ method }) {
                 <div class="row ">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Department Name</label>
-                <select
-                        id="dropdown"
-                        name=""
-                        class="form-control">
-                        <option value="">IT</option>
-                        <option value="">Operations </option>
-                        <option value="">Finance</option>
-                        <option value="">Legal/Law</option>
-                        </select>
+                      <label for="Department name">Department Name</label>
+                      <input type="text" name="department_name"  onChange={handleChange} value={values.department_name} class="form-control" ></input>
+                      {errors.department_name && <p>{errors.department_name}</p>}
                       </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Department Code</label>
-                      <input
-                        type="text"
-                        name=""
-                        class="form-control" ></input></div>
+                      <input type="text"  name="department_code"  onChange={handleChange} value={values.department_code} class="form-control" ></input>
+                      {errors.department_code && <p>{errors.department_code}</p>}
+                      </div>
+                     
                   </div>
             
               
