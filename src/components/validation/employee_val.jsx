@@ -115,8 +115,6 @@ export default function employee_val(values) {
     errors.emp_gender = "employee gender reqiured";
   }
 
-
-
   if (!values.personal_address.trim()) {
     errors.personal_address = "Address name required";
   }
@@ -139,7 +137,8 @@ export default function employee_val(values) {
     errors.personal_extensionnumber = "Extension Number required";
   }
   if (!values.personal_preferredemaillanguage.trim()) {
-    errors.personal_preferredemaillanguage = "Preferred Email language required";
+    errors.personal_preferredemaillanguage =
+      "Preferred Email language required";
   }
   if (!values.personal_workemail.trim()) {
     errors.personal_workemail = "Work Email required";
