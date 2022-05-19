@@ -25,8 +25,7 @@ const customStyles = {
   },
 };
 
-export default function Addholidaymodal({ location, method }) {
-  console.log(location);
+export default function Addholidaymodal({ method }) {
   const CustomTab = ({ children }) => (
     <Tab>
       <div>{children}</div>
@@ -47,7 +46,7 @@ export default function Addholidaymodal({ location, method }) {
 
   function closeModal() {
     setIsOpen(false);
-    // window.location.reload();
+    method();
   }
 
   const [value, setValue] = React.useState(0);

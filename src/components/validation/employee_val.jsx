@@ -115,8 +115,6 @@ export default function employee_val(values) {
     errors.emp_gender = "employee gender reqiured";
   }
 
-
-
   if (!values.personal_address.trim()) {
     errors.personal_address = "Address name required";
   }
@@ -139,14 +137,15 @@ export default function employee_val(values) {
     errors.personal_extensionnumber = "Extension Number required";
   }
   if (!values.personal_preferredemaillanguage.trim()) {
-    errors.personal_preferredemaillanguage = "Preferred Email language required";
+    errors.personal_preferredemaillanguage =
+      "Preferred Email language required";
   }
   if (!values.personal_workemail.trim()) {
     errors.personal_workemail = "Work Email required";
   }
-  if (!values.personal_personalemail.trim()) {
-    errors.personal_personalemail = "Personal Email required";
-  }
+  // if (!values.personal_personalemail.trim()) {
+  //   errors.personal_personalemail = "Personal Email required";
+  // }
   if (!values.personal_faxnumber.trim()) {
     errors.personal_faxnumber = "Fax number required";
   }
@@ -156,7 +155,7 @@ export default function employee_val(values) {
   if (!values.personal_zipcode.trim()) {
     errors.personal_relationship = "Relationship required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_emailid.trim()) {
     errors.personal_emailid = "Email required";
   }
   if (!values.personal_zipcode.trim()) {

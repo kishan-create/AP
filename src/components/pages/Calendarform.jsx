@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
+
 const Calendarform = (job_validation) => {
   const [values, SetValues] = useState({
     holiday_name: "",
@@ -9,6 +10,7 @@ const Calendarform = (job_validation) => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [post, SetPost] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,10 +21,20 @@ const Calendarform = (job_validation) => {
   };
 
   useEffect(() => {
+    getPostname();
     if (Object.keys(errors).length === 0 && isSubmitting) {
       onSubmitform();
     }
   }, [errors]);
+
+  const getPostname = async () => {
+    const response = await fetch("http://localhost:8000/api/getHolidays");
+    // const response = await fetch("http://localhost:8000/api/getHolidaynames");
+    // const response = await fetch("http://localhost:8000/api/getHolidayslist");
+    const data = await response.json();
+    const list = data.post;
+    SetPost(list);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,10 +63,10 @@ const Calendarform = (job_validation) => {
           holiday_date: "",
         });
       }
-      window.location.reload();
+      // window.location.reload();
     });
   };
 
-  return { handleChange, values, handleSubmit, errors };
+  return { handleChange, values, handleSubmit, errors, post };
 };
 export default Calendarform;
