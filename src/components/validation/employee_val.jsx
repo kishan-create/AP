@@ -144,37 +144,37 @@ export default function employee_val(values) {
   if (!values.personal_workemail.trim()) {
     errors.personal_workemail = "Work Email required";
   }
-  if (!values.personal_personalemail.trim()) {
-    errors.personal_personalemail = "Personal Email required";
-  }
+  // if (!values.personal_personalemail.trim()) {
+  //   errors.personal_personalemail = "Personal Email required";
+  // }
   if (!values.personal_faxnumber.trim()) {
     errors.personal_faxnumber = "Fax number required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_name.trim()) {
     errors.personal_name = "Name required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_relationship.trim()) {
     errors.personal_relationship = "Relationship required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_emailid.trim()) {
     errors.personal_emailid = "Email required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_relationshipaddress.trim()) {
     errors.personal_relationshipaddress = "Relationship address required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_homephone.trim()) {
     errors.personal_homephone = "Home phone required";
   }
   if (!values.personal_mobile.trim()) {
     errors.personal_mobile = "Mobile number required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_physicianname.trim()) {
     errors.personal_physicianname = "Physician Name required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_physicianaddress.trim()) {
     errors.personal_physicianaddress = "Physician Address required";
   }
-  if (!values.personal_zipcode.trim()) {
+  if (!values.personal_phone.trim()) {
     errors.personal_phone = "Phone number required";
   }
 

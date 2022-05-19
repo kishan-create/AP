@@ -17,6 +17,7 @@ const Calendarfunctions = (calendar_validation) => {
   const [showLocation, setShowLocation] = useState(false);
   const [typeDropdown, setTypeDropdown] = useState();
   const [items, setItems] = useState([]);
+
   const handleSelect = (selectedList) => {
     setItems(selectedList);
   };
@@ -56,6 +57,7 @@ const Calendarfunctions = (calendar_validation) => {
     }
   }, [errors]);
 
+
  
   const handleSubmit = e => {
 
@@ -64,6 +66,7 @@ const Calendarfunctions = (calendar_validation) => {
     setIsSubmitting(true);
 
   }
+  
   const onSubmitform = e => {
      console.log(items);
     const formData = new FormData();

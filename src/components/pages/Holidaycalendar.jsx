@@ -52,6 +52,8 @@ function createData(Category, PropertyBrand , AssetId, ConnectorType, SpecialFea
   return { Category, PropertyBrand , AssetId, ConnectorType, SpecialFeature,NumberofKeys, action };
 }
 
+
+
 const data = [
   createData('NEW YEAR', ' JAN 1',  ''),  
   createData('REPUBLIC DAY', 'JAN 26',  ''),
@@ -73,15 +75,39 @@ const data = [
                   holidaylist: [],
             };
       }
-      async componentDidMount() {
-            const res = await axios.get("http://localhost:8000/api/getHolidaynames/");
+        componentDidMount = () => {
+        this.fetchData();
+        //     const res = await axios.get("http://localhost:8000/api/getHolidaynames");
+        //     if (res.data.sta === 200) {
+        //           this.setState({
+        //             holidaylist: res.data.holidaylist,
+        //             loading: false,
+        //           });
+                  
+        //         }
+                
+      }
+
+      // async fetchData(){
+      //   const res = await axios.get("http://localhost:8000/api/getHolidaynames");
+      //       if (res.data.sta === 200) {
+      //             this.setState({
+      //               holidaylist: res.data.holidaylist,
+      //               loading: false,
+      //             });
+                  
+      //           }
+      // }
+      
+        fetchData = async () => {
+        const res = await axios.get("http://localhost:8000/api/getHolidaynames");
             if (res.data.sta === 200) {
                   this.setState({
                     holidaylist: res.data.holidaylist,
                     loading: false,
                   });
+                  
                 }
-                
       }
 
   render() {
@@ -92,7 +118,7 @@ const data = [
                 <div className="main-content-area-inner">
                     <div className="sub-head organization-sub-head">Holiday Calendar
                     <div className="top-right-outer add-btn-div">
-                  <Holidaypopup/>
+                  <Holidaypopup method={this.fetchData}/>
 
                                 </div>
                     </div>

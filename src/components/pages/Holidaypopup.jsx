@@ -37,7 +37,9 @@ const options1 = [
   { hol_name: "DEEPAVALI", id: 6 }
 ];
 
-export default function Holidaypopup({ location, method }) {
+export default function Holidaypopup({method}) {
+  // console.log(location);
+
 
   const CustomTab = ({ children }) => (
     <Tab >
@@ -61,8 +63,12 @@ export default function Holidaypopup({ location, method }) {
 
   function closeModal() {
     setIsOpen(false);
+    method();
+
+    
 
   }
+  
 
   const { handleChange, values, handleSubmit, errors, handleClick, showProject, showLocation, typeDropdown, items, handleSelect, handleRemove } = Calendarfunctions(calendar_validation);
   const getOptionName = async () => {
@@ -82,6 +88,8 @@ export default function Holidaypopup({ location, method }) {
       <button type="button" class="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon" /> Add Holiday Calander</button>
       <Modal
         isOpen={modalIsOpen}
+        
+
 
         onRequestClose={closeModal}
         className="job-detils-modal"

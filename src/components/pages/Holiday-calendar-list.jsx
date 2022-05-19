@@ -133,6 +133,7 @@ export default class HolidayList extends Component {
   }  
 
 
+
    
   async componentDidMount() {
     const res = await axios.get("http://localhost:8000/api/getHolidays/");
