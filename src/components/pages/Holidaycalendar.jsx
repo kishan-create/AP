@@ -124,7 +124,7 @@ const data = [
                     </div>
                      
                             <div id="app"></div>
-                            <div className="col-md-8 col-sm-12 col-xs-12">
+                            <div className="col-md-12 col-sm-12 col-xs-12">
   <Accordion preExpanded={"a"} className="job-accrodion ">
   {this.state.holidaylist.map((n) => {
         return (
@@ -148,17 +148,15 @@ const data = [
             
             <div className='col-md-7 col-sm-12 col-xs-12 public-optional-bordr '> 
                 <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">{n.optionalcount}
-                      </div>
+                      
                       <div className="desi joblocation f-w-norml">
-                      Optional Holidays        
+                     <span className='cla-count'> {n.optionalcount} </span> Optional Holidays        
                       </div>
                 </div>
                 <div className="accordion-head-text accordion-head-text-right">
-                      <div className="name notificatio-outer">{n.publicount}
-                      </div>
+                     
                       <div className="desi joblocation f-w-norml">
-                      Public Holidays        
+                      <span className='cla-count'>{n.publicount} </span> Public Holidays        
                       </div>
                 </div> 
             </div>

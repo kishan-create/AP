@@ -52,7 +52,7 @@ const delete_holidaynames = async (e, id) => {
   const thisclickrow = e.currentTarget;
   thisclickrow.innerText = "Deleting";
   const res = await axios.delete(
-    `http://localhost:8000/api/delete_holidays/{id}`
+    `http://localhost:8000/api/delete_holiday/{id}`
   );
   if (res.data.status == 200) {
     thisclickrow.closest("tr").remove();
