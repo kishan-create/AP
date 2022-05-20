@@ -63,20 +63,9 @@ const data = [
 ];
 
 
-const delete_holidaynames = async (e, id) => {
-  e.preventDefault();
-  const thisclickrow = e.currentTarget;
-  thisclickrow.innerText = "Deleting";
-  const res = await axios.delete(
-    `http://localhost:8000/api/delete_holidaynames/{id}`
-  );
-  if (res.data.status == 200) {
-    thisclickrow.closest("tr").remove();
-    alert("holiday Deleted successfully");
-  }
-};
 
 export default class Holidayview extends Component {
+  
   constructor() {
     super();
     this.state = {
@@ -85,6 +74,18 @@ export default class Holidayview extends Component {
   }
 
 
+  DeleteHolidayname = async (e,id) => { alert(id);
+    e.preventDefault();
+    const thisclickrow = e.currentTarget;
+    thisclickrow.innerText = "Deleting";
+    const res = await axios.delete(
+      `http://localhost:8000/api/delete_holidaynames/${id}`
+    );
+    if (res.data.status == 200) {
+      thisclickrow.closest("tr").remove();
+      alert("holiday Deleted successfully");
+    }
+  };
   
 
   componentDidMount() {
@@ -145,8 +146,11 @@ export default class Holidayview extends Component {
                           {
                             if (n.optional === "1") {
                               var checked = "true";
+                              var checkvalue = 0;
                             } else {
+                              var checkvalue = 1;
                             }
+
                           }
                           return (
                             <TableRow key={n.auid}>
@@ -167,14 +171,15 @@ export default class Holidayview extends Component {
                                     type="checkbox"
                                     id="option_check"
                                     name="option_check"
-                                    value={n.optional + "_" + n.auid}
+                                    value={checkvalue + "_" + n.auid}
                                   ></input>
                                 </div>
                               </TableCell>
                               <TableCell numeric className="cal-width-10">
                                 <div className="action-outer">
-                                  <div className="delete-icon"   onClick={(e) => delete_holidaynames(e, n.id)}>
+                                  <div className="delete-icon"   >
                                     <svg
+                                    onClick={(e) => this.DeleteHolidayname(e, n.auid)}
                                       width="7"
                                       height="10"
                                       viewBox="0 0 7 10"

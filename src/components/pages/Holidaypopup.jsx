@@ -11,6 +11,7 @@ import Calendarfunctions from "./Calendarfunctions";
 import "react-tabs/style/react-tabs.css";
 import Multyselect from "./Multyselect";
 import { Multiselect } from "multiselect-react-dropdown";
+import Holidaycalendar from "./Holidaycalendar";
 const customStyles = {
   content: {
     top: "50%",
