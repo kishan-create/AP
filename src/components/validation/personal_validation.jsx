@@ -1,67 +1,67 @@
 import React from "react";
 
 export default function personal_validation(values) {
-  let errorsa = {};
+  let errors = {};
   if (!values.personal_address.trim()) {
-    errorsa.personal_address = "Address name required";
+    errors.personal_address = "Address name required";
   }
   if (!values.personal_city.trim()) {
-    errorsa.personal_city = "City name required";
+    errors.personal_city = "City name required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_zipcode = "Zipcode required";
+    errors.personal_zipcode = "Zipcode required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_contactnumber = "Contact number required";
+    errors.personal_contactnumber = "Contact number required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_hometelephone = "Home telephone number required";
+    errors.personal_hometelephone = "Home telephone number required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_workmobile = "Work Mobile Number required";
+    errors.personal_workmobile = "Work Mobile Number required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_extensionnumber = "Extension Number required";
+    errors.personal_extensionnumber = "Extension Number required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_preferredemaillanguage = "Preferred Email language required";
+    errors.personal_preferredemaillanguage = "Preferred Email language required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_workemail = "Work Email required";
+    errors.personal_workemail = "Work Email required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_personalemail = "Personal Email required";
+    errors.personal_personalemail = "Personal Email required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_faxnumber = "Fax number required";
+    errors.personal_faxnumber = "Fax number required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_name = "Name required";
+    errors.personal_name = "Name required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_relationship = "Relationship required";
+    errors.personal_relationship = "Relationship required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_emailid = "Email required";
+    errors.personal_emailid = "Email required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_relationshipaddress = "Relationship address required";
+    errors.personal_relationshipaddress = "Relationship address required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_homephone = "Home phone required";
+    errors.personal_homephone = "Home phone required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_mobile = "Mobile number required";
+    errors.personal_mobile = "Mobile number required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_physicianname = "Physician Name required";
+    errors.personal_physicianname = "Physician Name required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_physicianaddress = "Physician Address required";
+    errors.personal_physicianaddress = "Physician Address required";
   }
   if (!values.personal_zipcode.trim()) {
-    errorsa.personal_phone = "Phone number required";
+    errors.personal_phone = "Phone number required";
   }
 
-  return errorsa;
+  return errors;
 }

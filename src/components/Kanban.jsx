@@ -411,19 +411,11 @@ const Kanban = () => {
   ///const [isLoading, setisLoading] = useState(true);
   const loadData = async () => {
     // alert("hii");
-<<<<<<< HEAD
-    const response=await fetch("http://localhost:8000/api/getcandidates/");
-    
-    const data=await response.json();
-   // console.log(data);
-    const savedate=data.candidate;
-=======
     const response = await fetch("http://localhost:8000/api/getcandidates/");
 
     const data = await response.json();
     // console.log(data);
     const savedate = data.candidate;
->>>>>>> ffd32a3ecc021c94fc41a422c884e521f09e9e7e
     var myObject = JSON.parse(savedate);
     setProductsList(myObject);
     setColumnsFromBackend({

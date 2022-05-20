@@ -132,47 +132,6 @@ const Kanban = () => {
   ];
   const [productsList, setProductsList] = useState([]);
   const [columns, setColumns] = useState([]);
-<<<<<<< HEAD
-  const loadData=async() =>
-  {
-   // alert("hii");
-   const response=await fetch("http://localhost:8000/api/getcandidates/");
-   const scheduleresponse=await fetch("http://localhost:8000/api/getcandidates_schedule/");
-   const rejectionresponse=await fetch("http://localhost:8000/api/getcandidates_rejection/");
-   const waitingresponse=await fetch("http://localhost:8000/api/getcandidates_waiting/");
-   const data=await response.json();
-   const scheduledata=await scheduleresponse.json();
-   const rejectiondata=await rejectionresponse.json();
-   const waitingdata=await waitingresponse.json();
-  // console.log(data);
-   const savedate=data.candidate;
-   const schedulesavedata=scheduledata.candidate;
-   const rejectionsavedata=rejectiondata.candidate;
-   const waitingsavedata=waitingdata.candidate;
-   //console.log(savedate);
-   var inprogessObj = JSON.parse(savedate);
-   var scheduleObj=JSON.parse(schedulesavedata);
-   var rejectionObj=JSON.parse(rejectionsavedata);
-   var waitingObj=JSON.parse(waitingsavedata);
-   setColumns({
-    [uuid()]: {
-      name: "Inprogress", 
-      items: inprogessObj
-    },
-    [uuid()]: {
-      name: "Schedule",
-      items: scheduleObj
-    },
-    [uuid()]: {
-      name: "Rejection",
-      items: rejectionObj
-    },
-    [uuid()]: {
-      name: "Waiting",
-      items: waitingObj
-    }
-   })
-=======
   const loadData = async () => {
     // alert("hii");
     const response = await fetch("http://localhost:8000/api/getcandidates/");
@@ -217,7 +176,6 @@ const Kanban = () => {
         items: waitingObj,
       },
     });
->>>>>>> ffd32a3ecc021c94fc41a422c884e521f09e9e7e
   };
   useEffect(() => {
     loadData();
@@ -245,15 +203,6 @@ const Kanban = () => {
           items: destItems,
         },
       });
-<<<<<<< HEAD
-     // console.log(destItems);
-      values['id'] = result.draggableId;
-      values['column']=destColumn;
-      values['index']=destination.index;
-      values['itemsnew']=destItems;
-      values['type']="another";
-      const update= axios.post('http://localhost:8000/api/updatecolumn', values);
-=======
       // console.log(destItems);
       values["id"] = result.draggableId;
       values["column"] = destColumn;
@@ -264,7 +213,6 @@ const Kanban = () => {
         "http://localhost:8000/api/updatecolumn",
         values
       );
->>>>>>> ffd32a3ecc021c94fc41a422c884e521f09e9e7e
     } else {
       const column = columns[source.droppableId];
       const copiedItems = [...column.items];
@@ -277,13 +225,6 @@ const Kanban = () => {
           items: copiedItems,
         },
       });
-<<<<<<< HEAD
-      values['type']="self";
-  
-      values['itemsnew']=copiedItems;
-      const update= axios.post('http://localhost:8000/api/updatecolumn', values);
-     // console.log(copiedItems);
-=======
       values["type"] = "self";
 
       values["itemsnew"] = copiedItems;
@@ -292,7 +233,6 @@ const Kanban = () => {
         values
       );
       // console.log(copiedItems);
->>>>>>> ffd32a3ecc021c94fc41a422c884e521f09e9e7e
     }
   };
 

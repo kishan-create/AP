@@ -41,22 +41,6 @@ const useForm = (validate) => {
     e.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
-<<<<<<< HEAD
-    if (Object.keys(errors).length === 0 && isSubmitting) 
-  {
-   const promise= axios.post('http://localhost:8000/api/add_employee_first', values);
-   promise.then(function(res) {
-    if(res.data.status===200)
-    {
-        console.log(res.data.message);
-    }
-  })
- 
-    ///.then(function (response) {
-       // console.log(response.data.message);
-  //  })
-   // .catch(function (error) {
-=======
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const promise = axios.post(
         "http://localhost:8000/api/add_employee_first",
@@ -72,7 +56,6 @@ const useForm = (validate) => {
       // console.log(response.data.message);
       //  })
       // .catch(function (error) {
->>>>>>> ffd32a3ecc021c94fc41a422c884e521f09e9e7e
       //  console.log("failed")
       //  })
     } else {
