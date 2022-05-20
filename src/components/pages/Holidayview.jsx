@@ -63,6 +63,18 @@ const data = [
 ];
 
 
+const delete_holidaynames = async (e, id) => {
+  e.preventDefault();
+  const thisclickrow = e.currentTarget;
+  thisclickrow.innerText = "Deleting";
+  const res = await axios.get(
+    `http://localhost:8000/api/delete_holidaynames/${id}`
+  );
+  if (res.data.status == 200) {
+    thisclickrow.closest("tr").remove();
+    alert("holiday Deleted successfully");
+  }
+};
 
 export default class Holidayview extends Component {
   
