@@ -58,7 +58,7 @@ const data = [
    {
      this.getallHolidays(this.props.match.params.id);
    }
-   async getallHolidays(id) {
+    getallHolidays=async(id) =>{
     const reponse = await axios.get(
       `http://localhost:8000/api/getholidysbyid/${id}` );
       if (reponse.data.status === 200) {
@@ -69,10 +69,13 @@ const data = [
      }
 
    }
-   async handleoption (e) {
+    handleoption= async(e)=> {
    var id=e.target.value;
    const reponse = await axios.get(
     `http://localhost:8000/api/getupdateholiday/${id}` );
+
+    this.getallHolidays(this.props.match.params.id);
+    
    }
  
   render() {
@@ -113,9 +116,10 @@ const data = [
            {if (n.optional === '1') 
            { 
              var checked="true";
+             var chekid="0";
 } else 
 { 
-  
+  var chekid="1";
 } 
 }
             return (
@@ -125,7 +129,7 @@ const data = [
                     <TableCell numeric className="cal-width-20">{n.hol_date}</TableCell>                          
                     <TableCell numeric className="cal-width-20"> <div className="edit-new-icon ">
              
-               <input onClick={this.handleoption}  onTouchEnd={this.handleoption} checked={checked} type="checkbox" id="option_check" name="option_check" value={n.optional+'_'+n.auid}></input>
+               <input onClick={this.handleoption}  onTouchEnd={this.handleoption} checked={checked} type="checkbox" id="option_check" name="option_check" value={chekid+'_'+n.auid}></input>
 
 
                              </div></TableCell>   
