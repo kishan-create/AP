@@ -3,7 +3,7 @@ import React from "react";
 export default function employee_val(values) {
   let errors = {};
 
-  if (!values.emp_name.trim()) {
+ /* if (!values.emp_name.trim()) {
     errors.emp_name = "employee name reqiured";
   }
   if (!values.emp_code.trim()) {
@@ -17,8 +17,9 @@ export default function employee_val(values) {
   }
   if (!values.emp_email.trim()) {
     errors.emp_email = "employee email reqiured";
-  }
-  if (!values.emp_reportperson.trim()) {
+  }*/
+  
+  /*if (!values.emp_reportperson.trim()) {
     errors.emp_reportperson = "employee report person reqiured";
   }
   if (!values.emp_teamsactiondate.trim()) {
@@ -39,9 +40,9 @@ export default function employee_val(values) {
   }
   if (!values.emp_region.trim()) {
     errors.emp_region = "employee region reqiured";
-  }
+  }*/
 
-  if (!values.emp_reporting_person.trim()) {
+ /* if (!values.emp_reporting_person.trim()) {
     errors.emp_reporting_person = "employee reporting person reqiured";
   }
   if (!values.emp_function.trim()) {
@@ -74,9 +75,9 @@ export default function employee_val(values) {
 
   if (!values.emp_department.trim()) {
     errors.emp_department = "employee department reqiured";
-  }
+  }*/
 
-  if (!values.emp_location.trim()) {
+/*  if (!values.emp_location.trim()) {
     errors.emp_location = "employee location reqiured";
   }
 
@@ -88,34 +89,34 @@ export default function employee_val(values) {
     errors.emp_region = "employee region reqiured";
   }
 
-  if (!values.emp_orginal_hire_date.trim()) {
+  /*if (!values.emp_orginal_hire_date.trim()) {
     errors.emp_orginal_hire_date = "employee hire date reqiured";
-  }
+  }*/
 
-  if (!values.emp_holiday_calender.trim()) {
+ /* if (!values.emp_holiday_calender.trim()) {
     errors.emp_holiday_calender = "employee holiday calender reqiured";
   }
 
-  if (!values.emp_reporting_manager.trim()) {
+  /*if (!values.emp_reporting_manager.trim()) {
     errors.emp_reporting_manager = "employee reporting manger reqiured";
-  }
+  }*/
 
-  if (!values.emp_functional_manager.trim()) {
+  /*if (!values.emp_functional_manager.trim()) {
     errors.emp_functional_manager = "employee functional manager reqiured";
-  }
+  }*/
 
-  if (!values.emp_desigination.trim()) {
+ /* if (!values.emp_desigination.trim()) {
     errors.emp_desigination = "employee designation reqiured";
   }
 
-  if (!values.emp_number.trim()) {
+ /* if (!values.emp_number.trim()) {
     errors.emp_number = "employee number reqiured";
-  }
-  if (!values.emp_gender.trim()) {
-    errors.emp_gender = "employee gender reqiured";
-  }
+  }*/
+ // if (!values.emp_gender.trim()) {
+   // errors.emp_gender = "employee gender reqiured";
+ // }
 
-  if (!values.personal_address.trim()) {
+ /* if (!values.personal_address.trim()) {
     errors.personal_address = "Address name required";
   }
   if (!values.personal_city.trim()) {
@@ -175,7 +176,7 @@ export default function employee_val(values) {
   }
   if (!values.personal_phone.trim()) {
     errors.personal_phone = "Phone number required";
-  }
+  }*/
 
   return errors;
 }

@@ -16,7 +16,7 @@ import Popupmodal from "./Popupmodal";
 
 import "react-accessible-accordion/dist/fancy-example.css";
 
-import employeeForm from "./Employeeform";
+import Employeeform from "./includes/Employeeform";
 import employee_val from "../validation/employee_val";
 
 import {
@@ -219,7 +219,7 @@ setDirection();
     timeout = setTimeout(setDirection, 200);
   });
 
-  const { handleChange, values, handleSubmit, errors, options } = employeeForm(
+  const { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments } = Employeeform(
     employee_val
   );
   return (
@@ -292,7 +292,7 @@ setDirection();
                               </button>
                             </div>
                           </div>
-
+                          <form onSubmit={handleSubmit} className="form" noValidate>
                           <div className="basic-inform-inner">
                             <div className="col-md-4">
                               <div class="form-group">
@@ -310,23 +310,50 @@ setDirection();
                                   <p className="red-alert">{errors.emp_name}</p>
                                 )}
                               </div>
-                              <div class="form-group">
+                               <div class="form-group">
                                 <label for="exampleFormControlInput1">
-                                  Designation
+                                  Departments Name
                                 </label>
-                                <input
-                                  type="text"
-                                  name="emp_desigination"
-                                  onChange={handleChange}
-                                  value={values.emp_desigination}
-                                  class="form-control"
-                                ></input>
+                                <select
+                        id="dropdown"
+                        name="emp_desigination"
+                        onChange={handleChange}
+                        value={values.emp_department}
+                        class="form-control"
+                      >
+                        <option value="">Select Department name</option>
+                        {departments.map(({ department_name, id }, index) => (
+                          <option value={id}>{department_name}</option>
+                        ))}
+                      </select>
+                                {errors.emp_joindate && (
+                                  <p className="red-alert">
+                                    {errors.emp_joindate}
+                                  </p>
+                                )}
+                              </div>
+                              <div class="form-group">
+                              <label>Designation</label>
+                                <select
+                        id="dropdown"
+                        name="emp_desigination"
+                        onChange={handleChange}
+                        value={values.emp_desigination}
+                        class="form-control"
+                      >
+                        <option value="">Select Designation name</option>
+                        {designation.map(({ designation_name, id }, index) => (
+                          <option value={id}>{designation_name}</option>
+                        ))}
+                      </select>
+                                
                                 {errors.emp_desigination && (
                                   <p className="red-alert">
                                     {errors.emp_desigination}
                                   </p>
                                 )}
                               </div>
+
                               <div class="form-group">
                                 <label for="exampleFormControlInput1">
                                   Company Email ID
@@ -383,7 +410,7 @@ setDirection();
                                   Joining Date
                                 </label>
                                 <input
-                                  type="text"
+                                  type="date"
                                   name="emp_joindate"
                                   onChange={handleChange}
                                   value={values.emp_joindate}
@@ -417,8 +444,8 @@ setDirection();
                                   Employee Gender
                                 </label>
                                 <div className="radiobox-outer">
-                                  <Radio name="test">Male</Radio>
-                                  <Radio name="test">Female</Radio>
+                                <input type="radio" value="MALE" name="emp_gender" onChange={handleChange}  /> Male
+        <input type="radio" value="FEMALE" name="emp_gender" onChange={handleChange}  /> Female
                                 </div>
                               </div>
                             </div>
@@ -532,25 +559,7 @@ setDirection();
                                   )}{" "}
                                 </div>
                               </div>
-                              <div className="col-md-4">
-                                <div class="form-group">
-                                  <label for="exampleFormControlInput1">
-                                    Designation
-                                  </label>
-                                  <input
-                                    type="text"
-                                    name="emp_desigination"
-                                    onChange={handleChange}
-                                    value={values.emp_desigination}
-                                    class="form-control"
-                                  ></input>
-                                  {errors.emp_desigination && (
-                                    <p className="red-alert">
-                                      {errors.emp_desigination}
-                                    </p>
-                                  )}{" "}
-                                </div>
-                              </div>
+                             
 
                               <div className="col-md-4">
                                 <div class="form-group">
@@ -688,16 +697,20 @@ setDirection();
                               </div>
                               <div className="col-md-4">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput1">
-                                    Holiday Calendar
-                                  </label>
-                                  <input
-                                    type="text"
-                                    name="emp_holiday_calender"
-                                    onChange={handleChange}
-                                    value={values.emp_holiday_calender}
-                                    class="form-control"
-                                  ></input>
+                                  <label>Holiday Calander</label>
+                                <select
+                        id="dropdown"
+                        name="emp_holiday_calender"
+                        onChange={handleChange}
+                        value={values.emp_holiday_calender}
+                        class="form-control"
+                      >
+                        <option value="">Select Holiday calander</option>
+                        {holidaylist.map(({ hol_calendar_name, id }, index) => (
+                          <option value={id}>{hol_calendar_name}</option>
+                        ))}
+                      </select>
+                                 
                                   {errors.emp_holiday_calender && (
                                     <p className="red-alert">
                                       {errors.emp_holiday_calender}
@@ -838,13 +851,67 @@ setDirection();
                                   )}{" "}
                                 </div>
                               </div>
-                              <form
-                                onClick={handleSubmit}
-                                className="form"
-                                noValidate
-                              >
+                              <div className="col-md-4">
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">
+                                    Previous Experience
+                                  </label>
+                                  <input
+                                    type="text"
+                                    name="emp_prev_exp"
+                                    onChange={handleChange}
+                                    value={values.emp_prev_exp}
+                                    class="form-control"
+                                  ></input>
+                                  {errors.emp_prev_exp && (
+                                    <p className="red-alert">
+                                      {errors.emp_prev_exp}
+                                    </p>
+                                  )}{" "}
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">
+                                    Primary skill
+                                  </label>
+                                  <input
+                                    type="text"
+                                    name="emp_primary_skill"
+                                    onChange={handleChange}
+                                    value={values.emp_primary_skill}
+                                    class="form-control"
+                                  ></input>
+                                  {errors.emp_primary_skill && (
+                                    <p className="red-alert">
+                                      {errors.emp_primary_skill}
+                                    </p>
+                                  )}{" "}
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">
+                                    Secondary skill
+                                  </label>
+                                  <input
+                                    type="text"
+                                    name="emp_sec_skill"
+                                    onChange={handleChange}
+                                    value={values.emp_sec_skill}
+                                    class="form-control"
+                                  ></input>
+                                  {errors.emp_sec_skill && (
+                                    <p className="red-alert">
+                                      {errors.emp_sec_skill}
+                                    </p>
+                                  )}{" "}
+                                </div>
+                              </div>
+
+                              
                                 <div className="bottom-button-bg">
-                                  <button type="button" class="btn  btn-save ">
+                                  <button type="submit" class="btn  btn-save ">
                                     {" "}
                                     Save
                                   </button>
@@ -856,9 +923,9 @@ setDirection();
                                     Cancel{" "}
                                   </button>
                                 </div>
-                              </form>
+                            
                             </div>
-                          </div>
+                          </div> </form>
                         </div>
                       </div>
                     </div>
@@ -2119,6 +2186,7 @@ setDirection();
                                     type="date"
                                     id=""
                                     name="birthday"
+                                    
                                   />
                                 </div>
                               </div>
