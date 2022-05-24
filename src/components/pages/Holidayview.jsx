@@ -58,7 +58,7 @@ const data = [
    {
      this.getallHolidays(this.props.match.params.id);
    }
-   async getallHolidays(id) {
+    getallHolidays=async(id) =>{
     const reponse = await axios.get(
       `http://localhost:8000/api/getholidysbyid/${id}` );
       if (reponse.data.status === 200) {
@@ -69,11 +69,37 @@ const data = [
      }
 
    }
-   async handleoption (e) {
+    handleoption=async(e)=> {
    var id=e.target.value;
    const reponse = await axios.get(
     `http://localhost:8000/api/getupdateholiday/${id}` );
+
+    this.getallHolidays(this.props.match.params.id);
+    
    }
+   DeleteHolidayname = async (e,id) => { alert(id);
+
+    e.preventDefault();
+
+    const thisclickrow = e.currentTarget;
+
+    thisclickrow.innerText = "Deleting";
+
+    const res = await axios.get(
+
+      `http://localhost:8000/api/delete_holidaynames/${id}`
+
+    );
+
+    if (res.data.status == 200) {
+
+      thisclickrow.closest("tr").remove();
+
+      alert("holiday Deleted successfully");
+
+    }
+
+  };
  
   render() {
     return (
@@ -113,9 +139,10 @@ const data = [
            {if (n.optional === '1') 
            { 
              var checked="true";
+             var chekid="0";
 } else 
 { 
-  
+  var chekid="1";
 } 
 }
             return (
@@ -125,7 +152,7 @@ const data = [
                     <TableCell numeric className="cal-width-20">{n.hol_date}</TableCell>                          
                     <TableCell numeric className="cal-width-20"> <div className="edit-new-icon ">
              
-               <input onClick={this.handleoption}  onTouchEnd={this.handleoption} checked={checked} type="checkbox" id="option_check" name="option_check" value={n.optional+'_'+n.auid}></input>
+               <input onClick={this.handleoption}  onTouchEnd={this.handleoption} checked={checked} type="checkbox" id="option_check" name="option_check" value={chekid+'_'+n.auid}></input>
 
 
                              </div></TableCell>   
@@ -135,7 +162,7 @@ const data = [
             
 <div className="delete-icon">
 
-<svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg onClick={(e) => this.DeleteHolidayname(e, n.auid)}  width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.242676 0.31216H2.19897V0.261343C2.19897 0.117019 2.30763 0 2.44165 0H4.43799C4.57201 0 4.68067 0.117019 4.68067 0.261343V0.31216H6.63696C6.77098 0.31216 6.87964 0.429179 6.87964 0.573503V1.60566C6.87964 1.74998 6.77098 1.867 6.63696 1.867H0.242676C0.108661 1.867 0 1.74998 0 1.60566V0.573503C0 0.429179 0.108661 0.31216 0.242676 0.31216Z" fill="#EB140A"/>
 <path d="M0.607288 2.39648H6.27234C6.40635 2.39648 6.51501 2.5135 6.51501 2.65783V9.49013C6.51501 9.63445 6.40635 9.75147 6.27234 9.75147H0.607288C0.473274 9.75147 0.364613 9.63445 0.364613 9.49013V2.65783C0.364613 2.5135 0.473274 2.39648 0.607288 2.39648ZM4.59252 8.81099C4.59252 8.95531 4.70118 9.07233 4.8352 9.07233H5.06107C5.19509 9.07233 5.30375 8.95531 5.30375 8.81099V3.33697C5.30375 3.19265 5.19509 3.07563 5.06107 3.07563H4.8352C4.70118 3.07563 4.59252 3.19265 4.59252 3.33697V8.81099ZM3.08415 8.81099C3.08415 8.95531 3.19281 9.07233 3.32683 9.07233H3.5527C3.68672 9.07233 3.79538 8.95531 3.79538 8.81099V3.33697C3.79538 3.19265 3.68672 3.07563 3.5527 3.07563H3.32683C3.19281 3.07563 3.08415 3.19265 3.08415 3.33697V8.81099ZM1.57588 8.81099C1.57588 8.95531 1.68454 9.07233 1.81855 9.07233H2.04443C2.17844 9.07233 2.2871 8.95531 2.2871 8.81099V3.33697C2.2871 3.19265 2.17844 3.07563 2.04443 3.07563H1.81855C1.68454 3.07563 1.57588 3.19265 1.57588 3.33697V8.81099Z" fill="#EB140A"/>
 </svg>
