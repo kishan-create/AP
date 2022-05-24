@@ -179,9 +179,9 @@ function Row(props) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row" className="cal-width-40">
-          {row.org_name}
+          {row.department_name}
         </TableCell>
-        <TableCell  className="cal-width-40"> {row.org_code}</TableCell>
+        <TableCell  className="cal-width-40"> {row.department_code}</TableCell>
 
         <TableCell  className="cal-width-10">
           <div>
@@ -211,16 +211,18 @@ function Row(props) {
                   <TableRow>
                     <TableCell className="cal-width-40">Designation Name</TableCell>
                     <TableCell className="cal-width-40">Designation Code</TableCell>
+                    <TableCell className="cal-width-40">Level</TableCell>
                     <TableCell className="cal-width-10">Action</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.branch.map((historyRow) => (
-                    <TableRow key={historyRow.branchname}>
+                  {row.des.map((historyRow) => (
+                    <TableRow key={historyRow.designation_name}>
                       <TableCell component="td" scope="row" className="cal-width-40">
-                        {historyRow.branch_name}
+                        {historyRow.designation_name}
                       </TableCell>
-                      <TableCell className="cal-width-40">{historyRow.branch_code}</TableCell>
+                      <TableCell className="cal-width-40">{historyRow.designation_code}</TableCell>
+                      <TableCell className="cal-width-40">{historyRow.level_type}</TableCell>
                       <TableCell className="cal-width-10">
                         <div>
                           <a onClick={() => onClickBranchEdit(historyRow.bid)}>
@@ -260,7 +262,7 @@ export default function Department() {
   });
   const fetchData = async () => {
     const res = await axios.get(
-      "http://localhost:8000/api/getOrganizationvalues"
+      "http://localhost:8000/api/getDepartmentValues"
     );
 
     const org = res.data.org;
@@ -285,7 +287,7 @@ export default function Department() {
                 <AddDepartment method={fetchData} />
               </div>
               <div className="organization-button">
-                <AddDesignation />
+                <AddDesignation method={fetchData}/>
               </div>
             </div>
           </div>
@@ -299,7 +301,7 @@ export default function Department() {
                 <TableHead>
                   <TableRow>
                     <TableCell />
-                    <TableCell className="cal-width-40">Department Name</TableCell>
+                    <TableCell className="cal-width-40">Department Name1</TableCell>
                     <TableCell className="cal-width-40">Department Code</TableCell>
                     <TableCell className="cal-width-10">Action</TableCell>
                   </TableRow>
@@ -324,7 +326,7 @@ export default function Department() {
                     <AccordionItem uuid="a">
                       <AccordionItemHeading className="accordion-active-status">
                         <AccordionItemButton className="accordion-active-branch">
-                          {org_data.branch.map((branch_data) => {
+                          {org_data.des.map((branch_data) => {
                             return (
                               <>
                                 <div className="width-25 org-box-rsp-pad">
@@ -339,7 +341,7 @@ export default function Department() {
                                           Department Name
                                           </div>
                                           <div className="right">
-                                            {branch_data.branch_code}
+                                          test
                                           </div>
                                         </div>
                                         <div className="inner-section">
