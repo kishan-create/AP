@@ -3,7 +3,7 @@ import React from "react";
 export default function employee_val(values) {
   let errors = {};
 
- /* if (!values.emp_name.trim()) {
+ if (!values.emp_name.trim()) {
     errors.emp_name = "employee name reqiured";
   }
   if (!values.emp_code.trim()) {
@@ -17,8 +17,18 @@ export default function employee_val(values) {
   }
   if (!values.emp_email.trim()) {
     errors.emp_email = "employee email reqiured";
-  }*/
-  
+  }
+  if (!values.emp_number.trim()) {
+    errors.emp_number = "Contact number required";
+  }
+  if (!values.emp_holiday_calender.trim()) {
+     errors.emp_holiday_calender = "Choose Holiday calander";
+  }
+  if (!values.emp_holiday_calender.trim()) {
+    errors.emp_holiday_calender = "Choose Holiday calander";
+ }
+ 
+ 
   /*if (!values.emp_reportperson.trim()) {
     errors.emp_reportperson = "employee report person reqiured";
   }

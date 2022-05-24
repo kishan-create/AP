@@ -68,10 +68,7 @@ export default function Addemployeetab() {
     $curr.prevAll().addClass("visited");
   });
 
-  const [myimage, setMyImage] = React.useState(null);
-  const uploadImage = (e) => {
-    setMyImage(URL.createObjectURL(e.target.files[0]));
-  };
+  
 
   const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
   const tablist = document.querySelector('[role="tablist"]');
@@ -219,7 +216,7 @@ setDirection();
     timeout = setTimeout(setDirection, 200);
   });
 
-  const { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments } = Employeeform(
+  const { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments,uploadImage,myimage  } = Employeeform(
     employee_val
   );
   return (
@@ -316,7 +313,7 @@ setDirection();
                                 </label>
                                 <select
                         id="dropdown"
-                        name="emp_desigination"
+                        name="emp_department"
                         onChange={handleChange}
                         value={values.emp_department}
                         class="form-control"
@@ -459,7 +456,7 @@ setDirection();
                                   <label for="input-file">
                                     <img src={uploadicon} alt="" />
                                   </label>
-                                  <input type="file" onChange={uploadImage} />
+                                  <input type="file" name="profilepic" onChange={uploadImage} />
                                 </div>
                               </div>
                             </div>

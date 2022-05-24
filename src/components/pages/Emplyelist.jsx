@@ -113,6 +113,11 @@ export default class Emplyelist extends Component {
                 <List>
                   <ListItem>
                   {this.state.employeelist.map((n) => {
+                    
+                  // var p_image= "http://localhost/audit_portal/public/uploads/profile/" +
+                 //
+                
+                  
                      return (
                     <div className="width-25">
                       <Card>
@@ -126,7 +131,7 @@ export default class Emplyelist extends Component {
                             </div>
                           </div>
                           <div className="image-box">
-                            <img src={profileimage1} />
+                            <img src={"http://localhost/audit_portal/public/uploads/profile/"+n.image} />
                           </div>
                           <Card.Header className="profile-name">
                             <span>  {n.emp_name}</span>
@@ -145,7 +150,7 @@ export default class Emplyelist extends Component {
                             </div>
                             <div className="inner-section">
                               <div className="left">Joining Date</div>
-                              <div className="right"> {n.emp_company_email_id}</div>
+                              <div className="right"> {n.emp_joining_date}</div>
                             </div>
                             <div className="inner-section">
                               <div className="left">Total Experience</div>
@@ -153,7 +158,7 @@ export default class Emplyelist extends Component {
                             </div>
                             <div className="inner-section">
                               <div className="left">Department</div>
-                              <div className="right">Python</div>
+                              <div className="right">{n.department_name}</div>
                             </div>
                           </Card.Description>
                         </Card.Content>
