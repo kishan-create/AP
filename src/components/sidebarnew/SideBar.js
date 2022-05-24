@@ -65,12 +65,12 @@ const $ = window.$;
       <Nav vertical className="list-unstyled pb-3">
       <div className="nav-taxt">Navigation</div>
    
-         <NavItem>
+         {/* <NavItem>
           <NavLink exact  active={window.location.pathname === "/"} tag={nlink} to={""} exact  className="mob-menu-clik" >
           < MdDashboard/>
             Dashboard  
           </NavLink>
-        </NavItem>
+        </NavItem> */}
         <NavItem>
           <NavLink active={window.location.pathname === "/Job"} exact tag={nlink} to={"/Job"}  className="mob-menu-clik">
           < MdBusinessCenter/>
@@ -87,7 +87,7 @@ const $ = window.$;
                   <NavLink tag={nlink} to={"/Offboarding"}> Offboarding< MdInsertDriveFile/> </NavLink>
                   
                 </DropdownMenu>
-              </UncontrolledButtonDropdown>
+        </UncontrolledButtonDropdown>
         <NavItem>
           <NavLink active={window.location.pathname === "/Emplyelist"} tag={Link} to={"/Emplyelist"} className="mob-menu-clik" >
           <FaUserTie/>
@@ -101,12 +101,12 @@ const $ = window.$;
           </NavLink>
         </NavItem>
 
-        <NavItem>
+        {/* <NavItem>
           <NavLink active={window.location.pathname === "/"} tag={Link} to={"/"} className="mob-menu-clik" >
           <FaFileAlt/>
             Projects
           </NavLink>
-        </NavItem>
+        </NavItem> */}
           
 
         <UncontrolledButtonDropdown  className="btin-nam-main" nav inNavbar>
@@ -114,47 +114,34 @@ const $ = window.$;
                 Administration < MdAdminPanelSettings  className="show-only-icon"/> <FontAwesomeIcon icon={faCaretDown} className="mr-2  float-right close-tog"  />
                 </DropdownToggle>
                 <DropdownMenu className="show-subm-menu">
-                <NavLink tag={nlink} to={"/Organization"} className="mob-menu-clik " activeClassName="active" >
-                Organization< MdOutlineAccountTree/>
-          </NavLink>
-          <NavLink tag={nlink} to={"/Addcategory"} className="mob-menu-clik" activeClassName="active" >
-          Configuration< MdSettingsSuggest/>
-          </NavLink>
-               
+                      <NavLink tag={nlink} to={"/Organizationold"} className="mob-menu-clik " activeClassName="active" >
+                            Organization< MdOutlineAccountTree/>
+                      </NavLink>
+                      <NavLink tag={nlink} to={"/Addcategory"} className="mob-menu-clik" activeClassName="active" >
+                            Configuration< MdSettingsSuggest/>
+                      </NavLink>
+                      <NavLink tag={nlink} to={"/HolidayList"} className="mob-menu-clik" activeClassName="active" >
+                            Holiday Calendar< MdDateRange/>
+                      </NavLink>
+                      <NavLink tag={nlink} to={"/Holidaycalendar"} className="mob-menu-clik" activeClassName="active" >
+                            Holiday Calendar List< MdDateRange/>
+                      </NavLink>
+                      <NavLink tag={nlink} to={"/Department"} className="mob-menu-clik" activeClassName="active" >
+                            Department Settings< MdLibraryBooks/>
+                      </NavLink>
                 </DropdownMenu>
               </UncontrolledButtonDropdown>
        
       <NavItem>
-          <NavLink active={window.location.pathname === "/Organizationold"} tag={nlink} to={"/Organizationold"} activeClassName="active">
-          < MdOutlineAccountTree/>
-             Organization  
-          </NavLink>
+          
         </NavItem>
         <NavItem>
           <NavLink active={window.location.pathname === "/Loginform"} tag={nlink} to={"/Loginform"} className="mob-menu-clik">
           < MdPersonPin/>
-          Loginform  1
+          Login Page
           </NavLink>
           </NavItem>
-        <NavItem>
-          <NavLink active={window.location.pathname === "/HolidayList"} tag={nlink} to={"/HolidayList"}  className="mob-menu-clik">
-          < MdDateRange/>
-          Holiday Calendar
-          </NavLink>
-          
-        </NavItem>
-        <NavItem>
-          <NavLink active={window.location.pathname === "/Holidaycalendar"} tag={nlink} to={"/Holidaycalendar"}  className="mob-menu-clik">
-          < MdDateRange/>
-          Holiday Calendar List
-          </NavLink>
-          </NavItem>
-  <NavItem>
-          <NavLink active={window.location.pathname === "/Department"} tag={Link} to={"/Department"} className="mob-menu-clik" >
-          < MdLibraryBooks/>
-          Department Settings
-          </NavLink>
-        </NavItem>
+        
       </Nav>
     </div>
   </div>

@@ -310,13 +310,30 @@ setDirection();
                                   <p className="red-alert">{errors.emp_name}</p>
                                 )}
                               </div>
+                              <div class="form-group">
+                                <label for="exampleFormControlInput1">
+                                  Contact Number
+                                </label>
+                                <input
+                                  type="text"
+                                  name="emp_number"
+                                  onChange={handleChange}
+                                  value={values.emp_number}
+                                  class="form-control"
+                                ></input>
+                                {errors.emp_number && (
+                                  <p className="red-alert">
+                                    {errors.emp_number}
+                                  </p>
+                                )}
+                              </div>
                                <div class="form-group">
                                 <label for="exampleFormControlInput1">
-                                  Departments Name
+                                  Department Name
                                 </label>
                                 <select
                         id="dropdown"
-                        name="emp_desigination"
+                        name="emp_department"
                         onChange={handleChange}
                         value={values.emp_department}
                         class="form-control"
@@ -332,27 +349,7 @@ setDirection();
                                   </p>
                                 )}
                               </div>
-                              <div class="form-group">
-                              <label>Designation</label>
-                                <select
-                        id="dropdown"
-                        name="emp_desigination"
-                        onChange={handleChange}
-                        value={values.emp_desigination}
-                        class="form-control"
-                      >
-                        <option value="">Select Designation name</option>
-                        {designation.map(({ designation_name, id }, index) => (
-                          <option value={id}>{designation_name}</option>
-                        ))}
-                      </select>
-                                
-                                {errors.emp_desigination && (
-                                  <p className="red-alert">
-                                    {errors.emp_desigination}
-                                  </p>
-                                )}
-                              </div>
+                             
 
                               <div class="form-group">
                                 <label for="exampleFormControlInput1">
@@ -423,19 +420,23 @@ setDirection();
                                 )}
                               </div>
                               <div class="form-group">
-                                <label for="exampleFormControlInput1">
-                                  Contact Number
-                                </label>
-                                <input
-                                  type="text"
-                                  name="emp_number"
-                                  onChange={handleChange}
-                                  value={values.emp_number}
-                                  class="form-control"
-                                ></input>
-                                {errors.emp_number && (
+                              <label>Designation</label>
+                                <select
+                        id="dropdown"
+                        name="emp_desigination"
+                        onChange={handleChange}
+                        value={values.emp_desigination}
+                        class="form-control"
+                      >
+                        <option value="">Select Designation name</option>
+                        {designation.map(({ designation_name, id }, index) => (
+                          <option value={id}>{designation_name}</option>
+                        ))}
+                      </select>
+                                
+                                {errors.emp_desigination && (
                                   <p className="red-alert">
-                                    {errors.emp_number}
+                                    {errors.emp_desigination}
                                   </p>
                                 )}
                               </div>
@@ -444,8 +445,7 @@ setDirection();
                                   Employee Gender
                                 </label>
                                 <div className="radiobox-outer">
-                                <input type="radio" value="MALE" name="emp_gender" onChange={handleChange}  /> Male
-        <input type="radio" value="FEMALE" name="emp_gender" onChange={handleChange}  /> Female
+                                <input type="radio" value="MALE" name="emp_gender" onChange={handleChange}  /> Male  <input type="radio" value="FEMALE" name="emp_gender" onChange={handleChange}  />  Female
                                 </div>
                               </div>
                             </div>
@@ -816,7 +816,7 @@ setDirection();
                               <div className="col-md-4">
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">
-                                    Next Status on
+                                    Next Status On
                                   </label>
                                   <input
                                     type="text"
@@ -835,7 +835,7 @@ setDirection();
                               <div className="col-md-4">
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">
-                                    Cost center
+                                    Cost Center
                                   </label>
                                   <input
                                     type="text"
@@ -873,7 +873,7 @@ setDirection();
                               <div className="col-md-4">
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">
-                                    Primary skill
+                                    Primary Skill
                                   </label>
                                   <input
                                     type="text"
@@ -892,7 +892,7 @@ setDirection();
                               <div className="col-md-4">
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">
-                                    Secondary skill
+                                    Secondary Skill
                                   </label>
                                   <input
                                     type="text"

@@ -17,7 +17,7 @@ import {
   editicon,
   locationprofile,
   tick,
-  profileimage2,
+  profileimage2,yy
 } from "../../images";
 import { FaCheck } from "react-icons/fa";
 import Pagination from "material-ui-pagination";
