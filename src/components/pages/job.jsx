@@ -181,19 +181,19 @@ export default function Job(props) {
     getLocation();
   }, []);
   const loadJobs = async () => {
-    const res = await fetch("http://localhost:8000/api/getJobs");
+    const res = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getJobs");
     const data = await res.json();
     const list = data.job;
     SetJoblist(list);
   };
   const getLocation = async () => {
-    const res = await fetch("http://localhost:8000/api/getLocationBranch");
+    const res = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getLocationBranch");
     const data = await res.json();
     const list = data.location;
     SetLocation(list);
   };
   const getPostname = async () => {
-    const response = await fetch("http://localhost:8000/api/getposttype");
+    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getposttype");
     const data = await response.json();
     const list = data.post;
     SetPostvalues(list);
@@ -201,7 +201,7 @@ export default function Job(props) {
   const Edit_job = async (id) => {
     const job_id = id;
     const reponse = await axios.get(
-      `http://localhost:8000/api/editfecthjobdata/${job_id}`
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/editfecthjobdata/${job_id}`
     );
     console.log(reponse.data.job[0]);
     if (reponse.data.status == 200) {

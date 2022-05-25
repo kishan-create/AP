@@ -144,7 +144,7 @@ export default class Organization extends Component {
   async edit(id) {
     const org_id = id;
     const reponse = await axios.get(
-      `http://localhost:8000/api/editfecthorgdata/${org_id}`
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/editfecthorgdata/${org_id}`
     );
     if (reponse.data.status == 200) {
       this.setState({
@@ -173,7 +173,7 @@ export default class Organization extends Component {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
     const res = await axios.delete(
-      `http://localhost:8000/api/delete_organization/${id}`
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_organization/${id}`
     );
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();

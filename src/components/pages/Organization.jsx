@@ -820,7 +820,7 @@ export default function Organizationold() {
   });
   const fetchData = async () => {
     const res = await axios.get(
-      "http://localhost:8000/api/getOrganizationvalues"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrganizationvalues"
     );
 
     const org = res.data.org;

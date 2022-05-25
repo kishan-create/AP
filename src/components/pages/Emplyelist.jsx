@@ -40,7 +40,7 @@ export default class Emplyelist extends Component {
     this.fetchData();
   }
   fetchData = async () => {
-    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
+    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
         if (res.data.status === 200) {
               this.setState({
                 employeelist: res.data.emp,
@@ -131,7 +131,7 @@ export default class Emplyelist extends Component {
                             </div>
                           </div>
                           <div className="image-box">
-                            <img src={"http://localhost/audit_portal/public/uploads/profile/"+n.image} />
+                            <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/"+n.image} />
                           </div>
                           <Card.Header className="profile-name">
                             <span>  {n.emp_name}</span>

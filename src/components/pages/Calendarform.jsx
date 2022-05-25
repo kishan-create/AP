@@ -28,9 +28,8 @@ const Calendarform = (job_validation) => {
   }, [errors]);
 
   const getPostname = async () => {
-    const response = await fetch("http://localhost:8000/api/getHolidays");
-    // const response = await fetch("http://localhost:8000/api/getHolidaynames");
-    // const response = await fetch("http://localhost:8000/api/getHolidayslist");
+    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidays");
+   
     const data = await response.json();
     const list = data.post;
     SetPost(list);
