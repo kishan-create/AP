@@ -165,7 +165,7 @@ export default class Emplyelist extends Component {
                         <Card.Content extra className="profile-card-bottom">
                           <div className="profile-location">
                             <img src={locationprofile} />
-                            <span>Cochin </span>
+                            <span>{n.emp_location} </span>
                           </div>
                           <div className="profile-location-right">
                             <div className="buttons-outer maring-left-15">

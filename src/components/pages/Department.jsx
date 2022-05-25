@@ -301,7 +301,7 @@ export default function Department() {
                 <TableHead>
                   <TableRow>
                     <TableCell />
-                    <TableCell className="cal-width-40">Department Name1</TableCell>
+                    <TableCell className="cal-width-40">Department Name</TableCell>
                     <TableCell className="cal-width-40">Department Code</TableCell>
                     <TableCell className="cal-width-10">Action</TableCell>
                   </TableRow>

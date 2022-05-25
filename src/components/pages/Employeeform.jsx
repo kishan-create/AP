@@ -107,7 +107,7 @@ const Employeeform = (employee_val) => {
         //console.log(res.data.message);
         swal({
           title: "Good job!",
-          text: "Organization added successfully",
+          text: "Employee added successfully",
           icon: "success",
           button: "ok",
         });

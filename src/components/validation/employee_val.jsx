@@ -27,6 +27,9 @@ export default function employee_val(values) {
   if (!values.emp_holiday_calender.trim()) {
     errors.emp_holiday_calender = "Choose Holiday calander";
  }
+ if (!values.emp_location.trim()) {
+  errors.emp_location = "Choose Location";
+}
  
  
   /*if (!values.emp_reportperson.trim()) {

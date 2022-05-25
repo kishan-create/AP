@@ -72,6 +72,7 @@ const Employeeform = (employee_val) => {
   const[holidaylist,SetHolidaylist]=useState([]);
   const [myimage, setMyImage] = React.useState(null);
   const [profile, setProfile] = useState([]);
+  const [employeelocation, SetEmployeelocation] = useState([]);
   const uploadImage = (e) => {
     console.log(e.target.files[0]);
     setMyImage(URL.createObjectURL(e.target.files[0]));
@@ -93,6 +94,7 @@ const Employeeform = (employee_val) => {
     GetDesignationName();
     GetHolidayCalander();
     GetDepartmentName();
+    GetLocationName();
     if (Object.keys(errors).length === 0 && isSubmitting) {
       
       onSubmitform();
@@ -129,6 +131,14 @@ const Employeeform = (employee_val) => {
     const list = data.holidaylist; 
     SetHolidaylist(list);
   }
+  const GetLocationName=async()=>{ 
+    const response = await fetch(
+      "http://localhost:8000/api/getLocationBranch"
+    );
+    const datalocation=await response.json();
+    const location=datalocation.location;
+    SetEmployeelocation(location);
+  }
  //console.log(holidaylist);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -150,6 +160,7 @@ const Employeeform = (employee_val) => {
     formData.append("emp_department", values.emp_department);
     formData.append("emp_primary_skill", values.emp_primary_skill);
     formData.append("emp_sec_skill", values.emp_sec_skill);
+    formData.append("emp_location", values.emp_location);
     const response = axios.post(
       "http://localhost:8000/api/add_audit_employees",
       formData
@@ -159,7 +170,7 @@ const Employeeform = (employee_val) => {
         //console.log(res.data.message);
         swal({
           title: "Good job!",
-          text: "Organization added successfully",
+          text: "Employee added successfully",
           icon: "success",
           button: "ok",
         });
@@ -228,6 +239,6 @@ const Employeeform = (employee_val) => {
     });
   };
 
-  return { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments,uploadImage ,myimage};
+  return { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments,uploadImage,myimage,employeelocation};
 };
 export default Employeeform;

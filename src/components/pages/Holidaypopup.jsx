@@ -103,7 +103,7 @@ export default function Holidaypopup({method}) {
         onClick={openModal}
       >
         {" "}
-        <SiAddthis className="add-btn-icon" /> Add Holiday Calander
+        <SiAddthis className="add-btn-icon" /> Add Holiday Calendar
         {/* <SiAddthis className="add-btn-icon" /> {buttonText} */}
       </button>
       <Modal
