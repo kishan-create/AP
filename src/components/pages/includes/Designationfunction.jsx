@@ -65,7 +65,7 @@ const Designationfunction = (designation_validation) => {
         //console.log(res.data.message);
         swal({
           title: "Good job!",
-          text: "Organization added successfully",
+          text: "Designation added successfully",
           icon: "success",
           button: "ok",
         });

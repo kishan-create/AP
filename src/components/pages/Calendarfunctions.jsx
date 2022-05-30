@@ -72,7 +72,7 @@ const Calendarfunctions = (calendar_validation) => {
         //console.log(res.data.message);
         swal({
           title: "Good job!",
-          text: "Holiday added successfully",
+          text: "Holiday Calander added successfully",
           icon: "success",
           button: "ok",
         });

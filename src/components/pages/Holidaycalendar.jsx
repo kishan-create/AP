@@ -135,7 +135,7 @@ const data = [
       render() {
         return (
           <main className="inner-content-box">
-            <header className="main-otrer-top"> Holiday </header>
+            <header className="main-otrer-top"> Calendar </header>
             <section className="main-content-area">
               <div className="main-content-area-inner">
                 <div className="sub-head organization-sub-head">

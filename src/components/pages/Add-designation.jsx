@@ -79,7 +79,7 @@ export default function AddDesignation({ method }) {
                         value={values.department_name}
                         class="form-control"
                       >
-                        <option value="">Select DEpartment name</option>
+                        <option value="">Select Department name</option>
                         {listnew.map(({ department_name, id }, index) => (
                           <option value={id}>{department_name}</option>
                         ))}
