@@ -218,6 +218,7 @@ setDirection();
     clearTimeout(timeout);
     timeout = setTimeout(setDirection, 200);
   });
+  
 
   const { handleChange, values, handleSubmit, errors, options } = employeeForm(
     employee_val
@@ -420,7 +421,13 @@ setDirection();
                                   <Radio name="test">Male</Radio>
                                   <Radio name="test">Female</Radio>
                                 </div>
+                             
                               </div>
+                              {errors. emp_gender && (
+                                    <p className="red-alert">
+                                      {errors. emp_gender}
+                                    </p>
+                                  )}
                             </div>
 
                             <div className="col-md-4">

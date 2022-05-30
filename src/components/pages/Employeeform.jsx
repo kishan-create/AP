@@ -144,6 +144,8 @@ const Employeeform = (employee_val) => {
           emp_reporting_manager: "",
           emp_functional_manager: "",
           emp_desigination: "",
+          emp_gender: "",
+
 
           // Personal form
           personal_address: "",
