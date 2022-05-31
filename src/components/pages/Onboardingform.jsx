@@ -64,29 +64,13 @@ const Onboardingform = () => {
     SetLog(response.data.log);
     setIsViewLog(true);
   };
-<<<<<<< HEAD
-  const getBasicdetails = async (id, column) => {
-    const basic_id = id;
-    //alert(column);
-    if (column == "Inprogress") {
-      const reponse = await axios.get(
-        `http://localhost:8000/api/editfecthbasicdata/${basic_id}`
-      );
-=======
-  const Viewlog = async(id) =>
-  {
-    const response = await axios.get(`http://localhost:8000/api/viewlog/${id}`);
-  
-  SetLog(response.data.log);
-  setIsViewLog(true);
-  }
+
   const getBasicdetails = async (id, column) => {
     const basic_id = id;
     //alert(column);
     if (column == 'Inprogress') {
       const reponse = await axios.get(`http://localhost:8000/api/editfecthbasicdata/${basic_id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
-      console.log(reponse.data.candidate[0]);
+     
       if (reponse.data.status == 200) {
         SetEditValues({
           username: reponse.data.candidate[0].name,
@@ -113,17 +97,10 @@ const Onboardingform = () => {
           resume: resume.resume,
         });
       }
-<<<<<<< HEAD
     } else if (column == "Schedule") {
       const reponse = await axios.get(
         `http://localhost:8000/api/getscheduledata/${basic_id}`
       );
-=======
-
-    }
-    else if (column == 'Schedule') {
-      const reponse = await axios.get(`http://localhost:8000/api/getscheduledata/${basic_id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       if (reponse.data.status == 200) {
         SetEditValues({
           edit_panel_members: reponse.data.schedule[0].panelmembers,
@@ -137,16 +114,10 @@ const Onboardingform = () => {
           edit_basic_column_name: column,
         });
       }
-<<<<<<< HEAD
     } else if (column == "Rejection") {
       const reponse = await axios.get(
         `http://localhost:8000/api/getrejectdata/${basic_id}`
       );
-=======
-    }
-    else if (column == 'Rejection') {
-      const reponse = await axios.get(`http://localhost:8000/api/getrejectdata/${basic_id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       if (reponse.data.status == 200) {
         SetEditValues({
           edit_release_date: reponse.data.rejectdata[0].c_status,
@@ -156,17 +127,10 @@ const Onboardingform = () => {
           edit_basic_column_name: column,
         });
       }
-<<<<<<< HEAD
     } else if (column == "Release") {
       const response = await axios.get(
         `http://localhost:8000/api/getreleasedata/${basic_id}`
       );
-=======
-    }
-    else if(column == 'Release')
-    {
-      const response = await axios.get(`http://localhost:8000/api/getreleasedata/${basic_id}`);
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
       if (response.data.status == 200) {
         SetEditValues({
           edit_release_date: response.data.releasedata[0].offer_release_date,
@@ -179,7 +143,6 @@ const Onboardingform = () => {
 
   const handleSubmit_edit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     const formData = new FormData();
     formData.append("resume", resume.resume);
     formData.append("username", editvalues.username);
@@ -219,50 +182,6 @@ const Onboardingform = () => {
     formData.append("edit_r_id", editvalues.edit_r_id);
     formData.append("edit_release_date", editvalues.edit_release_date);
     formData.append("edit_release_id", editvalues.edit_release_id);
-=======
-    const formData = new FormData(); 
-    formData.append('resume', resume.resume);
-    formData.append('username', editvalues.username);
-    formData.append('post', editvalues.post);
-    formData.append('skillset', editvalues.skillset);
-    formData.append('p_email', editvalues.p_email);
-    formData.append('phonenumber', editvalues.phonenumber);
-    formData.append('qualification', editvalues.qualification);
-    formData.append('exp', editvalues.exp);
-    formData.append('current_ctc', editvalues.current_ctc);
-    formData.append('expect_ctc', editvalues.expect_ctc);
-    formData.append('noticeprd', editvalues.noticeprd);
-    formData.append('dob', editvalues.dob);
-    formData.append('location', editvalues.location);
-    formData.append('current_company', editvalues.current_company);
-    formData.append('domain_exp', editvalues.domain_exp);
-    formData.append('app_date', editvalues.app_date);
-    formData.append('primary_skill', editvalues.primary_skill);
-    formData.append('secskill', editvalues.secskill);
-    formData.append('ref', editvalues.ref);
-    formData.append('edit_b_id', editvalues.edit_b_id);
-    formData.append('edit_basic_column_name', editvalues.edit_basic_column_name);
-    formData.append('edit_panel_members', editvalues.edit_panel_members);
-    formData.append('edi_idatetime', editvalues.edi_idatetime);
-    formData.append('edit_iplace', editvalues.edit_iplace);
-    formData.append('edit_jobtitle', editvalues.edit_jobtitle);
-    formData.append('edit_department_team', editvalues.edit_department_team);
-    formData.append('edit_interview_rating', editvalues.edit_interview_rating);
-    formData.append('edit_s_id', editvalues.edit_s_id);
-    formData.append('edit_comments', editvalues.edit_comments);
-    formData.append('edit_release_date', editvalues.edit_release_date);
-    formData.append('edit_reason', editvalues.edit_reason);
-    formData.append('edit_remark', editvalues.edit_remark);
-    formData.append('edit_r_id', editvalues.edit_r_id);
-    formData.append('edit_release_date', editvalues.edit_release_date);
-    formData.append('edit_release_id', editvalues.edit_release_id);
-  
-   
-    const response = await axios.post('http://localhost:8000/api/Updateboarddetails', formData);
-   
-    if(response.data.status===200)
-    {
->>>>>>> dd5321f17c064986d601767f7dae69686da75aab
 
     const response = await axios.post(
       "http://localhost:8000/api/Updateboarddetails",

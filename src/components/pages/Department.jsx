@@ -101,13 +101,10 @@ function Row(props) {
 
     setListnew(listnewtest);
   };
-  console.log(listnew);
-  // useEffect(() => {
-  //   getCompanyName();
-  // }, []);
+ 
 
   const handleChange = (e) => {
-    console.log("hi");
+  
     const { name, value } = e.target;
     SetValues({
       ...values,
@@ -141,12 +138,9 @@ function Row(props) {
   };
 
   const closeModal = () =>{
-    setIsOpen(false);
-    // fetchDatadepartment();
-    fetchData();
-    console.log(rows);
-    
-    // window.location.reload();
+   setIsOpen(false);
+   fetchData();
+ 
   }
   function closeModalbrach() {
     setDesignationmodelIsOpen(false);
@@ -208,7 +202,7 @@ function Row(props) {
 
     if (reponse.data.status == 200) {
       // alert(reponse);
-      console.log(reponse.data.designation[0]);
+     
       SetEditValues({
         edit_designation_name: reponse.data.designation[0].designation_name,
         edit_designation_code: reponse.data.designation[0].designation_code,
@@ -219,7 +213,7 @@ function Row(props) {
       });
       setDesignationmodelIsOpen(true);
     }
-    console.log(editValues);
+  
 
     
 
@@ -613,10 +607,7 @@ export default function Department() {
   };
   function afterOpenModalbrach() {}
   function afterOpenModal() {}
-  function closeModal() {
-    setIsOpen(false);
-    window.location.reload();
-  }
+ 
   const fetchData = async () => {
     const res = await axios.get(
       "http://localhost:8000/api/getDepartmentValues"
@@ -631,11 +622,11 @@ export default function Department() {
   
   useEffect(() => {
     fetchData();
-  }, []);
+  });
   function closeModalbrach() {
     setIsOpen(false);
     
-    window.location.reload();
+  
   }
 
   return (

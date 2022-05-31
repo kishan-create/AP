@@ -57,21 +57,21 @@ const data = [
       };
    componentDidMount()
    {
-     console.log('componentDidMount');
+    
      this.getallHolidays(this.props.match.params.id);
    }
     getallHolidays=async(id) =>{
     const reponse = await axios.get(
       `http://localhost:8000/api/getholidysbyid/${id}` );
       if (reponse.data.status === 200) {
-        console.log('reponse.data.status');
+       
         this.setState({
           holiday: reponse.data.holidaylist,
          
           loading: false,
        });
      }
-     console.log(this.state.holiday[0].hol_calendar_name);
+   
    }
   
     handleoption=async(e)=> {
@@ -108,7 +108,7 @@ const data = [
  
   render() {
     
-    console.log('render');
+   
     return (
       <div>
         
