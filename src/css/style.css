@@ -4263,3 +4263,12 @@ li.option {
   padding-right: 8px;
   color: #4a54d1;
 }
+.epmtab-w {
+  width: 100%;
+}
+.emplyesearch1 button {
+  position: absolute;
+  right: 10px;
+  top: -2px;
+  background: none;
+}

@@ -89,7 +89,7 @@ const $ = window.$;
                 </DropdownMenu>
         </UncontrolledButtonDropdown>
         <NavItem>
-          <NavLink active={window.location.pathname === "/Emplyelist"} tag={Link} to={"/Emplyelist"} className="mob-menu-clik" >
+          <NavLink active={window.location.pathname === "/Empviewtabs"} tag={Link} to={"/Empviewtabs"} className="mob-menu-clik" >
           <FaUserTie/>
               Employee
           </NavLink>
