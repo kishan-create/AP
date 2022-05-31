@@ -130,9 +130,22 @@ function Row(props) {
     // })
     // console.log("hi", e.target.name);
   };
-  function closeModal() {
+  const fetchData = async () => {
+    const res = await axios.get(
+      "http://localhost:8000/api/getDepartmentValues"
+    );
+
+    const org = res.data.org;
+
+    setRows(org);
+  };
+
+  const closeModal = () =>{
     setIsOpen(false);
-    fetchDatadepartment();
+    // fetchDatadepartment();
+    fetchData();
+    console.log(rows);
+    
     // window.location.reload();
   }
   function closeModalbrach() {
@@ -244,15 +257,15 @@ function Row(props) {
       });
     }
   };
-  const fetchDatadepartment = async () => {
-    const res = await axios.get(
-      "http://localhost:8000/api/getDepartmentValues"
-    );
+  // const fetchDatadepartment = async () => {
+  //   const res = await axios.get(
+  //     "http://localhost:8000/api/getDepartmentValues"
+  //   );
 
-    const org = res.data.org;
+  //   const org = res.data.org;
 
-    setRows(org);
-  };
+  //   setRows(org);
+  // };
 
 
 
