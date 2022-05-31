@@ -1363,6 +1363,8 @@ a.download-bt svg {
 .image-box img {
   border-radius: 50%;
   float: left;
+  height:145px;
+  width:145px;
 }
 .profile-name {
   width: 100%;

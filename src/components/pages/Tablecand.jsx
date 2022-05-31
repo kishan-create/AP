@@ -166,13 +166,13 @@ function SimpleTable(props) {
     job,
     deleteCandidate,
   } = TableCandValidation(setIsOpen);
-  console.log(values);
+  
   const editCandidates = async (id, e) => {
     const can_id = id;
     const response = await axios.get(
       `http://auditportal.bourntec.com:3001/audit_portal/public/getCandidatefullDetails/${can_id}`
     );
-    console.log(response.data.candidate);
+  
     if (response.data.status == 200) {
       values.username = response.data.candidate[0].name;
       values.postvalue = response.data.candidate[0].post;

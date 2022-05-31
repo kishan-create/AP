@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 const Employeeform = (employee_val) => {
@@ -59,6 +59,8 @@ const Employeeform = (employee_val) => {
     personal_physicianname: "",
     personal_physicianaddress: "",
     personal_phone: "",
+    emp_prev_exp:"",
+  //  profilepic:"",
 
   });
 
@@ -68,6 +70,18 @@ const Employeeform = (employee_val) => {
   const[designation,SetDesignation]=useState([]);
   const[departments,SetDepartments]=useState([]);
   const[holidaylist,SetHolidaylist]=useState([]);
+  const [myimage, setMyImage] = React.useState(null);
+  const [profile, setProfile] = useState([]);
+  const [employeelocation, SetEmployeelocation] = useState([]);
+  const uploadImage = (e) => {
+    console.log(e.target.files[0]);
+    setMyImage(URL.createObjectURL(e.target.files[0]));
+    
+    setProfile({
+      profilepics: e.target.files[0],
+    });
+  };
+  console.log(profile.profilepics);
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetValues({
@@ -80,6 +94,7 @@ const Employeeform = (employee_val) => {
     GetDesignationName();
     GetHolidayCalander();
     GetDepartmentName();
+    GetLocationName();
     if (Object.keys(errors).length === 0 && isSubmitting) {
       
       onSubmitform();
@@ -116,6 +131,14 @@ const Employeeform = (employee_val) => {
     const list = data.holidaylist; 
     SetHolidaylist(list);
   }
+  const GetLocationName=async()=>{ 
+    const response = await fetch(
+      "http://localhost:8000/api/getLocationBranch"
+    );
+    const datalocation=await response.json();
+    const location=datalocation.location;
+    SetEmployeelocation(location);
+  }
  //console.log(holidaylist);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -124,16 +147,30 @@ const Employeeform = (employee_val) => {
   };
   const onSubmitform = (e) => {
     //console.log(values)
+    const formData = new FormData();
+    formData.append("profilepic", profile.profilepics);
+    formData.append("emp_name", values.emp_name);
+    formData.append("emp_code", values.emp_code);
+    formData.append("emp_desigination", values.emp_desigination);
+    formData.append("emp_joindate", values.emp_joindate);
+    formData.append("emp_email", values.emp_email);
+    formData.append("emp_prev_exp", values.emp_prev_exp);
+    formData.append("emp_gender", values.emp_gender);
+    formData.append("emp_holiday_calender", values.emp_holiday_calender);
+    formData.append("emp_department", values.emp_department);
+    formData.append("emp_primary_skill", values.emp_primary_skill);
+    formData.append("emp_sec_skill", values.emp_sec_skill);
+    formData.append("emp_location", values.emp_location);
     const response = axios.post(
       "http://localhost:8000/api/add_audit_employees",
-      values
+      formData
     );
     response.then(function(res) {
       if (res.data.status === 200) {
         //console.log(res.data.message);
         swal({
           title: "Good job!",
-          text: "Organization added successfully",
+          text: "Employee added successfully",
           icon: "success",
           button: "ok",
         });
@@ -194,7 +231,7 @@ const Employeeform = (employee_val) => {
           personal_physicianname: "",
           personal_physicianaddress: "",
           personal_phone: "",
-
+         
 
 
         });
@@ -202,6 +239,6 @@ const Employeeform = (employee_val) => {
     });
   };
 
-  return { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments };
+  return { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments,uploadImage,myimage,employeelocation};
 };
 export default Employeeform;

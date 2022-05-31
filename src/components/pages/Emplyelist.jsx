@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Popupmodal from "./Popupmodal";
+import { Link } from "react-router-dom";
 import Switch from "react-switch";
 import {
   MdOutlineFileDownload,
@@ -91,6 +91,11 @@ export default class Emplyelist extends Component {
                 <List>
                   <ListItem>
                   {this.state.employeelist.map((n) => {
+                    
+                  // var p_image= "http://localhost/audit_portal/public/uploads/profile/" +
+                 //
+                
+                  
                      return (
                     <div className="width-25">
                       <Card>
@@ -104,7 +109,7 @@ export default class Emplyelist extends Component {
                             </div>
                           </div>
                           <div className="image-box">
-                            <img src={profileimage1} />
+                            <img src={"http://localhost/audit_portal/public/uploads/profile/"+n.image} />
                           </div>
                           <Card.Header className="profile-name">
                             <span>  {n.emp_name}</span>
@@ -123,7 +128,7 @@ export default class Emplyelist extends Component {
                             </div>
                             <div className="inner-section">
                               <div className="left">Joining Date</div>
-                              <div className="right"> {n.emp_company_email_id}</div>
+                              <div className="right"> {n.emp_joining_date}</div>
                             </div>
                             <div className="inner-section">
                               <div className="left">Total Experience</div>
@@ -131,23 +136,26 @@ export default class Emplyelist extends Component {
                             </div>
                             <div className="inner-section">
                               <div className="left">Department</div>
-                              <div className="right">Python</div>
+                              <div className="right">{n.department_name}</div>
                             </div>
                           </Card.Description>
                         </Card.Content>
                         <Card.Content extra className="profile-card-bottom">
                           <div className="profile-location">
                             <img src={locationprofile} />
-                            <span>Cochin </span>
+                            <span>{n.emp_location} </span>
                           </div>
                           <div className="profile-location-right">
                             <div className="buttons-outer maring-left-15">
-                              <a
-                                href="Employeeprofile"
-                                className="white-button download-bt"
-                              >
-                                View Profile
-                              </a>
+                              
+                            <Link
+                            to={{
+                              pathname: `/Employeeprofile/${n.id}`,
+    
+                              data: n.id, // your data array of objects
+                            }}
+                          >view profile</Link>
+                              
                             </div>
                             <div className="buttons-outer maring-left-15">
                               <a

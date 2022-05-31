@@ -58,7 +58,8 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/Assets" component={Assets} />
     <Route exact path="/Assetsdetails" component={Assetsdetails} />
     <Route exact path="/Emplyelist" component={Emplyelist} />
-    <Route exact path="/Employeeprofile" component={Employeeprofile} />
+    
+    <Route exact path="/Employeeprofile/:id" component={Employeeprofile} /> 
     <Route exact path="/Job" component={Job} />
     <Route exact path="/Addemployeetab" component={Addemployeetab} />  
     

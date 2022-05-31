@@ -65,7 +65,7 @@ export default function Addbranches({ method }) {
   const { handleChange, values, listnew, handleSubmit, errors } = Branchform(
     branch_validation
   );
-  console.log(listnew);
+  
   return (
     <div>
       <button

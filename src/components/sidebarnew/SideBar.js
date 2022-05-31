@@ -121,10 +121,10 @@ const $ = window.$;
                             Configuration< MdSettingsSuggest/>
                       </NavLink>
                       <NavLink tag={nlink} to={"/HolidayList"} className="mob-menu-clik" activeClassName="active" >
-                            Holiday Calendar< MdDateRange/>
+                            Holidays< MdDateRange/>
                       </NavLink>
                       <NavLink tag={nlink} to={"/Holidaycalendar"} className="mob-menu-clik" activeClassName="active" >
-                            Holiday Calendar List< MdDateRange/>
+                            Holiday Calendar < MdDateRange/>
                       </NavLink>
                       <NavLink tag={nlink} to={"/Department"} className="mob-menu-clik" activeClassName="active" >
                             Department Settings< MdLibraryBooks/>

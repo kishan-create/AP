@@ -17,7 +17,7 @@ class MultipleImageUpload extends React.Component {
     this.setState({ current: URL.createObjectURL(e.target.files[0]) });
   };
   render() {
-    console.log(this.state);
+  
     const { old} = this.state;
     return (
       <div className="App">

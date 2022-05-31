@@ -191,7 +191,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
     );
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
-      console.log(res.data.message);
+    
     }
   };
   const deletebranches = async (e, id) => {
@@ -645,7 +645,7 @@ const BranchEditModal = (props) => {
     );
     alert("Branch updated successfully");
   };
-  console.log("rpops ", props);
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetValues({
@@ -847,7 +847,7 @@ export default function Organizationold() {
 
   return (
     <main className="inner-content-box">
-      <header className="main-otrer-top"> Organization Branches </header>
+      <header className="main-otrer-top"> Organization  </header>
       <section className="main-content-area">
         <div className="main-content-area-inner">
           <div className="sub-head organization-sub-head sub-head-bottom-pad">

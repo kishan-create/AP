@@ -79,7 +79,7 @@ export default function AddDesignation({ method }) {
                         value={values.department_name}
                         class="form-control"
                       >
-                        <option value="">Select DEpartment name</option>
+                        <option value="">Select Department name</option>
                         {listnew.map(({ department_name, id }, index) => (
                           <option value={id}>{department_name}</option>
                         ))}
@@ -104,12 +104,12 @@ export default function AddDesignation({ method }) {
                       <label for="exampleFormControlInput1">Level Name</label>
                       <select id="level_id" onChange={handleChange} name="level_name" value={values.level_name} class="form-control">
                         <option value="">Choose Level</option>
-                        <option value="level1">Level 1</option>
-                        <option value="level2">Level 2</option>
-                        <option value="level3">Level 3</option>
-                        <option value="level4">Level 4</option>
-                        <option value="level5">Level 5</option>
-                        <option value="level6">Level 6</option>
+                        <option value="level1">Level_1</option>
+                        <option value="level2">Level_2</option>
+                        <option value="level3">Level_3</option>
+                        <option value="level4">Level_4</option>
+                        <option value="level5">Level_5</option>
+                        <option value="level6">Level_6</option>
                       </select>
                     </div>
                   </div>
