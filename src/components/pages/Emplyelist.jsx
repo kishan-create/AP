@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Popupmodal from "./Popupmodal";
+import { Link } from "react-router-dom";
 import Switch from "react-switch";
 import {
   MdOutlineFileDownload,
@@ -169,12 +169,15 @@ export default class Emplyelist extends Component {
                           </div>
                           <div className="profile-location-right">
                             <div className="buttons-outer maring-left-15">
-                              <a
-                                href="Employeeprofile"
-                                className="white-button download-bt"
-                              >
-                                View Profile
-                              </a>
+                              
+                            <Link
+                            to={{
+                              pathname: `/Employeeprofile/${n.id}`,
+    
+                              data: n.id, // your data array of objects
+                            }}
+                          >view profile</Link>
+                              
                             </div>
                             <div className="buttons-outer maring-left-15">
                               <a

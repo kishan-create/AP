@@ -1,21 +1,25 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useEffect, useState }  from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import update from "immutability-helper";
-import {dashboard,asste,eyeico,location,eyeicoSched,eyeicoreject,eyeicowait,eyenew, profileimage1 } from '../../images';
-import {Tab, Tabs, AppBar} from '@material-ui/core';
-import {profilei} from '../../images/profilei.svg'; 
-import { mdiEye } from "react-icons/md";
- 
-import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
+import { profileimage1 } from '../../images';
+import { useParams } from 'react-router-dom';
+import axios from "axios";
 
-
- 
+  
+const getEmployeeDetails = async (id) => {
+      const reponse = await axios.get(
+            `http://localhost:8000/api/GetEmployeeFullDetails/${id}` );
+}
 
   
 const Employeeprofile = () => {
-   
- 
+      const params = useParams();
+      useEffect(() => {
+            getEmployeeDetails(params.id);
+           });
+          
+           
   return (
     <main className="inner-content-box">
       <header className="main-otrer-top"> Employee </header>
@@ -35,7 +39,7 @@ const Employeeprofile = () => {
                                   <div  className="row txt-row-hght border-0 employee-basic-outer"> 
                                         <div  className="col-md-4  "> 
                                               <div className="profilepic"> <img src={profileimage1} /></div>
-                                              <div className="info-card-prfl-txt "> Arun Kumar</div>                                            
+                                              <div className="info-card-prfl-txt "> Linto</div>                                            
                                         </div> 
                                         <div  className="col-md-8 profile-basic-right">
                                                 <div  className="row txt-row-hght">                                                     

@@ -113,7 +113,7 @@ const Employee_Dashboard = () => {
                                         </div> 
                                         <div  className="col-md-10 profile-basic-right">
                                         <div  className="row txt-row-hght">  
-                                        <div className="emp-card-prfl-name "> Arun Kumar</div>   
+                                        <div className="emp-card-prfl-name "> shanu</div>   
                                         </div>
                                               <div  className="row txt-row-hght">                                                     
                                                     <div  className="col-md-3 heading-samml-sty"> Employee ID : <span className="emp-right-txt ">0122</span>

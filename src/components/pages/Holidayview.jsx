@@ -52,23 +52,28 @@ const data = [
       super();
       this.state = {
         holiday: [],
+        c_name:"",
         }
       };
    componentDidMount()
    {
+     console.log('componentDidMount');
      this.getallHolidays(this.props.match.params.id);
    }
     getallHolidays=async(id) =>{
     const reponse = await axios.get(
       `http://localhost:8000/api/getholidysbyid/${id}` );
       if (reponse.data.status === 200) {
+        console.log('reponse.data.status');
         this.setState({
           holiday: reponse.data.holidaylist,
+         
           loading: false,
        });
      }
-
+     console.log(this.state.holiday[0].hol_calendar_name);
    }
+  
     handleoption=async(e)=> {
    var id=e.target.value;
    const reponse = await axios.get(
@@ -102,6 +107,8 @@ const data = [
   };
  
   render() {
+    
+    console.log('render');
     return (
       <div>
         
@@ -109,7 +116,7 @@ const data = [
       <header className="main-otrer-top"> Holiday Calander List      </header>
              <section  className="main-content-area">
                 <div className="main-content-area-inner">
-                    <div className="sub-head organization-sub-head">Holiday Calander List
+                    <div className="sub-head organization-sub-head">{this.state.holiday[0]?.hol_calendar_name}
                     <div className="top-right-outer add-btn-div">
                   <Holidaypopup/>
 

@@ -330,7 +330,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <form onSubmit={updateBranch} className="form" noValidate>
           <div className="popup-head-sty modal-button-bg">
             <div className="popup-head-content-sty">
-              <h4>Edit Branches1</h4>
+              <h4>Edit Branches</h4>
             </div>
             <div className="popup-head-icon-sty">
               <MdClose className="popup-close-btn" onClick={closeModalbrach} />
@@ -620,7 +620,7 @@ export default function Organizationold() {
 
   return (
     <main className="inner-content-box">
-      <header className="main-otrer-top"> Organization Branches </header>
+      <header className="main-otrer-top"> Organization</header>
       <section className="main-content-area">
         <div className="main-content-area-inner">
           <div className="sub-head organization-sub-head">

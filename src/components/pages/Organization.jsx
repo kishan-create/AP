@@ -847,7 +847,7 @@ export default function Organizationold() {
 
   return (
     <main className="inner-content-box">
-      <header className="main-otrer-top"> Organization Branches </header>
+      <header className="main-otrer-top"> Organization  </header>
       <section className="main-content-area">
         <div className="main-content-area-inner">
           <div className="sub-head organization-sub-head sub-head-bottom-pad">
