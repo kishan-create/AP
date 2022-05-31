@@ -2,7 +2,7 @@ import React from "react";
 export default function calendarlist_validation(values) {
   let errors = {};
   if (!values.holidaylist_name.trim()) {
-    errors.holiday_name = "Holiday name is required";
+    errors.holidaylist_name = "Holiday name is required";
   }
 
   if (!values.holidaylist_type.trim()) {

@@ -15,8 +15,11 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ReactDOM from "react-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import swal from "sweetalert";
+
 
 import { Card, Icon, Image } from "semantic-ui-react";
+import props from 'prop-types';
 
 import Modal from "react-modal";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
@@ -44,36 +47,113 @@ function createData(
 }
 
 function Row(props) {
-  const { row, onClickBranchEdit } = props;
+  const { row, onClickEdit } = props;
   const [open, setOpen] = React.useState(false);
+  const [rows, setRows] = useState([]);
+
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [desmodelIsopen, setDesignationmodelIsOpen]= React.useState(false);
   const [modalState, setModalState] = React.useState(false);
   const [options, setOptions] = useState(["IT service", "Design"]);
   const [listnew, setListnew] = useState([]);
   const [values, SetValues] = useState({
-    org_name: "",
-    org_code: "",
-    branch_name: "",
-    branch_code: "",
+    department_name: "",
+    department_code: "",
+    // branch_name: "",
+    // branch_code: "",
+
+    // org_type: "",
+    // org_category: "",
+    // org_location: "",
+    // org_registration: "",
+
+    // branch_company: "",
+    // branch_type: "",
+    // branch_location: "",
+    // branch_date: "",
+    // branch_landline: "",
+    // branch_email: "",
+    designation_name: "",
+    designation_code: "",
+    level_type: "",
+    // edit_designation_code: "",
+
+
+
+  });
+  const[editValues, SetEditValues]= useState({
+    edit_department_name: "",
+    edit_designation_name: "",
+    edit_designation_code: "",
+    edit_level_type: "",
+
   });
 
+  const getCompanyName = async () => {
+    const response = await fetch(
+      "http://localhost:8000/api/getDepartmentName"
+    );
+    const data = await response.json();
+
+    const listnewtest = data.department;
+
+
+    setListnew(listnewtest);
+  };
+  console.log(listnew);
+  // useEffect(() => {
+  //   getCompanyName();
+  // }, []);
+
   const handleChange = (e) => {
+    console.log("hi");
     const { name, value } = e.target;
     SetValues({
       ...values,
       [name]: value,
+     
     });
+   
   };
 
-  function closeModal() {
+  const edithandleChange = (e) => {
+    const { name, value } = e.target;
+    SetEditValues({
+      ...editValues,
+      [name]: value,
+    });
+    //   SetEditValues({
+    //     ...editValues,
+    //     [e.target.name]: value,
+
+    // })
+    // console.log("hi", e.target.name);
+  };
+  const fetchData = async () => {
+    const res = await axios.get(
+      "http://localhost:8000/api/getDepartmentValues"
+    );
+
+    const org = res.data.org;
+
+    setRows(org);
+  };
+
+  const closeModal = () =>{
     setIsOpen(false);
-    window.location.reload();
+    // fetchDatadepartment();
+    fetchData();
+    console.log(rows);
+    
+    // window.location.reload();
   }
   function closeModalbrach() {
-    setModalState(false);
-    window.location.reload();
+    setDesignationmodelIsOpen(false);
+    // window.location.reload();
   }
+
+
   function afterOpenModalbrach() {}
   function afterOpenModal() {}
   const editbranch = async (id) => {
@@ -92,6 +172,7 @@ function Row(props) {
         branch_landline: reponse.data.branch.branch_landline,
         branch_email: reponse.data.branch.branch_email,
         b_id: reponse.data.branch.id,
+        
       });
       setModalState(true);
     }
@@ -99,28 +180,99 @@ function Row(props) {
     //setModalState(true);
   };
   const edit = async (id) => {
-    const org_id = id;
+    // alert(id);
+    const department_id = id;
     const reponse = await axios.get(
-      `http://localhost:8000/api/editfecthorgdata/${org_id}`
+      `http://localhost:8000/api/editfecthdepdata/${department_id}`
     );
     // setIsOpen(true);
     if (reponse.data.status == 200) {
       SetValues({
-        org_name: reponse.data.org.org_name,
-        org_code: reponse.data.org.org_code,
-        id: reponse.data.org.id,
+        department_name: reponse.data.dep.department_name,
+        department_code: reponse.data.dep.department_code,
+        id: reponse.data.dep.id,
       });
       setIsOpen(true);
     }
   };
-  const updateOrganization = async (e) => {
+
+  const editDesignation = async (id) =>{
+    getCompanyName();
+
+ 
+    // alert(id);
+    const designation_id = id;
+    const reponse = await axios.get(
+      `http://localhost:8000/api/editfecthdesdata/${designation_id}`
+    );
+
+    if (reponse.data.status == 200) {
+      // alert(reponse);
+      console.log(reponse.data.designation[0]);
+      SetEditValues({
+        edit_designation_name: reponse.data.designation[0].designation_name,
+        edit_designation_code: reponse.data.designation[0].designation_code,
+        edit_level_type: reponse.data.designation[0].level_type,
+        edit_department_name: reponse.data.designation[0].did,
+      
+        id: reponse.data.designation[0].id,
+      });
+      setDesignationmodelIsOpen(true);
+    }
+    console.log(editValues);
+
+    
+
+  };
+  const updateDepartment = async (e) => {
+    console.log(values);
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_organization",
+      "http://localhost:8000/api/update_department",
       values
     );
-    alert("Organization updated successfully");
+    if (res.data.status == 200) {
+      swal({
+        title: "Good job!",
+        text: "Department Updated successfully",
+        icon: "success",
+        button: "ok",
+      });
+    }
   };
+
+  const updateDesignation = async (e) => {
+    console.log(editValues);
+    e.preventDefault();
+    const res = await axios.put(
+      "http://localhost:8000/api/update_designation",
+      editValues
+    );
+    if (res.data.status == 200) {
+      swal({
+        title: "Good job!",
+        text: "Designation Updated successfully",
+        icon: "success",
+        button: "ok",
+      });
+    }
+  };
+  // const fetchDatadepartment = async () => {
+  //   const res = await axios.get(
+  //     "http://localhost:8000/api/getDepartmentValues"
+  //   );
+
+  //   const org = res.data.org;
+
+  //   setRows(org);
+  // };
+
+
+
+
+
+
+
   const updateBranch = async (e) => {
     e.preventDefault();
     const res = await axios.put(
@@ -129,16 +281,17 @@ function Row(props) {
     );
     alert("Branch updated successfully");
   };
-  const deleteOrganization = async (e, id) => {
+  const deleteDepartment = async (e, id) => {
+    // alert(id);
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
     const res = await axios.delete(
-      `http://localhost:8000/api/delete_organization/${id}`
+      `http://localhost:8000/api/delete_departments/${id}`
     );
-    if (res.data.status == 200) {
-      thisclickrow.closest("tr").remove();
-      console.log(res.data.message);
-    }
+    // if (res.data.status == 200) {
+    //   thisclickrow.closest("tr").remove();
+    //   console.log(res.data.message);
+    // }
   };
   const deletebranches = async (e, id) => {
     e.preventDefault();
@@ -152,20 +305,72 @@ function Row(props) {
       alert("Branch Deleted successfully");
     }
   };
-  const getCompanyName = async () => {
-    const response = await fetch(
-      "http://localhost:8000/api/getOrgnaizationname"
-    );
-    const data = await response.json();
 
-    const listnewtest = data.org;
-
-    //const lo=JSON.stringify(listnew);
-
-    setListnew(listnewtest);
-  };
   return (
     <React.Fragment>
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        className="job-detils-modal"
+        contentLabel="Example Modal"
+      >
+        <form onSubmit={updateDepartment} className="form" noValidate>
+          <div className="popup-head-sty modal-button-bg">
+            <div className="popup-head-content-sty">
+              <h4>Edit Department</h4>
+            </div>
+            <div className="popup-head-icon-sty">
+              <MdClose className="popup-close-btn" onClick={closeModal} />
+            </div>
+          </div>
+          <div className="popup-content-bg">
+            <div class="row addabrch-content-box">
+              <div class="col-md-12">
+                <div class="row ">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Department Name</label>
+                      <input
+                        name="department_name"
+                        type="text"
+                        onChange={handleChange}
+                        value={values.department_name}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Department Code</label>
+                      <input
+                        name="department_code"
+                        type="text"
+                        onChange={handleChange}
+                        value={values.department_code}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+               
+
+                  <input type="hidden" name="id" value={values.id} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className=" modal-footer-button-bg">
+            <button type="submit" class="btn  btn-save ">
+              {" "}
+              Update
+            </button>
+            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+              {" "}
+              Cancel{" "}
+            </button>
+          </div>
+        </form>
+      </Modal>
 
 
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
@@ -188,15 +393,124 @@ function Row(props) {
             <a onClick={() => edit(row.id)}>
               <EditIcon className="org-edit" />
             </a>
-            <a href="">
+            <a >
               <DeleteIcon
-                onClick={(e) => deleteOrganization(e, row.id)}
+                onClick={(e) => deleteDepartment(e, row.id)}
                 className="org-delete"
               />
             </a>
           </div>
         </TableCell>
       </TableRow>
+
+      <Modal 
+        isOpen={desmodelIsopen}
+        onAfterOpen={afterOpenModalbrach}
+        onRequestClose={closeModalbrach}
+        className="job-detils-modal"
+        contentLabel="Example Modal"
+      >
+        <form onSubmit={updateDesignation} className="form" noValidate>
+          <div className="popup-head-sty modal-button-bg">
+            <div className="popup-head-content-sty">
+              <h4>Edit Designation </h4>
+            </div>
+            <div className="popup-head-icon-sty">
+              <MdClose className="popup-close-btn" onClick={closeModalbrach} />
+            </div>
+          </div>
+          <div className="popup-content-bg">
+            <div class="row addabrch-content-box">
+              <div class="col-md-12">
+                <div class="row ">  
+
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1"> Edit Department Name</label>
+                      <select
+                        id="dropdown"
+                        name="edit_department_name"
+                        onChange={edithandleChange}
+                        value={editValues.edit_department_name}
+                        class="form-control"
+                      >
+                        <option value="">Select Department name</option>
+                        {listnew.map(({ department_name, id }, index) => (
+                          <option value={id}>{department_name}</option>
+                        ))}
+                      </select> </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Designation Name</label>
+                      <input
+                        type="text"
+                        name="edit_designation_name"
+                        onChange={edithandleChange}
+                        value={editValues.edit_designation_name}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Designation Code</label>
+                      <input
+                        type="text"
+                        name="edit_designation_code"
+                        onChange={edithandleChange}
+                        value={editValues.edit_designation_code}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                 
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Level Name</label>
+                      <select id="level_id" onChange={edithandleChange} name="edit_level_type" value={editValues.edit_level_type} class="form-control">
+                        <option value="">Choose Level</option>
+                        <option value="level1">Level_1</option>
+                        <option value="level2">Level_2</option>
+                        <option value="level3">Level_3</option>
+                        <option value="level4">Level_4</option>
+                        <option value="level5">Level_5</option>
+                        <option value="level6">Level_6</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+
+                
+                
+                 
+                  <input type="hidden" name="bid" value={values.bid} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className=" modal-footer-button-bg">
+            <button type="submit" class="btn  btn-save ">
+              {" "}
+              Update
+            </button>
+            <button
+              type="button"
+              class="btn  btn-cancel "
+              onClick={closeModalbrach}
+            >
+              {" "}
+              Cancel{" "}
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+
+      
       <TableRow className="sub-table">
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
@@ -225,10 +539,10 @@ function Row(props) {
                       <TableCell className="cal-width-40">{historyRow.level_type}</TableCell>
                       <TableCell className="cal-width-10">
                         <div>
-                          <a onClick={() => onClickBranchEdit(historyRow.bid)}>
+                          <a onClick={() => editDesignation(historyRow.bid)}>
                             <EditIcon className="org-edit" />
                           </a>
-                          <a href="">
+                          <a>
                             <DeleteIcon
                               onClick={(e) => deletebranches(e, historyRow.bid)}
                               className="org-delete"
@@ -250,16 +564,59 @@ function Row(props) {
 
 
 
+
+
+
+
 export default function Department() {
   const [rows, setRows] = useState([]);
+  const { row, onClickBranchEdit } = props;
+  const [listnew, setListnew] = useState([]);
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [options, setOptions] = useState(["IT service", "Design"]);
+
+
   const [isOpenMobOrgModal, setIsOpenMobOrgModal] = useState(false);
   const [values, SetValues] = useState({
     org_name: "",
     org_code: "",
     branch_name: "",
     branch_code: "",
+    // department_code: "",
+    // department_name:"",
     
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    SetValues({
+      ...values,
+      [name]: value,
+    });
+  };
+  const updateOrganization = async (e) => {
+    e.preventDefault();
+    const res = await axios.put(
+      "http://localhost:8000/api/update_organization",
+      values
+    );
+    alert("Organization updated successfully");
+  };
+  const updateBranch = async (e) => {
+    e.preventDefault();
+    const res = await axios.put(
+      "http://localhost:8000/api/update_branch",
+      values
+    );
+    alert("Branch updated successfully");
+  };
+  function afterOpenModalbrach() {}
+  function afterOpenModal() {}
+  function closeModal() {
+    setIsOpen(false);
+    window.location.reload();
+  }
   const fetchData = async () => {
     const res = await axios.get(
       "http://localhost:8000/api/getDepartmentValues"
@@ -269,10 +626,17 @@ export default function Department() {
 
     setRows(org);
   };
+
+
+  
   useEffect(() => {
     fetchData();
   }, []);
-
+  function closeModalbrach() {
+    setIsOpen(false);
+    
+    window.location.reload();
+  }
 
   return (
     <main className="inner-content-box">
@@ -291,6 +655,160 @@ export default function Department() {
               </div>
             </div>
           </div>
+
+
+          {/* <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModalbrach}
+        onRequestClose={closeModalbrach}
+        className="job-detils-modal"
+        contentLabel="Example Modal"
+      >
+        <form onSubmit={updateBranch} className="form" noValidate>
+          <div className="popup-head-sty modal-button-bg">
+            <div className="popup-head-content-sty">
+              <h4>Edit Branches </h4>
+            </div>
+            <div className="popup-head-icon-sty">
+              <MdClose className="popup-close-btn" onClick={closeModalbrach} />
+            </div>
+          </div>
+          <div className="popup-content-bg">
+            <div class="row addabrch-content-box">
+              <div class="col-md-12">
+                <div class="row ">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Branch Name</label>
+                      <input
+                        type="text"
+                        name="branch_name"
+                        onChange={handleChange}
+                        value={values.branch_name}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Branch Code</label>
+                      <input
+                        type="text"
+                        name="branch_code"
+                        onChange={handleChange}
+                        value={values.branch_code}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Company Name</label>
+
+                      <select
+                        id="dropdown"
+                        name="branch_company"
+                        onChange={handleChange}
+                        value={values.branch_company}
+                        class="form-control"
+                      >
+                        {listnew.map(({ org_name, id }, index) => (
+                          <option value={id}>{org_name}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Branch Type</label>
+                      <input
+                        type="text"
+                        name="branch_type"
+                        onChange={handleChange}
+                        value={values.branch_type}
+                        class="form-control"
+                        placeholder="Development Center"
+                      ></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Location</label>
+                      <input
+                        type="text"
+                        name="branch_location"
+                        onChange={handleChange}
+                        value={values.branch_location}
+                        class="form-control"
+                        placeholder="Development Center"
+                      ></input>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">
+                        Date of Establishment
+                      </label>
+                      <input
+                        type="date"
+                        name="branch_date"
+                        onChange={handleChange}
+                        value={values.branch_date}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">
+                        Brach Landline
+                      </label>
+                      <input
+                        type="text"
+                        name="branch_landline"
+                        onChange={handleChange}
+                        value={values.branch_landline}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Email</label>
+                      <input
+                        type="email"
+                        name="branch_email"
+                        onChange={handleChange}
+                        value={values.branch_email}
+                        class="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                  <input type="hidden" name="b_id" value={values.b_id} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className=" modal-footer-button-bg">
+            <button type="submit" class="btn  btn-save ">
+              {" "}
+              Update
+            </button>
+            <button
+              type="button"
+              class="btn  btn-cancel "
+              onClick={closeModalbrach}
+            >
+              {" "}
+              Cancel{" "}
+            </button>
+          </div>
+        </form>
+      </Modal> */}
+
+
         
           <div className="col-md-12 job-main-tb-outer">
             <TableContainer
