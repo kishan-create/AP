@@ -103,7 +103,7 @@ export default function Holidaypopup({method}) {
         onClick={openModal}
       >
         {" "}
-        <SiAddthis className="add-btn-icon" /> Add Holiday Calander
+        <SiAddthis className="add-btn-icon" /> Add Holiday Calendar
         {/* <SiAddthis className="add-btn-icon" /> {buttonText} */}
       </button>
       <Modal
@@ -188,8 +188,8 @@ export default function Holidaypopup({method}) {
                     >
                       <option value="">Select location name</option>
                       <option value="1">Kochi</option>
-                      <option value="2">Hydarabad</option>
-                      <option value="2">Buwaneswar</option>
+                      <option value="2">Hyderabad</option>
+                      <option value="2">bhubaneswar</option>
                     </select>
                   </div>
                   <div class="col-md-12 m-t-25">

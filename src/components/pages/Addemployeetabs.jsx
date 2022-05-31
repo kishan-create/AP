@@ -216,7 +216,7 @@ setDirection();
     timeout = setTimeout(setDirection, 200);
   });
 
-  const { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments,uploadImage,myimage  } = Employeeform(
+  const { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments,uploadImage,myimage,employeelocation  } = Employeeform(
     employee_val
   );
   return (
@@ -442,7 +442,7 @@ setDirection();
                                   Employee Gender
                                 </label>
                                 <div className="radiobox-outer">
-                                <input type="radio" value="MALE" name="emp_gender" onChange={handleChange}  /> Male  <input type="radio" value="FEMALE" name="emp_gender" onChange={handleChange}  />  Female
+                                <input type="radio" value="male" name="emp_gender" onChange={handleChange}  /> Male  <input type="radio" value="female" name="emp_gender" onChange={handleChange}  />  Female
                                 </div>
                               </div>
                             </div>
@@ -621,13 +621,19 @@ setDirection();
                                   <label for="exampleFormControlInput1">
                                     Location
                                   </label>
-                                  <input
-                                    type="text"
-                                    name="emp_location"
-                                    onChange={handleChange}
-                                    value={values.emp_location}
-                                    class="form-control"
-                                  ></input>
+                                  <select
+                        id="dropdown"
+                        name="emp_location"
+                        onChange={handleChange}
+                        value={values.emp_location}
+                        class="form-control"
+                      >
+                        <option value="">Select Location name</option>
+                        {employeelocation.map(({ branch_location, id }, index) => (
+                          <option value={branch_location}>{branch_location}</option>
+                        ))}
+                      </select>
+                                
                                   {errors.emp_location && (
                                     <p className="red-alert">
                                       {errors.emp_location}

@@ -208,7 +208,7 @@ export default class HolidayList extends Component {
   render() {
     return (
       <main className="inner-content-box">
-        <header className="main-otrer-top"> Holiday Calendar</header>
+        <header className="main-otrer-top"> Holidays</header>
         <section className="main-content-area">
           <div className="main-content-area-inner">
             <div className="sub-head organization-sub-head">

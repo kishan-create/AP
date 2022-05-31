@@ -185,12 +185,12 @@ function Row(props) {
 
         <TableCell  className="cal-width-10">
           <div>
-            <a onClick={() => edit(row.id)}>
+            <a >
               <EditIcon className="org-edit" />
             </a>
             <a href="">
               <DeleteIcon
-                onClick={(e) => deleteOrganization(e, row.id)}
+                
                 className="org-delete"
               />
             </a>
@@ -225,12 +225,12 @@ function Row(props) {
                       <TableCell className="cal-width-40">{historyRow.level_type}</TableCell>
                       <TableCell className="cal-width-10">
                         <div>
-                          <a onClick={() => onClickBranchEdit(historyRow.bid)}>
+                          <a >
                             <EditIcon className="org-edit" />
                           </a>
                           <a href="">
                             <DeleteIcon
-                              onClick={(e) => deletebranches(e, historyRow.bid)}
+                              
                               className="org-delete"
                             />
                           </a>
@@ -301,7 +301,7 @@ export default function Department() {
                 <TableHead>
                   <TableRow>
                     <TableCell />
-                    <TableCell className="cal-width-40">Department Name1</TableCell>
+                    <TableCell className="cal-width-40">Department Name</TableCell>
                     <TableCell className="cal-width-40">Department Code</TableCell>
                     <TableCell className="cal-width-10">Action</TableCell>
                   </TableRow>

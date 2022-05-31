@@ -68,7 +68,7 @@ const Branchform = (branch_validation) => {
         //console.log(res.data.message);
         swal({
           title: "Good job!",
-          text: "Organization added successfully",
+          text: "Branch added successfully",
           icon: "success",
           button: "ok",
         });
