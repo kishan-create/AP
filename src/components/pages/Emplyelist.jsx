@@ -77,6 +77,7 @@ export default class Emplyelist extends Component {
                     <FaSearch className="add-btn-icon" />
                   </button>
                 </div>
+                
                 <div className="recruitment-top-right-box active-employee-top">
                   <label className="active-swite-toggle">
                     <span>Active Employees</span>
