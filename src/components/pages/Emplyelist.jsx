@@ -40,7 +40,7 @@ export default class Emplyelist extends Component {
     this.fetchData();
   }
   fetchData = async () => {
-    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
+    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
         if (res.data.status === 200) {
               this.setState({
                 employeelist: res.data.emp,
@@ -131,11 +131,11 @@ export default class Emplyelist extends Component {
                             </div>
                           </div>
                           <div className="image-box">
-                            <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/"+n.image} />
+                            <img src={"http://localhost/audit_portal/public/uploads/profile/"+n.image} />
                           </div>
                           <Card.Header className="profile-name">
                             <span>  {n.emp_name}</span>
-                            <p>{n.designation_name}</p>
+                            <p>Software Engineer</p>
                           </Card.Header>
                           <Card.Description className="profile-content">
                             <div className="inner-section">
@@ -172,9 +172,9 @@ export default class Emplyelist extends Component {
                               
                             <Link
                             to={{
-                              pathname: `/Employeeprofile/${n.empid}`,
+                              pathname: `/Employeeprofile/${n.id}`,
     
-                              data: n.empid, // your data array of objects
+                              data: n.id, // your data array of objects
                             }}
                           >view profile</Link>
                               
