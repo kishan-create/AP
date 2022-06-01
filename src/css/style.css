@@ -4274,3 +4274,11 @@ li.option {
   top: -2px;
   background: none;
 }
+.emplyesearch1 {
+  min-width: 20%;
+}
+.emp-searc-location {
+  width: 20%;
+  float: left;
+  margin-left: 15px;
+}

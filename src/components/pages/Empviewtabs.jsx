@@ -91,7 +91,7 @@ const Empviewtabs = () => {
               <TabPanel value={value} index={0}>
                 <div className="tab-outer-main"> 
                   <div className="tab-outer darg-outer desktop-show">
-                    <div style={{ display: "flex", justifyContent: "center", height: "100%",  }} >
+                    <div style={{ display: "flex", justifyContent: "center", height: "100%", width: "100%",  }} >
                     <Emplyelist />
                     </div>
                   </div>
