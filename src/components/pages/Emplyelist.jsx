@@ -40,7 +40,7 @@ export default class Emplyelist extends Component {
     this.fetchData();
   }
   fetchData = async () => {
-    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
+    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
         if (res.data.status === 200) {
               this.setState({
                 employeelist: res.data.emp,
@@ -99,24 +99,6 @@ export default class Emplyelist extends Component {
                     <FaSearch className="add-btn-icon" />
                   </button>
                 </div>
-                <div class="form-group emp-searc-location "> 
-                    <select id="dropdown" name="job_post" class="form-control">
-                          <option value="">Location</option>
-                          <option value="1">Cochi</option>
-                          <option value="2">Bhubaneswar</option>
-                          <option value="3">Hyderabad</option>
-                          <option value="4">UAE</option>
-                          </select>
-                </div>
-                <div class="form-group emp-searc-location "> 
-                    <select id="dropdown" name="job_post" class="form-control">
-                          <option value="">Designation</option>
-                          <option value="1">Software Engineer </option>
-                          <option value="2">Sr. Software Engineer</option>
-                          <option value="3">Team Lead</option>
-                          <option value="4">Software Tester</option>
-                          </select>
-                </div>
                 <div className="recruitment-top-right-box active-employee-top">
                   <label className="active-swite-toggle">
                     <span>Active Employees</span>
@@ -149,7 +131,7 @@ export default class Emplyelist extends Component {
                             </div>
                           </div>
                           <div className="image-box">
-                            <img src={"http://localhost/audit_portal/public/uploads/profile/"+n.image} />
+                            <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/"+n.image} />
                           </div>
                           <Card.Header className="profile-name">
                             <span>  {n.emp_name}</span>
@@ -190,9 +172,9 @@ export default class Emplyelist extends Component {
                               
                             <Link
                             to={{
-                              pathname: `/Employeeprofile/${n.id}`,
+                              pathname: `/Employeeprofile/${n.empid}`,
     
-                              data: n.id, // your data array of objects
+                              data: n.empid, // your data array of objects
                             }}
                           >view profile</Link>
                               
