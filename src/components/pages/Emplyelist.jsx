@@ -26,6 +26,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import TablePagination from "@material-ui/core/TablePagination";
 import axios from "axios";
+
 export default class Emplyelist extends Component {
   constructor() {
     super();
@@ -36,6 +37,7 @@ export default class Emplyelist extends Component {
 
     this.handleChange = this.handleChange.bind(this);
   }
+  
   componentDidMount = () => {
     this.fetchData();
   }
@@ -55,38 +57,14 @@ export default class Emplyelist extends Component {
   }
 
   render() {
+
+    
     return (
-      <div>
-        <main className="inner-content-box">
-          <header className="main-otrer-top"> Employee </header>
-
-          <section className="main-content-area">
-            <div className="main-content-area-inner">
-              <div className="sub-head">
-                Employee List
-                <div className="top-right-outer add-btn-div">
-                  <div className="buttons-outer">
-                    <a href="Addemployeetab" className="blue-button">
-                      <SiAddthis className="add-btn-icon" /> Add Employee
-                    </a>
-                  </div>
-
-                  <div className="buttons-outer maring-left-15">
-                    <a href="add" className="white-button download-bt">
-                      <MdOutlineFileDownload className="add-btn-icon" />{" "}
-                      Download
-                    </a>
-                  </div>
-
-                  <div className="buttons-outer maring-left-15">
-                    <a href="add" className="white-button  download-bt">
-                      <MdOutlinePrint className="add-btn-icon" /> Print
-                    </a>
-                  </div>
-                </div>
-              </div>
+      <div className="epmtab-w">
+        
+               
               <div className="emplyee-top">
-                <div className="emplyesearch">
+                <div className="emplyesearch emplyesearch1">
                   <input
                     className="form-control"
                     type="text"
@@ -220,9 +198,7 @@ export default class Emplyelist extends Component {
                   onChangePage={() => {}}
                 />
               </div>
-            </div>
-          </section>
-        </main>
+            
       </div>
     );
   }
