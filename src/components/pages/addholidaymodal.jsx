@@ -11,6 +11,7 @@ import BasicTabs from "./Employeetabs";
 import calendarlist_validation from "../validation/calendar_validation";
 import Calendarform from "./Calendarform";
 import "react-tabs/style/react-tabs.css";
+import holiday_validation from "../validation/holiday_validation";
 const customStyles = {
   content: {
     top: "50%",
@@ -56,7 +57,7 @@ export default function Addholidaymodal({ method }) {
     setValue(val);
   };
   const { handleChange, values, handleSubmit, errors, post } = Calendarform(
-    calendarlist_validation
+    holiday_validation
   );
 
   return (
