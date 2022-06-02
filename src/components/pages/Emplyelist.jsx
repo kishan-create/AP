@@ -73,6 +73,24 @@ export default class Emplyelist extends Component {
                     <FaSearch className="add-btn-icon" />
                   </button>
                 </div>
+                <div class="form-group emp-searc-location "> 
+                    <select id="dropdown" name="job_post" class="form-control">
+                          <option value="">Location</option>
+                          <option value="1">Cochi</option>
+                          <option value="2">Bhubaneswar</option>
+                          <option value="3">Hyderabad</option>
+                          <option value="4">UAE</option>
+                          </select>
+                </div>
+                <div class="form-group emp-searc-location "> 
+                    <select id="dropdown" name="job_post" class="form-control">
+                          <option value="">Designation</option>
+                          <option value="1">Software Engineer </option>
+                          <option value="2">Sr. Software Engineer</option>
+                          <option value="3">Team Lead</option>
+                          <option value="4">Software Tester</option>
+                          </select>
+                </div>
                 <div className="recruitment-top-right-box active-employee-top">
                   <label className="active-swite-toggle">
                     <span>Active Employees</span>
