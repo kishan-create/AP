@@ -45,8 +45,9 @@ export default function Addholidaymodal({ method }) {
   }
 
   function closeModal() {
-    setIsOpen(false);
     method();
+    setIsOpen(false);
+    
   }
 
   const [value, setValue] = React.useState(0);

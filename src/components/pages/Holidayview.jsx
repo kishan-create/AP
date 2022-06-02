@@ -8,7 +8,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 import Holidaypopup from './Holidaypopup';
+import Holilistpopup from './Holilistpopup';
 import axios from "axios";
+import swal from "sweetalert";
 
 // Demo styles, see 'Styles' section below for some notes on use.
 import 'react-accessible-accordion/dist/fancy-example.css';
@@ -65,6 +67,7 @@ const data = [
         this.setState({
           holiday: reponse.data.holidaylist,
           loading: false,
+          
        });
      }
 
@@ -73,11 +76,13 @@ const data = [
    var id=e.target.value;
    const reponse = await axios.get(
     `http://localhost:8000/api/getupdateholiday/${id}` );
-
-    this.getallHolidays(this.props.match.params.id);
     
-   }
-   DeleteHolidayname = async (e,id) => { alert(id);
+    
+    this.getallHolidays(this.props.match.params.id);
+
+    
+  }
+  DeleteHolidayname = async (e,id) => {
 
     e.preventDefault();
 
@@ -93,10 +98,13 @@ const data = [
 
     if (res.data.status == 200) {
 
-      thisclickrow.closest("tr").remove();
-
-      alert("holiday Deleted successfully");
-
+      swal({
+        title: "Good job!",
+        text: "Holiday name deleted successfully",
+        icon: "success",
+        button: "ok",
+      });
+      this.getallHolidays(this.props.match.params.id);
     }
 
   };
@@ -106,12 +114,17 @@ const data = [
       <div>
         
         <main className="inner-content-box">
-      <header className="main-otrer-top"> Holiday Calander List      </header>
+      <header className="main-otrer-top"> Holiday Calender List      </header>
              <section  className="main-content-area">
                 <div className="main-content-area-inner">
-                    <div className="sub-head organization-sub-head">Holiday Calander List
-                    <div className="top-right-outer add-btn-div">
-                  <Holidaypopup/>
+                          <div className="sub-head organization-sub-head">
+                                     Calender List 
+                  
+        
+                                    <div className="top-right-outer add-btn-div">
+              
+                  <Holilistpopup id={this.props.match.params.id} method={this.getallHolidays}/>
+                  
 
                                 </div>
                     </div>
@@ -135,7 +148,7 @@ const data = [
         </TableHead>
         <TableBody>
        
-        {this.state.holiday.map(n => {
+          {this.state.holiday.map(n => {
            {if (n.optional === '1') 
            { 
              var checked="true";

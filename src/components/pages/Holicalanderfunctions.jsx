@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
-const Calendarfunctions = (calendar_validation) => {
+
+const HoliCalendarfunctions = (calendar_validation,ids,closeModal) => {
   const [values, SetValues] = useState({
-    holiday_name: "",
-    project_name: "",
-    calander_type: "",
-    location_name: "",
+
     holiday_name_drop: "",
   });
-
+const [rows,setRows]=useState({});
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showProject, setShowProject] = useState(false);
@@ -43,48 +41,70 @@ const Calendarfunctions = (calendar_validation) => {
     });
   };
 
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-      onSubmitform();
-    }
-  }, [errors]);
+  
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const test = setErrors(calendar_validation(values));
+    // const test = setErrors(props.calendar_validation(values));
     setIsSubmitting(true);
   };
+
+  
+
+  const updateHoliday = async (e) => {
+    //  console.log(ids);
+    const formData = new FormData();  
+    e.preventDefault();
+    formData.append("holiday_name_drop", JSON.stringify(items));
+    formData.append("id", ids);
+    const res = await axios.post(
+
+      "http://localhost:8000/api/addtoExistingValue", formData );
+  
+      closeModal();
+    if(res.data.status===200){
+      swal({
+      title: "Good job!",
+      text: "Holiday updated successfully",
+      icon: "success",
+      button: "ok",
+    });
+    setItems();
+  
+  }
+
+
+};
+
+  
   const onSubmitform = (e) => {
     console.log(items);
     const formData = new FormData();
-    formData.append("calander_type", typeDropdown);
-    formData.append("holiday_name", values.holiday_name);
-    formData.append("project_name", values.project_name);
-    formData.append("location_name", values.location_name);
-    formData.append("holiday_name_drop", JSON.stringify(items));
-    const response = axios.post(
-      "http://localhost:8000/api/add_holidays_calendar",
+     formData.append("holiday_name_drop", JSON.stringify(items));
+    const res = axios.post(
+      "http://localhost:8000/api/getholidysbyid",
       formData
     );
-    response.then(function(res) {
+ 
       if (res.data.status === 200) {
-        //console.log(res.data.message);
+    
+        
         swal({
           title: "Good job!",
           text: "Holiday Calander added successfully",
           icon: "success",
           button: "ok",
         });
-        SetValues({
-          holiday_name: "", 
-          holiday_date: "",
-        });
+     
       }
-    });
+    
   };
 
   return {
-    handleChange,
+    updateHoliday,
+    
     values,
     handleSubmit,
     errors,
@@ -97,4 +117,4 @@ const Calendarfunctions = (calendar_validation) => {
     handleRemove,
   };
 };
-export default Calendarfunctions;
+export default HoliCalendarfunctions;

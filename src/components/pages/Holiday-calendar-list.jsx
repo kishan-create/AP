@@ -193,7 +193,7 @@ export default class HolidayList extends Component {
   // CustomTab.tabsRole = "Tab";
   closeModal() {
     this.setState({ modalIsOpen: false });
-    this.method();
+    // this.method();
   }
 
   handleInputs = (e) => {
