@@ -15,7 +15,8 @@ import {location} from '../../images';
 import {profilei} from '../../images/profilei.svg'; 
 import Addorganization from './Addorgaization';
 import Addbranches from './Addbranches';
-
+import Switch from "react-switch";
+import axios from "axios";
 import {
   Accordion,
   AccordionItem,
@@ -57,12 +58,76 @@ const data = [
 
 
   export default class Emptablistview extends Component {
+    constructor() {
+      super();
+      this.state = { 
+        checked: true,
+        employeelist: [], 
+      };
+  
+      this.handleChange = this.handleChange.bind(this);
+    }
+    componentDidMount = () => {
+      this.fetchData();
+    }
+    fetchData = async () => {
+      const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
+          if (res.data.status === 200) {
+                this.setState({
+                  employeelist: res.data.emp,
+                  loading: false,
+                });
+                
+              }
+              console.log(this.state.employeelist);
+    }
+    handleChange(checked) {
+      this.setState({ checked });
+    }
   render() {
     return (
         
                 <div className="main-content-area-inner">
                     
-                     
+                    <div className="emplyee-top">
+                <div className="emplyesearch emplyesearch1">
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="birthday"
+                    name="birthday"
+                    placeholder="Search "
+                  />
+                  <button type="button">
+                    {" "}
+                    <FaSearch className="add-btn-icon" />
+                  </button>
+                </div>
+                <div class="form-group emp-searc-location "> 
+                    <select id="dropdown" name="job_post" class="form-control">
+                          <option value="">Location</option>
+                          <option value="1">Cochi</option>
+                          <option value="2">Bhubaneswar</option>
+                          <option value="3">Hyderabad</option>
+                          <option value="4">UAE</option>
+                          </select>
+                </div>
+                <div class="form-group emp-searc-location "> 
+                    <select id="dropdown" name="job_post" class="form-control">
+                          <option value="">Designation</option>
+                          <option value="1">Software Engineer </option>
+                          <option value="2">Sr. Software Engineer</option>
+                          <option value="3">Team Lead</option>
+                          <option value="4">Software Tester</option>
+                          </select>
+                </div>
+                <div className="recruitment-top-right-box active-employee-top">
+                  <label className="active-swite-toggle">
+                    <span>Active Employees</span>
+                    <Switch onChange={this.handleChange} checked={this.state.checked} />
+                  </label>
+                </div>
+              </div> 
                     <div className="col-md-12 job-main-tb-outer">    
                     <Paper className="recruitment-table-outer job-outer organazation-table-top">
       <Table className="recruitment-tabele">
