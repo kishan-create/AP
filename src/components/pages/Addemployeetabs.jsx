@@ -443,7 +443,7 @@ setDirection();
                                   Employee Gender
                                 </label>
                                 <div className="radiobox-outer">
-                                <input type="radio" value="MALE" name="emp_gender" onChange={handleChange}  /> Male  <input type="radio" value="FEMALE" name="emp_gender" onChange={handleChange}  />  Female
+                                <input type="radio" value="male" name="emp_gender" onChange={handleChange}  /> Male  <input type="radio" value="female" name="emp_gender" onChange={handleChange}  />  Female
                                 </div>
                              
                               </div>

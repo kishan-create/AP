@@ -203,7 +203,7 @@ export default function Job(props) {
     const reponse = await axios.get(
       `http://localhost:8000/api/editfecthjobdata/${job_id}`
     );
-    console.log(reponse.data.job[0]);
+   
     if (reponse.data.status == 200) {
       SetValues({
         job_id: reponse.data.job[0].job_id,

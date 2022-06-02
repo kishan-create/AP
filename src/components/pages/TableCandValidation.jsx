@@ -62,7 +62,7 @@ const TableCandValidation = (setIsOpen) => {
     );
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
-      console.log(res.data.message);
+     
     }
   };
   const handleSubmit = (e) => {
