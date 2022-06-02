@@ -104,7 +104,7 @@ const data = [
         icon: "success",
         button: "ok",
       });
-      this.getallHolidays(this.props.match.params.id);
+this.getallHolidays(this.props.match.params.id);
     }
 
   };

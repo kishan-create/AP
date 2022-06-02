@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Popupmodal from "./Popupmodal";
+import { Link } from "react-router-dom";
 import Switch from "react-switch";
 import {
   MdOutlineFileDownload,
@@ -56,37 +56,11 @@ export default class Emplyelist extends Component {
 
   render() {
     return (
-      <div>
-        <main className="inner-content-box">
-          <header className="main-otrer-top"> Employee </header>
-
-          <section className="main-content-area">
-            <div className="main-content-area-inner">
-              <div className="sub-head">
-                Employee List
-                <div className="top-right-outer add-btn-div">
-                  <div className="buttons-outer">
-                    <a href="Addemployeetab" className="blue-button">
-                      <SiAddthis className="add-btn-icon" /> Add Employee
-                    </a>
-                  </div>
-
-                  <div className="buttons-outer maring-left-15">
-                    <a href="add" className="white-button download-bt">
-                      <MdOutlineFileDownload className="add-btn-icon" />{" "}
-                      Download
-                    </a>
-                  </div>
-
-                  <div className="buttons-outer maring-left-15">
-                    <a href="add" className="white-button  download-bt">
-                      <MdOutlinePrint className="add-btn-icon" /> Print
-                    </a>
-                  </div>
-                </div>
-              </div>
+      <div className="epmtab-w">
+        
+               
               <div className="emplyee-top">
-                <div className="emplyesearch">
+                <div className="emplyesearch emplyesearch1">
                   <input
                     className="form-control"
                     type="text"
@@ -98,6 +72,24 @@ export default class Emplyelist extends Component {
                     {" "}
                     <FaSearch className="add-btn-icon" />
                   </button>
+                </div>
+                <div class="form-group emp-searc-location "> 
+                    <select id="dropdown" name="job_post" class="form-control">
+                          <option value="">Location</option>
+                          <option value="1">Cochi</option>
+                          <option value="2">Bhubaneswar</option>
+                          <option value="3">Hyderabad</option>
+                          <option value="4">UAE</option>
+                          </select>
+                </div>
+                <div class="form-group emp-searc-location "> 
+                    <select id="dropdown" name="job_post" class="form-control">
+                          <option value="">Designation</option>
+                          <option value="1">Software Engineer </option>
+                          <option value="2">Sr. Software Engineer</option>
+                          <option value="3">Team Lead</option>
+                          <option value="4">Software Tester</option>
+                          </select>
                 </div>
                 <div className="recruitment-top-right-box active-employee-top">
                   <label className="active-swite-toggle">
@@ -169,12 +161,15 @@ export default class Emplyelist extends Component {
                           </div>
                           <div className="profile-location-right">
                             <div className="buttons-outer maring-left-15">
-                              <a
-                                href="Employeeprofile"
-                                className="white-button download-bt"
-                              >
-                                View Profile
-                              </a>
+                              
+                            <Link
+                            to={{
+                              pathname: `/Employeeprofile/${n.id}`,
+    
+                              data: n.id, // your data array of objects
+                            }}
+                          >view profile</Link>
+                              
                             </div>
                             <div className="buttons-outer maring-left-15">
                               <a
@@ -217,9 +212,7 @@ export default class Emplyelist extends Component {
                   onChangePage={() => {}}
                 />
               </div>
-            </div>
-          </section>
-        </main>
+             
       </div>
     );
   }

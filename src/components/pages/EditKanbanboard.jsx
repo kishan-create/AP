@@ -60,7 +60,7 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
       ...editvalues,
       [name]: value,
     });
-    console.log(e);
+   
   };
   const handleImage = (e) => {
     SetResume({
@@ -82,7 +82,7 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
       const reponse = await axios.get(
         `http://localhost:8000/api/editfecthbasicdata/${basic_id}`
       );
-      console.log(reponse.data.candidate[0]);
+      
       if (reponse.data.status == 200) {
         SetEditValues({
           username: reponse.data.candidate[0].name,
@@ -154,26 +154,26 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
   };
   const skillremove = (event) => {
     setremovedSkill(event);
-    console.log(event);
+ 
   };
 
   const editedskill = (event) => {
     seteditedSkill(event);
 
-    console.log(event);
+   
   };
 
   const editedprimaryskill = (event) => {
     seteditedprimarySkill(event);
 
-    console.log(event);
+    
   };
   const editedsecondaryskill = (event) => {
     // console.log(event);
 
     seteditedsecondarySkill(event);
 
-    console.log(event);
+    
   };
 
   const handleSubmit_edit = async (e) => {
@@ -239,13 +239,7 @@ const EditKanbanboard = (setEditstate, setIsViewLog) => {
 
     if (response.data.status === 200) {
       alert("Updated successfully");
-      console.log(editskill);
-      console.log(editprimaryskill);
-      console.log(editsecondaryskill);
-      console.log(editvalues.skillset);
-      console.log(editvalues.primary_skill);
-      console.log(editvalues.secskill);
-
+     
       setEditstate(false);
       window.location.reload();
     }

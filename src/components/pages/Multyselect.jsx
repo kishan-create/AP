@@ -20,7 +20,7 @@ export default function Multyselect() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(items);
+   
   };
 
   const handleSelect = (selectedList) => {

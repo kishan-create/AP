@@ -4,6 +4,7 @@ import swal from "sweetalert";
 const Calendarfunctions = (calendar_validation) => {
   const [values, SetValues] = useState({
     holiday_name: "",
+    
     project_name: "",
     calander_type: "",
     location_name: "",
@@ -76,8 +77,12 @@ const Calendarfunctions = (calendar_validation) => {
           button: "ok",
         });
         SetValues({
-          holiday_name: "", 
-          holiday_date: "",
+          holiday_name: "",
+          project_name: "",
+          calander_type: "",
+
+          location_name: "",
+          holiday_name_drop: "",
         });
       }
     });

@@ -56,6 +56,7 @@ export default function Jobdetailsmodal({ location, method }) {
     console.warn(val);
     setValue(val);
   };
+
   const { handleChange, values, handleSubmit, errors, post } = Jobform(
     job_validation
   );

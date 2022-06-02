@@ -40,8 +40,8 @@ import Holidayview from "../pages/Holidayview";
 import Department from "../pages/Department";
 import AddDepartment from "../pages/Add-department";
 import AddDesignation from "../pages/Add-designation";
-
-
+import Empviewtabs from "../pages/Empviewtabs";
+import Emptablistview from "../pages/Emptablistview";
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
   
   <Container
@@ -58,10 +58,11 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/Assets" component={Assets} />
     <Route exact path="/Assetsdetails" component={Assetsdetails} />
     <Route exact path="/Emplyelist" component={Emplyelist} />
-    <Route exact path="/Employeeprofile" component={Employeeprofile} />
+    
+    <Route exact path="/Employeeprofile/:id" component={Employeeprofile} /> 
     <Route exact path="/Job" component={Job} />
     <Route exact path="/Addemployeetab" component={Addemployeetab} />  
-
+    
     <Route exact path="/OfferReleasereport" component={OfferReleasereport} />  
     <Route exact path="/Offboarding" component={Offboarding} />  
     <Route exact path="/Holidaypopup" component={Holidaypopup} />  
@@ -69,8 +70,9 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/Holidaycalendar" component={Holidaycalendar} />
     <Route exact path="/AddDepartment" component={AddDepartment} />
     <Route exact path="/AddDesignation" component={AddDesignation} />
-    
-    <Route exact path="/Multyselect" component={Multyselect} />
+    <Route exact path="/AddDesignation" component={AddDesignation} />
+    <Route exact path="/Empviewtabs" component={Empviewtabs} />  
+    <Route exact path="/Emptablistview" component={Emptablistview} />  
         <Router path="/Addemployeetab">
         <Addemployeetab/>
         </Router> 
