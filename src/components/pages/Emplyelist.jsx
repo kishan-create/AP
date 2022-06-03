@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Popupmodal from "./Popupmodal";
+import { Link } from "react-router-dom";
 import Switch from "react-switch";
 import {
   MdOutlineFileDownload,
@@ -135,7 +135,7 @@ export default class Emplyelist extends Component {
                           </div>
                           <Card.Header className="profile-name">
                             <span>  {n.emp_name}</span>
-                            <p>{n.department_name}</p>
+                            <p>{n.designation_name}</p>
                           </Card.Header>
                           <Card.Description className="profile-content">
                             <div className="inner-section">
@@ -169,12 +169,15 @@ export default class Emplyelist extends Component {
                           </div>
                           <div className="profile-location-right">
                             <div className="buttons-outer maring-left-15">
-                              <a
-                                href="Employeeprofile"
-                                className="white-button download-bt"
-                              >
-                                View Profile
-                              </a>
+                              
+                            <Link
+                            to={{
+                              pathname: `/Employeeprofile/${n.empid}`,
+    
+                              data: n.empid, // your data array of objects
+                            }}
+                          >view profile</Link>
+                              
                             </div>
                             <div className="buttons-outer maring-left-15">
                               <a

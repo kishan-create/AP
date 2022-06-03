@@ -11,6 +11,7 @@ import Calendarfunctions from "./Calendarfunctions";
 import "react-tabs/style/react-tabs.css";
 import Multyselect from "./Multyselect";
 import { Multiselect } from "multiselect-react-dropdown";
+import Holidaycalendar from "./Holidaycalendar";
 const customStyles = {
   content: {
     top: "50%",
@@ -137,7 +138,7 @@ export default function Holidaypopup({method}) {
                       value={values.holiday_name}
                       class="form-control"
                     />
-                    {errors.holiday_name && <p>{errors.holiday_name}</p>}
+                    {errors.holiday_name && <p className="message">{errors.holiday_name}</p>}
                   </div>
 
                   <div class="col-md-4">
@@ -153,6 +154,10 @@ export default function Holidaypopup({method}) {
                       <option value="1">Location</option>
                       <option value="2">Project</option>
                     </select>
+                    {errors.calander_type && <p className="message">{errors.calander_type}</p>}
+
+
+
                   </div>
                   <div
                     style={{ display: showProject ? "block" : "none" }}
@@ -173,6 +178,11 @@ export default function Holidaypopup({method}) {
                       <option value="2">WNC</option>
                       <option value="3">Accord</option>
                     </select>
+                    {errors.project_name && <p className="message">{errors.project_name}</p>}
+
+                    
+
+
                   </div>
 
                   <div
@@ -191,6 +201,10 @@ export default function Holidaypopup({method}) {
                       <option value="2">Hyderabad</option>
                       <option value="2">bhubaneswar</option>
                     </select>
+                    {errors.location_name && <p className="message">{errors.location_name}</p>}
+
+
+
                   </div>
                   <div class="col-md-12 m-t-25">
                     <div className="Multyselect">
@@ -204,6 +218,10 @@ export default function Holidaypopup({method}) {
                         name="holiday_name_drop"
                         showCheckbox
                       />
+                    {/* {errors.location_name && <p>{errors.location_name}</p>} */}
+
+                    {errors.holiday_name_drop && <p className="message">{errors.holiday_name_drop}</p>}
+
                     </div>
                   </div>
                 </div>

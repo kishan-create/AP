@@ -189,7 +189,7 @@ export default class OfferReleasereport extends Component {
     const response = await axios.get(
       `http://auditportal.bourntec.com:3001/audit_portal/public/api/editfetchCandidatestatusdata/${id}`
     );
-    console.log(response.data.users);
+   
     this.setState({
       modalIsStatus: true,
       formData: {
