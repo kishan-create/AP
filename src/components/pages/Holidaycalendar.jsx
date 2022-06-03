@@ -37,6 +37,7 @@ import {
 // Demo styles, see 'Styles' section below for some notes on use.
 import "react-accessible-accordion/dist/fancy-example.css";
 import axios from "axios";
+import Holilistpopup from "./Holilistpopup";
 const styles = (theme) => ({
   root: {
     display: "flex",
@@ -99,27 +100,11 @@ const data = [
       }
         componentDidMount = () => {
         this.fetchData();
-        //     const res = await axios.get("http://localhost:8000/api/getHolidaynames");
-        //     if (res.data.sta === 200) {
-        //           this.setState({
-        //             holidaylist: res.data.holidaylist,
-        //             loading: false,
-        //           });
-                  
-        //         }
+
                 
       }
 
-      // async fetchData(){
-      //   const res = await axios.get("http://localhost:8000/api/getHolidaynames");
-      //       if (res.data.sta === 200) {
-      //             this.setState({
-      //               holidaylist: res.data.holidaylist,
-      //               loading: false,
-      //             });
-                  
-      //           }
-      // }
+     
       
         fetchData = async () => {
         const res = await axios.get("http://localhost:8000/api/getHolidaynames");
@@ -142,6 +127,7 @@ const data = [
                   Holiday Calendar
                   <div className="top-right-outer add-btn-div">
                     <Holidaypopup method = {this.fetchData} />
+                    {/* <Holilistpopup method = {this.fetchData} /> */}
                   </div>
                 </div>
     
@@ -166,6 +152,7 @@ const data = [
                                   <span className="calander-countryname">
                                     {n.hol_calendar_name}
                                   </span>
+                                
                                 </div>
     
                                 <div className="col-md-7 col-sm-12 col-xs-12 public-optional-bordr ">
@@ -191,7 +178,10 @@ const data = [
                           </Link>
                         </AccordionItem>
                       );
-                    })}
+                    }
+                    )
+                    }
+                    
                   </Accordion>
                 </div>
               </div>
