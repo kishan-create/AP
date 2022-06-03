@@ -68,10 +68,7 @@ export default function Holilistpopup({id,method}) {
 
   function closeModal() {
     setIsOpen(false);
-  
-    method(id);
-   
- 
+   method(id);
 
   }
   
