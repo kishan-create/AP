@@ -47,13 +47,12 @@ export default class Emplyelist extends Component {
   }
   componentDidMount = () => {
     this.fetchData();
-    //  this.getLocationName();
+   
     this.getGetLocationName();
     this.getDesignationName();
   }
   componentDidUpdate(prevProps, prevState) {
-   //console.log(prevState.formData);
-   //console.log(this.state.formData);
+  
    if(prevState.formData!=this.state.formData)
    {
     this.fetchdataByparams();
@@ -127,7 +126,7 @@ export default class Emplyelist extends Component {
   }
   GetSearchbylocation=async(data) => { alert("hii");
 var location=data?.emp_location;
-console.log(location);
+
   }
   handleChange(checked) {
     this.setState({ checked });
