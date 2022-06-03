@@ -101,6 +101,14 @@ export default class Emplyelist extends Component {
                   </label>
                 </div>
               </div>
+              <div className="col-md-12 m-tb-emp ">
+                  <div className="col-md-3 emp-cont-box-green"> Active 120
+                  </div>
+                  <div className="col-md-3 emp-cont-box-yellow">Inactive 10
+                  </div>
+                  <div className="col-md-3 emp-cont-box-red">Notice Period 06
+                  </div>
+              </div>
               <div className="empoyee-list-content-are">
                 <List>
                   <ListItem>
