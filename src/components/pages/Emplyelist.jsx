@@ -52,8 +52,8 @@ export default class Emplyelist extends Component {
     this.getDesignationName();
   }
   componentDidUpdate(prevProps, prevState) {
-   console.log(prevState.formData);
-   console.log(this.state.formData);
+   //console.log(prevState.formData);
+   //console.log(this.state.formData);
    if(prevState.formData!=this.state.formData)
    {
     this.fetchdataByparams();
