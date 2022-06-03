@@ -67,14 +67,17 @@ const data = [
       this.state = { 
         checked: true,
         employeelist: [], 
+        emplocation:[]
       };
   
       this.handleChange = this.handleChange.bind(this);
     }
     componentDidMount = () => {
       this.fetchData();
+      this.getGetLocationName();
     }
     fetchData = async () => {
+
       const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
           if (res.data.status === 200) {
                 this.setState({
@@ -83,7 +86,11 @@ const data = [
                 });
                 
               }
-              console.log(this.state.employeelist);
+             
+    }
+    getGetLocationName = async() => {
+      const response = await axios.get("http://localhost:8000/api/getLocationBranch");
+      console.log(response);
     }
     handleChange(checked) {
       this.setState({ checked });
