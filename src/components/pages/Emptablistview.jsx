@@ -190,7 +190,7 @@ const data = [
                {/* <a href="`/Employeeprofile/${n.id}`,"> */}
                <Link
                             to={{
-                              pathname: `/Employeeprofile/${n.id}`,
+                              pathname: `/Employeeprofile/${n.empid}`,
     
                               data: n.id, // your data array of objects
                             }}

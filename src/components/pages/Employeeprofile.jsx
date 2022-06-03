@@ -73,7 +73,7 @@ const getEmployeeDetails = async (id) => {
                                               <div  className="row txt-row-hght">                                                     
                                                     <div  className="col-md-6 info-card-cont "> Contact Number           <span className="dot-sty">:</span>
                                                     </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emp_company_email_id}
+                                                    <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emp_contact_number}
                                                     </div>                                
                                               </div> 
                                               <div  className="row txt-row-hght">                                                     

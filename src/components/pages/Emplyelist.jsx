@@ -164,7 +164,7 @@ export default class Emplyelist extends Component {
                               
                             <Link
                             to={{
-                              pathname: `/Employeeprofile/${n.id}`,
+                              pathname: `/Employeeprofile/${n.empid}`,
     
                               data: n.id, // your data array of objects
                             }}
