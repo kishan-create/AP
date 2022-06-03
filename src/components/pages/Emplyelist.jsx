@@ -51,12 +51,17 @@ export default class Emplyelist extends Component {
     this.getGetLocationName();
     this.getDesignationName();
   }
-  componentDidUpdate() {
-   
-   if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
+  componentDidUpdate(prevProps, prevState) {
+ 
+   if(prevState.formData!=this.state.formData)
    {
     this.fetchdataByparams();
    }
+  
+   /*if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
+   {
+    this.fetchdataByparams();
+   }*/
  }
  fetchdataByparams= async () => {
  
@@ -105,7 +110,7 @@ export default class Emplyelist extends Component {
         [e.target.name]: e.target.value,
       },
     });
-    
+   
     
              
   }
@@ -121,7 +126,7 @@ export default class Emplyelist extends Component {
   }
   GetSearchbylocation=async(data) => { alert("hii");
 var location=data?.emp_location;
-console.log(location);
+
   }
   handleChange(checked) {
     this.setState({ checked });
@@ -199,7 +204,7 @@ console.log(location);
                         </div>
                         <Card.Header className="profile-name">
                           <span>  {n.emp_name}</span>
-                          <p>Software Engineer</p>
+                          <p>{n.designation_name}</p>
                         </Card.Header>
                         <Card.Description className="profile-content">
                           <div className="inner-section">
