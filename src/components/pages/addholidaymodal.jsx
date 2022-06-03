@@ -8,7 +8,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { AppBar } from "@material-ui/core";
 import BasicTabs from "./Employeetabs";
-import calendar_validation from "../validation/calendar_validation";
+import calendarlist_validation from "../validation/calendar_validation";
 import Calendarform from "./Calendarform";
 import "react-tabs/style/react-tabs.css";
 import holiday_validation from "../validation/holiday_validation";

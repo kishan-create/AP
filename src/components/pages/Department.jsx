@@ -128,6 +128,7 @@ function Row(props) {
     // console.log("hi", e.target.name);
   };
   const fetchData = async () => {
+   
     const res = await axios.get(
       "http://localhost:8000/api/getDepartmentValues"
     );
@@ -251,15 +252,7 @@ function Row(props) {
       });
     }
   };
-  // const fetchDatadepartment = async () => {
-  //   const res = await axios.get(
-  //     "http://localhost:8000/api/getDepartmentValues"
-  //   );
 
-  //   const org = res.data.org;
-
-  //   setRows(org);
-  // };
 
 
 
