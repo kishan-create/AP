@@ -51,12 +51,18 @@ export default class Emplyelist extends Component {
     this.getGetLocationName();
     this.getDesignationName();
   }
-  componentDidUpdate() {
-   
-   if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
+  componentDidUpdate(prevProps, prevState) {
+   console.log(prevState.formData);
+   console.log(this.state.formData);
+   if(prevState.formData!=this.state.formData)
    {
     this.fetchdataByparams();
    }
+  
+   /*if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
+   {
+    this.fetchdataByparams();
+   }*/
  }
  fetchdataByparams= async () => {
  
@@ -105,7 +111,7 @@ export default class Emplyelist extends Component {
         [e.target.name]: e.target.value,
       },
     });
-    
+   
     
              
   }
