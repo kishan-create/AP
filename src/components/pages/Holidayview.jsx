@@ -110,6 +110,8 @@ this.getallHolidays(this.props.match.params.id);
   };
  
   render() {
+    // console.log(this.state.holiday[0])
+    console.log(this.state.holiday[0]?.hol_calendar_name)
     return (
       <div>
         
@@ -118,8 +120,8 @@ this.getallHolidays(this.props.match.params.id);
              <section  className="main-content-area">
                 <div className="main-content-area-inner">
                           <div className="sub-head organization-sub-head">
-                                     Calender List 
-                  
+                              
+                  {this.state.holiday[0]?.hol_calendar_name}
         
                                     <div className="top-right-outer add-btn-div">
               
