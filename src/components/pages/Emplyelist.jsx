@@ -199,7 +199,7 @@ console.log(location);
                         </div>
                         <Card.Header className="profile-name">
                           <span>  {n.emp_name}</span>
-                          <p>Software Engineer</p>
+                          <p>{n.designation_name}</p>
                         </Card.Header>
                         <Card.Description className="profile-content">
                           <div className="inner-section">
