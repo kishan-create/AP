@@ -50,6 +50,7 @@ export default class Emplyelist extends Component {
     //  this.getLocationName();
     this.getGetLocationName();
     this.getDesignationName();
+
   }
   componentDidUpdate(prevProps, prevState) {
    console.log(prevState.formData);

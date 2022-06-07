@@ -14,12 +14,12 @@ export default function calendar_validation(values) {
   }
 
 
-  if (!values.location_name.trim()) {
-    errors.location_name = "Location name is required";
-  }
+  // if (!values.location_name.trim()) {
+  //   errors.location_name = "Location name is required";
+  // }
 
-  if (!values.holiday_name_drop.trim()) {
-    errors.holiday_name_drop = "Types of holidays is required";
-  }
+  // if (!values.holiday_name_drop.trim()) {
+  //   errors.holiday_name_drop = "Types of holidays is required";
+  // }
   return errors;
 }
