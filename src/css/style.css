@@ -3822,7 +3822,8 @@ input[type="radio"]:focus {
 li.option {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  font-size: 14px;
 }
 .a-b {
   position: relative;
@@ -3860,7 +3861,8 @@ li.option {
 .searchWrapper {
   border-radius: unset !important;
   height: 39px;
-  padding-top: 1px;
+  padding-top: 5px;
+  font-size: 14px;
 }
 
 .A .btn-save {
@@ -4202,6 +4204,7 @@ li.option {
 .highlightOption {
   background: #fff;
   color: #515151;
+  font-size: 14px;
 }
 .multiSelectContainer li:hover {
   background: #ad4680;
@@ -4237,8 +4240,9 @@ li.option {
 }
 .multiSelectContainer input {
   border: none;
-  margin-top: 8px;
+  margin-top: 0px;
   background: transparent;
+  margin-right: 7px;
 }
 .f-w-norml {
   font-weight: normal;
