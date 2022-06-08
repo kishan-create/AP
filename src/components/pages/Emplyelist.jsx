@@ -27,6 +27,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import TablePagination from "@material-ui/core/TablePagination";
 import axios from "axios";
 import { Sync } from "@material-ui/icons";
+import ReactTooltip from 'react-tooltip';
+import {location, PencilNew, DeferTime, Offboarding1, Offboarding2, Offboarding3, Hirecompleted} from '../../images';
 export default class Emplyelist extends Component {
   constructor() {
     super();
@@ -47,12 +49,12 @@ export default class Emplyelist extends Component {
   }
   componentDidMount = () => {
     this.fetchData();
-    //  this.getLocationName();
+   
     this.getGetLocationName();
     this.getDesignationName();
   }
   componentDidUpdate(prevProps, prevState) {
- 
+  
    if(prevState.formData!=this.state.formData)
    {
     this.fetchdataByparams();
@@ -178,6 +180,32 @@ var location=data?.emp_location;
             </label>
           </div>
         </div>
+        <div className='onboarding-top-outer emp-active-box-outer '>
+<div className='box'>
+<div className="box-inner emp-active-box">
+  <div className='left'>
+  <p>Active</p>
+<span>120</span>
+  </div>
+<img src={Offboarding1} />
+</div>
+<div className="box-inner emp-active-box onboard-ligt-violet">
+  <div className='left'>
+  <p>Notice Period</p>
+<span>04</span>
+  </div>
+<img src={Hirecompleted} />
+</div>
+<div className="box-inner emp-active-box onboard-ligt-blue">
+  <div className='left'>
+  <p>Inactive</p>
+<span>14</span>
+  </div>
+<img src={Offboarding3} />
+</div>
+</div>
+
+</div>
         <div className="empoyee-list-content-are">
           <List>
             <ListItem>
@@ -188,29 +216,43 @@ var location=data?.emp_location;
 
 
                 return (
-                  <div className="width-25">
-                    <Card>
+                  <div className="width-25 ">
+                     <Link to={{ pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
+                                    }} >
+                    <Card >
                       <Card.Content className="emplyee-card-top">
                         <div className="emplyee-card-left">
                           <div className="tick-round green-bg">
                             <img src={tick} />
                           </div>
                           <div className="tick-round purple-bg">
-                            <MdPhone />
+                            <MdPhone className="emp-card-phon" />
                           </div>
+                           
+                          
                         </div>
-                        <div className="image-box">
+                        <div className="image-box" >
                           <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
                         </div>
+                       
                         <Card.Header className="profile-name">
+                        
                           <span>  {n.emp_name}</span>
-                          <p>{n.designation_name}</p>
+                          <p>{n.designation_name}
+                          <div className="m-t-rever-7">Emp Code: {n.emp_code}</div>
+                          </p>
+                          
                         </Card.Header>
-                        <Card.Description className="profile-content">
-                          <div className="inner-section">
-                            <div className="left">Employee Code</div>
-                            <div className="right">{n.emp_code}</div>
+                        <div>
+                              <div className="profile-location">
+                               
+                              </div>
+                              <div className="profile-location-right "> 
+                               
+                              </div>
                           </div>
+                        <Card.Description className="profile-content">
+                         
                           <div className="inner-section">
                             <div className="left">Mail ID</div>
                             <div className="right">
@@ -229,51 +271,20 @@ var location=data?.emp_location;
                             <div className="left">Department</div>
                             <div className="right">{n.department_name}</div>
                           </div>
+                          <div className="inner-section m-t-rever-10 ">
+                            <div className="left">
+                              <i class="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
+                                <span className="">{n.emp_location} </span>
+                            </div>
+                            <div className="right">
+                              
+                             
+                            </div>
+                          </div>
                         </Card.Description>
                       </Card.Content>
-                      <Card.Content extra className="profile-card-bottom">
-                        <div className="profile-location">
-                          <img src={locationprofile} />
-                          <span>{n.emp_location} </span>
-                        </div>
-                        <div className="profile-location-right">
-                          <div className="buttons-outer maring-left-15">
-
-                            <Link
-                              to={{
-                                pathname: `/Employeeprofile/${n.empid}`,
-
-                                data: n.id, // your data array of objects
-                              }}
-                            >view profile</Link>
-
-                          </div>
-                          <div className="buttons-outer maring-left-15">
-                            <a
-                              href="add"
-                              className="white-button download-bt"
-                            >
-                              <svg
-                                width="10"
-                                height="10"
-                                viewBox="0 0 10 10"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M8.76911 5.80111L3.04833 0.0803333C2.94122 -0.0267778 2.76767 -0.0267778 2.66067 0.0803333L0.0803334 2.66067C-0.0267778 2.76778 -0.0267778 2.94133 0.0803334 3.04833L5.80111 8.76911L8.76911 5.80111Z"
-                                  fill="#4A54D1"
-                                />
-                                <path
-                                  d="M9.59266 9.98866L6.0791 9.04722L9.04722 6.0791L9.98866 9.59266C10.053 9.83311 9.83311 10.053 9.59266 9.98866Z"
-                                  fill="#4A54D1"
-                                />
-                              </svg>
-                            </a>
-                          </div>
-                        </div>
-                      </Card.Content>
-                    </Card>
+                      
+                    </Card></Link>
                   </div>
                 );
 
