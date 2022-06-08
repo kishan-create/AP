@@ -27,8 +27,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import TablePagination from "@material-ui/core/TablePagination";
 import axios from "axios";
 import { Sync } from "@material-ui/icons";
-import ReactTooltip from 'react-tooltip';
+import { Multiselect } from "multiselect-react-dropdown";
 import {location, PencilNew, DeferTime, Offboarding1, Offboarding2, Offboarding3, Hirecompleted} from '../../images';
+
 export default class Emplyelist extends Component {
   constructor() {
     super();
@@ -37,16 +38,24 @@ export default class Emplyelist extends Component {
       employeelist: [],
       emplocation: [],
       designation: [],
+     
+      options: [{optname: 'Option 1️⃣', id: 1},{optname: 'Option 2️⃣', id: 2}],
       formData:{ 
-        emp_location:"",
-        emp_designation:""
+        emp_location:[],
+        emp_designation:"",
+        location_items:[],
+        designation_items:[],
       },
+      
       count: 0
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.onSelectLocation = this.onSelectLocation.bind(this);
+    this.onSelectDesignation = this.onSelectDesignation.bind(this);
   }
+  
   componentDidMount = () => {
     this.fetchData();
    
@@ -54,19 +63,19 @@ export default class Emplyelist extends Component {
     this.getDesignationName();
   }
   componentDidUpdate(prevProps, prevState) {
-  
-   if(prevState.formData!=this.state.formData)
+    console.log(this.state.formData);
+   /*if(prevState.formData!=this.state.formData)
    {
     this.fetchdataByparams();
-   }
+   }*/
   
    /*if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
    {
     this.fetchdataByparams();
    }*/
  }
- fetchdataByparams= async () => {
- 
+ fetchdataByparams= async () => { alert("hii");
+     console.log(this.state.items);
    var id=this.state.formData.emp_location+'&&'+this.state.formData.emp_designation;
    const response = await axios.get(
     `http://localhost:8000/api/getEmployeebylocation/${id}`
@@ -103,15 +112,16 @@ export default class Emplyelist extends Component {
     }
 
   }
-  handleSelect=async(e)=>{
-   
+  handleSelect=async(e)=>{ alert("hii");
+    console.log(this.state.item);
+  // console.log(e.target.name);
     
-    this.setState({
+    /*this.setState({
       formData: {
         ...this.state.formData,
         [e.target.name]: e.target.value,
       },
-    });
+    });*/
    
     
              
@@ -126,13 +136,34 @@ export default class Emplyelist extends Component {
 
     }
   }
-  GetSearchbylocation=async(data) => { alert("hii");
+  GetSearchbylocation=async(data) => { 
 var location=data?.emp_location;
 
   }
   handleChange(checked) {
     this.setState({ checked });
   }
+  
+  onRemove(selectedList, selectedItem) {
+   
+}
+onSelectLocation(selectedList) {
+ 
+  this.setState({
+    formData: {...this.state.formData, location_items: selectedList}
+ 
+  });
+
+}
+onSelectDesignation(selectedList) {
+ 
+  this.setState({
+    formData: {...this.state.formData, designation_items: selectedList}
+ 
+  });
+
+}
+
 
   render() {
 
@@ -154,13 +185,30 @@ var location=data?.emp_location;
               <FaSearch className="add-btn-icon" />
             </button>
           </div>
+         
           <div class="form-group emp-searc-location ">
-            <select id="emp_location"  onChange={this.handleSelect} name="emp_location" value={this.state.formData.emp_location} class="form-control">
-              <option value="">Select Location name</option>
-              {this.state.emplocation.map(({ branch_location, id }, index) => (
-                <option value={branch_location}>{branch_location}</option>
-              ))}
-            </select>
+          <Multiselect
+options={this.state.emplocation} // Options to display in the dropdown
+selectedValues={this.state.formData.location_items} // Preselected value to persist in dropdown
+
+onSelect={this.onSelectLocation} // Function will trigger on select event
+onRemove={this.onRemove} // Function will trigger on remove event
+displayValue="branch_name" // Property name to display in the dropdown options
+name="branch_name"
+showCheckbox
+/>
+          </div>
+          <div class="form-group emp-searc-location ">
+          <Multiselect
+options={this.state.designation} // Options to display in the dropdown
+selectedValues={this.state.formData.designation_items} // Preselected value to persist in dropdown
+
+onSelect={this.onSelectDesignation} // Function will trigger on select event
+onRemove={this.onRemove} // Function will trigger on remove event
+displayValue="designation_name" // Property name to display in the dropdown options
+name="designation_name"
+showCheckbox
+/>
           </div>
           <div class="form-group emp-searc-location ">
             <select id="emp_designation" onChange={this.handleSelect} value={this.state.formData.emp_designation} name="emp_designation" class="form-control">
@@ -170,6 +218,7 @@ var location=data?.emp_location;
               ))}
             </select>
           </div>
+          
           <div className="recruitment-top-right-box active-employee-top">
             <label className="active-swite-toggle">
               <span>Active Employees</span>
