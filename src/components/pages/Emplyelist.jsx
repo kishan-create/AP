@@ -54,6 +54,8 @@ export default class Emplyelist extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.onSelectLocation = this.onSelectLocation.bind(this);
     this.onSelectDesignation = this.onSelectDesignation.bind(this);
+    this.onRemove = this.onRemove.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
   
   componentDidMount = () => {
@@ -144,9 +146,19 @@ var location=data?.emp_location;
     this.setState({ checked });
   }
   
-  onRemove(selectedList, selectedItem) {
+  onRemove(selectedList) {
+    this.setState({
+      formData: {...this.state.formData, location_items: selectedList}
    
+    });
+  
 }
+ handleRemove = (selectedList) => { alert("hii");
+  this.setState({
+    formData: {...this.state.formData, designation_items: selectedList}
+ 
+  });
+};
 onSelectLocation(selectedList) {
  
   this.setState({
@@ -204,7 +216,7 @@ options={this.state.designation} // Options to display in the dropdown
 selectedValues={this.state.formData.designation_items} // Preselected value to persist in dropdown
 
 onSelect={this.onSelectDesignation} // Function will trigger on select event
-onRemove={this.onRemove} // Function will trigger on remove event
+onRemove={this.handleRemove} // Function will trigger on remove event
 displayValue="designation_name" // Property name to display in the dropdown options
 name="designation_name"
 showCheckbox
