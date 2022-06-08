@@ -28,7 +28,7 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from 'react-accessible-accordion';
-
+import {Offboarding1, Offboarding3, Hirecompleted} from '../../images';
 // Demo styles, see 'Styles' section below for some notes on use.
 import 'react-accessible-accordion/dist/fancy-example.css';
 const styles = theme => ({
@@ -162,15 +162,33 @@ const data = [
                   </label>
                 </div>
               </div> 
-              <div className="col-md-12 m-tb-emp ">
-                  <div className="col-md-3 emp-cont-box-green"> Active 120
-                  </div>
-                  <div className="col-md-3 emp-cont-box-yellow">Inactive 10
-                  </div>
-                  <div className="col-md-3 emp-cont-box-red">Notice Period 06
-                  </div>
-              </div>
-                    <div className="col-md-12 job-main-tb-outer">    
+              <div className='onboarding-top-outer emp-active-box-outer '>
+<div className='box'>
+<div className="box-inner emp-active-box">
+  <div className='left'>
+  <p>Active</p>
+<span>120</span>
+  </div>
+<img src={Offboarding1} />
+</div>
+<div className="box-inner emp-active-box onboard-ligt-violet">
+  <div className='left'>
+  <p>Notice Period</p>
+<span>04</span>
+  </div>
+<img src={Hirecompleted} />
+</div>
+<div className="box-inner emp-active-box onboard-ligt-blue">
+  <div className='left'>
+  <p>Inactive</p>
+<span>14</span>
+  </div>
+<img src={Offboarding3} />
+</div>
+</div>
+
+</div>
+                    <div className="col-md-12 job-main-tb-outer m-t-25">    
                     <Paper className="recruitment-table-outer job-outer organazation-table-top">
       <Table className="recruitment-tabele">
         <TableHead>
