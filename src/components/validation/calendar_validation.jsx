@@ -5,15 +5,15 @@ export default function calendar_validation(values) {
   if (!values.holiday_name.trim()) {
     errors.holiday_name = "Holiday name is required";
   }
-/*  if (!values.calander_type.trim()) {
+  if (!values.calander_type) {
     errors.calander_type = "Project/Location is required";
   }
 
-  if (!values.project_name.trim()) {
+ /* if (!values.project_name.trim()) {
     errors.project_name = "Project is required";
-  }
+  }*/
 
-*/
+
   if (!values.location_name.trim()) {
     errors.location_name = "Location name is required";
   }
