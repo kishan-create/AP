@@ -111,9 +111,7 @@ export default function Holilistpopup({id,method}) {
       </button>
       <Modal
         isOpen={modalIsOpen}
-        
-
-
+ 
         onRequestClose={closeModal}
         className="job-detils-modal"
         contentLabel="Example Modal"

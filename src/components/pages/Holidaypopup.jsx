@@ -39,8 +39,7 @@ const options1 = [
 ];
 
 export default function Holidaypopup({method}) {
-  // console.log(method);
-  //  { <Holilistpopup methodlist = {method} /> }
+  
 
 
   const CustomTab = ({ children }) => (
@@ -62,7 +61,8 @@ export default function Holidaypopup({method}) {
   function openModal() {
     getOptionName();
     setIsOpen(true);
-    // setButtonText("Add Holiday");
+    
+
   }
 
   function afterOpenModal() {
@@ -72,7 +72,8 @@ export default function Holidaypopup({method}) {
 
   function closeModal() {
     setIsOpen(false);
-    // method();
+    method();
+    
 
     
 

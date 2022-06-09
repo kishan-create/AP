@@ -4,13 +4,12 @@ import swal from "sweetalert";
 const Calendarfunctions = (calendar_validation) => {
   const [values, SetValues] = useState({
     holiday_name: "",
-    
     project_name: "",
     calander_type: "",
     location_name: "",
     holiday_name_drop: "",
   });
-
+const [holidaylist,SetHolidaylist]=useState();
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showProject, setShowProject] = useState(false);
@@ -45,8 +44,10 @@ const Calendarfunctions = (calendar_validation) => {
   };
 
   useEffect(() => {
+    // GetHolidayCalander();
     if (Object.keys(errors).length === 0 && isSubmitting) {
       onSubmitform();
+
     }
   }, [errors]);
 
@@ -55,8 +56,23 @@ const Calendarfunctions = (calendar_validation) => {
     const test = setErrors(calendar_validation(values));
     setIsSubmitting(true);
   };
+
+
+  const GetHolidayCalander=async()=>{ 
+    const response = await fetch(
+      "http://localhost:8000/api/getHolidaynames"
+    );
+    const data = await response.json();
+    const list = data.holidaylist; 
+    SetHolidaylist(list);
+    console.log("test ",list[0]);
+  
+  }
+
+
+
   const onSubmitform = (e) => {
-    console.log(items);
+    
     const formData = new FormData();
     formData.append("calander_type", typeDropdown);
     formData.append("holiday_name", values.holiday_name);
@@ -69,7 +85,6 @@ const Calendarfunctions = (calendar_validation) => {
     );
     response.then(function(res) {
       if (res.data.status === 200) {
-        //console.log(res.data.message);
         swal({
           title: "Good job!",
           text: "Holiday Calander added successfully",
@@ -84,6 +99,8 @@ const Calendarfunctions = (calendar_validation) => {
           location_name: "",
           holiday_name_drop: "",
         });
+        GetHolidayCalander();
+    
       }
     });
   };

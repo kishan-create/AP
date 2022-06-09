@@ -186,7 +186,6 @@ const data = [
                     <TableCell  className="width-18"> {n.emp_name}</TableCell>
                     <TableCell numeric className="width-18">{n.emp_code}</TableCell>                          
                     <TableCell numeric className=" width-12">{n.designation_name} </TableCell>
-                    <TableCell numeric className=" width-12">{n.designation_status} </TableCell>
                     <TableCell numeric className=" width-15">{n.emp_company_email_id} </TableCell>
                     <TableCell numeric className="width-18">{n.fk_emp_previous_exp}</TableCell>
                     <TableCell numeric className="width-15">{n.emp_location}</TableCell>

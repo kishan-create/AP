@@ -109,7 +109,7 @@ export default class HolidayList extends Component {
       formData: {
         hol_name: "",
         hol_date: "",
-        // hol_day: "",
+       
       },
     };
     // this.method();
@@ -163,7 +163,7 @@ export default class HolidayList extends Component {
           hol_name: reponse.data.branch.hol_name,
           hol_date: reponse.data.branch.hol_date,
 
-          // hol_day: reponse.data.branch.hol_day,
+      
 
           id: reponse.data.branch.id,
         },
@@ -179,15 +179,15 @@ export default class HolidayList extends Component {
       this.state.formData
     );
 
-    // if (res.data.status == 200) {
-    //   swal({
-    //     title: "Good job!",
-    //     text: "Holiday Updated successfully",
-    //     icon: "success",
-    //     button: "ok",
-    //   });
+    if (res.data.status == 200) {
+      swal({
+        title: "Good job!",
+        text: "Holiday Updated successfully",
+        icon: "success",
+        button: "ok",
+      });
 
-    // }
+    }
     // window.location.reload();
     this.fetchdata();
   };

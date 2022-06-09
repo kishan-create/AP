@@ -160,7 +160,7 @@ export default function BasicTabs({setColumns}) {
                                     <Multiselect
         isObject={false}
         onRemove={(event) => {
-         // console.log(event);
+    
         }}
         onSelect={onSelect}
         options={skill}
