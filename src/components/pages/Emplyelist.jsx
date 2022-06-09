@@ -77,7 +77,7 @@ export default class Emplyelist extends Component {
     this.getDesignationName();
   }
   componentDidUpdate(prevProps, prevState) {
-    // console.log(this.state.formData);
+     console.log(this.state.formData);
     /*if(prevState.formData!=this.state.formData)
     {
      this.fetchdataByparams();
@@ -193,10 +193,15 @@ export default class Emplyelist extends Component {
 
   }
   handleChangenew = (selected) => {
-    console.log(selected);
-    this.setState({
+ //  console.log(selected);
+   /* this.setState({
       optionSelected: selected
+    });*/
+    this.setState({
+      formData: {...this.state.formData, location_items: selected}
+   
     });
+  
   };
 
 
