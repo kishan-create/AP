@@ -4364,3 +4364,37 @@ li.option {
     box-shadow: 0px 10px 10px rgb(0 0 0 / 20%);
  
 }
+.css-b62m3t-container {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.form-control .css-1s2u09g-control{
+  height: auto;
+  background: none;
+  float: left;
+  border: 0;
+  padding-top: 0;
+  min-height: 40px;
+  width: 100%;
+}
+.css-319lph-ValueContainer{
+  padding: 0px 8px;
+}
+.form-control:focus {
+  outline: none;
+}
+.css-1pahdxg-control:hover{
+  border: 0;
+  outline: 0;
+  border-color: #fff;
+  box-shadow: none;
+  background: none;
+  min-height: 40px;
+}
+.css-6j8wv5-Input {
+  margin: 0px;
+  padding-top: 0px;
+}

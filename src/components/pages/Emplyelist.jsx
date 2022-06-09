@@ -232,7 +232,7 @@ export default class Emplyelist extends Component {
               value={this.state.optionSelected}
               displayValue="location" // Property name to display in the dropdown options
               name="location"
-              placeholder="Location"
+              placeholder="Location" className="form-control"
             />
           </div>
           
@@ -247,7 +247,7 @@ export default class Emplyelist extends Component {
               allowSelectAll={true}
               value={this.state.optionSelected}
               displayValue="designation" // Property name to display in the dropdown options
-              name="designation"
+              name="designation" className="form-control"
             />
           </div>
           
