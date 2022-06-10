@@ -165,6 +165,8 @@ export default function Holidaypopup({method}) {
                     </select>
                     {errors.calander_type && <p className="message">{errors.calander_type}</p>}
 
+                   
+
 
 
                   </div>
@@ -210,7 +212,7 @@ export default function Holidaypopup({method}) {
                       <option value="2">Hydarabad</option>
                       <option value="2">Buwaneswar</option>
                     </select>
-                    {/* {errors.location_name && <p className="message">{errors.location_name}</p>} */}
+                    {errors.location_name && <p className="message">{errors.location_name}</p>}
 
 
 
@@ -231,7 +233,7 @@ export default function Holidaypopup({method}) {
                       />
                     {/* {errors.location_name && <p>{errors.location_name}</p>} */}
 
-                    {/* {errors.holiday_name_drop && <p className="message">{errors.holiday_name_drop}</p>} */}
+                    {errors.holiday_name_drop && <p className="message">{errors.holiday_name_drop}</p>}
 
                     </div>
                   </div>

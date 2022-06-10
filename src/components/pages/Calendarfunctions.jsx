@@ -41,9 +41,11 @@ const Calendarfunctions = (calendar_validation) => {
     SetValues({
       ...values,
       [name]: value,
-    });
-  };
 
+    });
+
+
+  };
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       onSubmitform();
@@ -52,11 +54,10 @@ const Calendarfunctions = (calendar_validation) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const test = setErrors(calendar_validation(values));
+    const test = setErrors(calendar_validation(values,typeDropdown,items));
     setIsSubmitting(true);
   };
   const onSubmitform = (e) => {
-    console.log(items);
     const formData = new FormData();
     formData.append("calander_type", typeDropdown);
     formData.append("holiday_name", values.holiday_name);

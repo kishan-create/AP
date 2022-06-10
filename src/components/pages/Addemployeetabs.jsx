@@ -441,7 +441,7 @@ setDirection();
                               <div class="form-group">
                                 <label for="exampleFormControlInput1">
                                   Employee Gender
-                                </label>
+                                </label>    
                                 <div className="radiobox-outer">
                                 <input type="radio" value="male" name="emp_gender" onChange={handleChange}  /> Male  <input type="radio" value="female" name="emp_gender" onChange={handleChange}  />  Female
                                 </div>

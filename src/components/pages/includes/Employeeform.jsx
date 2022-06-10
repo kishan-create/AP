@@ -101,10 +101,7 @@ const Employeeform = (employee_val) => {
     }
   }, [errors]);
 
-  /* const loadOrganization = async () => {
-    const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
-    setOrg(orgresponse.data);
-  }*/
+
   const GetDepartmentName = async () => {
     const response = await fetch(
       "http://localhost:8000/api/getDepartmentName"
@@ -139,14 +136,15 @@ const Employeeform = (employee_val) => {
     const location=datalocation.location;
     SetEmployeelocation(location);
   }
- //console.log(holidaylist);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const test = setErrors(employee_val(values));
     setIsSubmitting(true);
+
   };
   const onSubmitform = (e) => {
-    //console.log(values)
+ 
     const formData = new FormData();
     formData.append("profilepic", profile.profilepics);
     formData.append("emp_name", values.emp_name);
@@ -155,6 +153,7 @@ const Employeeform = (employee_val) => {
     formData.append("emp_joindate", values.emp_joindate);
     formData.append("emp_email", values.emp_email);
     formData.append("emp_prev_exp", values.emp_prev_exp);
+    formData.append("emp_number",values.emp_number);
     formData.append("emp_gender", values.emp_gender);
     formData.append("emp_holiday_calender", values.emp_holiday_calender);
     formData.append("emp_department", values.emp_department);
