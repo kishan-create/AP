@@ -13,7 +13,7 @@
     padding-right: 10px;
   }
   .profile-name span {
-    font-size: 20px;
+    font-size: 16px;
     padding-bottom: 2px;
   }
   .profile-name p {
@@ -67,6 +67,13 @@
   .job-new-outer th:last-child.tf {
     width: 13%;
   }
+  .profile-name {
+    width: 52%;
+    float: left;
+    margin-top: 0px;
+    display: block;
+    margin-bottom: 20px;
+}
 }
 .ReactModal__Overlay {
   position: fixed;
@@ -261,6 +268,13 @@
   .job-new-outer th:last-child.tf {
     width: 15%;
   }
+  .profile-name {
+    width: 52%;
+    float: left;
+    margin-top: 0px;
+    display: block;
+    margin-bottom: 20px;
+}
 }
 
 @media only screen and (max-width: 1300px) {
@@ -513,6 +527,29 @@
   .cal-width-10{
     width: 15%;
   }
+  .emp-cont-box-green {
+    background-color: #ecfbed;
+    padding: 15px;
+    font-size: 20px;
+    color: #008254;
+    border: 1px solid #008254;
+    margin-right: 0px;
+  }
+  .emp-cont-box-yellow {
+    background-color: #fff6e7;
+    padding: 15px;
+    font-size: 20px;
+    color: #f9a200;
+    border: 1px solid #f9a200;
+    margin-right: 0px;
+  }
+  .profile-name {
+    width: 52%;
+    float: left;
+    margin-top: 0px;
+    display: block;
+    margin-bottom: 20px;
+}
 }
 @media only screen and (max-width: 980px) {
   .sidebar.is-open {
@@ -845,6 +882,22 @@
 .public-optional-bordr {
   border-top: 1px solid #ebeaea;
   margin-top: 25px;
+}
+.emp-cont-box-green {
+  background-color: #ffffff;
+  padding: 15px;
+  font-size: 20px;
+  color: #008254;
+  border: 1px solid #008254;
+  margin-right: 0px;
+}
+.emp-cont-box-yellow {
+  background-color: #ffffff;
+  padding: 15px;
+  font-size: 20px;
+  color: #f9a200;
+  border: 1px solid #f9a200;
+  margin-right: 0px;
 }
 }
 @media only screen and (max-width: 767px) {
