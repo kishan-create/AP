@@ -163,7 +163,7 @@ export default function Holidaypopup({method}) {
                       <option value="2">Project</option>
                     </select>
                    
-
+                    {errors.calander_type && <p className="message">{errors.calander_type}</p>}
 
 
                   </div>

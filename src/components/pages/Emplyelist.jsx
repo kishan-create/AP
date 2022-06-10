@@ -28,9 +28,21 @@ import TablePagination from "@material-ui/core/TablePagination";
 import axios from "axios";
 import { Sync } from "@material-ui/icons";
 import { Multiselect } from "multiselect-react-dropdown";
-import {location, PencilNew, DeferTime, Offboarding1, Offboarding2, Offboarding3, Hirecompleted} from '../../images';
+import { location, PencilNew, DeferTime, Offboarding1, Offboarding2, Offboarding3, Hirecompleted } from '../../images';
+import MySelect from "./Multselectdropdown/Myselect";
+import { colourOptions } from "./Multselectdropdown/data";
+import makeAnimated from "react-select/animated";
+const animatedComponents = makeAnimated();
 
 export default class Emplyelist extends Component {
+  fruits = [
+    { label: "Mango", value: "mg",'id':"test" },
+    { label: "Guava", value: "gv" },
+    { label: "Peach", value: "pc" },
+    { label: "Apple", value: "ap" },
+    { label: "sample", value: "mg",'id':"test" },
+  ];
+
   constructor() {
     super();
     this.state = {
@@ -38,15 +50,15 @@ export default class Emplyelist extends Component {
       employeelist: [],
       emplocation: [],
       designation: [],
-     
-      options: [{optname: 'Option 1️⃣', id: 1},{optname: 'Option 2️⃣', id: 2}],
-      formData:{ 
-        emp_location:[],
-        emp_designation:"",
-        location_items:[],
-        designation_items:[],
+      optionSelected: null,
+      options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
+      formData: {
+        emp_location: [],
+        emp_designation: "",
+        location_items: [],
+        designation_items: [],
       },
-      
+
       count: 0
     };
 
@@ -54,41 +66,44 @@ export default class Emplyelist extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.onSelectLocation = this.onSelectLocation.bind(this);
     this.onSelectDesignation = this.onSelectDesignation.bind(this);
+    this.onRemove = this.onRemove.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
-  
+
   componentDidMount = () => {
     this.fetchData();
-   
+
     this.getGetLocationName();
     this.getDesignationName();
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.formData);
-   /*if(prevState.formData!=this.state.formData)
-   {
-    this.fetchdataByparams();
-   }*/
-  
-   /*if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
-   {
-    this.fetchdataByparams();
-   }*/
- }
- fetchdataByparams= async () => { alert("hii");
-     console.log(this.state.items);
-   var id=this.state.formData.emp_location+'&&'+this.state.formData.emp_designation;
-   const response = await axios.get(
-    `http://localhost:8000/api/getEmployeebylocation/${id}`
-  );
-  if (response.data.status === 200) {
-    this.setState({
-      employeelist: response.data.emp,
-      loading: false,
-    });
+    // console.log(this.state.formData);
+    /*if(prevState.formData!=this.state.formData)
+    {
+     this.fetchdataByparams();
+    }*/
+
+    /*if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
+    {
+     this.fetchdataByparams();
+    }*/
+  }
+  fetchdataByparams = async () => {
+    alert("hii");
+    console.log(this.state.items);
+    var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
+    const response = await axios.get(
+      `http://localhost:8000/api/getEmployeebylocation/${id}`
+    );
+    if (response.data.status === 200) {
+      this.setState({
+        employeelist: response.data.emp,
+        loading: false,
+      });
+
+    }
 
   }
-  
-}
   fetchData = async () => {
     const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
     if (res.data.status === 200) {
@@ -101,7 +116,7 @@ export default class Emplyelist extends Component {
 
   }
   getGetLocationName = async () => {
-    const response = await axios.get("http://localhost:8000/api/getLocationBranch");
+    const response = await axios.get("http://localhost:8000/api/getLocationBranchDrop");
 
     if (response.data.status === 200) {
       this.setState({
@@ -110,21 +125,24 @@ export default class Emplyelist extends Component {
       });
 
     }
-
+    console.log(this.fruits);
+    console.log(this.state.emplocation);
   }
-  handleSelect=async(e)=>{ alert("hii");
+
+  handleSelect = async (e) => {
+    alert("hii");
     console.log(this.state.item);
-  // console.log(e.target.name);
-    
+    // console.log(e.target.name);
+
     /*this.setState({
       formData: {
         ...this.state.formData,
         [e.target.name]: e.target.value,
       },
     });*/
-   
-    
-             
+
+
+
   }
   getDesignationName = async () => {
     const response = await axios.get("http://localhost:8000/api/getDesignationall");
@@ -136,33 +154,50 @@ export default class Emplyelist extends Component {
 
     }
   }
-  GetSearchbylocation=async(data) => { 
-var location=data?.emp_location;
+  GetSearchbylocation = async (data) => {
+    var location = data?.emp_location;
 
   }
   handleChange(checked) {
     this.setState({ checked });
   }
-  
-  onRemove(selectedList, selectedItem) {
-   
-}
-onSelectLocation(selectedList) {
- 
-  this.setState({
-    formData: {...this.state.formData, location_items: selectedList}
- 
-  });
 
-}
-onSelectDesignation(selectedList) {
- 
-  this.setState({
-    formData: {...this.state.formData, designation_items: selectedList}
- 
-  });
+  onRemove(selectedList) {
+    this.setState({
+      formData: { ...this.state.formData, location_items: selectedList }
 
-}
+    });
+
+  }
+  handleRemove = (selectedList) => {
+    alert("hii");
+    this.setState({
+      formData: { ...this.state.formData, designation_items: selectedList }
+
+    });
+  };
+  onSelectLocation(selectedList) {
+
+    this.setState({
+      formData: { ...this.state.formData, location_items: selectedList }
+
+    });
+
+  }
+  onSelectDesignation(selectedList) {
+
+    this.setState({
+      formData: { ...this.state.formData, designation_items: selectedList }
+
+    });
+
+  }
+  handleChangenew = (selected) => {
+    console.log(selected);
+    this.setState({
+      optionSelected: selected
+    });
+  };
 
 
   render() {
@@ -185,40 +220,39 @@ onSelectDesignation(selectedList) {
               <FaSearch className="add-btn-icon" />
             </button>
           </div>
-         
           <div class="form-group emp-searc-location ">
-          <Multiselect
-options={this.state.emplocation} // Options to display in the dropdown
-selectedValues={this.state.formData.location_items} // Preselected value to persist in dropdown
-
-onSelect={this.onSelectLocation} // Function will trigger on select event
-onRemove={this.onRemove} // Function will trigger on remove event
-displayValue="branch_name" // Property name to display in the dropdown options
-name="branch_name"
-showCheckbox
-/>
-          </div>
-          <div class="form-group emp-searc-location ">
-          <Multiselect
-options={this.state.designation} // Options to display in the dropdown
-selectedValues={this.state.formData.designation_items} // Preselected value to persist in dropdown
-
-onSelect={this.onSelectDesignation} // Function will trigger on select event
-onRemove={this.onRemove} // Function will trigger on remove event
-displayValue="designation_name" // Property name to display in the dropdown options
-name="designation_name"
-showCheckbox
-/>
-          </div>
-          <div class="form-group emp-searc-location ">
-            <select id="emp_designation" onChange={this.handleSelect} value={this.state.formData.emp_designation} name="emp_designation" class="form-control">
-              <option value=""> Select Designation</option>
-              {this.state.designation.map(({ designation_name, id }, index) => (
-                <option value={id}>{designation_name}</option>
-              ))}
-            </select>
+            <MySelect
+              options={this.state.emplocation}
+              isMulti
+              closeMenuOnSelect={false}
+              hideSelectedOptions={false}
+              components={animatedComponents}
+              onChange={this.handleChangenew}
+              allowSelectAll={true}
+              value={this.state.optionSelected}
+              displayValue="location" // Property name to display in the dropdown options
+              name="location"
+              placeholder="Location" className="form-control"
+            />
           </div>
           
+          <div class="form-group emp-searc-location ">
+            <MySelect
+              options={this.state.designation}
+              isMulti
+              closeMenuOnSelect={false}
+              hideSelectedOptions={false}
+              components={animatedComponents}
+              onChange={this.handleChangenew}
+              allowSelectAll={true}
+              value={this.state.optionSelected}
+              displayValue="designation" // Property name to display in the dropdown options
+              name="designation" className="form-control"
+            />
+          </div>
+          
+         
+
           <div className="recruitment-top-right-box active-employee-top">
             <label className="active-swite-toggle">
               <span>Active Employees</span>
@@ -230,31 +264,31 @@ showCheckbox
           </div>
         </div>
         <div className='onboarding-top-outer emp-active-box-outer '>
-<div className='box'>
-<div className="box-inner emp-active-box">
-  <div className='left'>
-  <p>Active</p>
-<span>120</span>
-  </div>
-<img src={Offboarding1} />
-</div>
-<div className="box-inner emp-active-box onboard-ligt-violet">
-  <div className='left'>
-  <p>Notice Period</p>
-<span>04</span>
-  </div>
-<img src={Hirecompleted} />
-</div>
-<div className="box-inner emp-active-box onboard-ligt-blue">
-  <div className='left'>
-  <p>Inactive</p>
-<span>14</span>
-  </div>
-<img src={Offboarding3} />
-</div>
-</div>
+          <div className='box'>
+            <div className="box-inner emp-active-box">
+              <div className='left'>
+                <p>Active</p>
+                <span>120</span>
+              </div>
+              <img src={Offboarding1} />
+            </div>
+            <div className="box-inner emp-active-box onboard-ligt-violet">
+              <div className='left'>
+                <p>Notice Period</p>
+                <span>04</span>
+              </div>
+              <img src={Hirecompleted} />
+            </div>
+            <div className="box-inner emp-active-box onboard-ligt-blue">
+              <div className='left'>
+                <p>Inactive</p>
+                <span>14</span>
+              </div>
+              <img src={Offboarding3} />
+            </div>
+          </div>
 
-</div>
+        </div>
         <div className="empoyee-list-content-are">
           <List>
             <ListItem>
@@ -266,74 +300,75 @@ showCheckbox
 
                 return (
                   <div className="width-25 ">
-                     <Link to={{ pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
-                                    }} >
-                    <Card >
-                      <Card.Content className="emplyee-card-top">
-                        <div className="emplyee-card-left">
-                          <div className="tick-round green-bg">
-                            <img src={tick} />
+                    <Link to={{
+                      pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
+                    }} >
+                      <Card >
+                        <Card.Content className="emplyee-card-top">
+                          <div className="emplyee-card-left">
+                            <div className="tick-round green-bg">
+                              <img src={tick} />
+                            </div>
+                            <div className="tick-round purple-bg">
+                              <MdPhone className="emp-card-phon" />
+                            </div>
+
+
                           </div>
-                          <div className="tick-round purple-bg">
-                            <MdPhone className="emp-card-phon" />
+                          <div className="image-box" >
+                            <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
                           </div>
-                           
-                          
-                        </div>
-                        <div className="image-box" >
-                          <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
-                        </div>
-                       
-                        <Card.Header className="profile-name">
-                        
-                          <span>  {n.emp_name}</span>
-                          <p>{n.designation_name}
-                          <div className="m-t-rever-7">Emp Code: {n.emp_code}</div>
-                          </p>
-                          
-                        </Card.Header>
-                        <div>
-                              <div className="profile-location">
-                               
-                              </div>
-                              <div className="profile-location-right "> 
-                               
-                              </div>
-                          </div>
-                        <Card.Description className="profile-content">
-                         
-                          <div className="inner-section">
-                            <div className="left">Mail ID</div>
-                            <div className="right">
-                              {n.emp_company_email_id}
+
+                          <Card.Header className="profile-name">
+
+                            <span>  {n.emp_name}</span>
+                            <p>{n.designation_name}
+                              <div className="m-t-rever-7">Emp Code: {n.emp_code}</div>
+                            </p>
+
+                          </Card.Header>
+                          <div>
+                            <div className="profile-location">
+
+                            </div>
+                            <div className="profile-location-right ">
+
                             </div>
                           </div>
-                          <div className="inner-section">
-                            <div className="left">Joining Date</div>
-                            <div className="right"> {n.emp_joining_date}</div>
-                          </div>
-                          <div className="inner-section">
-                            <div className="left">Total Experience</div>
-                            <div className="right">{n.fk_emp_previous_exp}</div>
-                          </div>
-                          <div className="inner-section">
-                            <div className="left">Department</div>
-                            <div className="right">{n.department_name}</div>
-                          </div>
-                          <div className="inner-section m-t-rever-10 ">
-                            <div className="left">
-                              <i class="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
+                          <Card.Description className="profile-content">
+
+                            <div className="inner-section">
+                              <div className="left">Mail ID</div>
+                              <div className="right">
+                                {n.emp_company_email_id}
+                              </div>
+                            </div>
+                            <div className="inner-section">
+                              <div className="left">Joining Date</div>
+                              <div className="right"> {n.emp_joining_date}</div>
+                            </div>
+                            <div className="inner-section">
+                              <div className="left">Total Experience</div>
+                              <div className="right">{n.fk_emp_previous_exp}</div>
+                            </div>
+                            <div className="inner-section">
+                              <div className="left">Department</div>
+                              <div className="right">{n.department_name}</div>
+                            </div>
+                            <div className="inner-section m-t-rever-10 ">
+                              <div className="left">
+                                <i class="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
                                 <span className="">{n.emp_location} </span>
+                              </div>
+                              <div className="right">
+
+
+                              </div>
                             </div>
-                            <div className="right">
-                              
-                             
-                            </div>
-                          </div>
-                        </Card.Description>
-                      </Card.Content>
-                      
-                    </Card></Link>
+                          </Card.Description>
+                        </Card.Content>
+
+                      </Card></Link>
                   </div>
                 );
 
