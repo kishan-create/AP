@@ -101,6 +101,9 @@ const getEmployeeDetails = async (id) => {
                             <div className="col-md-6 personal-information-card">
                            
                                   <div  className="information-card-head"> Personal Information
+                                    <div className="top-right-outer add-btn-div">   
+                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                    </div>
                                   </div>
                                   
                                   <div  className="row txt-row-hght"> 
@@ -165,6 +168,9 @@ const getEmployeeDetails = async (id) => {
                              
                             <div  className="col-md-6 education-information-card"> 
                                   <div  className="information-card-head"> Education Details
+                                    <div className="top-right-outer add-btn-div">   
+                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                    </div>
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> school Name <span className="dot-sty">:</span>
@@ -200,6 +206,9 @@ const getEmployeeDetails = async (id) => {
                             </div>
                             <div className="col-md-6 employee-information-card">
                                   <div  className="information-card-head"> Employee Skills
+                                  <div className="top-right-outer add-btn-div">   
+                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                    </div>
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Primary Skills   <span className="dot-sty">:</span>
