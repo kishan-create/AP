@@ -4265,3 +4265,20 @@ li.option {
   padding-right: 8px;
   color: #4a54d1;
 }
+.epmtab-w {
+  width: 100%;
+}
+.emplyesearch1 button {
+  position: absolute;
+  right: 10px;
+  top: -2px;
+  background: none;
+}
+.emplyesearch1 {
+  min-width: 20%;
+}
+.emp-searc-location {
+  width: 20%;
+  float: left;
+  margin-left: 15px;
+}

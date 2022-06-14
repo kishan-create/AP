@@ -94,18 +94,8 @@ const data = [
   createData("Diwali", "24 Oct, 2022", "Monday"),
 ];
 
-const delete_holidays = async (e, id) => {
-  e.preventDefault();
-  const thisclickrow = e.currentTarget;
-  thisclickrow.innerText = "Deleting";
-  const res = await axios.delete(
-    `http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_holidays/${id}`
-  );
-  if (res.data.status == 200) {
-    thisclickrow.closest("tr").remove();
-    alert("holiday Deleted successfully");
-  }
-};
+
+
 
 export default class HolidayList extends Component {
   constructor() {
@@ -124,20 +114,13 @@ export default class HolidayList extends Component {
     };
     // this.method();
     this.closeModal = this.closeModal.bind(this);
+    
   }
 
   componentDidMount = () => {
     this.fetchdata();
 
-    // const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidays");
-
-    // if (res.data.status === 200) {
-    //   this.setState({
-    //     holiday: res.data.holiday,
-    //     loading: false,
-    //   });
-    // }
-    // console.log(this.state.holiday);
+ 
   };
 
   fetchdata = async () => {
@@ -151,6 +134,24 @@ export default class HolidayList extends Component {
     }
   };
 
+   delete_holidays = async (e, id) => {
+    e.preventDefault();
+    const thisclickrow = e.currentTarget;
+    thisclickrow.innerText = "Deleting";
+    const res = await axios.delete(
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_holidays/${id}`
+    );
+    if (res.data.status == 200) {
+      swal({
+        title: "Good job!",
+        text: "Holiday deleted successfully",
+        icon: "success",
+        button: "ok",
+      });
+    }
+    this.fetchdata();
+  };
+  
   async edit(id) {
     const holiday_id = id;
     const reponse = await axios.get(
@@ -187,13 +188,14 @@ export default class HolidayList extends Component {
     //   });
 
     // }
-    window.location.reload();
+    // window.location.reload();
+    this.fetchdata();
   };
   CustomTab = ({ children }) => <div>{children}</div>;
   // CustomTab.tabsRole = "Tab";
   closeModal() {
     this.setState({ modalIsOpen: false });
-    this.method();
+    // this.method();
   }
 
   handleInputs = (e) => {
@@ -370,7 +372,8 @@ export default class HolidayList extends Component {
                               </div>
                               <div
                                 className="delete-icon"
-                                onClick={(e) => delete_holidays(e, n.id)}
+                                // onClick={(e) => delete_holidays(e, n.id)}
+                                onClick={(e) => this.delete_holidays(e, n.id)}
                               >
                                 <a href="">
                                   <svg

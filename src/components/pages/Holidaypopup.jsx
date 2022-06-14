@@ -11,7 +11,7 @@ import Calendarfunctions from "./Calendarfunctions";
 import "react-tabs/style/react-tabs.css";
 import Multyselect from "./Multyselect";
 import { Multiselect } from "multiselect-react-dropdown";
-import Holidaycalendar from "./Holidaycalendar";
+import Holilistpopup from './Holilistpopup';
 const customStyles = {
   content: {
     top: "50%",
@@ -39,7 +39,8 @@ const options1 = [
 ];
 
 export default function Holidaypopup({method}) {
-  // console.log(location);
+  // console.log(method);
+  //  { <Holilistpopup methodlist = {method} /> }
 
 
   const CustomTab = ({ children }) => (
@@ -47,6 +48,10 @@ export default function Holidaypopup({method}) {
       <div>{children}</div>
     </Tab>
   );
+
+
+
+
   CustomTab.tabsRole = "Tab";
   let subtitle;
 
@@ -67,7 +72,7 @@ export default function Holidaypopup({method}) {
 
   function closeModal() {
     setIsOpen(false);
-    method();
+    // method();
 
     
 
@@ -98,6 +103,9 @@ export default function Holidaypopup({method}) {
 
   return (
     <div>
+
+
+      
       <button
         type="button"
         class="btn  btn-maincolor btn-block"
@@ -239,6 +247,6 @@ export default function Holidaypopup({method}) {
           </div>
         </form>
       </Modal>
-    </div>
+    </div>  
   );
 }
