@@ -27,20 +27,44 @@ import ListItemText from "@material-ui/core/ListItemText";
 import TablePagination from "@material-ui/core/TablePagination";
 import axios from "axios";
 import { Sync } from "@material-ui/icons";
-import { Multiselect } from "multiselect-react-dropdown";
+
 import { location, PencilNew, DeferTime, Offboarding1, Offboarding2, Offboarding3, Hirecompleted } from '../../images';
 import MySelect from "./Multselectdropdown/Myselect";
 import { colourOptions } from "./Multselectdropdown/data";
+import { components } from "react-select";
 import makeAnimated from "react-select/animated";
+const Option = props => {
+  return (
+    <div>
+      <components.Option {...props}>
+        <input
+          type="checkbox"
+          checked={props.isSelected}
+          onChange={() => null}
+        />{" "}
+        <label>{props.label}</label>
+      </components.Option>
+    </div>
+  );
+};
+const MultiValue = props => (
+  <components.MultiValue {...props}>
+    <span>{props.data.label}</span>
+  </components.MultiValue>
+);
 const animatedComponents = makeAnimated();
 
 export default class Emplyelist extends Component {
-  fruits = [
-    { label: "Mango", value: "mg",'id':"test" },
-    { label: "Guava", value: "gv" },
-    { label: "Peach", value: "pc" },
-    { label: "Apple", value: "ap" },
-    { label: "sample", value: "mg",'id':"test" },
+  fruites = [
+    { label: "Grapes 🍇", value: "grapes" },
+    { label: "Mango 🥭", value: "mango" },
+    { label: "Strawberry 🍓", value: "strawberry" },
+    { label: "Watermelon 🍉", value: "watermelon" },
+    { label: "Pear 🍐", value: "pear", disabled: true },
+    { label: "Apple 🍎", value: "apple" },
+    { label: "Tangerine 🍊", value: "tangerine" },
+    { label: "Pineapple 🍍", value: "pineapple" },
+    { label: "Peach 🍑", value: "peach" }
   ];
 
   constructor() {
@@ -51,10 +75,11 @@ export default class Emplyelist extends Component {
       emplocation: [],
       designation: [],
       optionSelected: null,
+      optionSelectedloc: null,
+      selectedo: [],
       options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
       formData: {
-        emp_location: [],
-        emp_designation: "",
+
         location_items: [],
         designation_items: [],
       },
@@ -77,11 +102,10 @@ export default class Emplyelist extends Component {
     this.getDesignationName();
   }
   componentDidUpdate(prevProps, prevState) {
-    // console.log(this.state.formData);
-    /*if(prevState.formData!=this.state.formData)
-    {
-     this.fetchdataByparams();
-    }*/
+
+    if (prevState.formData != this.state.formData) {
+      this.fetchdataByparams();
+    }
 
     /*if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
     {
@@ -89,11 +113,15 @@ export default class Emplyelist extends Component {
     }*/
   }
   fetchdataByparams = async () => {
-    alert("hii");
-    console.log(this.state.items);
-    var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
-    const response = await axios.get(
-      `http://localhost:8000/api/getEmployeebylocation/${id}`
+    const formData = new FormData();
+    //var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
+    formData.append("emp_lo", JSON.stringify(this.state.formData));
+    // const response = await axios.get(
+    //`http://localhost:8000/api/getEmployeebylocation/${id}`
+    // );
+    const response = await axios.post(
+      "http://localhost:8000/api/getEmployeebylocation",
+      formData
     );
     if (response.data.status === 200) {
       this.setState({
@@ -125,13 +153,11 @@ export default class Emplyelist extends Component {
       });
 
     }
-    console.log(this.fruits);
-    console.log(this.state.emplocation);
+
   }
 
   handleSelect = async (e) => {
-    alert("hii");
-    console.log(this.state.item);
+
     // console.log(e.target.name);
 
     /*this.setState({
@@ -192,13 +218,27 @@ export default class Emplyelist extends Component {
     });
 
   }
-  handleChangenew = (selected) => {
-    console.log(selected);
+  handleEmployeelocation = (selected) => {
+
+    //  console.log(selected);
     this.setState({
       optionSelected: selected
     });
-  };
+    this.setState({
+      formData: { ...this.state.formData, location_items: selected }
 
+    });
+    console.log(this.state.optionSelected);
+  };
+  handleEmployeelDes = (selectedList) => {
+    this.setState({
+      optionSelectedloc: selectedList
+    });
+    this.setState({
+      formData: { ...this.state.formData, designation_items: selectedList }
+
+    });
+  }
 
   render() {
 
@@ -226,8 +266,8 @@ export default class Emplyelist extends Component {
               isMulti
               closeMenuOnSelect={false}
               hideSelectedOptions={false}
-              components={animatedComponents}
-              onChange={this.handleChangenew}
+              components={{ Option, MultiValue, animatedComponents }}
+              onChange={this.handleEmployeelocation}
               allowSelectAll={true}
               value={this.state.optionSelected}
               displayValue="location" // Property name to display in the dropdown options
@@ -235,23 +275,22 @@ export default class Emplyelist extends Component {
               placeholder="Location" className="form-control"
             />
           </div>
-          
+
           <div class="form-group emp-searc-location ">
             <MySelect
               options={this.state.designation}
               isMulti
               closeMenuOnSelect={false}
               hideSelectedOptions={false}
-              components={animatedComponents}
-              onChange={this.handleChangenew}
+              components={{ Option, MultiValue, animatedComponents }}
+              onChange={this.handleEmployeelDes}
               allowSelectAll={true}
-              value={this.state.optionSelected}
+              value={this.state.optionSelectedloc}
               displayValue="designation" // Property name to display in the dropdown options
               name="designation" className="form-control"
             />
           </div>
-          
-         
+
 
           <div className="recruitment-top-right-box active-employee-top">
             <label className="active-swite-toggle">
