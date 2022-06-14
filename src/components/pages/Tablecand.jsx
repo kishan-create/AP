@@ -170,7 +170,7 @@ function SimpleTable(props) {
   const editCandidates = async (id, e) => {
     const can_id = id;
     const response = await axios.get(
-      `http://auditportal.bourntec.com:3001/audit_portal/public/getCandidatefullDetails/${can_id}`
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/getCandidatefullDetails/${can_id}`
     );
   
     if (response.data.status == 200) {

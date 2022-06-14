@@ -9,9 +9,9 @@ import "react-dropdown/style.css";
 import calendar_validation from "../validation/calendar_validation";
 import Calendarfunctions from "./Calendarfunctions";
 import "react-tabs/style/react-tabs.css";
-import Multyselect from "./Multyselect";
+
 import { Multiselect } from "multiselect-react-dropdown";
-import Holilistpopup from './Holilistpopup';
+
 const customStyles = {
   content: {
     top: "50%",
@@ -162,8 +162,8 @@ export default function Holidaypopup({method}) {
                       <option value="1">Location</option>
                       <option value="2">Project</option>
                     </select>
+                   
                     {errors.calander_type && <p className="message">{errors.calander_type}</p>}
-
 
 
                   </div>
@@ -225,6 +225,7 @@ export default function Holidaypopup({method}) {
                         displayValue="hol_name" // Property name to display in the dropdown options
                         name="holiday_name_drop"
                         showCheckbox
+                        withAll={true}
                       />
                     {/* {errors.location_name && <p>{errors.location_name}</p>} */}
 

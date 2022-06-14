@@ -101,10 +101,6 @@ const Employeeform = (employee_val) => {
     }
   }, [errors]);
 
-  /* const loadOrganization = async () => {
-    const orgresponse=await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getOrganization/");
-    setOrg(orgresponse.data);
-  }*/
   const GetDepartmentName = async () => {
     const response = await fetch(
       "http://auditportal.bourntec.com:3001/audit_portal/public/api/getDepartmentName"
@@ -139,14 +135,15 @@ const Employeeform = (employee_val) => {
     const location=datalocation.location;
     SetEmployeelocation(location);
   }
- //console.log(holidaylist);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const test = setErrors(employee_val(values));
     setIsSubmitting(true);
+
   };
   const onSubmitform = (e) => {
-    //console.log(values)
+ 
     const formData = new FormData();
     formData.append("profilepic", profile.profilepics);
     formData.append("emp_name", values.emp_name);

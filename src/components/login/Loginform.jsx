@@ -38,10 +38,10 @@ export default function Login() {
           user.token = response.data.token;
           let username = user.name;
           user = JSON.stringify(user);
-          console.log(user);
+          
           setUser(user);
           localStorage.setItem("user", user);
-          alert(username);
+          
           if (username === "admin") {
             history.push("/Dashboard");
           } else {

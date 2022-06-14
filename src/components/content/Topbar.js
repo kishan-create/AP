@@ -24,9 +24,9 @@ const Topbar = ({ toggleSidebar,userData }) => {
   const [topbarIsOpen, setTopbarOpen] = useState(true);
   const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
   const logout = () => {
-  alert("logout");
+ 
     localStorage.clear();
-    window.location.href = "http://localhost:3000/Loginform";
+    window.location.href = "http://auditportal.bourntec.com:3000";
 // you can also like localStorage.removeItem('Token');
     //window.location.href = "http://localhost:3000/Loginform";
   }

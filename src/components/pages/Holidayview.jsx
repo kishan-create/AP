@@ -110,8 +110,7 @@ this.getallHolidays(this.props.match.params.id);
   };
  
   render() {
-    // console.log(this.state.holiday[0])
-    console.log(this.state.holiday[0]?.hol_calendar_name)
+
     return (
       <div>
         

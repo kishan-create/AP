@@ -35,7 +35,7 @@ const Organizationform = (org_validation) => {
     e.preventDefault();
     const test = setErrors(org_validation(values));
     setIsSubmitting(true);
-    //  const promise= axios.post('http://localhost:8000/api/add_org', values);
+    //  const promise= axios.post('http://auditportal.bourntec.com:3001/audit_portal/public/api/add_org', values);
   };
   const onSubmitform = (e) => {
     console.log(values);
