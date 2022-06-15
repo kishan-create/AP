@@ -1395,6 +1395,7 @@ a.download-bt svg {
   width: 100%;
   text-align: left;
   margin-bottom: 0px;
+  line-height: 30px;
 }
 .profile-content {
   width: 100%;
@@ -4402,6 +4403,20 @@ li.option {
   margin: 0px;
   padding-top: 0px; 
 }
-.css-2613gy-menu {
-  background:#e0e0e0;
+.css-2613qy-menu{
+  background: #fff !important;
+}
+.css-2613qy-menu option
+{
+  background: #fff !important;
+}
+
+.css-9gakcf-option{
+  background-color: #fff !important;  background: #fff !important;
+}
+.emp-searc-location {
+  min-width: 25%;
+  float: left;
+  margin-left: 15px;
+  width: auto;
 }

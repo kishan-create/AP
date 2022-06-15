@@ -17,7 +17,7 @@
     padding-bottom: 2px;
   }
   .profile-name p {
-    font-size: 15px;
+    font-size: 14px;
   }
   .profile-location-right .buttons-outer a {
     padding: 8px 10px;
@@ -68,7 +68,7 @@
     width: 13%;
   }
   .profile-name {
-    width: 52%;
+    width: 59%;
     float: left;
     margin-top: 0px;
     display: block;
