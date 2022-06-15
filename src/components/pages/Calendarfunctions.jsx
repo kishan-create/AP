@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 const Calendarfunctions = (calendar_validation) => {
+  const [typeDropdown, setTypeDropdown] = useState();
   const [values, SetValues] = useState({
     holiday_name: "",
     
@@ -15,7 +16,7 @@ const Calendarfunctions = (calendar_validation) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showProject, setShowProject] = useState(false);
   const [showLocation, setShowLocation] = useState(false);
-  const [typeDropdown, setTypeDropdown] = useState();
+  
   const [items, setItems] = useState([]);
 
   const handleSelect = (selectedList) => {
@@ -34,10 +35,13 @@ const Calendarfunctions = (calendar_validation) => {
       setShowProject(true);
     }
     setTypeDropdown(id);
+   // SetValues({ calander_type: typeDropdown});
   };
 
   const handleChange = (e) => {
+   
     const { name, value } = e.target;
+    
     SetValues({
       ...values,
       [name]: value,
@@ -58,6 +62,7 @@ const Calendarfunctions = (calendar_validation) => {
     setIsSubmitting(true);
   };
   const onSubmitform = (e) => {
+   
     const formData = new FormData();
     formData.append("calander_type", typeDropdown);
     formData.append("holiday_name", values.holiday_name);
