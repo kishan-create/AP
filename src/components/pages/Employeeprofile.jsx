@@ -18,7 +18,7 @@ const Employeeprofile = () => {
 const getEmployeeDetails = async (id) => {
     
       const reponse = await axios.get(
-            `http://localhost:8000/api/GetEmployeeFullDetails/${id}` );
+            `http://auditportal.bourntec.com:3001/audit_portal/public/api/GetEmployeeFullDetails/${id}` );
             const emp = reponse.data.emp;
             setRows(emp);
 }
@@ -42,7 +42,7 @@ const getEmployeeDetails = async (id) => {
                                   </div>
                                   <div  className="row txt-row-hght border-0 employee-basic-outer"> 
                                         <div  className="col-md-4  "> 
-                                              <div className="profilepic"> <img src={"http://localhost/audit_portal/public/uploads/profile/"+rows[0]?.image} /></div>
+                                              <div className="profilepic"> <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/"+rows[0]?.image} /></div>
                                               <div className="info-card-prfl-txt "> {rows[0]?.emp_name}</div>                                            
                                         </div> 
                                         <div  className="col-md-8 profile-basic-right">
@@ -101,6 +101,9 @@ const getEmployeeDetails = async (id) => {
                             <div className="col-md-6 personal-information-card">
                            
                                   <div  className="information-card-head"> Personal Information
+                                    <div className="top-right-outer add-btn-div">   
+                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                    </div>
                                   </div>
                                   
                                   <div  className="row txt-row-hght"> 
@@ -165,6 +168,9 @@ const getEmployeeDetails = async (id) => {
                              
                             <div  className="col-md-6 education-information-card"> 
                                   <div  className="information-card-head"> Education Details
+                                    <div className="top-right-outer add-btn-div">   
+                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                    </div>
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> school Name <span className="dot-sty">:</span>
@@ -200,6 +206,9 @@ const getEmployeeDetails = async (id) => {
                             </div>
                             <div className="col-md-6 employee-information-card">
                                   <div  className="information-card-head"> Employee Skills
+                                  <div className="top-right-outer add-btn-div">   
+                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                    </div>
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Primary Skills   <span className="dot-sty">:</span>

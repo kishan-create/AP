@@ -101,10 +101,9 @@ const Employeeform = (employee_val) => {
     }
   }, [errors]);
 
-
   const GetDepartmentName = async () => {
     const response = await fetch(
-      "http://localhost:8000/api/getDepartmentName"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getDepartmentName"
     );
     const data = await response.json();
     const listd = data.department;
@@ -114,7 +113,7 @@ const Employeeform = (employee_val) => {
  // console.log(departments);
   const GetDesignationName=async()=>{ 
     const response = await fetch(
-      "http://localhost:8000/api/getDesignationall"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getDesignationall"
     );
     const data = await response.json();
     const list = data.designation; 
@@ -122,7 +121,7 @@ const Employeeform = (employee_val) => {
   }
   const GetHolidayCalander=async()=>{ 
     const response = await fetch(
-      "http://localhost:8000/api/getHolidaynames"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidaynames"
     );
     const data = await response.json();
     const list = data.holidaylist; 
@@ -130,7 +129,7 @@ const Employeeform = (employee_val) => {
   }
   const GetLocationName=async()=>{ 
     const response = await fetch(
-      "http://localhost:8000/api/getLocationBranch"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getLocationBranch"
     );
     const datalocation=await response.json();
     const location=datalocation.location;
@@ -161,7 +160,7 @@ const Employeeform = (employee_val) => {
     formData.append("emp_sec_skill", values.emp_sec_skill);
     formData.append("emp_location", values.emp_location);
     const response = axios.post(
-      "http://localhost:8000/api/add_audit_employees",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/add_audit_employees",
       formData
     );
     response.then(function(res) {

@@ -134,15 +134,15 @@ const Kanban = () => {
   const [columns, setColumns] = useState([]);
   const loadData = async () => {
     // alert("hii");
-    const response = await fetch("http://localhost:8000/api/getcandidates/");
+    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates/");
     const scheduleresponse = await fetch(
-      "http://localhost:8000/api/getcandidates_schedule/"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates_schedule/"
     );
     const rejectionresponse = await fetch(
-      "http://localhost:8000/api/getcandidates_rejection/"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates_rejection/"
     );
     const waitingresponse = await fetch(
-      "http://localhost:8000/api/getcandidates_waiting/"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates_waiting/"
     );
     const data = await response.json();
     const scheduledata = await scheduleresponse.json();
@@ -210,7 +210,7 @@ const Kanban = () => {
       values["itemsnew"] = destItems;
       values["type"] = "another";
       const update = axios.post(
-        "http://localhost:8000/api/updatecolumn",
+        "http://auditportal.bourntec.com:3001/audit_portal/public/api/updatecolumn",
         values
       );
     } else {
@@ -229,7 +229,7 @@ const Kanban = () => {
 
       values["itemsnew"] = copiedItems;
       const update = axios.post(
-        "http://localhost:8000/api/updatecolumn",
+        "http://auditportal.bourntec.com:3001/audit_portal/public/api/updatecolumn",
         values
       );
       // console.log(copiedItems);

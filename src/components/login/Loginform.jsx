@@ -26,7 +26,7 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/api/user-login", {
+      .post("http://auditportal.bourntec.com:3001/audit_portal/public/api/user-login", {
         email: email,
         password: password,
       })
@@ -38,10 +38,10 @@ export default function Login() {
           user.token = response.data.token;
           let username = user.name;
           user = JSON.stringify(user);
-          console.log(user);
+          
           setUser(user);
           localStorage.setItem("user", user);
-          alert(username);
+          
           if (username === "admin") {
             history.push("/Dashboard");
           } else {

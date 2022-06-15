@@ -93,7 +93,7 @@ export default function Holidaypopup({method}) {
     handleRemove,
   } = Calendarfunctions(calendar_validation);
   const getOptionName = async () => {
-    const res = await fetch("http://localhost:8000/api/getHolidayslist");
+    const res = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidayslist");
 
     const data = await res.json();
 
@@ -208,8 +208,8 @@ export default function Holidaypopup({method}) {
                     >
                       <option value="">Select location name</option>
                       <option value="1">Kochi</option>
-                      <option value="2">Hydarabad</option>
-                      <option value="2">Buwaneswar</option>
+                      <option value="2">Hyderabad</option>
+                      <option value="2">bhubaneswar</option>
                     </select>
                     {errors.location_name && <p className="message">{errors.location_name}</p>}
 
@@ -229,6 +229,7 @@ export default function Holidaypopup({method}) {
                         displayValue="hol_name" // Property name to display in the dropdown options
                         name="holiday_name_drop"
                         showCheckbox
+                        withAll={true}
                       />
                     {/* {errors.location_name && <p>{errors.location_name}</p>} */}
 

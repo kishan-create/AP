@@ -166,7 +166,7 @@ export default class OfferReleasereport extends Component {
   }
   async getDetails() {
     const res = await axios.get(
-      "http://localhost:8000/api/getcandidates_release_details"
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getcandidates_release_details"
     );
     // console.log(res.data.users)
     if (res.data.status === 200) {
@@ -177,7 +177,7 @@ export default class OfferReleasereport extends Component {
     }
   }
   async Viewlog(id) {
-    const response = await axios.get(`http://localhost:8000/api/viewlog/${id}`);
+    const response = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/viewlog/${id}`);
     if (response.data.status == 200) {
       this.setState({
         candidatelog: response.data.log,
@@ -187,7 +187,7 @@ export default class OfferReleasereport extends Component {
   }
   async ViewEmployeeStatus(id) {
     const response = await axios.get(
-      `http://localhost:8000/api/editfetchCandidatestatusdata/${id}`
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/editfetchCandidatestatusdata/${id}`
     );
    
     this.setState({
@@ -203,7 +203,7 @@ export default class OfferReleasereport extends Component {
   }
   async editLog(id) {
     const reponse = await axios.get(
-      `http://localhost:8000/api/editfetchCandidatefulldata/${id}`
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/editfetchCandidatefulldata/${id}`
     );
     if (reponse.data.status == 200) {
       this.setState({
@@ -218,7 +218,7 @@ export default class OfferReleasereport extends Component {
   updaterelease = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:8000/api/Updateboarddetails",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/Updateboarddetails",
       this.state.formData
     );
     if (res.data.status == 200) {
@@ -231,7 +231,7 @@ export default class OfferReleasereport extends Component {
   addEmpolyeeFirst = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:8000/api/Addemployee",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/Addemployee",
       this.state.formData
     );
     if (res.data.status == 200) {
