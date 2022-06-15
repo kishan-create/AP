@@ -3571,7 +3571,7 @@ input[type="radio"]:focus {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px 40px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(80px, auto);
 }
 
 .onboarding-top-outer .box-inner {
@@ -4283,6 +4283,7 @@ li.option {
 }
 .emplyesearch1 {
   min-width: 25%;
+  margin-right: 15px;
 }
 .emp-searc-location {
   width: 25%;
@@ -4348,7 +4349,11 @@ li.option {
   margin-bottom: -25px;
 }
 .emp-active-box {
-  padding: 15px 22px !important;
+  padding: 10px 22px !important;
+}
+.onboarding-top-outer .box-inner img {
+  width: 51px;
+  padding-top: 5px;
 }
 .emp-card-phon {
   width: 18px;
@@ -4417,6 +4422,7 @@ li.option {
 .emp-searc-location {
   min-width: 25%;
   float: left;
-  margin-left: 15px;
+  margin-left: 0px;
   width: auto;
+  margin-right: 15px;
 }
