@@ -150,8 +150,8 @@
     padding-right: 15px;
   }
   .width-25 .card {
-    padding: 20px 20px;
-  }
+    padding: 13px 13px;
+}
   .employee-tab-button {
     width: 17.5%;
   }
@@ -196,6 +196,36 @@
   .job-new-outer th:last-child.tf {
     width: 14.5%;
   }
+  .tick-round {
+    width: 17px;
+    height: 17px;
+}
+.tick-round img {
+  width: 13px;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+.tick-round {
+  width: 17px;
+  height: 17px;
+  margin-bottom: 10px;
+}
+.emp-card-phon {
+  width: 13px;
+  margin-top: -22px !important;
+  margin-bottom: 5px;
+}
+.image-box {
+  margin-left: 20px;
+}
+.image-box img {
+  height: 70px;
+  width: 70px;
+}
+.profile-name {
+  width: 57%;
+  margin-bottom: 20px;
+}
 }
 
 @media only screen and (max-width: 1360px) {
@@ -275,6 +305,12 @@
     display: block;
     margin-bottom: 20px;
 }
+.onboarding-top-outer .box-inner .left p {
+  padding-bottom: 7px;
+}
+}
+.onboarding-top-outer .box-inner {
+  padding: 12px 15px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -417,6 +453,10 @@
   .job-new-outer td:last-child.tf,
   .job-new-outer th:last-child.tf {
     width: 140px;
+  }
+  .profile-name {
+    width: 57%;
+    margin-bottom: 20px;
   }
 }
 @media only screen and (max-width: 1200px) {
