@@ -269,20 +269,7 @@ export default class HolidayList extends Component {
                             ></input>
                           </div>
                         </div>
-                        {/* <div class="col-md-4">
-                            <div class="form-group">
-                              <label for="exampleFormControlInput1">
-                                Holiday Day
-                              </label>
-                              <input
-                                name="hol_day"
-                                onChange={this.handleInputs}
-                                value={this.state.formData.hol_day}
-                                type="text"
-                                class="form-control"
-                              ></input>
-                            </div>
-                          </div> */}
+                      
 
                         <input type="hidden" name="id" value={this.state.id} />
                       </div>

@@ -33,33 +33,51 @@ import MySelect from "./Multselectdropdown/Myselect";
 import { colourOptions } from "./Multselectdropdown/data";
 import makeAnimated from "react-select/animated";
 import { MultiSelect } from "react-multi-select-component";
+import Select from "react-select";
+
 
 const animatedComponents = makeAnimated();
 
+// const userdata=[{name:"kiran"},{name:"anu"},{name:"akash"},{name:"aju"},];
+
+// const options = [
+//   { label: "Grapes 🍇", value: "grapes" },
+//   { label: "Mango 🥭", value: "mango" },
+//   { label: "Strawberry 🍓", value: "strawberry", disabled: true },
+// ];
+
+const fruits = [
+  { label: "Mango", value: "mg",'id':"test" },
+  { label: "Guava", value: "gv" },
+  { label: "Peach", value: "pc" },
+  { label: "Apple", value: "ap" },
+  { label: "sample", value: "mg",'id':"test" },
+];
+
 export default class Emplyelist extends Component {
-  fruits = [
-    { label: "Mango", value: "mg",'id':"test" },
-    { label: "Guava", value: "gv" },
-    { label: "Peach", value: "pc" },
-    { label: "Apple", value: "ap" },
-    { label: "sample", value: "mg",'id':"test" },
-  ];
+
+  // const userdata=[{name:"kiran"},{name:"anu"},{name:"akash"},{name:"aju"},];
 
   constructor() {
     super();
     this.state = {
+      // user:[],
+      // checked: false,
       checked: true,
+      // selected:[],
       employeelist: [],
       emplocation: [],
       designation: [],
       optionSelected: null,
       options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
       formData: {
+        // user:[],
         emp_location: [],
         emp_designation: "",
         location_items: [],
         designation_items: [],
       },
+      // this.setState(user)
 
       count: 0
     };
@@ -74,6 +92,10 @@ export default class Emplyelist extends Component {
 
   componentDidMount = () => {
     this.fetchData();
+    // this.setState({user:userdata});
+    
+    // this.selected();
+    // this.state.user(userdata);
 
     this.getGetLocationName();
     this.getDesignationName();
@@ -91,8 +113,8 @@ export default class Emplyelist extends Component {
     }*/
   }
   fetchdataByparams = async () => {
-    alert("hii");
-    console.log(this.state.items);
+    // alert("hii");
+    // console.log(this.state.items);
     var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
     const response = await axios.get(
       `http://localhost:8000/api/getEmployeebylocation/${id}`
@@ -127,12 +149,12 @@ export default class Emplyelist extends Component {
       });
 
     }
-    console.log(this.fruits);
-    console.log(this.state.emplocation);
+    // console.log(this.fruits);
+    // console.log(this.state.emplocation);
   }
 
   handleSelect = async (e) => {
-    alert("hii");
+    // alert("hii");
     console.log(this.state.item);
     // console.log(e.target.name);
 
@@ -195,6 +217,7 @@ export default class Emplyelist extends Component {
 
   }
   handleChangenew = (selected) => {
+    
     console.log(selected);
     this.setState({
       optionSelected: selected
@@ -202,6 +225,25 @@ export default class Emplyelist extends Component {
   };
 
 
+  // onChangeCheckbox = e => {
+  //   const isChecked = !this.state.checked;
+  //   this.setState({
+  //     checked: isChecked,
+  //     values: isChecked ? options : this.state.values
+  //   });
+  // };
+  // onChange = opt => {
+  //   const allOptionsSelected = opt.length === options.length;
+  //   this.setState({
+  //     checked: allOptionsSelected ? true : false,
+  //     values: opt
+  //   });
+  // };
+
+  // checkhandleChange=(e)=>{
+  //   this.setState({user:e.target});
+  //   let tempuser=user.map(user=>user.name===name)
+  // }
   render() {
 
     return (
@@ -252,7 +294,29 @@ export default class Emplyelist extends Component {
               name="designation" className="form-control"
             />
           </div>
+{/* 
+{user.map((user)=>(
+
+<div>
+<input type="checkbox"/>
+<label>{user.name}</label>
+</div>
+))
+}
+         */}
+
+{/* <div>
+<input type="checkbox" 
+onChange={this.checkhandleChange}/>
+<label>test</label>
+</div> */}
+     
           
+
+
+
+
+
 {/* <div><ReactMultiSelectCheckboxes
     options={[{label: "All", value: "*"}, ...optionSelected]}
     value={selectedOptions}
@@ -261,17 +325,39 @@ export default class Emplyelist extends Component {
 /></div> */}
 
 
-
-          <div>
+{/* <div>
       <h1>Select Fruits</h1>
-      {/* <pre>{JSON.stringify()}</pre> */}
+      <pre>{JSON.stringify(selected)}</pre>
       <MultiSelect
-        options={this.state.fruits}
-        value={this.fruits}
-        onChange={this.handleChangenew}
+        options={this.state.options}
+        value={this.state.selected}
+        onChange={this.state.selected}
         labelledBy="Select"
       />
-    </div>
+    </div> */}
+
+
+{/* 
+
+<div >
+        <Select
+          isMulti
+          onChange={this.onChange}
+          type="checkbox"
+          options={options}
+          value={this.state.values}
+        />
+        <p>
+          <input
+            onChange={this.onChangeCheckbox}
+            type="checkbox"
+            id="selectAll"
+            value="selectAll"
+            checked={this.state.checked}
+          />
+          <label for="selectAll">Select all</label>
+        </p>
+      </div> */}
          
 
           <div className="recruitment-top-right-box active-employee-top">
@@ -410,3 +496,31 @@ export default class Emplyelist extends Component {
     );
   }
 }
+
+
+
+// function Emplyelist(){
+//   const [,set]=useState([]);
+  
+  
+//   useEffect(()=>{
+//     set(userdata)
+//   },[]  );
+//   return(
+
+//     <div>
+//   <div>   
+// {.map((user)=>(
+
+// <div>
+// <input type="checkbox"/>
+// <label>usernames</label>
+// </div>
+// )) 
+// }
+        
+//     </div>
+//     </div> 
+//   );
+// }
+
