@@ -226,6 +226,7 @@ export default function Holidaypopup({method}) {
                         displayValue="hol_name" // Property name to display in the dropdown options
                         name="holiday_name_drop"
                         showCheckbox
+                        withAll={true}
                       />
                     {/* {errors.location_name && <p>{errors.location_name}</p>} */}
 

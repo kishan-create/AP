@@ -61,7 +61,7 @@ const Employee = () => {
                                                     </div>                                
                                               </div> 
                                               <div  className="row txt-row-hght">                                                     
-                                                    <div  className="col-md-6 info-card-cont "> Company Email ID           <span className="dot-sty">:</span>
+                                                    <div  className="col-md-6 info-card-cont "> Company E           <span className="dot-sty">:</span>
                                                     </div>
                                                     <div  className="col-md-6 info-card-cont-rgt "> Sample Text
                                                     </div>                                
@@ -136,7 +136,7 @@ const Employee = () => {
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
-                                        <div  className="col-md-6 info-card-cont ">  Personal Email ID  <span className="dot-sty">:</span>
+                                        <div  className="col-md-6 info-card-cont ">  Personal E  <span className="dot-sty">:</span>
                                         </div>
                                         <div  className="col-md-6 info-card-cont-rgt "> Sample Text
                                         </div>                                
