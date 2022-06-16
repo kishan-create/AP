@@ -1384,7 +1384,7 @@ a.download-bt svg {
   font-size: 17px;
   line-height: 16px;
   color: #4a54d1;
-  padding-bottom: 2px;
+  padding-bottom: 8px;
   font-weight: 600;
 }
 .profile-name p {
@@ -1396,7 +1396,7 @@ a.download-bt svg {
   width: 100%;
   text-align: left;
   margin-bottom: 0px;
-  line-height: 30px;
+  line-height: 20px;
 }
 .profile-content {
   width: 100%;
@@ -4332,9 +4332,10 @@ li.option {
   margin-top: -44px;
 }
 .map-emp-wdt {
-  font-size: 28px;
+  font-size: 17px;
   color: #e74b3b;
-  margin-left: 3px;
+  margin-left: 0;
+  margin-right: 7px;
 }
  
 .emp-left-map {
