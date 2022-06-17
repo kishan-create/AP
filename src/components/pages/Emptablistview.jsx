@@ -78,7 +78,7 @@ const data = [
     }
     fetchData = async () => {
 
-      const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
+      const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
           if (res.data.status === 200) {
                 this.setState({
                   employeelist: res.data.emp,
@@ -89,7 +89,7 @@ const data = [
              
     }
     getGetLocationName = async() => {
-      const response = await axios.get("http://localhost:8000/api/getLocationBranch");
+      const response = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getLocationBranch");
       console.log(response);
     }
     handleChange(checked) {
@@ -102,7 +102,7 @@ const data = [
       thisclickrow.innerText = "Deleting";
       const res = await axios.delete(
   
-        `http://localhost:8000/api/delete_Employee/${id}`
+        `http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_Employee/${id}`
   
       );
       if (res.data.status == 200) {
@@ -212,6 +212,7 @@ const data = [
                     <TableCell  className="width-18"> {n.emp_name}</TableCell>
                     <TableCell numeric className="width-18">{n.emp_code}</TableCell>                          
                     <TableCell numeric className=" width-12">{n.designation_name} </TableCell>
+                    {/* <TableCell numeric className=" width-12">{n.designation_status} </TableCell> */}
                     <TableCell numeric className=" width-15">{n.emp_company_email_id} </TableCell>
                     <TableCell numeric className="width-18">{n.fk_emp_previous_exp}</TableCell>
                     <TableCell numeric className="width-15">{n.emp_location}</TableCell>
@@ -222,7 +223,7 @@ const data = [
                {/* <a href="`/Employeeprofile/${n.id}`,"> */}
                <Link
                             to={{
-                              pathname: `/Employeeprofile/${n.id}`,
+                              pathname: `/Employeeprofile/${n.empid}`,
     
                               data: n.id, // your data array of objects
                             }}

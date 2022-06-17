@@ -103,8 +103,11 @@ const data = [
 
                 
       }
-fetchData = async () => {
-        const res = await axios.get("http://localhost:8000/api/getHolidaynames");
+
+     
+      
+        fetchData = async () => {
+        const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidaynames");
             if (res.data.sta === 200) {
                   this.setState({
                     holidaylist: res.data.holidaylist,

@@ -44,11 +44,11 @@ const [holidaylist,SetHolidaylist]=useState();
     SetValues({
       ...values,
       [name]: value,
-      
+
     });
+
+
   };
-  
-  console.log(values);
   useEffect(() => {
     // GetHolidayCalander();
     if (Object.keys(errors).length === 0 && isSubmitting) {
@@ -59,7 +59,7 @@ const [holidaylist,SetHolidaylist]=useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const test = setErrors(calendar_validation(values));
+    const test = setErrors(calendar_validation(values,typeDropdown,items));
     setIsSubmitting(true);
   };
 
@@ -86,7 +86,7 @@ const [holidaylist,SetHolidaylist]=useState();
     formData.append("location_name", values.location_name);
     formData.append("holiday_name_drop", JSON.stringify(items));
     const response = axios.post(
-      "http://localhost:8000/api/add_holidays_calendar",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/add_holidays_calendar",
       formData
     );
     response.then(function(res) {
