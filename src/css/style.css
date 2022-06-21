@@ -1317,8 +1317,11 @@ a.download-bt svg {
 }
 .emplyee-card-top {
   width: 100%;
-  float: left;
-  display: block;
+    float: left;
+    display: block;
+    height: auto;
+    padding-left: 10px !important;
+    padding: 12px 15px;
 }
 .emplyee-card-left {
   width: 10px;
@@ -1365,8 +1368,8 @@ a.download-bt svg {
 .image-box img {
   border-radius: 50%;
   float: left;
-  height: 90px;
-  width: 90px;
+  height: 83px;
+  width: 83px;
 }
 .profile-name {
   width: 54%;
@@ -1380,14 +1383,14 @@ a.download-bt svg {
   float: left;
   display: block;
   width: 100%;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 16px;
   color: #4a54d1;
   padding-bottom: 2px;
   font-weight: 600;
 }
 .profile-name p {
-  font-size: 15px;
+  font-size: 13px;
   color: #4d4c4c;
   float: left;
   display: block;
@@ -3569,8 +3572,8 @@ input[type="radio"]:focus {
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px 40px;
-  grid-auto-rows: minmax(100px, auto);
+  gap: 21px 30px;
+  grid-auto-rows: minmax(50px, auto);
 }
 
 .onboarding-top-outer .box-inner {
@@ -3599,21 +3602,21 @@ input[type="radio"]:focus {
   display: block;
   color: #fff;
   line-height: 25px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
-  padding-bottom: 14px;
+  padding-bottom: 0px;
 }
 .onboarding-top-outer .box-inner .left span {
   width: 100%;
   float: left;
   display: block;
-  font-size: 31px;
+  font-size: 25px;
   color: #fff;
-  line-height: 30px;
+  line-height: 25px;
   font-weight: 600;
 }
 .onboarding-top-outer .box-inner img {
-  width: 62px;
+  width: 58px;
   float: right;
 }
 .onboard-top-select-outer {
@@ -4347,7 +4350,7 @@ li.option {
   margin-bottom: -25px;
 }
 .emp-active-box {
-  padding: 15px 22px !important;
+  padding: 5px 22px !important;
 }
 .emp-card-phon {
   width: 18px;
@@ -4357,13 +4360,7 @@ li.option {
 .emp-card-box1 :hover{
   background-color: #ffebeb;
 }
-.card:hover {
-  background-color: #fffef5;
-  border: 1px solid #834ba1; 
-    transition: all 500ms ease-in;
-    box-shadow: 0px 10px 10px rgb(0 0 0 / 20%);
- 
-}
+
 .emp-profl-edit-btn {
   width: 42px !important;
   font-size: 18px !important;
@@ -4374,6 +4371,7 @@ li.option {
   padding-top: 0px;
   padding-left: 0px;
   padding-right: 0px;
+  
 }
 .form-control .css-1s2u09g-control{
   height: auto;
@@ -4383,6 +4381,7 @@ li.option {
   padding-top: 0;
   min-height: 40px;
   width: 100%;
+  
 }
 .css-319lph-ValueContainer{
   padding: 0px 8px;
@@ -4397,8 +4396,38 @@ li.option {
   box-shadow: none;
   background: none;
   min-height: 40px;
+  
 }
 .css-6j8wv5-Input {
   margin: 0px;
   padding-top: 0px; 
+  
+} 
+.form-control .css-2613qy-menu {
+  background-color: #000 !important;
 }
+
+ 
+
+  .MuiListItem-gutters { 
+    padding: 48px 0 48px 0;
+    margin: 20px 0 0 15px;
+    display: grid !important;
+    grid-template-columns: repeat(4, 23.6%);
+    justify-content: center;
+    grid-gap: 25px;
+}
+.emp-card {
+  background-color: white;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px; }
+
+  .emp-card:hover {
+    background-color: #fffef5;
+    border: 1px solid #834ba1; 
+      transition: all 900ms ease-in;
+      box-shadow: 0px 10px 10px rgb(0 0 0 / 20%);
+   
+  }
+  

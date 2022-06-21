@@ -5,9 +5,9 @@ import update from "immutability-helper";
 import { profileimage1 } from '../../images';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
-
-
-  
+import Employeprofilemodel from "./Employeprofilemodel";
+import Employeprofileeducationpopup from "./Employeprofileeducationpopup";
+import Empoyeprofileskilpopup from "./Empoyeprofileskilpopup";  
 const Employeeprofile = () => {
       const [rows, setRows] = useState([]);
       const params = useParams();
@@ -102,7 +102,7 @@ const getEmployeeDetails = async (id) => {
                            
                                   <div  className="information-card-head"> Personal Information
                                     <div className="top-right-outer add-btn-div">   
-                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                    <Employeprofilemodel />  
                                     </div>
                                   </div>
                                   
@@ -169,45 +169,39 @@ const getEmployeeDetails = async (id) => {
                             <div  className="col-md-6 education-information-card"> 
                                   <div  className="information-card-head"> Education Details
                                     <div className="top-right-outer add-btn-div">   
-                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                    <Employeprofileeducationpopup />  
                                     </div>
                                   </div>
                                   <div  className="row txt-row-hght"> 
-                                        <div  className="col-md-6 info-card-cont "> school Name <span className="dot-sty">:</span>
+                                        <div  className="col-md-6 info-card-cont "> Highest Level of Education Completed <span className="dot-sty">:</span>
                                         </div>
                                         <div  className="col-md-6 info-card-cont-rgt "> 
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
-                                        <div  className="col-md-6 info-card-cont "> Graduation  <span className="dot-sty">:</span>
+                                        <div  className="col-md-6 info-card-cont "> Institution  <span className="dot-sty">:</span>
                                         </div>
                                         <div  className="col-md-6 info-card-cont-rgt "> 
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
-                                        <div  className="col-md-6 info-card-cont "> University  <span className="dot-sty">:</span>
+                                        <div  className="col-md-6 info-card-cont "> Year of Graduation  <span className="dot-sty">:</span>
                                         </div>
                                         <div  className="col-md-6 info-card-cont-rgt "> 
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
-                                        <div  className="col-md-6 info-card-cont "> Undergraduate  <span className="dot-sty">:</span>
+                                        <div  className="col-md-6 info-card-cont "> Specialization  <span className="dot-sty">:</span>
                                         </div>
                                         <div  className="col-md-6 info-card-cont-rgt "> 
                                         </div>                                
                                   </div>
-                                  <div  className="row txt-row-hght"> 
-                                        <div  className="col-md-6 info-card-cont ">  Post Graduate  <span className="dot-sty">:</span>
-                                        </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
-                                        </div>                                
-                                  </div>
-                                  
+                                   
                             </div>
                             <div className="col-md-6 employee-information-card">
                                   <div  className="information-card-head"> Employee Skills
                                   <div className="top-right-outer add-btn-div">   
-                                          <button type="button" class="btn  btn-save emp-profl-edit-btn"  > <i class="fa fa-edit"></i></button> 
+                                   <Empoyeprofileskilpopup />  
                                     </div>
                                   </div>
                                   <div  className="row txt-row-hght"> 

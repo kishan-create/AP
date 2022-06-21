@@ -243,9 +243,10 @@ export default class Emplyelist extends Component {
   render() {
 
     return (
+      
       <div className="epmtab-w">
 
-
+ 
         <div className="emplyee-top">
           <div className="emplyesearch emplyesearch1">
             <input
@@ -277,7 +278,7 @@ export default class Emplyelist extends Component {
           </div>
 
           <div class="form-group emp-searc-location ">
-            <MySelect
+            <MySelect 
               options={this.state.designation}
               isMulti
               closeMenuOnSelect={false}
@@ -287,7 +288,7 @@ export default class Emplyelist extends Component {
               allowSelectAll={true}
               value={this.state.optionSelectedloc}
               displayValue="designation" // Property name to display in the dropdown options
-              name="designation" className="form-control"
+              name="designation" className="form-control "
             />
           </div>
 
@@ -302,6 +303,7 @@ export default class Emplyelist extends Component {
             </label>
           </div>
         </div>
+        
         <div className='onboarding-top-outer emp-active-box-outer '>
           <div className='box'>
             <div className="box-inner emp-active-box">
@@ -326,9 +328,10 @@ export default class Emplyelist extends Component {
               <img src={Offboarding3} />
             </div>
           </div>
-
+          
         </div>
-        <div className="empoyee-list-content-are">
+       
+        <div className="empoyee-list-content-are ">
           <List>
             <ListItem>
               {this.state.employeelist.map((n) => {
@@ -338,7 +341,9 @@ export default class Emplyelist extends Component {
 
 
                 return (
-                  <div className="width-25 ">
+                  <div className="emp-card">
+                    
+                  <div className=" ">
                     <Link to={{
                       pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
                     }} >
@@ -362,7 +367,7 @@ export default class Emplyelist extends Component {
 
                             <span>  {n.emp_name}</span>
                             <p>{n.designation_name}
-                              <div className="m-t-rever-7">Emp Code: {n.emp_code}</div>
+                              <div className="m-t-rever-7"> {n.emp_code}</div>
                             </p>
 
                           </Card.Header>
@@ -408,6 +413,7 @@ export default class Emplyelist extends Component {
                         </Card.Content>
 
                       </Card></Link>
+                  </div>
                   </div>
                 );
 

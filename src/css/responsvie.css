@@ -1,3 +1,24 @@
+
+@media only screen and (max-width: 2080px) { 
+  .MuiListItem-gutters { 
+    padding: 48px 0 48px 0;
+    margin: 20px 0 0 15px;
+    display: grid !important;
+    grid-template-columns: repeat(4, 23.4%);
+    justify-content: center;
+    grid-gap: 25px;
+  }
+  }
+@media only screen and (max-width: 1900px) { 
+.MuiListItem-gutters { 
+  padding: 48px 0 48px 0;
+  margin: 20px 0 0 15px;
+  display: grid !important;
+  grid-template-columns: repeat(4, 23.2%);
+  justify-content: center;
+  grid-gap: 25px;
+}
+}
 @media only screen and (max-width: 1700px) {
   .in-progress-name-thre-colm {
     font-size: 11px;
@@ -13,11 +34,11 @@
     padding-right: 10px;
   }
   .profile-name span {
-    font-size: 16px;
+    font-size: 14px;
     padding-bottom: 2px;
   }
   .profile-name p {
-    font-size: 15px;
+    font-size: 13px;
   }
   .profile-location-right .buttons-outer a {
     padding: 8px 10px;
@@ -68,11 +89,19 @@
     width: 13%;
   }
   .profile-name {
-    width: 52%;
+    width: 58%;
     float: left;
     margin-top: 0px;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+.MuiListItem-gutters { 
+  padding: 48px 0 48px 0;
+  margin: 20px 0 0 15px;
+  display: grid !important;
+  grid-template-columns: repeat(4, 23.1%);
+  justify-content: center;
+  grid-gap: 25px;
 }
 }
 .ReactModal__Overlay {
@@ -81,7 +110,27 @@
   background-color: rgb(19 19 19 / 75%) !important;
   z-index: 111;
 }
-
+@media only screen and (max-width: 1600px) { 
+  .MuiListItem-gutters { 
+    padding: 48px 0 48px 0;
+    margin: 20px 0 0 15px;
+    display: grid !important;
+    grid-template-columns: repeat(4, 22.8%);
+    justify-content: center;
+    grid-gap: 25px;
+  }
+  .profile-name {
+    width: 88%;
+    float: left;
+    margin-top: 0px;
+    display: block;
+    margin-bottom: 0px;
+}
+.profile-name span {
+  font-size: 13px;
+  padding-bottom: 2px;
+}
+  }
 @media only screen and (max-width: 1500px) {
   .in-progress-name-thre-colm {
     font-size: 10px;
@@ -196,6 +245,36 @@
   .job-new-outer th:last-child.tf {
     width: 14.5%;
   }
+  .emp-listview-box-tiles {
+    flex: 33%;
+     
+  }
+  .profile-name span {
+    font-size: 13px;
+    padding-bottom: 2px;
+  }
+  .profile-name {
+    width: 100%;
+    float: left;
+    margin-top: 0px;
+    display: block;
+    margin-bottom: 20px;
+}
+.MuiListItem-gutters { 
+  padding: 48px 0 48px 0;
+  margin: 20px 0 0 15px;
+  display: grid !important;
+  grid-template-columns: repeat(4, 22.6%);
+  justify-content: center;
+  grid-gap: 25px;
+}
+.profile-name {
+  width: 58%;
+  float: left;
+  margin-top: 0px;
+  display: block;
+  margin-bottom: 0px;
+}
 }
 
 @media only screen and (max-width: 1360px) {
@@ -259,7 +338,7 @@
     font-size: 17px;
   }
   .onboarding-top-outer .box-inner .left span {
-    font-size: 37px;
+    font-size: 23px;
   }
   .onboard-top-select-outer .select-inner .left {
     width: 85px;
@@ -269,11 +348,19 @@
     width: 15%;
   }
   .profile-name {
-    width: 52%;
+    width: 100%;
     float: left;
     margin-top: 0px;
     display: block;
     margin-bottom: 20px;
+}
+.MuiListItem-gutters { 
+  padding: 48px 0 48px 0;
+  margin: 20px 0 0 15px;
+  display: grid !important;
+  grid-template-columns: repeat(3, 30.6%);
+  justify-content: center;
+  grid-gap: 25px;
 }
 }
 
@@ -418,6 +505,10 @@
   .job-new-outer th:last-child.tf {
     width: 140px;
   }
+  .emp-listview-box-tiles {
+    flex: 45%; 
+  }
+  
 }
 @media only screen and (max-width: 1200px) {
   .recruitment-top-right-box {
@@ -549,6 +640,18 @@
     margin-top: 0px;
     display: block;
     margin-bottom: 20px;
+}
+.emp-listview-box-tiles {
+  flex: 45%;
+   
+}
+.MuiListItem-gutters { 
+  padding: 48px 0 48px 0;
+  margin: 20px 0 0 15px;
+  display: grid !important;
+  grid-template-columns: repeat(2, 46.6%);
+  justify-content: center;
+  grid-gap: 25px;
 }
 }
 @media only screen and (max-width: 980px) {
@@ -899,6 +1002,10 @@
   border: 1px solid #f9a200;
   margin-right: 0px;
 }
+.emp-listview-box-tiles {
+  flex: 45%;
+  
+}
 }
 @media only screen and (max-width: 767px) {
   .calendar-width {
@@ -1177,6 +1284,14 @@
   .logo img {
     width: 149px;
 }
+.MuiListItem-gutters { 
+  padding: 48px 0 48px 0;
+  margin: 20px 0 0 15px;
+  display: grid !important;
+  grid-template-columns: repeat(1, 96%);
+  justify-content: center;
+  grid-gap: 25px;
+}
 }
 @media only screen and (max-width: 650px) {
   .listview-mob-top .col-2 {
@@ -1276,6 +1391,14 @@
 }
 .cal-width-10{
   width: 100px;
+}
+.MuiListItem-gutters { 
+  padding: 48px 0 48px 0;
+  margin: 20px 0 0 15px;
+  display: grid !important;
+  grid-template-columns: repeat(1, 95%);
+  justify-content: center;
+  grid-gap: 25px;
 }
 }
 

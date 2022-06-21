@@ -42,6 +42,9 @@ import AddDepartment from "../pages/Add-department";
 import AddDesignation from "../pages/Add-designation";
 import Empviewtabs from "../pages/Empviewtabs";
 import Emptablistview from "../pages/Emptablistview";
+import Employeprofilemodel from "../pages/Employeprofilemodel";
+import Employeprofileeducationpopup from "../pages/Employeprofileeducationpopup";
+import Empoyeprofileskilpopup from "../pages/Empoyeprofileskilpopup";
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
   
   <Container
@@ -73,6 +76,9 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/AddDesignation" component={AddDesignation} />
     <Route exact path="/Empviewtabs" component={Empviewtabs} />  
     <Route exact path="/Emptablistview" component={Emptablistview} />  
+    <Route exact path="/Employeprofilemodel" component={Employeprofilemodel} />  
+    <Route exact path="/Employeprofileeducationpopup" component={Employeprofileeducationpopup} />  
+    <Route exact path="/Empoyeprofileskilpopup" component={Empoyeprofileskilpopup} />  
         <Router path="/Addemployeetab">
         <Addemployeetab/>
         </Router> 

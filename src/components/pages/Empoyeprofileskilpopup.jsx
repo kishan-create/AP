@@ -25,7 +25,7 @@ const customStyles = {
   },
 };
 
-export default function Employeprofilemodel( ) {
+export default function Empoyeprofileskilpopup( ) {
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -85,7 +85,7 @@ export default function Employeprofilemodel( ) {
                 ref={(_subtitle) => (subtitle = _subtitle)}
                 className="popup-head-h4"
               >
-               Personal Information 
+               Education Details
               </h4>
             </div>
             <div className="popup-head-icon-sty">
@@ -98,83 +98,30 @@ export default function Employeprofilemodel( ) {
                 <div class="row popup-content-height">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Aadhaar Number</label>
+                      <label for="exampleFormControlInput1">Primary Skills</label>
                       <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
                        
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Permanent Address</label>
+                      <label for="exampleFormControlInput1">Secondary Skills</label>
                       <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Father/Mother/Spouse Name</label>
+                      <label for="exampleFormControlInput1">Additional Skills</label>
                       <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Temporary Address</label>
+                      <label for="exampleFormControlInput1">Year of Experience </label>
                       <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Emergency Contact Number</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Date Of Birth (Official)</label>
-                      <input
-                        type="date"
-                        name="job_date_open"
-                        onChange={handleChange}
-                        value={values.job_date_open}
-                        class="form-control"
-                      ></input>
-                      {errors.job_date_open && (
-                        <p className="message">{errors.job_date_open}</p>
-                      )}
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Personal Email ID</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Total year's of experience</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Marital Status</label>
-                      <select
-                        id="dropdown"
-                        name="job_status"
-                        onChange={handleChange}
-                        value={values.job_status}
-                        class="form-control"
-                      >
-                        <option value="">Choose status</option>
-
-                        <option value="1">Single</option>
-                        <option value="0">Married</option>
-                      </select>
-                      {errors.job_status && (
-                        <p className="message">{errors.job_status}</p>
-                      )}
-                    </div>
-                  </div>
-                   
+                 
                 </div>
               </div>
             </div>
