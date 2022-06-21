@@ -59,7 +59,7 @@ const Onboardingform = () => {
     });
   };
   const Viewlog = async (id) => {
-    const response = await axios.get(`http://localhost:8000/api/viewlog/${id}`);
+    const response = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/viewlog/${id}`);
 
     SetLog(response.data.log);
     setIsViewLog(true);
@@ -68,9 +68,28 @@ const Onboardingform = () => {
   const getBasicdetails = async (id, column) => {
     const basic_id = id;
     //alert(column);
+    if (column == "Inprogress") {
+      const reponse = await axios.get(
+        `http://auditportal.bourntec.com:3001/audit_portal/public/api/editfecthbasicdata/${basic_id}`
+      );
+      }
+  const Viewlog = async(id) =>
+  {
+    const response = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/viewlog/${id}`);
+  
+  SetLog(response.data.log);
+  setIsViewLog(true);
+  }
+
+  const getBasicdetails = async (id, column) => {
+    const basic_id = id;
+    //alert(column);
     if (column == 'Inprogress') {
-      const reponse = await axios.get(`http://localhost:8000/api/editfecthbasicdata/${basic_id}`);
+
+      const reponse = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/editfecthbasicdata/${basic_id}`);
+
      
+
       if (reponse.data.status == 200) {
         SetEditValues({
           username: reponse.data.candidate[0].name,
@@ -99,8 +118,10 @@ const Onboardingform = () => {
       }
     } else if (column == "Schedule") {
       const reponse = await axios.get(
-        `http://localhost:8000/api/getscheduledata/${basic_id}`
+        `http://auditportal.bourntec.com:3001/audit_portal/public/api/getscheduledata/${basic_id}`
       );
+
+
       if (reponse.data.status == 200) {
         SetEditValues({
           edit_panel_members: reponse.data.schedule[0].panelmembers,
@@ -116,8 +137,9 @@ const Onboardingform = () => {
       }
     } else if (column == "Rejection") {
       const reponse = await axios.get(
-        `http://localhost:8000/api/getrejectdata/${basic_id}`
+        `http://auditportal.bourntec.com:3001/audit_portal/public/api/getrejectdata/${basic_id}`
       );
+
       if (reponse.data.status == 200) {
         SetEditValues({
           edit_release_date: reponse.data.rejectdata[0].c_status,
@@ -129,8 +151,9 @@ const Onboardingform = () => {
       }
     } else if (column == "Release") {
       const response = await axios.get(
-        `http://localhost:8000/api/getreleasedata/${basic_id}`
+        `http://auditportal.bourntec.com:3001/audit_portal/public/api/getreleasedata/${basic_id}`
       );
+
       if (response.data.status == 200) {
         SetEditValues({
           edit_release_date: response.data.releasedata[0].offer_release_date,
@@ -183,8 +206,9 @@ const Onboardingform = () => {
     formData.append("edit_release_date", editvalues.edit_release_date);
     formData.append("edit_release_id", editvalues.edit_release_id);
 
+
     const response = await axios.post(
-      "http://localhost:8000/api/Updateboarddetails",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/Updateboarddetails",
       formData
     );
 

@@ -61,7 +61,7 @@ export default function Addemployeetab() {
     var href = $(e.target).attr("href");
     var $curr = $(".process-model  a[href='" + href + "']").parent();
     var $curr = $(".process-model  a[href='" - href - "']").parent();
-
+    
     $(".process-model li").removeClass();
 
     $curr.addClass("active");
@@ -200,13 +200,7 @@ export default function Addemployeetab() {
 
   setDirection();
 
-// const {
-//   handleChangea,
-//   valuesa,
-//   handleSubmita,
-//   errorsa,
-//   optionsa,
-// } =  Personalform(personal_validation);
+
 
 setDirection();
   let timeout = false;
@@ -217,7 +211,7 @@ setDirection();
   });
   
 
-  const { handleChange, values, handleSubmit, errors, options,designation,holidaylist,departments,uploadImage,myimage,employeelocation  } = Employeeform(
+  const { handleChange, values, handleSubmit, errors,  options,designation,holidaylist,departments,uploadImage,myimage,employeelocation  } = Employeeform(
     employee_val
   );
   return (
@@ -441,13 +435,13 @@ setDirection();
                               <div class="form-group">
                                 <label for="exampleFormControlInput1">
                                   Employee Gender
-                                </label>
+                                </label>    
                                 <div className="radiobox-outer">
-                                <input type="radio" value="male" name="emp_gender" onChange={handleChange}  /> Male  <input type="radio" value="female" name="emp_gender" onChange={handleChange}  />  Female
+                                <input type="radio" value="male" name="emp_gender" onChange={handleChange}  /> Male  <input type="radio" value="female" name="emp_gender"  onChange={handleChange}  />  Female
                                 </div>
                              
                               </div>
-                              {errors. emp_gender && (
+                              {errors.emp_gender && (
                                     <p className="red-alert">
                                       {errors. emp_gender}
                                     </p>

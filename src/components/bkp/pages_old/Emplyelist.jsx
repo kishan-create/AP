@@ -92,7 +92,7 @@ export default class Emplyelist extends Component {
                                                     <div className="right">102</div>
                                                 </div>
                                                 <div className="inner-section">
-                                                    <div className="left">Mail ID</div>
+                                                    <div className="left"></div>
                                                     <div className="right">arunkumar@bourntce.com</div>
                                                 </div>
                                                 <div className="inner-section">
@@ -157,7 +157,7 @@ export default class Emplyelist extends Component {
                                                     <div className="right">102</div>
                                                 </div>
                                                 <div className="inner-section">
-                                                    <div className="left">Mail ID</div>
+                                                    <div className="left"></div>
                                                     <div className="right">arunkumar@bourntce.com</div>
                                                 </div>
                                                 <div className="inner-section">
@@ -221,7 +221,7 @@ export default class Emplyelist extends Component {
                                                     <div className="right">102</div>
                                                 </div>
                                                 <div className="inner-section">
-                                                    <div className="left">Mail ID</div>
+                                                    <div className="left"></div>
                                                     <div className="right">arunkumar@bourntce.com</div>
                                                 </div>
                                                 <div className="inner-section">
@@ -286,7 +286,7 @@ export default class Emplyelist extends Component {
                                                     <div className="right">102</div>
                                                 </div>
                                                 <div className="inner-section">
-                                                    <div className="left">Mail ID</div>
+                                                    <div className="left"></div>
                                                     <div className="right">arunkumar@bourntce.com</div>
                                                 </div>
                                                 <div className="inner-section">

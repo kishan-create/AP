@@ -18,7 +18,7 @@ const Employeeprofile = () => {
 const getEmployeeDetails = async (id) => {
     
       const reponse = await axios.get(
-            `http://localhost:8000/api/GetEmployeeFullDetails/${id}` );
+            `http://auditportal.bourntec.com:3001/audit_portal/public/api/GetEmployeeFullDetails/${id}` );
             const emp = reponse.data.emp;
             setRows(emp);
 }
@@ -42,7 +42,7 @@ const getEmployeeDetails = async (id) => {
                                   </div>
                                   <div  className="row txt-row-hght border-0 employee-basic-outer"> 
                                         <div  className="col-md-4  "> 
-                                              <div className="profilepic"> <img src={"http://localhost/audit_portal/public/uploads/profile/"+rows[0]?.image} /></div>
+                                              <div className="profilepic"> <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/"+rows[0]?.image} /></div>
                                               <div className="info-card-prfl-txt "> {rows[0]?.emp_name}</div>                                            
                                         </div> 
                                         <div  className="col-md-8 profile-basic-right">
@@ -73,7 +73,7 @@ const getEmployeeDetails = async (id) => {
                                               <div  className="row txt-row-hght">                                                     
                                                     <div  className="col-md-6 info-card-cont "> Contact Number           <span className="dot-sty">:</span>
                                                     </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emp_company_email_id}
+                                                    <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emp_number}
                                                     </div>                                
                                               </div> 
                                               <div  className="row txt-row-hght">                                                     

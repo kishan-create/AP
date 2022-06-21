@@ -39,6 +39,7 @@
   }
   .profile-name p {
     font-size: 13px;
+    line-height: 20px;
   }
   .profile-location-right .buttons-outer a {
     padding: 8px 10px;
@@ -199,8 +200,8 @@
     padding-right: 15px;
   }
   .width-25 .card {
-    padding: 20px 20px;
-  }
+    padding: 13px 13px;
+}
   .employee-tab-button {
     width: 17.5%;
   }
@@ -274,6 +275,36 @@
   margin-top: 0px;
   display: block;
   margin-bottom: 0px;
+}
+  .tick-round {
+    width: 17px;
+    height: 17px;
+}
+.tick-round img {
+  width: 13px;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+.tick-round {
+  width: 17px;
+  height: 17px;
+  margin-bottom: 10px;
+}
+.emp-card-phon {
+  width: 13px;
+  margin-top: -22px !important;
+  margin-bottom: 5px;
+}
+.image-box {
+  margin-left: 20px;
+}
+.image-box img {
+  height: 70px;
+  width: 70px;
+}
+.profile-name {
+  width: 57%;
+  margin-bottom: 20px;
 }
 }
 
@@ -362,8 +393,14 @@
   justify-content: center;
   grid-gap: 25px;
 }
+.onboarding-top-outer .box-inner .left p {
+  padding-bottom: 7px;
 }
 
+.onboarding-top-outer .box-inner {
+  padding: 12px 15px;
+}
+}
 @media only screen and (max-width: 1300px) {
   .recruitment-table-outer {
     width: 97%;
@@ -509,6 +546,10 @@
     flex: 45%; 
   }
   
+  .profile-name {
+    width: 57%;
+    margin-bottom: 20px;
+  }
 }
 @media only screen and (max-width: 1200px) {
   .recruitment-top-right-box {

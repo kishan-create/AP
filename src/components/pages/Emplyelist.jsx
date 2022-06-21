@@ -54,23 +54,32 @@ const MultiValue = props => (
 );
 const animatedComponents = makeAnimated();
 
+// const userdata=[{name:"kiran"},{name:"anu"},{name:"akash"},{name:"aju"},];
+
+// const options = [
+//   { label: "Grapes 🍇", value: "grapes" },
+//   { label: "Mango 🥭", value: "mango" },
+//   { label: "Strawberry 🍓", value: "strawberry", disabled: true },
+// ];
+
+const fruits = [
+  { label: "Mango", value: "mg",'id':"test" },
+  { label: "Guava", value: "gv" },
+  { label: "Peach", value: "pc" },
+  { label: "Apple", value: "ap" },
+  { label: "sample", value: "mg",'id':"test" },
+];
+
 export default class Emplyelist extends Component {
-  fruites = [
-    { label: "Grapes 🍇", value: "grapes" },
-    { label: "Mango 🥭", value: "mango" },
-    { label: "Strawberry 🍓", value: "strawberry" },
-    { label: "Watermelon 🍉", value: "watermelon" },
-    { label: "Pear 🍐", value: "pear", disabled: true },
-    { label: "Apple 🍎", value: "apple" },
-    { label: "Tangerine 🍊", value: "tangerine" },
-    { label: "Pineapple 🍍", value: "pineapple" },
-    { label: "Peach 🍑", value: "peach" }
-  ];
+ 
 
   constructor() {
     super();
     this.state = {
+      // user:[],
+      // checked: false,
       checked: true,
+      // selected:[],
       employeelist: [],
       emplocation: [],
       designation: [],
@@ -79,10 +88,10 @@ export default class Emplyelist extends Component {
       selectedo: [],
       options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
       formData: {
-
         location_items: [],
         designation_items: [],
       },
+      // this.setState(user)
 
       count: 0
     };
@@ -97,9 +106,14 @@ export default class Emplyelist extends Component {
 
   componentDidMount = () => {
     this.fetchData();
+    // this.setState({user:userdata});
+    
+    // this.selected();
+    // this.state.user(userdata);
 
     this.getGetLocationName();
     this.getDesignationName();
+
   }
   componentDidUpdate(prevProps, prevState) {
 
@@ -117,10 +131,10 @@ export default class Emplyelist extends Component {
     //var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
     formData.append("emp_lo", JSON.stringify(this.state.formData));
     // const response = await axios.get(
-    //`http://localhost:8000/api/getEmployeebylocation/${id}`
+    //`http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation/${id}`
     // );
     const response = await axios.post(
-      "http://localhost:8000/api/getEmployeebylocation",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation",
       formData
     );
     if (response.data.status === 200) {
@@ -133,7 +147,7 @@ export default class Emplyelist extends Component {
 
   }
   fetchData = async () => {
-    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
+    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
     if (res.data.status === 200) {
       this.setState({
         employeelist: res.data.emp,
@@ -144,7 +158,7 @@ export default class Emplyelist extends Component {
 
   }
   getGetLocationName = async () => {
-    const response = await axios.get("http://localhost:8000/api/getLocationBranchDrop");
+    const response = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getLocationBranchDrop");
 
     if (response.data.status === 200) {
       this.setState({
@@ -171,7 +185,7 @@ export default class Emplyelist extends Component {
 
   }
   getDesignationName = async () => {
-    const response = await axios.get("http://localhost:8000/api/getDesignationall");
+    const response = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getDesignationall");
     if (response.data.status === 200) {
       this.setState({
         designation: response.data.designation,
@@ -240,6 +254,25 @@ export default class Emplyelist extends Component {
     });
   }
 
+  // onChangeCheckbox = e => {
+  //   const isChecked = !this.state.checked;
+  //   this.setState({
+  //     checked: isChecked,
+  //     values: isChecked ? options : this.state.values
+  //   });
+  // };
+  // onChange = opt => {
+  //   const allOptionsSelected = opt.length === options.length;
+  //   this.setState({
+  //     checked: allOptionsSelected ? true : false,
+  //     values: opt
+  //   });
+  // };
+
+  // checkhandleChange=(e)=>{
+  //   this.setState({user:e.target});
+  //   let tempuser=user.map(user=>user.name===name)
+  // }
   render() {
 
     return (
@@ -291,7 +324,6 @@ export default class Emplyelist extends Component {
               name="designation" className="form-control "
             />
           </div>
-
 
           <div className="recruitment-top-right-box active-employee-top">
             <label className="active-swite-toggle">
@@ -360,7 +392,7 @@ export default class Emplyelist extends Component {
 
                           </div>
                           <div className="image-box" >
-                            <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
+                          <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/" + n.image} />
                           </div>
 
                           <Card.Header className="profile-name">
@@ -434,3 +466,31 @@ export default class Emplyelist extends Component {
     );
   }
 }
+
+
+
+// function Emplyelist(){
+//   const [,set]=useState([]);
+  
+  
+//   useEffect(()=>{
+//     set(userdata)
+//   },[]  );
+//   return(
+
+//     <div>
+//   <div>   
+// {.map((user)=>(
+
+// <div>
+// <input type="checkbox"/>
+// <label>usernames</label>
+// </div>
+// )) 
+// }
+        
+//     </div>
+//     </div> 
+//   );
+// }
+

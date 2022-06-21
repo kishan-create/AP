@@ -5,13 +5,12 @@ const Calendarfunctions = (calendar_validation) => {
   const [typeDropdown, setTypeDropdown] = useState();
   const [values, SetValues] = useState({
     holiday_name: "",
-    
     project_name: "",
     calander_type: "",
     location_name: "",
     holiday_name_drop: "",
   });
-
+const [holidaylist,SetHolidaylist]=useState();
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showProject, setShowProject] = useState(false);
@@ -45,22 +44,39 @@ const Calendarfunctions = (calendar_validation) => {
     SetValues({
       ...values,
       [name]: value,
-      
+
     });
+
+
   };
-  
-  console.log(values);
   useEffect(() => {
+    // GetHolidayCalander();
     if (Object.keys(errors).length === 0 && isSubmitting) {
       onSubmitform();
+
     }
   }, [errors]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const test = setErrors(calendar_validation(values));
+    const test = setErrors(calendar_validation(values,typeDropdown,items));
     setIsSubmitting(true);
   };
+
+
+  const GetHolidayCalander=async()=>{ 
+    const response = await fetch(
+      "http://localhost:8000/api/getHolidaynames"
+    );
+    const data = await response.json();
+    const list = data.holidaylist; 
+    SetHolidaylist(list);
+    console.log("test ",list[0]);
+  
+  }
+
+
+
   const onSubmitform = (e) => {
    
     const formData = new FormData();
@@ -70,12 +86,11 @@ const Calendarfunctions = (calendar_validation) => {
     formData.append("location_name", values.location_name);
     formData.append("holiday_name_drop", JSON.stringify(items));
     const response = axios.post(
-      "http://localhost:8000/api/add_holidays_calendar",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/add_holidays_calendar",
       formData
     );
     response.then(function(res) {
       if (res.data.status === 200) {
-        //console.log(res.data.message);
         swal({
           title: "Good job!",
           text: "Holiday Calander added successfully",
@@ -90,6 +105,8 @@ const Calendarfunctions = (calendar_validation) => {
           location_name: "",
           holiday_name_drop: "",
         });
+        GetHolidayCalander();
+    
       }
     });
   };

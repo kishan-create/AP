@@ -55,7 +55,7 @@ function createData(HolidayName, HolidayDate, HolidDay, action) {
 
 //  const edit_holidays = async (id) => {
 //     const holiday_id = id;
-//     const reponse = await axios.get(`http://localhost:8000/api/edit_holidays/{id}'`)
+//     const reponse = await axios.get(`http://auditportal.bourntec.com:3001/audit_portal/public/api/edit_holidays/{id}'`)
 //     console.log(reponse.data.holiday[0]);
 //     if (reponse.data.status == 200) {
 //       SetValues({
@@ -71,7 +71,7 @@ function createData(HolidayName, HolidayDate, HolidDay, action) {
 
 // const updateHolidays = async (e) => {
 //   e.preventDefault();
-//   const res = await axios.put('http://localhost:8000/api/update_holidays', values);
+//   const res = await axios.put('http://auditportal.bourntec.com:3001/audit_portal/public/api/update_holidays', values);
 //   if (res.data.status == 200) {
 //     swal({
 //       title: "Good job!",
@@ -109,7 +109,7 @@ export default class HolidayList extends Component {
       formData: {
         hol_name: "",
         hol_date: "",
-        // hol_day: "",
+       
       },
     };
     // this.method();
@@ -124,7 +124,7 @@ export default class HolidayList extends Component {
   };
 
   fetchdata = async () => {
-    const res = await axios.get("http://localhost:8000/api/getHolidays");
+    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidays");
 
     if (res.data.status === 200) {
       this.setState({
@@ -139,7 +139,7 @@ export default class HolidayList extends Component {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
     const res = await axios.delete(
-      `http://localhost:8000/api/delete_holidays/${id}`
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_holidays/${id}`
     );
     if (res.data.status == 200) {
       swal({
@@ -155,7 +155,7 @@ export default class HolidayList extends Component {
   async edit(id) {
     const holiday_id = id;
     const reponse = await axios.get(
-      `http://localhost:8000/api/edit_holidays/${holiday_id}`
+      `http://auditportal.bourntec.com:3001/audit_portal/public/api/edit_holidays/${holiday_id}`
     );
     if (reponse.data.status == 200) {
       this.setState({
@@ -163,7 +163,7 @@ export default class HolidayList extends Component {
           hol_name: reponse.data.branch.hol_name,
           hol_date: reponse.data.branch.hol_date,
 
-          // hol_day: reponse.data.branch.hol_day,
+      
 
           id: reponse.data.branch.id,
         },
@@ -175,19 +175,19 @@ export default class HolidayList extends Component {
   updateHolidays = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_holidays",
+      "http://auditportal.bourntec.com:3001/audit_portal/public/api/update_holidays",
       this.state.formData
     );
 
-    // if (res.data.status == 200) {
-    //   swal({
-    //     title: "Good job!",
-    //     text: "Holiday Updated successfully",
-    //     icon: "success",
-    //     button: "ok",
-    //   });
+    if (res.data.status == 200) {
+      swal({
+        title: "Good job!",
+        text: "Holiday Updated successfully",
+        icon: "success",
+        button: "ok",
+      });
 
-    // }
+    }
     // window.location.reload();
     this.fetchdata();
   };
@@ -269,20 +269,7 @@ export default class HolidayList extends Component {
                             ></input>
                           </div>
                         </div>
-                        {/* <div class="col-md-4">
-                            <div class="form-group">
-                              <label for="exampleFormControlInput1">
-                                Holiday Day
-                              </label>
-                              <input
-                                name="hol_day"
-                                onChange={this.handleInputs}
-                                value={this.state.formData.hol_day}
-                                type="text"
-                                class="form-control"
-                              ></input>
-                            </div>
-                          </div> */}
+                      
 
                         <input type="hidden" name="id" value={this.state.id} />
                       </div>
@@ -409,3 +396,4 @@ export default class HolidayList extends Component {
     );
   }
 }
+ 

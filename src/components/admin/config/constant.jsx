@@ -1,1 +1,1 @@
-export const API_SERVER = "http://localhost:8000/api/";
+export const API_SERVER = "http://auditportal.bourntec.com:3001/audit_portal/public/api/";

@@ -1360,10 +1360,11 @@ a.download-bt svg {
 .image-box {
   margin: 0px auto;
   margin-top: 0px;
-  margin-left: 26px;
+  margin-left: 15px;
   margin-bottom: 10px;
   border-radius: 50%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+  float:left;
 }
 .image-box img {
   border-radius: 50%;
@@ -1386,7 +1387,7 @@ a.download-bt svg {
   font-size: 15px;
   line-height: 16px;
   color: #4a54d1;
-  padding-bottom: 2px;
+  padding-bottom: 8px;
   font-weight: 600;
 }
 .profile-name p {
@@ -1398,6 +1399,7 @@ a.download-bt svg {
   width: 100%;
   text-align: left;
   margin-bottom: 0px;
+  line-height: 20px;
 }
 .profile-content {
   width: 100%;
@@ -4285,6 +4287,7 @@ li.option {
 }
 .emplyesearch1 {
   min-width: 25%;
+  margin-right: 15px;
 }
 .emp-searc-location {
   width: 25%;
@@ -4325,16 +4328,17 @@ li.option {
   margin-bottom: -10px;
 }
 .m-t-rever-7  {
-  margin-top: -7px;
+  margin-top: 5px;
 }
 .top-dotted-remv {
   border-top: 0px dashed #ffffff !important;
   margin-top: -44px;
 }
 .map-emp-wdt {
-  font-size: 28px;
+  font-size: 17px;
   color: #e74b3b;
-  margin-left: 3px;
+  margin-left: 0;
+  margin-right: 7px;
 }
  
 .emp-left-map {
@@ -4351,6 +4355,11 @@ li.option {
 }
 .emp-active-box {
   padding: 5px 22px !important;
+  padding: 10px 22px !important;
+}
+.onboarding-top-outer .box-inner img {
+  width: 51px;
+  padding-top: 5px;
 }
 .emp-card-phon {
   width: 18px;
@@ -4431,3 +4440,22 @@ li.option {
    
   }
   
+ 
+.css-2613qy-menu{
+  background: #fff !important;
+}
+.css-2613qy-menu option
+{
+  background: #fff !important;
+}
+
+.css-9gakcf-option{
+  background-color: #fff !important;  background: #fff !important;
+}
+.emp-searc-location {
+  min-width: 25%;
+  float: left;
+  margin-left: 0px;
+  width: auto;
+  margin-right: 15px;
+}

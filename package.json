@@ -63,6 +63,7 @@
     "react-kanban-dnd": "^0.3.0",
     "react-minimal-side-navigation": "^1.9.2",
     "react-modal": "^3.14.3",
+    "react-multi-select-component": "^4.2.9",
     "react-navigation-tabs": "^2.11.1",
     "react-pagination-table": "^2.0.2",
     "react-pro-sidebar": "^0.7.1",

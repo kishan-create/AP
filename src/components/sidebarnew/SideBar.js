@@ -135,12 +135,12 @@ const $ = window.$;
       <NavItem>
           
         </NavItem>
-        <NavItem>
+        {/* <NavItem>
           <NavLink active={window.location.pathname === "/Loginform"} tag={nlink} to={"/Loginform"} className="mob-menu-clik">
           < MdPersonPin/>
           Login Page
           </NavLink>
-          </NavItem>
+          </NavItem> */}
         
       </Nav>
     </div>
