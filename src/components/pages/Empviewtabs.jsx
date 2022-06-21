@@ -90,7 +90,7 @@ const Empviewtabs = () => {
               </AppBar>
               <TabPanel value={value} index={0}>
                 <div className="tab-outer-main"> 
-                  <div className="tab-outer darg-outer desktop-show">
+                  <div className="tab-outer darg-outer ">
                     <div style={{ display: "flex", justifyContent: "center", height: "100%", width: "100%",  }} >
                     <Emplyelist />
                     </div>

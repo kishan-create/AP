@@ -135,7 +135,7 @@ export default function Addorganization({ method }) {
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">
-                        Organization Type1
+                        Organization Type
                       </label>
                       <input
                         type="text"

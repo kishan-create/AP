@@ -54,13 +54,32 @@ const MultiValue = props => (
 );
 const animatedComponents = makeAnimated();
 
+// const userdata=[{name:"kiran"},{name:"anu"},{name:"akash"},{name:"aju"},];
+
+// const options = [
+//   { label: "Grapes 🍇", value: "grapes" },
+//   { label: "Mango 🥭", value: "mango" },
+//   { label: "Strawberry 🍓", value: "strawberry", disabled: true },
+// ];
+
+const fruits = [
+  { label: "Mango", value: "mg",'id':"test" },
+  { label: "Guava", value: "gv" },
+  { label: "Peach", value: "pc" },
+  { label: "Apple", value: "ap" },
+  { label: "sample", value: "mg",'id':"test" },
+];
+
 export default class Emplyelist extends Component {
  
 
   constructor() {
     super();
     this.state = {
+      // user:[],
+      // checked: false,
       checked: true,
+      // selected:[],
       employeelist: [],
       emplocation: [],
       designation: [],
@@ -69,10 +88,10 @@ export default class Emplyelist extends Component {
       selectedo: [],
       options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
       formData: {
-
         location_items: [],
         designation_items: [],
       },
+      // this.setState(user)
 
       count: 0
     };
@@ -87,9 +106,14 @@ export default class Emplyelist extends Component {
 
   componentDidMount = () => {
     this.fetchData();
+    // this.setState({user:userdata});
+    
+    // this.selected();
+    // this.state.user(userdata);
 
     this.getGetLocationName();
     this.getDesignationName();
+
   }
   componentDidUpdate(prevProps, prevState) {
 
@@ -129,7 +153,7 @@ export default class Emplyelist extends Component {
         employeelist: res.data.emp,
         loading: false,
       });
-
+    
     }
 
   }
@@ -230,12 +254,32 @@ export default class Emplyelist extends Component {
     });
   }
 
+  // onChangeCheckbox = e => {
+  //   const isChecked = !this.state.checked;
+  //   this.setState({
+  //     checked: isChecked,
+  //     values: isChecked ? options : this.state.values
+  //   });
+  // };
+  // onChange = opt => {
+  //   const allOptionsSelected = opt.length === options.length;
+  //   this.setState({
+  //     checked: allOptionsSelected ? true : false,
+  //     values: opt
+  //   });
+  // };
+
+  // checkhandleChange=(e)=>{
+  //   this.setState({user:e.target});
+  //   let tempuser=user.map(user=>user.name===name)
+  // }
   render() {
 
     return (
+      
       <div className="epmtab-w">
 
-
+ 
         <div className="emplyee-top">
           <div className="emplyesearch emplyesearch1">
             <input
@@ -267,7 +311,7 @@ export default class Emplyelist extends Component {
           </div>
 
           <div class="form-group emp-searc-location ">
-            <MySelect
+            <MySelect 
               options={this.state.designation}
               isMulti
               closeMenuOnSelect={false}
@@ -277,10 +321,9 @@ export default class Emplyelist extends Component {
               allowSelectAll={true}
               value={this.state.optionSelectedloc}
               displayValue="designation" // Property name to display in the dropdown options
-              name="designation" className="form-control"
+              name="designation" className="form-control "
             />
           </div>
-
 
           <div className="recruitment-top-right-box active-employee-top">
             <label className="active-swite-toggle">
@@ -292,33 +335,35 @@ export default class Emplyelist extends Component {
             </label>
           </div>
         </div>
+        
         <div className='onboarding-top-outer emp-active-box-outer '>
           <div className='box'>
             <div className="box-inner emp-active-box">
               <div className='left'>
                 <p>Active</p>
-                <span>120</span>
+                <span>{this.state.employeelist.length}</span>
               </div>
               <img src={Offboarding1} />
             </div>
             <div className="box-inner emp-active-box onboard-ligt-violet">
               <div className='left'>
                 <p>Notice Period</p>
-                <span>04</span>
+                <span>00</span>
               </div>
               <img src={Hirecompleted} />
             </div>
             <div className="box-inner emp-active-box onboard-ligt-blue">
               <div className='left'>
                 <p>Inactive</p>
-                <span>14</span>
+                <span>00</span>
               </div>
               <img src={Offboarding3} />
             </div>
           </div>
-
+          
         </div>
-        <div className="empoyee-list-content-are">
+       
+        <div className="empoyee-list-content-are ">
           <List>
             <ListItem>
               {this.state.employeelist.map((n) => {
@@ -328,7 +373,9 @@ export default class Emplyelist extends Component {
 
 
                 return (
-                  <div className="width-25 ">
+                  <div className="emp-card">
+                    
+                  <div className=" ">
                     <Link to={{
                       pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
                     }} >
@@ -345,14 +392,14 @@ export default class Emplyelist extends Component {
 
                           </div>
                           <div className="image-box" >
-                            <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
+                          <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
                           </div>
 
                           <Card.Header className="profile-name">
 
                             <span>  {n.emp_name}</span>
                             <p>{n.designation_name}
-                              <div className="m-t-rever-7">Emp Code: {n.emp_code}</div>
+                              <div className="m-t-rever-7"> {n.emp_code}</div>
                             </p>
 
                           </Card.Header>
@@ -378,7 +425,7 @@ export default class Emplyelist extends Component {
                             </div>
                             <div className="inner-section">
                               <div className="left">Total Experience</div>
-                              <div className="right">{n.fk_emp_previous_exp}</div>
+                              <div className="right">{n.exp}</div>
                             </div>
                             <div className="inner-section">
                               <div className="left">Department</div>
@@ -399,6 +446,7 @@ export default class Emplyelist extends Component {
 
                       </Card></Link>
                   </div>
+                  </div>
                 );
 
               })}
@@ -418,3 +466,31 @@ export default class Emplyelist extends Component {
     );
   }
 }
+
+
+
+// function Emplyelist(){
+//   const [,set]=useState([]);
+  
+  
+//   useEffect(()=>{
+//     set(userdata)
+//   },[]  );
+//   return(
+
+//     <div>
+//   <div>   
+// {.map((user)=>(
+
+// <div>
+// <input type="checkbox"/>
+// <label>usernames</label>
+// </div>
+// )) 
+// }
+        
+//     </div>
+//     </div> 
+//   );
+// }
+

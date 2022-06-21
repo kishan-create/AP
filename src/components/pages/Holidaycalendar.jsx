@@ -127,7 +127,7 @@ const data = [
                   Holiday Calendar
                   <div className="top-right-outer add-btn-div">
                     <Holidaypopup method = {this.fetchData} />
-                    {/* <Holilistpopup method = {this.fetchData} /> */}
+                
                   </div>
                 </div>
     

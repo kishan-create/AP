@@ -226,9 +226,7 @@ export default function Job(props) {
     e.preventDefault();
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
-    const res = await axios.delete(
-      `http://localhost:8000/api/deletefetchjobdata/${id}`
-    );
+    const res = await axios.delete(`http://localhost:8000/api/deletefetchjobdata/${id}`);
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
       alert("Branch Deleted successfully");

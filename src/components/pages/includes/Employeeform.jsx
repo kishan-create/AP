@@ -8,15 +8,14 @@ const Employeeform = (employee_val) => {
     emp_desigination: "",
     emp_joindate: "",
     emp_email: "",
-
-    emp_reportperson: "",
-
+   emp_reportperson: "",
     emp_teamsactiondate: "",
     emp_effectivedate: "",
     emp_positionno: "",
     emp_ou: "",
     emp_number: "",
     emp_gender: "",
+    
     parent_ou: "",
     emp_region: "",
     emp_reporting_person: "",
@@ -64,7 +63,7 @@ const Employeeform = (employee_val) => {
 
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, SetErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [options, setOptions] = useState(["Male", "Female"]);
   const[designation,SetDesignation]=useState([]);
@@ -88,6 +87,7 @@ const Employeeform = (employee_val) => {
       ...values,
       [name]: value,
     });
+
   };
 
   useEffect(() => {
@@ -101,17 +101,16 @@ const Employeeform = (employee_val) => {
     }
   }, [errors]);
 
-
   const GetDepartmentName = async () => {
     const response = await fetch(
       "http://localhost:8000/api/getDepartmentName"
     );
     const data = await response.json();
     const listd = data.department;
-    //console.log(listd);
+
     SetDepartments(listd);
   };
- // console.log(departments);
+
   const GetDesignationName=async()=>{ 
     const response = await fetch(
       "http://localhost:8000/api/getDesignationall"
@@ -133,13 +132,16 @@ const Employeeform = (employee_val) => {
       "http://localhost:8000/api/getLocationBranch"
     );
     const datalocation=await response.json();
+
     const location=datalocation.location;
     SetEmployeelocation(location);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const test = setErrors(employee_val(values));
+    const test = SetErrors(employee_val(values));
+    // setGender(e.target.value)
+    // setOptions("");
     setIsSubmitting(true);
 
   };
@@ -153,6 +155,7 @@ const Employeeform = (employee_val) => {
     formData.append("emp_joindate", values.emp_joindate);
     formData.append("emp_email", values.emp_email);
     formData.append("emp_prev_exp", values.emp_prev_exp);
+    formData.append("emp_number",values.emp_number);
     formData.append("emp_gender", values.emp_gender);
     formData.append("emp_holiday_calender", values.emp_holiday_calender);
     formData.append("emp_department", values.emp_department);
@@ -165,13 +168,17 @@ const Employeeform = (employee_val) => {
     );
     response.then(function(res) {
       if (res.data.status === 200) {
-        //console.log(res.data.message);
+     
         swal({
           title: "Good job!",
           text: "Employee added successfully",
           icon: "success",
           button: "ok",
         });
+    setOptions("");
+    
+    setOptions('');
+
         SetValues({
           emp_name: "",
           emp_code: "",
@@ -208,6 +215,8 @@ const Employeeform = (employee_val) => {
           emp_prev_exp:"",
            emp_primary_skill:"",
            emp_sec_skill:"",
+          emp_gender: "",
+
           // Personal form
           personal_address: "",
           personal_city: "",

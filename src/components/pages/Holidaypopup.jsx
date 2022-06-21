@@ -39,8 +39,7 @@ const options1 = [
 ];
 
 export default function Holidaypopup({method}) {
-  // console.log(method);
-  //  { <Holilistpopup methodlist = {method} /> }
+  
 
 
   const CustomTab = ({ children }) => (
@@ -62,7 +61,8 @@ export default function Holidaypopup({method}) {
   function openModal() {
     getOptionName();
     setIsOpen(true);
-    // setButtonText("Add Holiday");
+    
+
   }
 
   function afterOpenModal() {
@@ -72,7 +72,7 @@ export default function Holidaypopup({method}) {
 
   function closeModal() {
     setIsOpen(false);
-    // method();
+    method();
 
     
 
@@ -152,6 +152,7 @@ export default function Holidaypopup({method}) {
                   <div class="col-md-4">
                     <label for="exampleFormControlInput1">Type</label>
                     <select
+                      // onChange={handleChange}
                       onChange={handleClick}
                       value={typeDropdown}
                       id="typedropdown"
@@ -162,8 +163,9 @@ export default function Holidaypopup({method}) {
                       <option value="1">Location</option>
                       <option value="2">Project</option>
                     </select>
-                   
                     {errors.calander_type && <p className="message">{errors.calander_type}</p>}
+
+                   
 
 
                   </div>
@@ -206,8 +208,8 @@ export default function Holidaypopup({method}) {
                     >
                       <option value="">Select location name</option>
                       <option value="1">Kochi</option>
-                      <option value="2">Hydarabad</option>
-                      <option value="2">Buwaneswar</option>
+                      <option value="2">Hyderabad</option>
+                      <option value="2">bhubaneswar</option>
                     </select>
                     {errors.location_name && <p className="message">{errors.location_name}</p>}
 
@@ -220,7 +222,9 @@ export default function Holidaypopup({method}) {
                         class="form-control "
                         options={options} // Options to display in the dropdown
                         selectedValues={items} // Preselected value to persist in dropdown
-                        onSelect={handleSelect} // Function will trigger on select event
+                        // onSelect={handleSelect}
+                        onChange={handleChange}
+                      // Function will trigger on select event
                         onRemove={handleRemove} // Function will trigger on remove event
                         displayValue="hol_name" // Property name to display in the dropdown options
                         name="holiday_name_drop"

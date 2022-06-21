@@ -10,9 +10,6 @@ import { mdiEye } from "react-icons/md";
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 
 
- 
-
-  
 const Employee = () => {
    
  

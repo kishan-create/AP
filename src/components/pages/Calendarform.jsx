@@ -29,8 +29,7 @@ const Calendarform = (job_validation) => {
 
   const getPostname = async () => {
     const response = await fetch("http://localhost:8000/api/getHolidays");
-    // const response = await fetch("http://localhost:8000/api/getHolidaynames");
-    // const response = await fetch("http://localhost:8000/api/getHolidayslist");
+   
     const data = await response.json();
     const list = data.post;
     SetPost(list);
@@ -43,11 +42,8 @@ const Calendarform = (job_validation) => {
   };
   const onSubmitform = (e) => {
     //console.log(values)
-    const response = axios.post(
-      "http://localhost:8000/api/add_holidays",
-      values
-    );
-    response.then(function(res) {
+    const response = axios.post('http://localhost:8000/api/add_holidays', values);
+    response.then(function (res) {
       if (res.data.status === 200) {
         //console.log(res.data.message);
 

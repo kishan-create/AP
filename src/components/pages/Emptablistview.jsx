@@ -198,7 +198,7 @@ const data = [
             <TableCell className="width-18">Name</TableCell>
             <TableCell className="width-18">Employee Code</TableCell>
             <TableCell className="width-12">Designation</TableCell>
-            <TableCell className="width-15">Mail ID</TableCell>
+            <TableCell className="width-15">Mail ID </TableCell>
             <TableCell className="width-18">Total Experience</TableCell>
             <TableCell className="width-15">Location</TableCell>
                   <TableCell className="width-8">Action</TableCell>
@@ -212,7 +212,7 @@ const data = [
                     <TableCell  className="width-18"> {n.emp_name}</TableCell>
                     <TableCell numeric className="width-18">{n.emp_code}</TableCell>                          
                     <TableCell numeric className=" width-12">{n.designation_name} </TableCell>
-                    <TableCell numeric className=" width-12">{n.designation_status} </TableCell>
+                    {/* <TableCell numeric className=" width-12">{n.designation_status} </TableCell> */}
                     <TableCell numeric className=" width-15">{n.emp_company_email_id} </TableCell>
                     <TableCell numeric className="width-18">{n.fk_emp_previous_exp}</TableCell>
                     <TableCell numeric className="width-15">{n.emp_location}</TableCell>
@@ -223,7 +223,7 @@ const data = [
                {/* <a href="`/Employeeprofile/${n.id}`,"> */}
                <Link
                             to={{
-                              pathname: `/Employeeprofile/${n.id}`,
+                              pathname: `/Employeeprofile/${n.empid}`,
     
                               data: n.id, // your data array of objects
                             }}

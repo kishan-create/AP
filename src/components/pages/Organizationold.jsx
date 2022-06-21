@@ -603,9 +603,7 @@ export default function Organizationold() {
   // const [branch, setBranch] = useState([]);
 
   const fetchData = async () => {
-    const res = await axios.get(
-      "http://localhost:8000/api/getOrganizationvalues"
-    );
+    const res = await axios.get("http://localhost:8000/api/getOrganizationvalues");
     const org = res.data.org;
     // const branch = res.data.branch;
     // setBranch(branch);
