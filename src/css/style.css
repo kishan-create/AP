@@ -953,7 +953,7 @@ label {
   float: right;
   width: auto;
   padding-right: 20px;
-  padding-top: 10px;
+  padding-top: 3px;
 }
 
 .recruitment-tabele thead {
@@ -1320,8 +1320,8 @@ a.download-bt svg {
     float: left;
     display: block;
     height: auto;
-    padding-left: 10px !important;
-    padding: 12px 15px;
+    padding-left: 2px !important;
+    padding: 11px 2px;
 }
 .emplyee-card-left {
   width: 10px;
@@ -1384,7 +1384,7 @@ a.download-bt svg {
   float: left;
   display: block;
   width: 100%;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 16px;
   color: #4a54d1;
   padding-bottom: 8px;

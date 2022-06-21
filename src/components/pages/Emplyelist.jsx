@@ -294,7 +294,7 @@ export default class Emplyelist extends Component {
               <FaSearch className="add-btn-icon" />
             </button>
           </div>
-          <div class="form-group emp-searc-location ">
+          <div class="form-group emp-searc-location emp-m-r-5 ">
             <MySelect
               options={this.state.emplocation}
               isMulti
@@ -310,7 +310,7 @@ export default class Emplyelist extends Component {
             />
           </div>
 
-          <div class="form-group emp-searc-location ">
+          <div class="form-group emp-searc-location emp-m-l-5 ">
             <MySelect 
               options={this.state.designation}
               isMulti
@@ -414,9 +414,9 @@ export default class Emplyelist extends Component {
                           <Card.Description className="profile-content">
 
                             <div className="inner-section">
-                              <div className="left">Mail ID</div>
+                              <div className="left">  {n.emp_company_email_id}</div>
                               <div className="right">
-                                {n.emp_company_email_id}
+                              
                               </div>
                             </div>
                             <div className="inner-section">

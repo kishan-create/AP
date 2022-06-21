@@ -34,12 +34,12 @@
     padding-right: 10px;
   }
   .profile-name span {
-    font-size: 14px;
+    font-size: 13px;
     padding-bottom: 2px;
   }
   .profile-name p {
     font-size: 13px;
-    line-height: 20px;
+    line-height: 12px;
   }
   .profile-location-right .buttons-outer a {
     padding: 8px 10px;
@@ -74,7 +74,7 @@
     width: 72%;
   }
   .onboarding-top-outer .box-inner .left p {
-    font-size: 20px;
+    font-size: 15px;
   }
   .onboarding-top-outer .box-inner img {
     width: 60px;
@@ -104,6 +104,10 @@
   justify-content: center;
   grid-gap: 25px;
 }
+.emp-active-box {
+  padding: 5px 22px !important;
+  padding: 4px 22px !important;
+}
 }
 .ReactModal__Overlay {
   position: fixed;
@@ -116,12 +120,12 @@
     padding: 48px 0 48px 0;
     margin: 20px 0 0 15px;
     display: grid !important;
-    grid-template-columns: repeat(4, 22.8%);
+    grid-template-columns: repeat(3, 31.1%);
     justify-content: center;
     grid-gap: 25px;
   }
   .profile-name {
-    width: 88%;
+    width: 62%;
     float: left;
     margin-top: 0px;
     display: block;
@@ -265,7 +269,7 @@
   padding: 48px 0 48px 0;
   margin: 20px 0 0 15px;
   display: grid !important;
-  grid-template-columns: repeat(4, 22.6%);
+  grid-template-columns: repeat(3, 30.6%);
   justify-content: center;
   grid-gap: 25px;
 }
@@ -303,8 +307,8 @@
   width: 70px;
 }
 .profile-name {
-  width: 57%;
-  margin-bottom: 20px;
+  width: 65%;
+  margin-bottom: 5px;
 }
 }
 
@@ -366,7 +370,7 @@
     width: 77%;
   }
   .onboarding-top-outer .box-inner .left p {
-    font-size: 17px;
+    font-size: 15px;
   }
   .onboarding-top-outer .box-inner .left span {
     font-size: 23px;
@@ -379,7 +383,7 @@
     width: 15%;
   }
   .profile-name {
-    width: 100%;
+    width: 62%;
     float: left;
     margin-top: 0px;
     display: block;
@@ -394,7 +398,7 @@
   grid-gap: 25px;
 }
 .onboarding-top-outer .box-inner .left p {
-  padding-bottom: 7px;
+  padding-bottom: 2px;
 }
 
 .onboarding-top-outer .box-inner {
@@ -547,7 +551,7 @@
   }
   
   .profile-name {
-    width: 57%;
+    width: 59%;
     margin-bottom: 20px;
   }
 }
@@ -636,7 +640,9 @@
   }
   .onboarding-top-outer .box {
     grid-gap: 30px 24px;
-    gap: 30px 21px;
+    gap: 16px 18px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: minmax(48px, auto);
   }
   .onboard-top-select-outer .select {
     grid-gap: 30px 24px;
@@ -867,8 +873,14 @@
     width: auto;
     margin-bottom: -34px;
     padding-left: 0;
-    padding-top: 20px;
+    padding-top: 2px;
   }
+  .active-employee-top {
+    width: auto;
+    margin-bottom: -5px;
+    padding-left: 0;
+    margin-top: -20px;
+}
   .profile-basic-righ {
     width: 50%;
   }
@@ -961,6 +973,7 @@
     min-width: 100%;
     float: left;
     position: relative;
+    margin-bottom: 15px;
   }
   .asset-right-dropdwn {
     float: left;
@@ -1047,6 +1060,21 @@
   flex: 45%;
   
 }
+.emp-searc-location {
+  min-width: 49%;
+  float: left;
+  margin-left: 0px;
+  width: auto;
+  margin-right: 0px;
+}
+.emp-m-r-5 {
+    margin-right: 6px;
+  
+}
+.emp-m-l-5 {
+  margin-left: 6px;
+ 
+}
 }
 @media only screen and (max-width: 767px) {
   .calendar-width {
@@ -1059,7 +1087,7 @@
     margin-left: 0;
   }
   .recruitment-top-right-box {
-    padding-left: 12px;
+    padding-left: 1px;
   }
   .job-outer {
     margin-left: 0px;
@@ -1223,6 +1251,8 @@
   }
   .active-employee-top {
     width: 100%;
+    margin-top: -20px;
+    margin-bottom: 0px;
   }
   .emplyesearch {
     width: 100%;
@@ -1333,6 +1363,19 @@
   justify-content: center;
   grid-gap: 25px;
 }
+.emp-searc-location {
+  min-width: 49%;
+  float: left;
+  margin-left: 0px;
+  width: auto;
+  margin-right: 0px;
+}
+.emp-m-r-5 {
+    margin-right: 4px;
+}
+.emp-m-l-5 {
+  margin-left: 4px;
+}
 }
 @media only screen and (max-width: 650px) {
   .listview-mob-top .col-2 {
@@ -1376,7 +1419,7 @@
     grid-template-columns: repeat(1, 1fr);
   }
   .onboarding-top-outer .box-inner .left span {
-    font-size: 34px;
+    font-size: 22px;
   }
   .onboarding-top-outer {
     padding-left: 10px;
