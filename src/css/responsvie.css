@@ -120,7 +120,7 @@
     padding: 48px 0 48px 0;
     margin: 20px 0 0 15px;
     display: grid !important;
-    grid-template-columns: repeat(3, 31.1%);
+    grid-template-columns: repeat(3, 31.3%);
     justify-content: center;
     grid-gap: 25px;
   }
@@ -269,7 +269,7 @@
   padding: 48px 0 48px 0;
   margin: 20px 0 0 15px;
   display: grid !important;
-  grid-template-columns: repeat(3, 30.6%);
+  grid-template-columns: repeat(3, 30.9%);
   justify-content: center;
   grid-gap: 25px;
 }
