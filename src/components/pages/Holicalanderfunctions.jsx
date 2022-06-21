@@ -61,7 +61,7 @@ const [rows,setRows]=useState({});
     formData.append("id", ids);
     const res = await axios.post(
 
-      "http://auditportal.bourntec.com:3001/audit_portal/public/api/addtoExistingValue", formData );
+      "http://localhost:8000/api/addtoExistingValue", formData );
   
       closeModal();
     if(res.data.status===200){
@@ -84,7 +84,7 @@ const [rows,setRows]=useState({});
     const formData = new FormData();
      formData.append("holiday_name_drop", JSON.stringify(items));
     const res = axios.post(
-      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getholidysbyid",
+      "http://localhost:8000/api/getholidysbyid",
       formData
     );
  

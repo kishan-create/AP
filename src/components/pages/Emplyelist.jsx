@@ -131,10 +131,10 @@ export default class Emplyelist extends Component {
     //var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
     formData.append("emp_lo", JSON.stringify(this.state.formData));
     // const response = await axios.get(
-    //`http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation/${id}`
+    //`http://localhost:8000/api/getEmployeebylocation/${id}`
     // );
     const response = await axios.post(
-      "http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation",
+      "http://localhost:8000/api/getEmployeebylocation",
       formData
     );
     if (response.data.status === 200) {
@@ -147,18 +147,18 @@ export default class Emplyelist extends Component {
 
   }
   fetchData = async () => {
-    const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
+    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
     if (res.data.status === 200) {
       this.setState({
         employeelist: res.data.emp,
         loading: false,
       });
-
+    
     }
 
   }
   getGetLocationName = async () => {
-    const response = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getLocationBranchDrop");
+    const response = await axios.get("http://localhost:8000/api/getLocationBranchDrop");
 
     if (response.data.status === 200) {
       this.setState({
@@ -185,7 +185,7 @@ export default class Emplyelist extends Component {
 
   }
   getDesignationName = async () => {
-    const response = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getDesignationall");
+    const response = await axios.get("http://localhost:8000/api/getDesignationall");
     if (response.data.status === 200) {
       this.setState({
         designation: response.data.designation,
@@ -341,21 +341,21 @@ export default class Emplyelist extends Component {
             <div className="box-inner emp-active-box">
               <div className='left'>
                 <p>Active</p>
-                <span>120</span>
+                <span>{this.state.employeelist.length}</span>
               </div>
               <img src={Offboarding1} />
             </div>
             <div className="box-inner emp-active-box onboard-ligt-violet">
               <div className='left'>
                 <p>Notice Period</p>
-                <span>04</span>
+                <span>00</span>
               </div>
               <img src={Hirecompleted} />
             </div>
             <div className="box-inner emp-active-box onboard-ligt-blue">
               <div className='left'>
                 <p>Inactive</p>
-                <span>14</span>
+                <span>00</span>
               </div>
               <img src={Offboarding3} />
             </div>
@@ -392,7 +392,7 @@ export default class Emplyelist extends Component {
 
                           </div>
                           <div className="image-box" >
-                          <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/" + n.image} />
+                          <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
                           </div>
 
                           <Card.Header className="profile-name">
@@ -425,7 +425,7 @@ export default class Emplyelist extends Component {
                             </div>
                             <div className="inner-section">
                               <div className="left">Total Experience</div>
-                              <div className="right">{n.fk_emp_previous_exp}</div>
+                              <div className="right">{n.exp}</div>
                             </div>
                             <div className="inner-section">
                               <div className="left">Department</div>

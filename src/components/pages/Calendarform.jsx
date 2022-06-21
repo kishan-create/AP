@@ -28,7 +28,7 @@ const Calendarform = (job_validation) => {
   }, [errors]);
 
   const getPostname = async () => {
-    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidays");
+    const response = await fetch("http://localhost:8000/api/getHolidays");
    
     const data = await response.json();
     const list = data.post;
@@ -42,7 +42,7 @@ const Calendarform = (job_validation) => {
   };
   const onSubmitform = (e) => {
     //console.log(values)
-    const response = axios.post('http://auditportal.bourntec.com:3001/audit_portal/public/api/add_holidays', values);
+    const response = axios.post('http://localhost:8000/api/add_holidays', values);
     response.then(function (res) {
       if (res.data.status === 200) {
         //console.log(res.data.message);

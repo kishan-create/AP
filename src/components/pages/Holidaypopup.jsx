@@ -93,7 +93,7 @@ export default function Holidaypopup({method}) {
     handleRemove,
   } = Calendarfunctions(calendar_validation);
   const getOptionName = async () => {
-    const res = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getHolidayslist");
+    const res = await fetch("http://localhost:8000/api/getHolidayslist");
 
     const data = await res.json();
 

@@ -85,7 +85,7 @@ const useForm = (validate) => {
     });
   };
   const getpostName = async () => {
-    const response = await fetch("http://auditportal.bourntec.com:3001/audit_portal/public/api/getJobs");
+    const response = await fetch("http://localhost:8000/api/getJobs");
     const data = await response.json();
 
     const listnewtest = data.job;
@@ -150,7 +150,7 @@ const useForm = (validate) => {
     formData.append("skillset_input", selectedOption);
     //values.append('resume',pics.resume);
     const promise = axios.post(
-      "http://auditportal.bourntec.com:3001/audit_portal/public/api/add_employee_first",
+      "http://localhost:8000/api/add_employee_first",
       formData
     );
     promise.then(function(res) {

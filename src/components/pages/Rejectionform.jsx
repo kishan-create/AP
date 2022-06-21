@@ -34,7 +34,7 @@ const Rejectionform = (rejection_validation) => {
   }, [errorsrejection]);
   const onSubmitform = (e) => {
     const response = axios.post(
-      "http://auditportal.bourntec.com:3001/audit_portal/public/api/add_rejection",
+      "http://localhost:8000/api/add_rejection",
       valuesrejection
     );
     response.then(function(res) {

@@ -62,7 +62,7 @@ const data = [
    }
     getallHolidays=async(id) =>{
     const reponse = await axios.get(
-      `http://auditportal.bourntec.com:3001/audit_portal/public/api/getholidysbyid/${id}` );
+      `http://localhost:8000/api/getholidysbyid/${id}` );
       if (reponse.data.status === 200) {
         this.setState({
           holiday: reponse.data.holidaylist,
@@ -75,7 +75,7 @@ const data = [
     handleoption=async(e)=> {
    var id=e.target.value;
    const reponse = await axios.get(
-    `http://auditportal.bourntec.com:3001/audit_portal/public/api/getupdateholiday/${id}` );
+    `http://localhost:8000/api/getupdateholiday/${id}` );
     
     
     this.getallHolidays(this.props.match.params.id);
@@ -92,7 +92,7 @@ const data = [
 
     const res = await axios.get(
 
-      `http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_holidaynames/${id}`
+      `http://localhost:8000/api/delete_holidaynames/${id}`
 
     );
 

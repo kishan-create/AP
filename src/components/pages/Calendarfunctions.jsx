@@ -86,7 +86,7 @@ const [holidaylist,SetHolidaylist]=useState();
     formData.append("location_name", values.location_name);
     formData.append("holiday_name_drop", JSON.stringify(items));
     const response = axios.post(
-      "http://auditportal.bourntec.com:3001/audit_portal/public/api/add_holidays_calendar",
+      "http://localhost:8000/api/add_holidays_calendar",
       formData
     );
     response.then(function(res) {

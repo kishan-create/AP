@@ -78,7 +78,7 @@ const data = [
     }
     fetchData = async () => {
 
-      const res = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
+      const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
           if (res.data.status === 200) {
                 this.setState({
                   employeelist: res.data.emp,
@@ -89,7 +89,7 @@ const data = [
              
     }
     getGetLocationName = async() => {
-      const response = await axios.get("http://auditportal.bourntec.com:3001/audit_portal/public/api/getLocationBranch");
+      const response = await axios.get("http://localhost:8000/api/getLocationBranch");
       console.log(response);
     }
     handleChange(checked) {
@@ -102,7 +102,7 @@ const data = [
       thisclickrow.innerText = "Deleting";
       const res = await axios.delete(
   
-        `http://auditportal.bourntec.com:3001/audit_portal/public/api/delete_Employee/${id}`
+        `http://localhost:8000/api/delete_Employee/${id}`
   
       );
       if (res.data.status == 200) {
