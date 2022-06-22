@@ -280,8 +280,8 @@ export default class Emplyelist extends Component {
       <div className="epmtab-w">
 
  
-        <div className="emplyee-top">
-          <div className="emplyesearch emplyesearch1">
+        <div className="m-t-25  form-group ">
+          <div className="emp-srch col-md-3">
             <input
               className="form-control"
               type="text"
@@ -294,7 +294,7 @@ export default class Emplyelist extends Component {
               <FaSearch className="add-btn-icon" />
             </button>
           </div>
-          <div class="form-group emp-searc-location emp-m-r-5 ">
+          <div class=" col-md-3">
             <MySelect
               options={this.state.emplocation}
               isMulti
@@ -309,9 +309,8 @@ export default class Emplyelist extends Component {
               placeholder="Location" className="form-control"
             />
           </div>
-
-          <div class="form-group emp-searc-location emp-m-l-5 ">
-            <MySelect 
+          <div class=" col-md-3 ">
+          <MySelect 
               options={this.state.designation}
               isMulti
               closeMenuOnSelect={false}
@@ -321,19 +320,26 @@ export default class Emplyelist extends Component {
               allowSelectAll={true}
               value={this.state.optionSelectedloc}
               displayValue="designation" // Property name to display in the dropdown options
-              name="designation" className="form-control "
+              name="designation"  placeholder="Designation" className="form-control "
             />
           </div>
-
-          <div className="recruitment-top-right-box active-employee-top">
-            <label className="active-swite-toggle">
-              <span>Active Employees</span>
-              <Switch
-                onChange={this.handleChange}
-                checked={this.state.checked}
-              />
-            </label>
+          <div class=" col-md-3">
+          <MySelect
+              options={this.state.emplocation}
+              isMulti
+              closeMenuOnSelect={false}
+              hideSelectedOptions={false}
+              components={{ Option, MultiValue, animatedComponents }}
+              onChange={this.handleEmployeelocation}
+              allowSelectAll={true}
+              value={this.state.optionSelected}
+              displayValue="Skil Set" // Property name to display in the dropdown options
+              name="location"
+              placeholder="Skil Set" className="form-control"
+            />
           </div>
+           
+          
         </div>
         
         <div className='onboarding-top-outer emp-active-box-outer '>
@@ -400,6 +406,7 @@ export default class Emplyelist extends Component {
                             <span>  {n.emp_name}</span>
                             <p>{n.designation_name}
                               <div className="m-t-rever-7"> {n.emp_code}</div>
+                             <a href="" className="mail-undrln">{n.emp_company_email_id}</a> 
                             </p>
 
                           </Card.Header>
@@ -413,12 +420,7 @@ export default class Emplyelist extends Component {
                           </div>
                           <Card.Description className="profile-content">
 
-                            <div className="inner-section">
-                              <div className="left">  {n.emp_company_email_id}</div>
-                              <div className="right">
-                              
-                              </div>
-                            </div>
+                            
                             <div className="inner-section">
                               <div className="left">Joining Date</div>
                               <div className="right"> {n.emp_joining_date}</div>
@@ -430,6 +432,10 @@ export default class Emplyelist extends Component {
                             <div className="inner-section">
                               <div className="left">Department</div>
                               <div className="right">{n.department_name}</div>
+                            </div>
+                            <div className="inner-section">
+                              <div className="left">  Skill Set</div>
+                              <div className="right"> Java </div>
                             </div>
                             <div className="inner-section m-t-rever-10 ">
                               <div className="left">
