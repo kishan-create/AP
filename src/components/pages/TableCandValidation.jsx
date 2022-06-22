@@ -45,7 +45,7 @@ const TableCandValidation = (setIsOpen) => {
     });
   };
   const getpostName = async () => {
-    const response = await fetch("http://localhost:8000/api/getJobs");
+    const response = await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getJobs");
     const data = await response.json();
 
     const listnewtest = data.job;
@@ -58,7 +58,7 @@ const TableCandValidation = (setIsOpen) => {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
     const res = await axios.get(
-      `http://localhost:8000/api/deleteCandidate/${id}`
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/deleteCandidate/${id}`
     );
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
@@ -71,7 +71,7 @@ const TableCandValidation = (setIsOpen) => {
     // setIsSubmitting(true);
 
     const promise = axios.post(
-      `http://localhost:8000/api/updaterecruitement`,
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/updaterecruitement`,
       values
     );
     promise.then(function(res) {

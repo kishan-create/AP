@@ -32,12 +32,12 @@ const Designationfunction = (designation_validation) => {
   }, [errors]);
 
   /* const loadOrganization = async () => {
-    const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
+    const orgresponse=await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getOrganization/");
     setOrg(orgresponse.data);
   }*/
   const getDepartmentName = async () => {
     const response = await fetch(
-      "http://localhost:8000/api/getDepartmentName"
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getDepartmentName"
     );
     const data = await response.json();
 
@@ -57,7 +57,7 @@ const Designationfunction = (designation_validation) => {
   const onSubmitform = (e) => {
     //console.log(values)
     const response = axios.post(
-      "http://localhost:8000/api/add_designation",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/add_designation",
       values
     );
     response.then(function(res) {

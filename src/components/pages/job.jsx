@@ -181,19 +181,19 @@ export default function Job(props) {
     getLocation();
   }, []);
   const loadJobs = async () => {
-    const res = await fetch("http://localhost:8000/api/getJobs");
+    const res = await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getJobs");
     const data = await res.json();
     const list = data.job;
     SetJoblist(list);
   };
   const getLocation = async () => {
-    const res = await fetch("http://localhost:8000/api/getLocationBranch");
+    const res = await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getLocationBranch");
     const data = await res.json();
     const list = data.location;
     SetLocation(list);
   };
   const getPostname = async () => {
-    const response = await fetch("http://localhost:8000/api/getposttype");
+    const response = await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getposttype");
     const data = await response.json();
     const list = data.post;
     SetPostvalues(list);
@@ -201,7 +201,7 @@ export default function Job(props) {
   const Edit_job = async (id) => {
     const job_id = id;
     const reponse = await axios.get(
-      `http://localhost:8000/api/editfecthjobdata/${job_id}`
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/editfecthjobdata/${job_id}`
     );
    
     if (reponse.data.status == 200) {
@@ -226,7 +226,7 @@ export default function Job(props) {
     e.preventDefault();
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
-    const res = await axios.delete(`http://localhost:8000/api/deletefetchjobdata/${id}`);
+    const res = await axios.delete(`http://auditportal2.bourntec.com:3001/audit_portal/public/api/deletefetchjobdata/${id}`);
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
       alert("Branch Deleted successfully");
@@ -234,7 +234,7 @@ export default function Job(props) {
   };
   const updateOrganization = async (e) => {
     e.preventDefault();
-    const res = await axios.put("http://localhost:8000/api/update_job", values);
+    const res = await axios.put("http://auditportal2.bourntec.com:3001/audit_portal/public/api/update_job", values);
     if (res.data.status == 200) {
       swal({
         title: "Good job!",

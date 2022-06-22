@@ -29,12 +29,12 @@ const Personalform = (personal_validation) => {
   }, [errors]);
 
   // const loadOrganization = async () => {
-  //   const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
+  //   const orgresponse=await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getOrganization/");
   
   // }
   const getSelectDropdown = async () => {
     const response = await fetch(
-      "http://localhost:8000/api/getOrgnaization_type"
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getOrgnaization_type"
     );
     const data = await response.json();
     const list = data.list;
@@ -47,7 +47,7 @@ const Personalform = (personal_validation) => {
   const onSubmitform = (e) => {
     //console.log(values)
     const response = axios.post(
-      "http://localhost:8000/api/add_organization",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/add_organization",
       values
     );
     response.then(function(res) {

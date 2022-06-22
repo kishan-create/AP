@@ -131,10 +131,10 @@ export default class Emplyelist extends Component {
     //var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
     formData.append("emp_lo", JSON.stringify(this.state.formData));
     // const response = await axios.get(
-    //`http://localhost:8000/api/getEmployeebylocation/${id}`
+    //`http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation/${id}`
     // );
     const response = await axios.post(
-      "http://localhost:8000/api/getEmployeebylocation",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation",
       formData
     );
     if (response.data.status === 200) {
@@ -147,7 +147,7 @@ export default class Emplyelist extends Component {
 
   }
   fetchData = async () => {
-    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
+    const res = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
     if (res.data.status === 200) {
       this.setState({
         employeelist: res.data.emp,
@@ -158,7 +158,7 @@ export default class Emplyelist extends Component {
 
   }
   getGetLocationName = async () => {
-    const response = await axios.get("http://localhost:8000/api/getLocationBranchDrop");
+    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getLocationBranchDrop");
 
     if (response.data.status === 200) {
       this.setState({
@@ -185,7 +185,7 @@ export default class Emplyelist extends Component {
 
   }
   getDesignationName = async () => {
-    const response = await axios.get("http://localhost:8000/api/getDesignationall");
+    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getDesignationall");
     if (response.data.status === 200) {
       this.setState({
         designation: response.data.designation,
@@ -392,7 +392,7 @@ export default class Emplyelist extends Component {
 
                           </div>
                           <div className="image-box" >
-                          <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
+                          <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/" + n.image} />
                           </div>
 
                           <Card.Header className="profile-name">
