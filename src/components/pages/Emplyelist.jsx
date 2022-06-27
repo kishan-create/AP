@@ -226,6 +226,8 @@ export default class Emplyelist extends Component {
       searchname: event.target.value,
      
     });
+    this.handleSubmitSearch(event.target.value);
+   
    
   }
   
@@ -300,11 +302,12 @@ export default class Emplyelist extends Component {
 
     });
   }
-  handleSubmitSearch =async(e)=>
+  handleSubmitSearch =async(name)=>
   {
-    e.preventDefault();
+   if(name!="")
+   {
     const response = await axios.get(
-      `http://localhost:8000/api/searchbyButton/${this.state.searchname}` );
+      `http://localhost:8000/api/searchbyButton/${name}` );
       if (response.data.status === 200) {
         this.setState({
           employeelist: response.data.emp,
@@ -312,6 +315,10 @@ export default class Emplyelist extends Component {
         });
   
       }
+    }
+    else {
+      this.fetchData();
+    }
     
   }
   // onChangeCheckbox = e => {
@@ -341,7 +348,7 @@ export default class Emplyelist extends Component {
 
  
         <div className="m-t-25  form-group ">
-        <form  onSubmit={this.handleSubmitSearch} className="form" noValidate>
+       
           <div className="emp-srch col-md-3">
             <input
               className="form-control"
@@ -352,12 +359,12 @@ export default class Emplyelist extends Component {
               onChange={this.SearchHandler}
               placeholder="Emp ID,Emp Name "
             />
-            <button type="submit">
+            <button >
               {" "}
               <FaSearch className="add-btn-icon" />
             </button>
           </div>
-          </form>
+          
           <div class=" col-md-3">
             <MySelect
               options={this.state.emplocation}
@@ -389,17 +396,16 @@ export default class Emplyelist extends Component {
           </div>
           <div class=" col-md-3">
           <MySelect
-              options={this.state.emplocation}
-              isMulti
-              closeMenuOnSelect={false}
-              hideSelectedOptions={false}
-              components={{ Option, MultiValue, animatedComponents }}
-              onChange={this.handleEmployeelocation}
-              allowSelectAll={true}
-              value={this.state.optionSelected}
-              displayValue="Skil Set" // Property name to display in the dropdown options
-              name="location"
-              placeholder="Skil Set" className="form-control"
+             options={this.state.skillset}
+             isMulti
+             closeMenuOnSelect={false}
+             hideSelectedOptions={false}
+             components={{ Option, MultiValue, animatedComponents }}
+             onChange={this.handleEmployeeskill}
+             allowSelectAll={true}
+             value={this.state.optionSelectedskill}
+             displayValue="skillset" // Property name to display in the dropdown options
+             name="skillset" placeholder="Skillset" className="form-control"
             />
           </div>
            
