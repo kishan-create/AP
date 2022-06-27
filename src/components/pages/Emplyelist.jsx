@@ -178,7 +178,7 @@ export default class Emplyelist extends Component {
 
   }
   getSkillName = async()=> {
-    const response = await axios.get("http://localhost:8000/api/getskillset");
+    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getskillset");
     if (response.data.status === 200) {
       this.setState({
         skillset: response.data.skill,
@@ -304,7 +304,7 @@ export default class Emplyelist extends Component {
   {
     e.preventDefault();
     const response = await axios.get(
-      `http://localhost:8000/api/searchbyButton/${this.state.searchname}` );
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/searchbyButton/${this.state.searchname}` );
       if (response.data.status === 200) {
         this.setState({
           employeelist: response.data.emp,
@@ -389,17 +389,16 @@ export default class Emplyelist extends Component {
           </div>
           <div class=" col-md-3">
           <MySelect
-              options={this.state.emplocation}
-              isMulti
-              closeMenuOnSelect={false}
-              hideSelectedOptions={false}
-              components={{ Option, MultiValue, animatedComponents }}
-              onChange={this.handleEmployeelocation}
-              allowSelectAll={true}
-              value={this.state.optionSelected}
-              displayValue="Skil Set" // Property name to display in the dropdown options
-              name="location"
-              placeholder="Skil Set" className="form-control"
+             options={this.state.skillset}
+             isMulti
+             closeMenuOnSelect={false}
+             hideSelectedOptions={false}
+             components={{ Option, MultiValue, animatedComponents }}
+             onChange={this.handleEmployeeskill}
+             allowSelectAll={true}
+             value={this.state.optionSelectedskill}
+             displayValue="skillset" // Property name to display in the dropdown options
+             name="skillset" placeholder="Skillset" className="form-control"
             />
           </div>
            
