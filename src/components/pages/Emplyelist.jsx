@@ -140,10 +140,10 @@ export default class Emplyelist extends Component {
     //var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
     formData.append("emp_lo", JSON.stringify(this.state.formData));
     // const response = await axios.get(
-    //`http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation/${id}`
+    //`http://localhost:8000/api/getEmployeebylocation/${id}`
     // );
     const response = await axios.post(
-      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation",
+      "http://localhost:8000/api/getEmployeebylocation",
       formData
     );
     if (response.data.status === 200) {
@@ -156,7 +156,7 @@ export default class Emplyelist extends Component {
 
   }
   fetchData = async () => {
-    const res = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
+    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
     if (res.data.status === 200) {
       this.setState({
         employeelist: res.data.emp,
@@ -167,7 +167,7 @@ export default class Emplyelist extends Component {
 
   }
   getGetLocationName = async () => {
-    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getLocationBranchDrop");
+    const response = await axios.get("http://localhost:8000/api/getLocationBranchDrop");
 
     if (response.data.status === 200) {
       this.setState({
@@ -179,7 +179,7 @@ export default class Emplyelist extends Component {
 
   }
   getSkillName = async()=> {
-    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getskillset");
+    const response = await axios.get("http://localhost:8000/api/getskillset");
     if (response.data.status === 200) {
       this.setState({
         skillset: response.data.skill,
@@ -204,7 +204,7 @@ export default class Emplyelist extends Component {
 
   }
   getDesignationName = async () => {
-    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getDesignationall");
+    const response = await axios.get("http://localhost:8000/api/getDesignationall");
     if (response.data.status === 200) {
       this.setState({
         designation: response.data.designation,

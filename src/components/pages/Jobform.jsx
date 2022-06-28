@@ -35,11 +35,11 @@ const Jobform = (job_validation) => {
   }, [errors]);
 
   /* const loadOrganization = async () => {
-    const orgresponse=await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getOrganization/");
+    const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
     setOrg(orgresponse.data);
   }*/
   const getPostname = async () => {
-    const response = await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getposttype");
+    const response = await fetch("http://localhost:8000/api/getposttype");
     const data = await response.json();
     const list = data.post;
     SetPost(list);
@@ -52,7 +52,7 @@ const Jobform = (job_validation) => {
   };
   const onSubmitform = (e) => {
     //console.log(values)
-    const response = axios.post("http://auditportal2.bourntec.com:3001/audit_portal/public/api/add_jobs", values);
+    const response = axios.post("http://localhost:8000/api/add_jobs", values);
     response.then(function(res) {
       if (res.data.status === 200) {
         //console.log(res.data.message);
