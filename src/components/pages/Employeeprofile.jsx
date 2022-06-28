@@ -18,7 +18,7 @@ const Employeeprofile = () => {
 const getEmployeeDetails = async (id) => {
     
       const reponse = await axios.get(
-            `http://localhost:8000/api/GetEmployeeFullDetails/${id}` );
+            `http://auditportal2.bourntec.com:3001/audit_portal/public/api/GetEmployeeFullDetails/${id}` );
             const emp = reponse.data.emp;
             setRows(emp);
 }

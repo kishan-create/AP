@@ -84,13 +84,18 @@ export default class Emplyelist extends Component {
       employeelist: [],
       emplocation: [],
       designation: [],
+      skillset :[],
+      searchname: '',
       optionSelected: null,
       optionSelectedloc: null,
+      optionSelectedskill:null,
       selectedo: [],
       options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
       formData: {
         location_items: [],
         designation_items: [],
+        skillset_items:[],
+
       },
       // this.setState(user)
 
@@ -101,8 +106,10 @@ export default class Emplyelist extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.onSelectLocation = this.onSelectLocation.bind(this);
     this.onSelectDesignation = this.onSelectDesignation.bind(this);
+    this.handleEmployeeskill = this.handleEmployeeskill.bind(this);
     this.onRemove = this.onRemove.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.SearchHandler = this.SearchHandler.bind(this);
   }
 
   componentDidMount = () => {
@@ -114,6 +121,7 @@ export default class Emplyelist extends Component {
 
     this.getGetLocationName();
     this.getDesignationName();
+    this.getSkillName();
 
   }
   componentDidUpdate(prevProps, prevState) {
@@ -132,10 +140,10 @@ export default class Emplyelist extends Component {
     //var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
     formData.append("emp_lo", JSON.stringify(this.state.formData));
     // const response = await axios.get(
-    //`http://localhost:8000/api/getEmployeebylocation/${id}`
+    //`http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation/${id}`
     // );
     const response = await axios.post(
-      "http://localhost:8000/api/getEmployeebylocation",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation",
       formData
     );
     if (response.data.status === 200) {
@@ -148,7 +156,7 @@ export default class Emplyelist extends Component {
 
   }
   fetchData = async () => {
-    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
+    const res = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
     if (res.data.status === 200) {
       this.setState({
         employeelist: res.data.emp,
@@ -159,7 +167,7 @@ export default class Emplyelist extends Component {
 
   }
   getGetLocationName = async () => {
-    const response = await axios.get("http://localhost:8000/api/getLocationBranchDrop");
+    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getLocationBranchDrop");
 
     if (response.data.status === 200) {
       this.setState({
@@ -169,6 +177,16 @@ export default class Emplyelist extends Component {
 
     }
 
+  }
+  getSkillName = async()=> {
+    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getskillset");
+    if (response.data.status === 200) {
+      this.setState({
+        skillset: response.data.skill,
+        loading: false,
+      });
+
+    }
   }
 
   handleSelect = async (e) => {
@@ -186,7 +204,7 @@ export default class Emplyelist extends Component {
 
   }
   getDesignationName = async () => {
-    const response = await axios.get("http://localhost:8000/api/getDesignationall");
+    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getDesignationall");
     if (response.data.status === 200) {
       this.setState({
         designation: response.data.designation,
@@ -195,6 +213,7 @@ export default class Emplyelist extends Component {
 
     }
   }
+  
   GetSearchbylocation = async (data) => {
     var location = data?.emp_location;
 
@@ -202,7 +221,17 @@ export default class Emplyelist extends Component {
   handleChange(checked) {
     this.setState({ checked });
   }
-
+  SearchHandler(event)
+  {
+    this.setState({
+      searchname: event.target.value,
+     
+    });
+    this.handleSubmitSearch(event.target.value);
+   
+   
+  }
+  
   onRemove(selectedList) {
     this.setState({
       formData: { ...this.state.formData, location_items: selectedList }
@@ -233,6 +262,26 @@ export default class Emplyelist extends Component {
     });
 
   }
+  onSelectSkillSet(selectedList)
+  {
+    this.setState({
+      formData: { ...this.state.formData, skillset_items: selectedList }
+
+    });
+  }
+  
+  handleEmployeeskill = (selected) => {
+
+    //  console.log(selected);
+    this.setState({
+      optionSelectedskill: selected
+    });
+    this.setState({
+      formData: { ...this.state.formData, skillset_items: selected }
+
+    });
+    console.log(this.state.optionSelected);
+  };
   handleEmployeelocation = (selected) => {
 
     //  console.log(selected);
@@ -254,7 +303,25 @@ export default class Emplyelist extends Component {
 
     });
   }
-
+  handleSubmitSearch =async(name)=>
+  {
+   if(name!="")
+   {
+    const response = await axios.get(
+      `http://localhost:8000/api/searchbyButton/${name}` );
+      if (response.data.status === 200) {
+        this.setState({
+          employeelist: response.data.emp,
+          loading: false,
+        });
+  
+      }
+    }
+    else {
+      this.fetchData();
+    }
+    
+  }
   // onChangeCheckbox = e => {
   //   const isChecked = !this.state.checked;
   //   this.setState({
@@ -282,19 +349,23 @@ export default class Emplyelist extends Component {
 
  
         <div className="m-t-25  form-group ">
+       
           <div className="emp-srch col-md-3">
             <input
               className="form-control"
               type="text"
               id="birthday"
               name="birthday"
-              placeholder="Search "
+              value={this.state.searchname}
+              onChange={this.SearchHandler}
+              placeholder="Emp ID,Emp Name "
             />
-            <button type="button">
+            <button >
               {" "}
               <FaSearch className="add-btn-icon" />
             </button>
           </div>
+          
           <div class=" col-md-3">
             <MySelect
               options={this.state.emplocation}
@@ -326,17 +397,16 @@ export default class Emplyelist extends Component {
           </div>
           <div class=" col-md-3">
           <MySelect
-              options={this.state.emplocation}
-              isMulti
-              closeMenuOnSelect={false}
-              hideSelectedOptions={false}
-              components={{ Option, MultiValue, animatedComponents }}
-              onChange={this.handleEmployeelocation}
-              allowSelectAll={true}
-              value={this.state.optionSelected}
-              displayValue="Skil Set" // Property name to display in the dropdown options
-              name="location"
-              placeholder="Skil Set" className="form-control"
+             options={this.state.skillset}
+             isMulti
+             closeMenuOnSelect={false}
+             hideSelectedOptions={false}
+             components={{ Option, MultiValue, animatedComponents }}
+             onChange={this.handleEmployeeskill}
+             allowSelectAll={true}
+             value={this.state.optionSelectedskill}
+             displayValue="skillset" // Property name to display in the dropdown options
+             name="skillset" placeholder="Skillset" className="form-control"
             />
           </div>
            
@@ -403,7 +473,7 @@ export default class Emplyelist extends Component {
 
                           </div>
                           <div className="image-box" >
-                          <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
+                          <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/" + n.image} />
                           </div>
 
                           <Card.Header className="profile-name">

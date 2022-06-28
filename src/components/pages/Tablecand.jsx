@@ -141,7 +141,7 @@ function SimpleTable(props) {
     loadCandidates();
   }, []);
   const loadCandidates = async () => {
-    const res = await fetch("http://localhost:8000/api/getcandidatesdetails");
+    const res = await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getcandidatesdetails");
     const data = await res.json();
     const candidates = data.candidate;
     SetCandidatelist(candidates);
@@ -170,7 +170,7 @@ function SimpleTable(props) {
   const editCandidates = async (id, e) => {
     const can_id = id;
     const response = await axios.get(
-      `http://localhost:8000/api/getCandidatefullDetails/${can_id}`
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/getCandidatefullDetails/${can_id}`
     );
   
     if (response.data.status == 200) {

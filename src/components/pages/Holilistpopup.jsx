@@ -90,7 +90,7 @@ export default function Holilistpopup({id,method}) {
     handleRemove,
   } = HoliCalendarfunctions(calendar_validation,id,closeModal);
   const getOptionName = async () => {
-  const res = await axios.get(`http://localhost:8000/api/getRemainingholidays/${id}`);
+  const res = await axios.get(`http://auditportal2.bourntec.com:3001/audit_portal/public/api/getRemainingholidays/${id}`);
    const list=res.data.holiday;
    setOptions(list);
     

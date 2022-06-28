@@ -35,12 +35,12 @@ const Branchform = (branch_validation) => {
   }, [errors]);
 
   /* const loadOrganization = async () => {
-    const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
+    const orgresponse=await fetch("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getOrganization/");
     setOrg(orgresponse.data);
   }*/
   const getCompanyName = async () => {
     const response = await fetch(
-      "http://localhost:8000/api/getOrgnaizationname"
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getOrgnaizationname"
     );
     const data = await response.json();
 
@@ -60,7 +60,7 @@ const Branchform = (branch_validation) => {
   const onSubmitform = (e) => {
     //console.log(values)
     const response = axios.post(
-      "http://localhost:8000/api/add_branches",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/add_branches",
       values
     );
     response.then(function(res) {

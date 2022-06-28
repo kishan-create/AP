@@ -92,7 +92,7 @@ function Row(props) {
 
   const getCompanyName = async () => {
     const response = await fetch(
-      "http://localhost:8000/api/getDepartmentName"
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getDepartmentName"
     );
     const data = await response.json();
 
@@ -130,7 +130,7 @@ function Row(props) {
   const fetchData = async () => {
    
     const res = await axios.get(
-      "http://localhost:8000/api/getDepartmentValues"
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getDepartmentValues"
     );
 
     const org = res.data.org;
@@ -154,7 +154,7 @@ function Row(props) {
   const editbranch = async (id) => {
     const branch_id = id;
     const reponse = await axios.get(
-      `http://localhost:8000/api/editfecthbranchdata/${branch_id}`
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/editfecthbranchdata/${branch_id}`
     );
     if (reponse.data.status == 200) {
       SetValues({
@@ -178,7 +178,7 @@ function Row(props) {
     // alert(id);
     const department_id = id;
     const reponse = await axios.get(
-      `http://localhost:8000/api/editfecthdepdata/${department_id}`
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/editfecthdepdata/${department_id}`
     );
     // setIsOpen(true);
     if (reponse.data.status == 200) {
@@ -198,7 +198,7 @@ function Row(props) {
     // alert(id);
     const designation_id = id;
     const reponse = await axios.get(
-      `http://localhost:8000/api/editfecthdesdata/${designation_id}`
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/editfecthdesdata/${designation_id}`
     );
 
     if (reponse.data.status == 200) {
@@ -223,7 +223,7 @@ function Row(props) {
     console.log(values);
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_department",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/update_department",
       values
     );
     if (res.data.status == 200) {
@@ -240,7 +240,7 @@ function Row(props) {
     console.log(editValues);
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_designation",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/update_designation",
       editValues
     );
     if (res.data.status == 200) {
@@ -263,7 +263,7 @@ function Row(props) {
   const updateBranch = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_branch",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/update_branch",
       values
     );
     alert("Branch updated successfully");
@@ -273,7 +273,7 @@ function Row(props) {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
     const res = await axios.delete(
-      `http://localhost:8000/api/delete_departments/${id}`
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/delete_departments/${id}`
     );
     // if (res.data.status == 200) {
     //   thisclickrow.closest("tr").remove();
@@ -285,7 +285,7 @@ function Row(props) {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
     const res = await axios.delete(
-      `http://localhost:8000/api/delete_branches/${id}`
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/delete_branches/${id}`
     );
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
@@ -585,7 +585,7 @@ export default function Department() {
   const updateOrganization = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_organization",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/update_organization",
       values
     );
     alert("Organization updated successfully");
@@ -593,7 +593,7 @@ export default function Department() {
   const updateBranch = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_branch",
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/update_branch",
       values
     );
     alert("Branch updated successfully");
@@ -603,7 +603,7 @@ export default function Department() {
  
   const fetchData = async () => {
     const res = await axios.get(
-      "http://localhost:8000/api/getDepartmentValues"
+      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getDepartmentValues"
     );
 
     const org = res.data.org;
