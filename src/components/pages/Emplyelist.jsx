@@ -6,7 +6,7 @@ import {
   MdOutlinePrint,
   MdPhone,
   MdCheck,
-  MdLocationPin,
+  MdLocationPin,MdStars
 } from "react-icons/md";
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -33,6 +33,7 @@ import MySelect from "./Multselectdropdown/Myselect";
 import { colourOptions } from "./Multselectdropdown/data";
 import { components } from "react-select";
 import makeAnimated from "react-select/animated";
+import ReactTooltip from 'react-tooltip';
 const Option = props => {
   return (
     <div>
@@ -368,7 +369,7 @@ export default class Emplyelist extends Component {
           </div>
           
         </div>
-       
+  
         <div className="empoyee-list-content-are ">
           <List>
             <ListItem>
@@ -380,13 +381,17 @@ export default class Emplyelist extends Component {
 
                 return (
                   <div className="emp-card">
-                    
+       
                   <div className=" ">
+        
+         
+    
                     <Link to={{
                       pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
                     }} >
                       <Card >
                         <Card.Content className="emplyee-card-top">
+                      
                           <div className="emplyee-card-left">
                             <div className="tick-round green-bg">
                               <img src={tick} />
@@ -408,8 +413,17 @@ export default class Emplyelist extends Component {
                               <div className="m-t-rever-7"> {n.emp_code}</div>
                              <a href="" className="mail-undrln">{n.emp_company_email_id}</a> 
                             </p>
-
+                            <div className="star-rt">
+                  <button data-tip data-for="registerTip">
+       < MdStars className="gold"/>
+      </button>    <ReactTooltip id="registerTip" place="top" effect="solid">
+       5 years  Experience
+      </ReactTooltip>
+    </div>
                           </Card.Header>
+                        
+         
+
                           <div>
                             <div className="profile-location">
 
