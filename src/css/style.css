@@ -4470,3 +4470,52 @@ li.option {
   top: -4px;
   background: none;
 }
+.star-rt{
+ position: absolute;
+ right: 6px;
+ top: 0;
+}
+.emplyee-relative{
+  position: relative;
+  width: 100%;
+  float: left;
+  display: block;
+}
+.star-rt svg
+{
+  font-size: 15px;
+}
+.__react_component_tooltip {
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 13px;
+  left: inherit !important;
+  right: -4px !important;
+  opacity: 0;
+  padding: 2px 5px !important;
+  position: absolute !important;
+  min-width: 125px;
+  top: -1px !important;
+  text-align: center;
+  font-size: 11px !important;
+}
+.emp-card{
+  position: relative;
+}
+.__react_component_tooltip::before, .__react_component_tooltip::after {
+  left: inherit !important;
+  right: 4px !important;
+}
+.star-rt button{
+  background: none;
+  background-color: #fff;
+}
+.gray{
+  color: #C7C;
+}
+.sliver{
+  color: #8389A1;
+}
+.gold{
+  color: #e5b73b;
+}

@@ -6,7 +6,7 @@ import {
   MdOutlinePrint,
   MdPhone,
   MdCheck,
-  MdLocationPin,
+  MdLocationPin,MdStars
 } from "react-icons/md";
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -33,6 +33,7 @@ import MySelect from "./Multselectdropdown/Myselect";
 import { colourOptions } from "./Multselectdropdown/data";
 import { components } from "react-select";
 import makeAnimated from "react-select/animated";
+import ReactTooltip from 'react-tooltip';
 const Option = props => {
   return (
     <div>
@@ -139,10 +140,10 @@ export default class Emplyelist extends Component {
     //var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
     formData.append("emp_lo", JSON.stringify(this.state.formData));
     // const response = await axios.get(
-    //`http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation/${id}`
+    //`http://localhost:8000/api/getEmployeebylocation/${id}`
     // );
     const response = await axios.post(
-      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeebylocation",
+      "http://localhost:8000/api/getEmployeebylocation",
       formData
     );
     if (response.data.status === 200) {
@@ -155,7 +156,7 @@ export default class Emplyelist extends Component {
 
   }
   fetchData = async () => {
-    const res = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getEmployeeDetails");
+    const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
     if (res.data.status === 200) {
       this.setState({
         employeelist: res.data.emp,
@@ -166,7 +167,7 @@ export default class Emplyelist extends Component {
 
   }
   getGetLocationName = async () => {
-    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getLocationBranchDrop");
+    const response = await axios.get("http://localhost:8000/api/getLocationBranchDrop");
 
     if (response.data.status === 200) {
       this.setState({
@@ -178,7 +179,7 @@ export default class Emplyelist extends Component {
 
   }
   getSkillName = async()=> {
-    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getskillset");
+    const response = await axios.get("http://localhost:8000/api/getskillset");
     if (response.data.status === 200) {
       this.setState({
         skillset: response.data.skill,
@@ -203,7 +204,7 @@ export default class Emplyelist extends Component {
 
   }
   getDesignationName = async () => {
-    const response = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getDesignationall");
+    const response = await axios.get("http://localhost:8000/api/getDesignationall");
     if (response.data.status === 200) {
       this.setState({
         designation: response.data.designation,
@@ -438,7 +439,7 @@ export default class Emplyelist extends Component {
           </div>
           
         </div>
-       
+  
         <div className="empoyee-list-content-are ">
           <List>
             <ListItem>
@@ -450,13 +451,17 @@ export default class Emplyelist extends Component {
 
                 return (
                   <div className="emp-card">
-                    
+       
                   <div className=" ">
+        
+         
+    
                     <Link to={{
                       pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
                     }} >
                       <Card >
                         <Card.Content className="emplyee-card-top">
+                      
                           <div className="emplyee-card-left">
                             <div className="tick-round green-bg">
                               <img src={tick} />
@@ -478,8 +483,17 @@ export default class Emplyelist extends Component {
                               <div className="m-t-rever-7"> {n.emp_code}</div>
                              <a href="" className="mail-undrln">{n.emp_company_email_id}</a> 
                             </p>
-
+                            <div className="star-rt">
+                  <button data-tip data-for= {"registerTip" + n.empid}>
+       < MdStars className={n.badge}/>
+      </button>    <ReactTooltip id={"registerTip" + n.empid} place="top" effect="solid">
+      {n.bourntecexp}  Experience
+      </ReactTooltip>
+    </div>
                           </Card.Header>
+                        
+         
+
                           <div>
                             <div className="profile-location">
 
