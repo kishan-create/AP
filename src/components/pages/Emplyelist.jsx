@@ -307,11 +307,7 @@ export default class Emplyelist extends Component {
    if(name!="")
    {
     const response = await axios.get(
-<<<<<<< HEAD
-      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/searchbyButton/${this.state.searchname}` );
-=======
-      `http://localhost:8000/api/searchbyButton/${name}` );
->>>>>>> 31cdd020f8e2bb7831d6e0af34d19ae0a07937cf
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/searchbyButton/${name}` );
       if (response.data.status === 200) {
         this.setState({
           employeelist: response.data.emp,
