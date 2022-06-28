@@ -484,10 +484,10 @@ export default class Emplyelist extends Component {
                              <a href="" className="mail-undrln">{n.emp_company_email_id}</a> 
                             </p>
                             <div className="star-rt">
-                  <button data-tip data-for="registerTip">
-       < MdStars className="gold"/>
-      </button>    <ReactTooltip id="registerTip" place="top" effect="solid">
-       5 years  Experience
+                  <button data-tip data-for= {"registerTip" + n.empid}>
+       < MdStars className={n.badge}/>
+      </button>    <ReactTooltip id={"registerTip" + n.empid} place="top" effect="solid">
+      {n.bourntecexp}  Experience
       </ReactTooltip>
     </div>
                           </Card.Header>
