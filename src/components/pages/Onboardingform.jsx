@@ -59,7 +59,7 @@ const Onboardingform = () => {
     });
   };
   const Viewlog = async (id) => {
-    const response = await axios.get(`http://auditportal2.bourntec.com:3001/audit_portal/public/api/viewlog/${id}`);
+    const response = await axios.get(`http://localhost:8000/api/viewlog/${id}`);
 
     SetLog(response.data.log);
     setIsViewLog(true);
@@ -70,12 +70,12 @@ const Onboardingform = () => {
     //alert(column);
     if (column == "Inprogress") {
       const reponse = await axios.get(
-        `http://auditportal2.bourntec.com:3001/audit_portal/public/api/editfecthbasicdata/${basic_id}`
+        `http://localhost:8000/api/editfecthbasicdata/${basic_id}`
       );
       }
   const Viewlog = async(id) =>
   {
-    const response = await axios.get(`http://auditportal2.bourntec.com:3001/audit_portal/public/api/viewlog/${id}`);
+    const response = await axios.get(`http://localhost:8000/api/viewlog/${id}`);
   
   SetLog(response.data.log);
   setIsViewLog(true);
@@ -86,7 +86,7 @@ const Onboardingform = () => {
     //alert(column);
     if (column == 'Inprogress') {
 
-      const reponse = await axios.get(`http://auditportal2.bourntec.com:3001/audit_portal/public/api/editfecthbasicdata/${basic_id}`);
+      const reponse = await axios.get(`http://localhost:8000/api/editfecthbasicdata/${basic_id}`);
 
      
 
@@ -118,7 +118,7 @@ const Onboardingform = () => {
       }
     } else if (column == "Schedule") {
       const reponse = await axios.get(
-        `http://auditportal2.bourntec.com:3001/audit_portal/public/api/getscheduledata/${basic_id}`
+        `http://localhost:8000/api/getscheduledata/${basic_id}`
       );
 
 
@@ -137,7 +137,7 @@ const Onboardingform = () => {
       }
     } else if (column == "Rejection") {
       const reponse = await axios.get(
-        `http://auditportal2.bourntec.com:3001/audit_portal/public/api/getrejectdata/${basic_id}`
+        `http://localhost:8000/api/getrejectdata/${basic_id}`
       );
 
       if (reponse.data.status == 200) {
@@ -151,7 +151,7 @@ const Onboardingform = () => {
       }
     } else if (column == "Release") {
       const response = await axios.get(
-        `http://auditportal2.bourntec.com:3001/audit_portal/public/api/getreleasedata/${basic_id}`
+        `http://localhost:8000/api/getreleasedata/${basic_id}`
       );
 
       if (response.data.status == 200) {
@@ -208,7 +208,7 @@ const Onboardingform = () => {
 
 
     const response = await axios.post(
-      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/Updateboarddetails",
+      "http://localhost:8000/api/Updateboarddetails",
       formData
     );
 

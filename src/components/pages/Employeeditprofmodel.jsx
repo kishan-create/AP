@@ -9,7 +9,10 @@ import "react-dropdown/style.css";
 import { AppBar } from "@material-ui/core";
 import BasicTabs from "./Employeetabs";
 import job_validation from "../validation/job_validation";
-import Employeeprofform from "./Employeeprofform";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import swal from "sweetalert";
+
 import "react-tabs/style/react-tabs.css";
 const customStyles = {
   content: {
@@ -25,7 +28,7 @@ const customStyles = {
   },
 };
 
-export default function Employeprofilemodel( {id}) {
+export default function Employeeditprofmodel( {idedvalue}) {
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -35,6 +38,7 @@ export default function Employeprofilemodel( {id}) {
   CustomTab.tabsRole = "Tab";
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -50,16 +54,77 @@ export default function Employeprofilemodel( {id}) {
    
     // window.location.reload();
   }
+  const [values, SetValues] = useState({
+    adhar_no: idedvalue[0].adhar_no,
+    permenent_adress: idedvalue[0].permenent_adress,
+    f_m_s_name: idedvalue[0].f_m_s_name,
+    temp_address: idedvalue[0].temp_address,
+    emergency_contact_number: idedvalue[0].emergency_contact_number,
+    of_dob: idedvalue[0].of_dob,
+    p_email_adress: idedvalue[0].p_email_adress,
+    tot_exp: idedvalue[0].tot_exp,
+    m_status: idedvalue[0].m_status,
+    fk_emp_id:idedvalue[0].fk_emp_id,
+    persid:idedvalue[0].persid,
+    id:idedvalue[0].id,
+    
+  });
 
-  const [value, setValue] = React.useState(0);
-  const handlesTabs = (e, val) => {
-    console.warn(val);
-    setValue(val);
+  const handleChange = (e) => {
+
+    const { name, value } = e.target;
+    SetValues({
+      ...values,
+      [name]: value,
+    });
   };
+  const [value, setValues] = React.useState(0);
+  // const handlesTabs = (e, val) => {
+  //   console.warn(val);
+  //   setValues(val);
+  // };
 
-  const { handleChange, values, handleSubmit, errors, post } = Employeeprofform(
-    id
+ 
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // // const test = setErrors(job_validation(values));
+  // setIsSubmitting(true);
+  onEditform();
+};
+
+const onEditform = async (e) => {
+
+  console.log(values);
+
+
+
+  e.preventDefault();
+
+  const res = await axios.put(
+
+    "http://localhost:8000/api/update_profileeducation",
+
+    values
+
   );
+
+  if (res.data.status == 200) {
+
+    swal({
+
+      title: "Good job!",
+
+      text: "Department Updated successfully",
+
+      icon: "success",
+
+      button: "ok",
+
+    });
+
+  }
+
+};
 
   return (
     <div>
@@ -85,7 +150,7 @@ export default function Employeprofilemodel( {id}) {
                 ref={(_subtitle) => (subtitle = _subtitle)}
                 className="popup-head-h4"
               >
-               Personal Information 
+               Edit Personal Information 
               </h4>
             </div>
             <div className="popup-head-icon-sty">
@@ -185,7 +250,7 @@ export default function Employeprofilemodel( {id}) {
           </div>
           <div className=" modal-footer-button-bg">
             <button type="submit" class="btn  btn-save ">
-              Save
+              update
             </button>
             <button type="button" class="btn  btn-cancel " onClick={closeModal}>
               {" "}

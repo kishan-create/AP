@@ -55,7 +55,7 @@ function createData(HolidayName, HolidayDate, HolidDay, action) {
 
 //  const edit_holidays = async (id) => {
 //     const holiday_id = id;
-//     const reponse = await axios.get(`http://auditportal2.bourntec.com:3001/audit_portal/public/api/edit_holidays/{id}'`)
+//     const reponse = await axios.get(`http://localhost:8000/api/edit_holidays/{id}'`)
 //     console.log(reponse.data.holiday[0]);
 //     if (reponse.data.status == 200) {
 //       SetValues({
@@ -71,7 +71,7 @@ function createData(HolidayName, HolidayDate, HolidDay, action) {
 
 // const updateHolidays = async (e) => {
 //   e.preventDefault();
-//   const res = await axios.put('http://auditportal2.bourntec.com:3001/audit_portal/public/api/update_holidays', values);
+//   const res = await axios.put('http://localhost:8000/api/update_holidays', values);
 //   if (res.data.status == 200) {
 //     swal({
 //       title: "Good job!",
@@ -124,7 +124,7 @@ export default class HolidayList extends Component {
   };
 
   fetchdata = async () => {
-    const res = await axios.get("http://auditportal2.bourntec.com:3001/audit_portal/public/api/getHolidays");
+    const res = await axios.get("http://localhost:8000/api/getHolidays");
 
     if (res.data.status === 200) {
       this.setState({
@@ -139,7 +139,7 @@ export default class HolidayList extends Component {
     const thisclickrow = e.currentTarget;
     thisclickrow.innerText = "Deleting";
     const res = await axios.delete(
-      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/delete_holidays/${id}`
+      `http://localhost:8000/api/delete_holidays/${id}`
     );
     if (res.data.status == 200) {
       swal({
@@ -155,7 +155,7 @@ export default class HolidayList extends Component {
   async edit(id) {
     const holiday_id = id;
     const reponse = await axios.get(
-      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/edit_holidays/${holiday_id}`
+      `http://localhost:8000/api/edit_holidays/${holiday_id}`
     );
     if (reponse.data.status == 200) {
       this.setState({
@@ -175,7 +175,7 @@ export default class HolidayList extends Component {
   updateHolidays = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      "http://auditportal2.bourntec.com:3001/audit_portal/public/api/update_holidays",
+      "http://localhost:8000/api/update_holidays",
       this.state.formData
     );
 
