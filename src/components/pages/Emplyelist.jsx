@@ -33,6 +33,7 @@ import MySelect from "./Multselectdropdown/Myselect";
 import { colourOptions } from "./Multselectdropdown/data";
 import { components } from "react-select";
 import makeAnimated from "react-select/animated";
+import ReactTooltip from 'react-tooltip';
 const Option = props => {
   return (
     <div>
@@ -347,6 +348,7 @@ export default class Emplyelist extends Component {
             <div className="box-inner emp-active-box">
               <div className='left'>
                 <p>Active</p>
+               
                 <span>{this.state.employeelist.length}</span>
               </div>
               <img src={Offboarding1} />
@@ -396,6 +398,15 @@ export default class Emplyelist extends Component {
                             </div>
 
 
+                          </div>
+                          <div className="emplyee-card-left rating-icon-box"> 
+                            <div className="tick-round  ">
+                               <i class="fa fa-star f-s-25" aria-hidden="true"  data-tip="11 Years "></i> 
+                              
+                               <ReactTooltip />
+
+                            </div> 
+                            
                           </div>
                           <div className="image-box" >
                           <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />

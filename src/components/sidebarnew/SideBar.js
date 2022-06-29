@@ -129,6 +129,9 @@ const $ = window.$;
                       <NavLink tag={nlink} to={"/Department"} className="mob-menu-clik" activeClassName="active" >
                             Department Settings< MdLibraryBooks/>
                       </NavLink>
+                      <NavLink tag={nlink} to={"/Streamsettings"} className="mob-menu-clik" activeClassName="active" >
+                            Stream Settings< MdLibraryBooks/>
+                      </NavLink>
                 </DropdownMenu>
               </UncontrolledButtonDropdown>
        
