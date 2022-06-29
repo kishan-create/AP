@@ -11,6 +11,9 @@ import BasicTabs from "./Employeetabs";
 import job_validation from "../validation/job_validation";
 import Jobform from "./Jobform";
 import "react-tabs/style/react-tabs.css";
+import Employeprofileeducationform from "./Employeprofileeducationform";
+import Employeeskillform from "./Employeeskillform";
+
 const customStyles = {
   content: {
     top: "50%",
@@ -25,7 +28,7 @@ const customStyles = {
   },
 };
 
-export default function Empoyeprofileskilpopup( ) {
+export default function Empoyeprofileskilpopup(id ) {
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -57,8 +60,8 @@ export default function Empoyeprofileskilpopup( ) {
     setValue(val);
   };
 
-  const { handleChange, values, handleSubmit, errors, post } = Jobform(
-    job_validation
+  const { handleChange, values, handleSubmit, errors, post } = Employeeskillform(id
+    
   );
 
   return (
@@ -69,7 +72,7 @@ export default function Empoyeprofileskilpopup( ) {
         onClick={openModal}
       >
         {" "}
-        <i class="fa fa-edit"></i>
+        <i class="fa fa-edit"></i> 
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -85,7 +88,7 @@ export default function Empoyeprofileskilpopup( ) {
                 ref={(_subtitle) => (subtitle = _subtitle)}
                 className="popup-head-h4"
               >
-               Education Details
+               Add Employee Skill Details
               </h4>
             </div>
             <div className="popup-head-icon-sty">
@@ -99,26 +102,26 @@ export default function Empoyeprofileskilpopup( ) {
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Primary Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
+                      <input  type="text"  name="employee_primary_skill" onChange={handleChange} value={values.employee_primary_skill} class="form-control" ></input>
                        
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Secondary Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
+                      <input  type="text"  name="employee_secondary_skill" onChange={handleChange} value={values.employee_secondary_skill} class="form-control" ></input>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Additional Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
+                      <input  type="text"  name="employee_additional_skill" onChange={handleChange} value={values.employee_additional_skill} class="form-control" ></input>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Year of Experience </label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
+                      <input  type="text"  name="employee_yearofexp" onChange={handleChange} value={values.employee_yearofexp} class="form-control" ></input>
                     </div>
                   </div>
                  

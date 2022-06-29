@@ -1,4 +1,5 @@
 import React, { useEffect, useState }  from "react";
+
 import ReactDOM from "react-dom";
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
@@ -10,8 +11,9 @@ import { AppBar } from "@material-ui/core";
 import BasicTabs from "./Employeetabs";
 import job_validation from "../validation/job_validation";
 import Jobform from "./Jobform";
-import Employeprofileeducationform from "./Employeprofileeducationform";
 import "react-tabs/style/react-tabs.css";
+import Employeprofileeducationform from "./Employeprofileeducationform";
+import Employeeskillform from "./Employeeskillform";
 import axios from "axios";
 import swal from "sweetalert";
 
@@ -30,10 +32,7 @@ const customStyles = {
   },
 };
 
-export default function Employeprofileeducationpopup({idedvalue}) {
-  console.log(idedvalue);
-
-  
+export default function EditEmployeeskillpopup({idsdvalue} ) {
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -60,18 +59,14 @@ export default function Employeprofileeducationpopup({idedvalue}) {
   }
 
   const [value, setValue] = React.useState(0);
-  const [values, SetValues] = useState({
-    education_name: idedvalue[0].education_name,
-    institution: idedvalue[0].institution,
+  const[values,SetValues] = useState({
+    primary_skill:idsdvalue[0].primary_skill,
+    secondary_skill: idsdvalue[0].secondary_skill,
+    fk_emp_id:idsdvalue[0].fk_emp_id,
+    // employee_additional_skill: idsdvalue[0].employee_additional_skill,
 
-    year_of_pass: idedvalue[0].year_of_pass,
-    specialization: idedvalue[0].specialization,
-    ed_fk_emp_id:idedvalue[0].ed_fk_emp_id,
-    
-    // cmid:id,
-
-
-  });
+    // employee_yearofexp: idsdvalue[0].employee_yearofexp,
+  })
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetValues({
@@ -79,23 +74,13 @@ export default function Employeprofileeducationpopup({idedvalue}) {
       [name]: value,
     });
   };
-  const [rows, setRows] = useState([]);
 
-  const handlesTabs = (e, val) => {
-    console.warn(val);
-    setValue(val);
-  };
-
-  const { errors, post, } = Employeprofileeducationform(
-  );
-
-  const updateProfileEducation = async (e) => {
+  const updateProfileSkills = async (e) => {
     console.log(values);
-    
 
     e.preventDefault();
     const res = await axios.put(
-      "http://localhost:8000/api/update_profileeducation",
+      "http://localhost:8000/api/update_profileskills",
       values
     );
     if (res.data.status == 200) {
@@ -109,6 +94,14 @@ export default function Employeprofileeducationpopup({idedvalue}) {
   };
 
   
+  const handlesTabs = (e, val) => {
+    console.warn(val);
+    setValue(val);
+  };
+
+  const {  handleSubmit, errors, post } = Employeeskillform(
+    
+  );
 
   return (
     <div>
@@ -118,7 +111,7 @@ export default function Employeprofileeducationpopup({idedvalue}) {
         onClick={openModal}
       >
         {" "}
-        <i class="fa fa-edit"></i>
+        <i class="fa fa-edit"></i> 
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -127,14 +120,14 @@ export default function Employeprofileeducationpopup({idedvalue}) {
         className="job-detils-modal"
         contentLabel="Example Modal"
       >
-        <form onSubmit={updateProfileEducation} className="form" noValidate>
+        <form onSubmit={updateProfileSkills} className="form" noValidate>
           <div className="popup-head-sty modal-button-bg">
             <div className="popup-head-content-sty">
               <h4
                 ref={(_subtitle) => (subtitle = _subtitle)}
                 className="popup-head-h4"
               >
-               Edit Education Details
+               Edit Employee Skill Details
               </h4>
             </div>
             <div className="popup-head-icon-sty">
@@ -147,34 +140,32 @@ export default function Employeprofileeducationpopup({idedvalue}) {
                 <div class="row popup-content-height">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Highest Level of Education Completed</label>
-                      <input  type="text"   name="education_name" onChange={handleChange} value={values.education_name} class="form-control" ></input>
-                      
+                      <label for="exampleFormControlInput1">Primary Skills</label>
+                      <input  type="text"  name="primary_skill" onChange={handleChange} value={values.primary_skill} class="form-control" ></input>
+                       
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Institution</label>
-                      <input  type="text"  name="institution" onChange={handleChange}value={values.institution} class="form-control" ></input>
-                    </div>
-                  </div>
-                  
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Year of Graduation </label>
-                      <input  type="text"  name="year_of_pass" onChange={handleChange} value={values.year_of_pass}class="form-control" ></input>
-                      
-                     
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Specialization</label>
-                      <input  type="text"  name="specialization" onChange={handleChange}value={values.specialization} class="form-control" ></input>
-                      <input  type="hidden"  name="ed_fk_emp_id" onChange={handleChange}value={values.ed_fk_emp_id} class="form-control" ></input>
+                      <label for="exampleFormControlInput1">Secondary Skills</label>
+                      <input  type="text"  name="secondary_skill" onChange={handleChange} value={values.secondary_skill} class="form-control" ></input>
+                      <input  type="hidden"  name="fk_emp_id" onChange={handleChange}value={values.fk_emp_id} class="form-control" ></input>
 
                     </div>
                   </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Additional Skills</label>
+                      <input  type="text"  name="employee_additional_skill" onChange={handleChange} value={values.employee_additional_skill} class="form-control" ></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Year of Experience </label>
+                      <input  type="text"  name="employee_yearofexp" onChange={handleChange} value={values.employee_yearofexp} class="form-control" ></input>
+                    </div>
+                  </div>
+                 
                 </div>
               </div>
             </div>
