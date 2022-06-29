@@ -473,15 +473,7 @@ export default class Emplyelist extends Component {
 
 
                           </div>
-                          <div className="emplyee-card-left rating-icon-box"> 
-                            <div className="tick-round  ">
-                               <i class="fa fa-star f-s-25" aria-hidden="true"  data-tip="11 Years "></i> 
-                              
-                               <ReactTooltip />
-
-                            </div> 
-                            
-                          </div>
+                           
                           <div className="image-box" >
                           <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/" + n.image} />
                           </div>

@@ -4532,3 +4532,20 @@ li.option {
 .gold{
   color: #e5b73b;
 }
+.css-15wwp11-MuiTableHead-root {
+  display: table-header-group;
+  background-color: #000;
+  background: #d6d8f6;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.css-1howxi1-MuiTableCell-root {
+   
+  font-weight: normal !important;
+  font-size: 1.3rem !important; 
+  padding: 10px 16px !important; 
+}
+.css-dsuxgy-MuiTableCell-root {
+  font-weight: normal !important;
+  font-size: 1.3rem !important; 
+}

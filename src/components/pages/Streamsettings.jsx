@@ -219,201 +219,38 @@ function Row(props: { row: ReturnType<typeof createData> }) {
           </div>
           <div className="popup-content-bg">
             <div class="row addabrch-content-box">
-              <div class="col-md-12">
-                <div class="row ">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Employee Name</label>
-                      <input
-                        name="org_name"
-                        type="text"
-                        onChange={handleChange}
+              <div class="col-md-12 ">
+              <Table size="small" aria-label="purchases">
+                <TableHead>
+                  <TableRow>
+                    <TableCell className="width-50">Employee Name</TableCell>
+                    <TableCell> Employee Code</TableCell>
+                     
+                    <TableCell>Action</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {row.branch.map((historyRow) => (
+                    <TableRow key={historyRow.branchname}>
                       
-                        class="form-control"
-                      ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Employee Code</label>
-                      <input
-                        name="org_code"
-                        type="text"
-                        onChange={handleChange}
+                      <TableCell>Akhil</TableCell>
+                      <TableCell>BS0034</TableCell>
                        
-                        class="form-control"
-                      ></input>
-                    </div>
-                  </div>
-                  
-
-                  <input type="hidden" name="id" value={values.id} />
-                </div>
+                      <TableCell>
+                      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
+                        
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
               </div>
             </div>
           </div>
-          <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
-              {" "}
-              Update
-            </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
-              {" "}
-              Cancel{" "}
-            </button>
-          </div>
+          
         </form>
       </Modal>
-      <Modal
-        isOpen={modalState}
-        onAfterOpen={afterOpenModalbrach}
-        onRequestClose={closeModalbrach}
-        className="job-detils-modal"
-        contentLabel="Example Modal"
-      >
-        <form onSubmit={updateBranch} className="form" noValidate>
-          <div className="popup-head-sty modal-button-bg">
-            <div className="popup-head-content-sty">
-              <h4>Edit Branches</h4>
-            </div>
-            <div className="popup-head-icon-sty">
-              <MdClose className="popup-close-btn" onClick={closeModalbrach} />
-            </div>
-          </div>
-          <div className="popup-content-bg">
-            <div class="row addabrch-content-box">
-              <div class="col-md-12">
-                <div class="row ">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Branch Name</label>
-                      <input
-                        type="text"
-                        name="branch_name"
-                        onChange={handleChange}
-                        value={values.branch_name}
-                        class="form-control"
-                      ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Branch Code</label>
-                      <input
-                        type="text"
-                        name="branch_code"
-                        onChange={handleChange}
-                        value={values.branch_code}
-                        class="form-control"
-                      ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Company Name</label>
-
-                      <select
-                        id="dropdown"
-                        name="branch_company"
-                        onChange={handleChange}
-                        value={values.branch_company}
-                        class="form-control"
-                      >
-                        {listnew.map(({ org_name, id }, index) => (
-                          <option value={id}>{org_name}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Branch Type</label>
-                      <input
-                        type="text"
-                        name="branch_type"
-                        onChange={handleChange}
-                        value={values.branch_type}
-                        class="form-control"
-                        placeholder="Development Center"
-                      ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Location</label>
-                      <input
-                        type="text"
-                        name="branch_location"
-                        onChange={handleChange}
-                        value={values.branch_location}
-                        class="form-control"
-                        placeholder="Development Center"
-                      ></input>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">
-                        Date of Establishment
-                      </label>
-                      <input
-                        type="date"
-                        name="branch_date"
-                        onChange={handleChange}
-                        value={values.branch_date}
-                        class="form-control"
-                      ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">
-                        Brach Landline
-                      </label>
-                      <input
-                        type="text"
-                        name="branch_landline"
-                        onChange={handleChange}
-                        value={values.branch_landline}
-                        class="form-control"
-                      ></input>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Email</label>
-                      <input
-                        type="email"
-                        name="branch_email"
-                        onChange={handleChange}
-                        value={values.branch_email}
-                        class="form-control"
-                      ></input>
-                    </div>
-                  </div>
-                  <input type="hidden" name="b_id" value={values.b_id} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
-              {" "}
-              Update
-            </button>
-            <button
-              type="button"
-              class="btn  btn-cancel "
-              onClick={closeModalbrach}
-            >
-              {" "}
-              Cancel{" "}
-            </button>
-          </div>
-        </form>
-      </Modal>
+      
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton
