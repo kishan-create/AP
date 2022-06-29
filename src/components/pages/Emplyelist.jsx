@@ -6,7 +6,7 @@ import {
   MdOutlinePrint,
   MdPhone,
   MdCheck,
-  MdLocationPin,
+  MdLocationPin,MdStars
 } from "react-icons/md";
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -33,6 +33,7 @@ import MySelect from "./Multselectdropdown/Myselect";
 import { colourOptions } from "./Multselectdropdown/data";
 import { components } from "react-select";
 import makeAnimated from "react-select/animated";
+import ReactTooltip from 'react-tooltip';
 const Option = props => {
   return (
     <div>
@@ -83,13 +84,18 @@ export default class Emplyelist extends Component {
       employeelist: [],
       emplocation: [],
       designation: [],
+      skillset :[],
+      searchname: '',
       optionSelected: null,
       optionSelectedloc: null,
+      optionSelectedskill:null,
       selectedo: [],
       options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
       formData: {
         location_items: [],
         designation_items: [],
+        skillset_items:[],
+
       },
       // this.setState(user)
 
@@ -100,8 +106,10 @@ export default class Emplyelist extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.onSelectLocation = this.onSelectLocation.bind(this);
     this.onSelectDesignation = this.onSelectDesignation.bind(this);
+    this.handleEmployeeskill = this.handleEmployeeskill.bind(this);
     this.onRemove = this.onRemove.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.SearchHandler = this.SearchHandler.bind(this);
   }
 
   componentDidMount = () => {
@@ -113,6 +121,7 @@ export default class Emplyelist extends Component {
 
     this.getGetLocationName();
     this.getDesignationName();
+    this.getSkillName();
 
   }
   componentDidUpdate(prevProps, prevState) {
@@ -169,6 +178,16 @@ export default class Emplyelist extends Component {
     }
 
   }
+  getSkillName = async()=> {
+    const response = await axios.get("http://localhost:8000/api/getskillset");
+    if (response.data.status === 200) {
+      this.setState({
+        skillset: response.data.skill,
+        loading: false,
+      });
+
+    }
+  }
 
   handleSelect = async (e) => {
 
@@ -194,6 +213,7 @@ export default class Emplyelist extends Component {
 
     }
   }
+  
   GetSearchbylocation = async (data) => {
     var location = data?.emp_location;
 
@@ -201,7 +221,17 @@ export default class Emplyelist extends Component {
   handleChange(checked) {
     this.setState({ checked });
   }
-
+  SearchHandler(event)
+  {
+    this.setState({
+      searchname: event.target.value,
+     
+    });
+    this.handleSubmitSearch(event.target.value);
+   
+   
+  }
+  
   onRemove(selectedList) {
     this.setState({
       formData: { ...this.state.formData, location_items: selectedList }
@@ -232,6 +262,26 @@ export default class Emplyelist extends Component {
     });
 
   }
+  onSelectSkillSet(selectedList)
+  {
+    this.setState({
+      formData: { ...this.state.formData, skillset_items: selectedList }
+
+    });
+  }
+  
+  handleEmployeeskill = (selected) => {
+
+    //  console.log(selected);
+    this.setState({
+      optionSelectedskill: selected
+    });
+    this.setState({
+      formData: { ...this.state.formData, skillset_items: selected }
+
+    });
+    console.log(this.state.optionSelected);
+  };
   handleEmployeelocation = (selected) => {
 
     //  console.log(selected);
@@ -253,7 +303,25 @@ export default class Emplyelist extends Component {
 
     });
   }
-
+  handleSubmitSearch =async(name)=>
+  {
+   if(name!="")
+   {
+    const response = await axios.get(
+      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/searchbyButton/${name}` );
+      if (response.data.status === 200) {
+        this.setState({
+          employeelist: response.data.emp,
+          loading: false,
+        });
+  
+      }
+    }
+    else {
+      this.fetchData();
+    }
+    
+  }
   // onChangeCheckbox = e => {
   //   const isChecked = !this.state.checked;
   //   this.setState({
@@ -280,21 +348,25 @@ export default class Emplyelist extends Component {
       <div className="epmtab-w">
 
  
-        <div className="emplyee-top">
-          <div className="emplyesearch emplyesearch1">
+        <div className="m-t-25  form-group ">
+       
+          <div className="emp-srch col-md-3">
             <input
               className="form-control"
               type="text"
               id="birthday"
               name="birthday"
-              placeholder="Search "
+              value={this.state.searchname}
+              onChange={this.SearchHandler}
+              placeholder="Emp ID,Emp Name "
             />
-            <button type="button">
+            <button >
               {" "}
               <FaSearch className="add-btn-icon" />
             </button>
           </div>
-          <div class="form-group emp-searc-location ">
+          
+          <div class=" col-md-3">
             <MySelect
               options={this.state.emplocation}
               isMulti
@@ -309,9 +381,8 @@ export default class Emplyelist extends Component {
               placeholder="Location" className="form-control"
             />
           </div>
-
-          <div class="form-group emp-searc-location ">
-            <MySelect 
+          <div class=" col-md-3 ">
+          <MySelect 
               options={this.state.designation}
               isMulti
               closeMenuOnSelect={false}
@@ -321,19 +392,25 @@ export default class Emplyelist extends Component {
               allowSelectAll={true}
               value={this.state.optionSelectedloc}
               displayValue="designation" // Property name to display in the dropdown options
-              name="designation" className="form-control "
+              name="designation"  placeholder="Designation" className="form-control "
             />
           </div>
-
-          <div className="recruitment-top-right-box active-employee-top">
-            <label className="active-swite-toggle">
-              <span>Active Employees</span>
-              <Switch
-                onChange={this.handleChange}
-                checked={this.state.checked}
-              />
-            </label>
+          <div class=" col-md-3">
+          <MySelect
+             options={this.state.skillset}
+             isMulti
+             closeMenuOnSelect={false}
+             hideSelectedOptions={false}
+             components={{ Option, MultiValue, animatedComponents }}
+             onChange={this.handleEmployeeskill}
+             allowSelectAll={true}
+             value={this.state.optionSelectedskill}
+             displayValue="skillset" // Property name to display in the dropdown options
+             name="skillset" placeholder="Skillset" className="form-control"
+            />
           </div>
+           
+          
         </div>
         
         <div className='onboarding-top-outer emp-active-box-outer '>
@@ -362,7 +439,7 @@ export default class Emplyelist extends Component {
           </div>
           
         </div>
-       
+  
         <div className="empoyee-list-content-are ">
           <List>
             <ListItem>
@@ -374,13 +451,17 @@ export default class Emplyelist extends Component {
 
                 return (
                   <div className="emp-card">
-                    
+       
                   <div className=" ">
+        
+         
+    
                     <Link to={{
                       pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
                     }} >
                       <Card >
                         <Card.Content className="emplyee-card-top">
+                      
                           <div className="emplyee-card-left">
                             <div className="tick-round green-bg">
                               <img src={tick} />
@@ -392,7 +473,7 @@ export default class Emplyelist extends Component {
 
                           </div>
                           <div className="image-box" >
-                          <img src={"http://localhost/audit_portal/public/uploads/profile/" + n.image} />
+                          <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/" + n.image} />
                           </div>
 
                           <Card.Header className="profile-name">
@@ -400,9 +481,19 @@ export default class Emplyelist extends Component {
                             <span>  {n.emp_name}</span>
                             <p>{n.designation_name}
                               <div className="m-t-rever-7"> {n.emp_code}</div>
+                             <a href="" className="mail-undrln">{n.emp_company_email_id}</a> 
                             </p>
-
+                            <div className="star-rt">
+                  <button data-tip data-for= {"registerTip" + n.empid}>
+       < MdStars className={n.badge}/>
+      </button>    <ReactTooltip id={"registerTip" + n.empid} place="top" effect="solid">
+      {n.bourntecexp}  Experience
+      </ReactTooltip>
+    </div>
                           </Card.Header>
+                        
+         
+
                           <div>
                             <div className="profile-location">
 
@@ -413,12 +504,7 @@ export default class Emplyelist extends Component {
                           </div>
                           <Card.Description className="profile-content">
 
-                            <div className="inner-section">
-                              <div className="left">Mail ID</div>
-                              <div className="right">
-                                {n.emp_company_email_id}
-                              </div>
-                            </div>
+                            
                             <div className="inner-section">
                               <div className="left">Joining Date</div>
                               <div className="right"> {n.emp_joining_date}</div>
@@ -430,6 +516,10 @@ export default class Emplyelist extends Component {
                             <div className="inner-section">
                               <div className="left">Department</div>
                               <div className="right">{n.department_name}</div>
+                            </div>
+                            <div className="inner-section">
+                              <div className="left">  Skill Set</div>
+                              <div className="right"> Java </div>
                             </div>
                             <div className="inner-section m-t-rever-10 ">
                               <div className="left">

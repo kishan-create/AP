@@ -953,7 +953,7 @@ label {
   float: right;
   width: auto;
   padding-right: 20px;
-  padding-top: 10px;
+  padding-top: 3px;
 }
 
 .recruitment-tabele thead {
@@ -1320,8 +1320,8 @@ a.download-bt svg {
     float: left;
     display: block;
     height: auto;
-    padding-left: 10px !important;
-    padding: 12px 15px;
+    padding-left: 2px !important;
+    padding: 11px 2px;
 }
 .emplyee-card-left {
   width: 10px;
@@ -1384,22 +1384,22 @@ a.download-bt svg {
   float: left;
   display: block;
   width: 100%;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 16px;
   color: #4a54d1;
   padding-bottom: 8px;
   font-weight: 600;
 }
 .profile-name p {
-  font-size: 13px;
-  color: #4d4c4c;
-  float: left;
-  display: block;
-  font-weight: 500;
-  width: 100%;
-  text-align: left;
-  margin-bottom: 0px;
-  line-height: 20px;
+  font-size: 11px;
+    color: #4d4c4c;
+    float: left;
+    display: block;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0px;
+    line-height: 12px;
 }
 .profile-content {
   width: 100%;
@@ -4329,6 +4329,7 @@ li.option {
 }
 .m-t-rever-7  {
   margin-top: 5px;
+  font-weight: bold;
 }
 .top-dotted-remv {
   border-top: 0px dashed #ffffff !important;
@@ -4458,4 +4459,63 @@ li.option {
   margin-left: 0px;
   width: auto;
   margin-right: 15px;
+}
+
+.mail-undrln {
+  text-decoration: underline;
+}
+.emp-srch button {
+  position: absolute;
+  right: 25px;
+  top: -4px;
+  background: none;
+}
+.star-rt{
+ position: absolute;
+ right: 6px;
+ top: 0;
+}
+.emplyee-relative{
+  position: relative;
+  width: 100%;
+  float: left;
+  display: block;
+}
+.star-rt svg
+{
+  font-size: 15px;
+}
+.__react_component_tooltip {
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 13px;
+  left: inherit !important;
+  right: -4px !important;
+  opacity: 0;
+  padding: 2px 5px !important;
+  position: absolute !important;
+  min-width: 125px;
+  top: -1px !important;
+  text-align: center;
+  font-size: 11px !important;
+}
+.emp-card{
+  position: relative;
+}
+.__react_component_tooltip::before, .__react_component_tooltip::after {
+  left: inherit !important;
+  right: 4px !important;
+}
+.star-rt button{
+  background: none;
+  background-color: #fff;
+}
+.gray{
+  color: #C7C;
+}
+.sliver{
+  color: #8389A1;
+}
+.gold{
+  color: #e5b73b;
 }
