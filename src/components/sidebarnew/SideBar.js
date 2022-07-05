@@ -100,7 +100,11 @@ const $ = window.$;
              Asset
           </NavLink>
         </NavItem>
-
+        <NavItem>
+        <NavLink tag={nlink} to={"/Employeedashboard"} className="mob-menu-clik" activeClassName="active" >
+                      Employee Dashboard< MdLibraryBooks/>
+                      </NavLink>
+                      </NavItem>
         {/* <NavItem>
           <NavLink active={window.location.pathname === "/"} tag={Link} to={"/"} className="mob-menu-clik" >
           <FaFileAlt/>
@@ -132,6 +136,7 @@ const $ = window.$;
                       <NavLink tag={nlink} to={"/Streamsettings"} className="mob-menu-clik" activeClassName="active" >
                             Stream Settings< MdLibraryBooks/>
                       </NavLink>
+                     
                 </DropdownMenu>
               </UncontrolledButtonDropdown>
        

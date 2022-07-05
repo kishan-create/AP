@@ -20,7 +20,7 @@ import Addbranches from './Addbranches';
 import Switch from "react-switch";
 import axios from "axios";
 import swal from "sweetalert";
-
+import Resignationicons from './Resignationicons';
 import {
   Accordion,
   AccordionItem,
@@ -218,7 +218,9 @@ const data = [
                     <TableCell numeric className="width-15">{n.emp_location}</TableCell>
                     <TableCell numeric className="width-8">
                     <div className="action-outer">
-             
+                    <div className="edit-new-icon ">
+                          <Resignationicons/>
+                          </div>
              <div className="edit-new-icon ">
                {/* <a href="`/Employeeprofile/${n.id}`,"> */}
                <Link
