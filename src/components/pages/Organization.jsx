@@ -519,7 +519,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Branch Name</TableCell>
+                    <TableCell>Branch Name1</TableCell>
                     <TableCell> Branch Code</TableCell>
                     <TableCell>Branch Type</TableCell>
                     <TableCell>Location</TableCell>
