@@ -23,6 +23,10 @@ import Modal from "react-modal";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
 import Addstream from "./Addstream";
 import Addsubstream from "./Addsubstream";
+import Streamingmapping from "./Streamingmapping";
+
+
+
 import {
   Accordion,
   AccordionItem,
@@ -199,6 +203,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 
     setListnew(listnewtest);
   };
+  Modal.setAppElement('#root');
   return (
     <React.Fragment>
       <Modal
@@ -230,8 +235,8 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.branch.map((historyRow) => (
-                    <TableRow key={historyRow.branchname}>
+                  {row.substream.map((historyRow) => (
+                    <TableRow key={historyRow.bid}>
                       
                       <TableCell>Akhil</TableCell>
                       <TableCell>BS0034</TableCell>
@@ -262,16 +267,14 @@ function Row(props: { row: ReturnType<typeof createData> }) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.org_name}
+          {row.stream_name}
         </TableCell>
-        <TableCell>{row.org_code}</TableCell>
-        <TableCell>{row.org_type}</TableCell>
-        <TableCell>{row.org_location}</TableCell>
+        
         <TableCell>
+       
           <div>
-            <a className="emp-mapping-icon" onClick={() => edit(row.id)}>
-            <i class="fa fa-link" aria-hidden="true" ></i>
-            </a>
+            <Streamingmapping id={row.id}/>
+           
             <a href="">
               <DeleteIcon
                 onClick={(e) => deleteOrganization(e, row.id)}
@@ -293,22 +296,19 @@ function Row(props: { row: ReturnType<typeof createData> }) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Branch Name</TableCell>
-                    <TableCell> Branch Code</TableCell>
-                    <TableCell>Branch Type</TableCell>
-                    <TableCell>Location</TableCell>
+                    <TableCell>Sub stream Name</TableCell>
+                    
                     <TableCell>Action</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.branch.map((historyRow) => (
-                    <TableRow key={historyRow.branchname}>
+                  {row.substream.map((historyRow) => (
+                    <TableRow key={historyRow.bid}>
                       <TableCell component="td" scope="row">
-                        {historyRow.branch_name}
+                        {historyRow.sub_stream_name}
                       </TableCell>
-                      <TableCell>{historyRow.branch_code}</TableCell>
-                      <TableCell>{historyRow.branch_type}</TableCell>
-                      <TableCell>{historyRow.branch_location}</TableCell>
+                    
+                     
                       <TableCell>
                         <div>
                           <a onClick={() => editbranch(historyRow.bid)}>
@@ -334,61 +334,16 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   );
 }
 
-const rowsold = [
-  createData(
-    "Encaps",
-    "DPC",
-    "Bourntec Solutions",
-    "Cochin",
-    <div>
-      <a href="">
-        <EditIcon className="org-edit" />
-      </a>
-      <a href="">
-        <DeleteIcon className="org-delete" />
-      </a>
-    </div>
-  ),
-  createData(
-    "Encaps",
-    "DPC",
-    "Bourntec Solutions",
-    "Cochin",
-    <div>
-      <a href="">
-        <EditIcon className="org-edit" />
-      </a>
-      <a href="">
-        <DeleteIcon className="org-delete" />
-      </a>
-    </div>
-  ),
-  createData(
-    "Encaps",
-    "DPC",
-    "Bourntec Solutions",
-    "Cochin",
-    <div>
-      <a href="">
-        <EditIcon className="org-edit" />
-      </a>
-      <a href="">
-        <DeleteIcon className="org-delete" />
-      </a>
-    </div>
-  ),
-];
-
-export default function Organizationold() {
+export default function Streamsettings() {
   const [rows, setRows] = useState([]);
   // const [branch, setBranch] = useState([]);
 
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:8000/api/getOrganizationvalues");
-    const org = res.data.org;
+    const res = await axios.get("http://localhost:8000/api/getStreamValues");
+    const stream = res.data.stream;
     // const branch = res.data.branch;
     // setBranch(branch);
-    setRows(org);
+    setRows(stream);
   };
 
   useEffect(() => {
@@ -423,14 +378,14 @@ export default function Organizationold() {
                 <TableHead>
                   <TableRow>
                     <TableCell />
-                    <TableCell>Stream Name</TableCell>
+                    <TableCell>Stream Name1</TableCell>
                     
                     <TableCell>Action</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {rows.map((row) => (
-                    <Row key={row.name} row={row} />
+                    <Row key={row.id} row={row} />
                   ))}
 
                   {/* {branch.map((branch) => (
@@ -443,7 +398,7 @@ export default function Organizationold() {
           <div className="accrodion-mob-outer">
             <Accordion preExpanded={"a"} className="job-accrodion">
               {/* {row.branch.map((historyRow) => ( */}
-              {rows.map((org_data) => {
+              {rows.map((stm_data) => {
                 return (
                   <div>
                     <AccordionItem uuid="a">
@@ -451,11 +406,11 @@ export default function Organizationold() {
                         <AccordionItemButton>
                           <div className="accordion-head-text">
                             <div className="name notificatio-outer">
-                              {/* {org_data.id} */}
+                              
                             </div>
                             <div className="desi joblocation">
                               <img src={location} />
-                              <span>{org_data.org_location}</span>
+                              <span>{stm_data.stream_name}</span>
                             </div>
                           </div>{" "}
                           <div className="col-4 acc-status-change">
@@ -464,31 +419,31 @@ export default function Organizationold() {
                         </AccordionItemButton>
                       </AccordionItemHeading>
                       <AccordionItemPanel>
-                        {org_data.branch.map((branch_data) => {
+                        {stm_data.substream.map((sub_data) => {
                           return (
                             <>
                               <div className="accord-detals-box">
                                 <div className="left">Branch Name </div>
                                 <div className="right">
-                                  {branch_data.branch_name}
+                                  {sub_data.sub_stream_name}
                                 </div>
                               </div>
                               <div className="accord-detals-box">
                                 <div className="left">Branch Code </div>
                                 <div className="right">
-                                  :{branch_data.branch_code}{" "}
+                                  :{sub_data.sub_stream_name}{" "}
                                 </div>
                               </div>
                               <div className="accord-detals-box">
                                 <div className="left">Branch Type </div>
                                 <div className="right">
-                                  :{branch_data.branch_type}{" "}
+                                  :{sub_data.sub_stream_name}{" "}
                                 </div>
                               </div>
                               <div className="accord-detals-box">
                                 <div className="left">Location </div>
                                 <div className="right">
-                                  : {branch_data.branch_location}
+                                  : {sub_data.sub_stream_name}
                                 </div>
                               </div>
 

@@ -24,7 +24,7 @@ const customStyles = {
   },
 };
 
-export default function Addstream({ method }) {
+export default function EmployeeStreammap() {
   const CustomTab = ({ children }) => (
     <Tab>
       <div>{children}</div>
@@ -46,7 +46,7 @@ export default function Addstream({ method }) {
 
   function closeModal() {
     setIsOpen(false);
-    method();
+    
   }
 
   const [value, setValue] = React.useState(0);

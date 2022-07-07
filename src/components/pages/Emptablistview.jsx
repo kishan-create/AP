@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-import PropTypes from 'prop-types';
-import { MdOutlineFileDownload, MdOutlinePrint, MdPhone, MdCheck, MdLocationPin } from "react-icons/md";
-import { withStyles } from '@material-ui/core/styles';
-import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
+
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 import Table from '@material-ui/core/Table'; 
 import TableBody from '@material-ui/core/TableBody';
@@ -12,14 +9,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Jobdetailsmodal from "./Jobdetailsmodal"; 
-import {location} from '../../images';
-import {profilei} from '../../images/profilei.svg'; 
-import Addorganization from './Addorgaization';
-import Addbranches from './Addbranches';
-import Switch from "react-switch";
+
 import axios from "axios";
-import swal from "sweetalert";
+import MySelect from "./Multselectdropdown/Myselect";
+
+import { components } from "react-select";
+import makeAnimated from "react-select/animated";
+
 
 import {
   Accordion,
@@ -60,61 +56,275 @@ const data = [
   createData('linto', '050','Sr. Software Engineer ', 'linto@bourntec.com', '7.5','Cochi', ''),
 ];
 
-
+const Option = props => {
+  return (
+    <div>
+      <components.Option {...props}>
+        <input
+          type="checkbox"
+          checked={props.isSelected}
+          onChange={() => null}
+        />{" "}
+        <label>{props.label}</label>
+      </components.Option>
+    </div>
+  );
+};
+const MultiValue = props => (
+  <components.MultiValue {...props}>
+    <span>{props.data.label}</span>
+  </components.MultiValue>
+);
+const animatedComponents = makeAnimated();
   export default class Emptablistview extends Component {
     constructor() {
       super();
-      this.state = { 
+      this.state = {
+        // user:[],
+        // checked: false,
         checked: true,
-        employeelist: [], 
-        emplocation:[]
+        // selected:[],
+        employeelist: [],
+        emplocation: [],
+        designation: [],
+        skillset :[],
+        searchname: '',
+        optionSelected: null,
+        optionSelectedloc: null,
+        optionSelectedskill:null,
+        selectedo: [],
+        options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
+        formData: {
+          location_items: [],
+          designation_items: [],
+          skillset_items:[],
+  
+        },
+        // this.setState(user)
+  
+        count: 0
       };
   
       this.handleChange = this.handleChange.bind(this);
+      this.handleSelect = this.handleSelect.bind(this);
+      this.onSelectLocation = this.onSelectLocation.bind(this);
+      this.onSelectDesignation = this.onSelectDesignation.bind(this);
+      this.handleEmployeeskill = this.handleEmployeeskill.bind(this);
+      this.onRemove = this.onRemove.bind(this);
+      this.handleRemove = this.handleRemove.bind(this);
+      this.SearchHandler = this.SearchHandler.bind(this);
     }
     componentDidMount = () => {
       this.fetchData();
+      // this.setState({user:userdata});
+      
+      // this.selected();
+      // this.state.user(userdata);
+  
       this.getGetLocationName();
+      this.getDesignationName();
+      this.getSkillName();
+  
+    }
+    componentDidUpdate(prevProps, prevState) {
+  
+      if (prevState.formData != this.state.formData) {
+        this.fetchdataByparams();
+      }
+  
+      /*if((this.state.formData.emp_location!="") || (this.state.formData.emp_designation!=""))
+      {
+       this.fetchdataByparams();
+      }*/
+    }
+    fetchdataByparams = async () => {
+      const formData = new FormData();
+      //var id = this.state.formData.emp_location + '&&' + this.state.formData.emp_designation;
+      formData.append("emp_lo", JSON.stringify(this.state.formData));
+      // const response = await axios.get(
+      //`http://localhost:8000/api/getEmployeebylocation/${id}`
+      // );
+      const response = await axios.post(
+        "http://localhost:8000/api/getEmployeebylocation",
+        formData
+      );
+      if (response.data.status === 200) {
+        this.setState({
+          employeelist: response.data.emp,
+          loading: false,
+        });
+  
+      }
+  
     }
     fetchData = async () => {
-
       const res = await axios.get("http://localhost:8000/api/getEmployeeDetails");
-          if (res.data.status === 200) {
-                this.setState({
-                  employeelist: res.data.emp,
-                  loading: false,
-                });
-                
-              }
-             
+      if (res.data.status === 200) {
+        this.setState({
+          employeelist: res.data.emp,
+          loading: false,
+        });
+      
+      }
+  
     }
-    getGetLocationName = async() => {
-      const response = await axios.get("http://localhost:8000/api/getLocationBranch");
-      console.log(response);
+    getGetLocationName = async () => {
+      const response = await axios.get("http://localhost:8000/api/getLocationBranchDrop");
+  
+      if (response.data.status === 200) {
+        this.setState({
+          emplocation: response.data.location,
+          loading: false,
+        });
+  
+      }
+  
+    }
+    getSkillName = async()=> {
+      const response = await axios.get("http://localhost:8000/api/getskillset");
+      if (response.data.status === 200) {
+        this.setState({
+          skillset: response.data.skill,
+          loading: false,
+        });
+  
+      }
+    }
+  
+    handleSelect = async (e) => {
+  
+      // console.log(e.target.name);
+  
+      /*this.setState({
+        formData: {
+          ...this.state.formData,
+          [e.target.name]: e.target.value,
+        },
+      });*/
+  
+  
+  
+    }
+    getDesignationName = async () => {
+      const response = await axios.get("http://localhost:8000/api/getDesignationall");
+      if (response.data.status === 200) {
+        this.setState({
+          designation: response.data.designation,
+          loading: false,
+        });
+  
+      }
+    }
+    
+    GetSearchbylocation = async (data) => {
+      var location = data?.emp_location;
+  
     }
     handleChange(checked) {
       this.setState({ checked });
     }
-
-    DeleteEmployee = async (e,id) => {
-      e.preventDefault();
-      const thisclickrow = e.currentTarget;
-      thisclickrow.innerText = "Deleting";
-      const res = await axios.delete(
+    SearchHandler(event)
+    {
+      this.setState({
+        searchname: event.target.value,
+       
+      });
+      this.handleSubmitSearch(event.target.value);
+     
+     
+    }
+    
+    onRemove(selectedList) {
+      this.setState({
+        formData: { ...this.state.formData, location_items: selectedList }
   
-        `http://localhost:8000/api/delete_Employee/${id}`
+      });
   
-      );
-      if (res.data.status == 200) {
-        swal({
-          title: "Good job!",
-          text: "Employee Deleted successfully",
-          icon: "success",
-          button: "ok",
-        });
-      }
+    }
+    handleRemove = (selectedList) => {
+      alert("hii");
+      this.setState({
+        formData: { ...this.state.formData, designation_items: selectedList }
   
+      });
     };
+    onSelectLocation(selectedList) {
+  
+      this.setState({
+        formData: { ...this.state.formData, location_items: selectedList }
+  
+      });
+  
+    }
+    onSelectDesignation(selectedList) {
+  
+      this.setState({
+        formData: { ...this.state.formData, designation_items: selectedList }
+  
+      });
+  
+    }
+    onSelectSkillSet(selectedList)
+    {
+      this.setState({
+        formData: { ...this.state.formData, skillset_items: selectedList }
+  
+      });
+    }
+    
+    handleEmployeeskill = (selected) => {
+  
+      //  console.log(selected);
+      this.setState({
+        optionSelectedskill: selected
+      });
+      this.setState({
+        formData: { ...this.state.formData, skillset_items: selected }
+  
+      });
+      console.log(this.state.optionSelected);
+    };
+    handleEmployeelocation = (selected) => {
+  
+      //  console.log(selected);
+      this.setState({
+        optionSelected: selected
+      });
+      this.setState({
+        formData: { ...this.state.formData, location_items: selected }
+  
+      });
+      console.log(this.state.optionSelected);
+    };
+    handleEmployeelDes = (selectedList) => {
+      this.setState({
+        optionSelectedloc: selectedList
+      });
+      this.setState({
+        formData: { ...this.state.formData, designation_items: selectedList }
+  
+      });
+    }
+    handleSubmitSearch =async(name)=>
+    {
+     if(name!="")
+     {
+      const response = await axios.get(
+        `http://localhost:8000/api/searchbyButton/${name}` );
+        if (response.data.status === 200) {
+          this.setState({
+            employeelist: response.data.emp,
+            loading: false,
+          });
+    
+        }
+      }
+      else {
+        this.fetchData();
+      }
+      
+    }
+
 
 
     
@@ -124,50 +334,71 @@ const data = [
                 <div className=" ">
                     
                     <div className="emplyee-top">
-                <div className="emplyesearch emplyesearch1">
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="birthday"
-                    name="birthday"
-                    placeholder="Search "
-                  />
-                  <button type="button">
-                    {" "}
-                    <FaSearch className="add-btn-icon" />
-                  </button>
-                </div>
-                <div class="form-group emp-searc-location "> 
-                    <select id="dropdown" name="job_post" class="form-control">
-                          <option value="">Location</option>
-                          <option value="1">Cochi</option>
-                          <option value="2">Bhubaneswar</option>
-                          <option value="3">Hyderabad</option>
-                          <option value="4">UAE</option>
-                          </select>
-                </div>
-                <div class="form-group emp-searc-location "> 
-                    <select id="dropdown" name="job_post" class="form-control">
-                          <option value="">Designation</option>
-                          <option value="1">Software Engineer </option>
-                          <option value="2">Sr. Software Engineer</option>
-                          <option value="3">Team Lead</option>
-                          <option value="4">Software Tester</option>
-                          </select>
-                </div>
-                <div className="recruitment-top-right-box active-employee-top">
-                  <label className="active-swite-toggle">
-                    <span>Active Employees</span>
-                    <Switch onChange={this.handleChange} checked={this.state.checked} />
-                  </label>
-                </div>
+                    <div className="emp-srch col-md-3">
+            <input
+              className="form-control"
+              type="text"
+              id="birthday"
+              name="birthday"
+              value={this.state.searchname}
+              onChange={this.SearchHandler}
+              placeholder="Emp ID,Emp Name "
+            />
+            <button >
+              {" "}
+              <FaSearch className="add-btn-icon" />
+            </button>
+          </div>
+          <div className=" col-md-3">
+            <MySelect
+              options={this.state.emplocation}
+              isMulti
+              closeMenuOnSelect={false}
+              hideSelectedOptions={false}
+              components={{ Option, MultiValue, animatedComponents }}
+              onChange={this.handleEmployeelocation}
+              allowSelectAll={true}
+              value={this.state.optionSelected}
+              displayValue="location" // Property name to display in the dropdown options
+              name="location"
+              placeholder="Location" className="form-control"
+            />
+          </div>
+          <div className=" col-md-3 ">
+          <MySelect 
+              options={this.state.designation}
+              isMulti
+              closeMenuOnSelect={false}
+              hideSelectedOptions={false}
+              components={{ Option, MultiValue, animatedComponents }}
+              onChange={this.handleEmployeelDes}
+              allowSelectAll={true}
+              value={this.state.optionSelectedloc}
+              displayValue="designation" // Property name to display in the dropdown options
+              name="designation"  placeholder="Designation" className="form-control "
+            />
+          </div>
+          <div className=" col-md-3">
+          <MySelect
+             options={this.state.skillset}
+             isMulti
+             closeMenuOnSelect={false}
+             hideSelectedOptions={false}
+             components={{ Option, MultiValue, animatedComponents }}
+             onChange={this.handleEmployeeskill}
+             allowSelectAll={true}
+             value={this.state.optionSelectedskill}
+             displayValue="skillset" // Property name to display in the dropdown options
+             name="skillset" placeholder="Skillset" className="form-control"
+            />
+          </div>
               </div> 
               <div className='onboarding-top-outer emp-active-box-outer '>
 <div className='box'>
 <div className="box-inner emp-active-box">
   <div className='left'>
   <p>Active</p>
-<span>120</span>
+<span>{this.state.employeelist.length}</span>
   </div>
 <img src={Offboarding1} />
 </div>
@@ -208,7 +439,7 @@ const data = [
         <TableBody>
         {this.state.employeelist.map(n => {
             return (
-              <TableRow  key={n.id} >
+              <TableRow  key={n.empid} >
                     <TableCell  className="width-18"> {n.emp_name}</TableCell>
                     <TableCell numeric className="width-18">{n.emp_code}</TableCell>                          
                     <TableCell numeric className=" width-12">{n.designation_name} </TableCell>

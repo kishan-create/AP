@@ -1,16 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
 import Modal from "react-modal";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import Dropdown from "react-dropdown";
+
 import "react-dropdown/style.css";
-import { AppBar } from "@material-ui/core";
-import BasicTabs from "./Employeetabs";
+import substreamvalidation from "../validation/substreamvalidation";
+import Substreamform from "./includes/Substreamform";
 import "react-tabs/style/react-tabs.css";
-import Branchform from "./Branchform";
-import branch_validation from "../validation/branch_validation";
+
 const customStyles = {
   content: {
     top: "50%",
@@ -62,8 +61,8 @@ export default function Addsubstream({ method }) {
     { value: "yellow", label: "yellow" },
   ];
 
-  const { handleChange, values, listnew, handleSubmit, errors } = Branchform(
-    branch_validation
+  const { handleChange, values, listnew, handleSubmit, errors } = Substreamform(
+    substreamvalidation
   );
   
   return (
@@ -104,38 +103,38 @@ export default function Addsubstream({ method }) {
                    
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Stream Name</label>
+                      <label htmlFor="exampleFormControlInput1">Stream Name</label>
                       <select
                         id="dropdown"
-                        name="branch_company"
+                        name="stream_name"
                         onChange={handleChange}
-                        value={values.branch_company}
+                        value={values.stream_name}
                         class="form-control"
                       >
-                        <option value="">Select Company name</option>
-                        {listnew.map(({ org_name, id }, index) => (
-                          <option value={id}>{org_name}</option>
+                        <option value="">Select Stream name</option>
+                        {listnew.map(({ stream_name, id }, index) => (
+                          <option value={id}>{stream_name}</option>
                         ))}
                       </select>
-                      {errors.branch_company && (
-                        <p className="red-alert">{errors.branch_company}</p>
+                      {errors.stream_name && (
+                        <p className="red-alert">{errors.stream_name}</p>
                       )}
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Substream Name</label>
+                      <label htmlFor="exampleFormControlInput1">Substream Name</label>
                       <input
                         type="text"
-                        name="branch_type"
+                        name="substream_name"
                         onChange={handleChange}
-                        value={values.branch_type}
+                        value={values.substream_name}
                         class="form-control"
                         placeholder="Substream"
                       ></input>
-                      {errors.branch_type && (
-                        <p className="red-alert">{errors.branch_type}</p>
+                      {errors.substream_name && (
+                        <p className="red-alert">{errors.substream_name}</p>
                       )}
                     </div>
                   </div>
