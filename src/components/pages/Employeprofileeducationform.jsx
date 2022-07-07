@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
-const Employeprofileeducationform = (id) => {
+const Employeprofileeducationform = (id,method,closeModal) => {
   const [values, SetValues] = useState({
     employee_education: "",
     employee_institution: "",
@@ -51,16 +51,8 @@ const Employeprofileeducationform = (id) => {
           icon: "success",
           button: "ok",
         });
-        SetValues({
-            employee_education: "",
-            employee_institution: "",
-        
-            employee_yearofgrad: "",
-            employee_specialization: "",
-          
-
-
-        });
+        closeModal();
+        method(id);
       }
     });
   };

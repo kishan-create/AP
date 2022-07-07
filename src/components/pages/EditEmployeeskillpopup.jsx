@@ -32,7 +32,7 @@ const customStyles = {
   },
 };
 
-export default function EditEmployeeskillpopup({idsdvalue} ) {
+export default function EditEmployeeskillpopup({idsdvalue, id, method} ) {
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -90,6 +90,9 @@ export default function EditEmployeeskillpopup({idsdvalue} ) {
         icon: "success",
         button: "ok",
       });
+      closeModal();
+      method(id);
+      
     }
   };
 

@@ -208,7 +208,7 @@ const data = [
         <TableBody>
         {this.state.employeelist.map(n => {
             return (
-              <TableRow  key={n.id} >
+              <TableRow  key={n.empid} >
                     <TableCell  className="width-18"> {n.emp_name}</TableCell>
                     <TableCell numeric className="width-18">{n.emp_code}</TableCell>                          
                     <TableCell numeric className=" width-12">{n.designation_name} </TableCell>

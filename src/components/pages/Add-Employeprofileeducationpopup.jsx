@@ -24,7 +24,7 @@ const customStyles = {
   },
 };
 
-export default function AddEmployeprofileeducationpopup({ id}) {
+export default function AddEmployeprofileeducationpopup({ id,method}) {
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -54,7 +54,7 @@ export default function AddEmployeprofileeducationpopup({ id}) {
     setValue(val);
   };
 
-  const { handleChange, values, handleSubmit, errors, post } = Employeprofileeducationform(id
+  const { handleChange, values, handleSubmit, errors, post } = Employeprofileeducationform(id,method,closeModal
     
   );
 

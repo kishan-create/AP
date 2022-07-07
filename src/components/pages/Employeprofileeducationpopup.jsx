@@ -30,7 +30,7 @@ const customStyles = {
   },
 };
 
-export default function Employeprofileeducationpopup({idedvalue}) {
+export default function Employeprofileeducationpopup({idedvalue, method, id}) {
   console.log(idedvalue);
 
   
@@ -105,6 +105,8 @@ export default function Employeprofileeducationpopup({idedvalue}) {
         icon: "success",
         button: "ok",
       });
+      method(id);
+      closeModal();
     }
   };
 

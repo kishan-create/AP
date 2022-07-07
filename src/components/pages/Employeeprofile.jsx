@@ -199,11 +199,11 @@ const getEmployeeDetails = async (id) => {
                                    if  (rows[0]?.ed_fk_emp_id==null)
                                    {
                                          return(
-                                          <AddEmployeprofileeducationpopup id ={params.id}/> 
+                                          <AddEmployeprofileeducationpopup id ={params.id} method={getEmployeeDetails}/> 
 
                                          )}
                                    else {return(
-                                   <Employeprofileeducationpopup idedvalue ={rows} /> 
+                                   <Employeprofileeducationpopup idedvalue ={rows} method={getEmployeeDetails} /> 
 
 
                                    )}
@@ -257,7 +257,7 @@ if  (rows[0]?.fk_emp_id==null)
 
      )}
 else {return(
-<EditEmployeeskillpopup idsdvalue ={rows} />  
+<EditEmployeeskillpopup id ={params.id} idsdvalue ={rows} method = {getEmployeeDetails} />  
 
 
 )}
