@@ -47,7 +47,7 @@ const Topbar = ({ toggleSidebar,userData }) => {
 			<img src={logomob}/>
         </div>
                <Navbar>
-        <div class="  topbar-col-right">
+        <div className="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
            <UncontrolledButtonDropdown  className="log-out-show">
@@ -56,7 +56,7 @@ const Topbar = ({ toggleSidebar,userData }) => {
                 </DropdownToggle>
                 <DropdownMenu className="">
                 <a  onClick={logout}>
-                <i class="fa fa-power-off logout-new"></i> Logout 
+                <i className="fa fa-power-off logout-new"></i> Logout 
           </a>
                 </DropdownMenu>
               </UncontrolledButtonDropdown>

@@ -63,7 +63,7 @@ export default function Addorganization(){
   return (
     <div>
       
-      <button type="button" class="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD Organization </button> 
+      <button type="button" className="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD Organization </button> 
    
       <Modal
         isOpen={modalIsOpen}
@@ -82,49 +82,49 @@ export default function Addorganization(){
         </div>
         <div className="popup-content-bg">
                   <div class ="row">
-                <div class="col-md-12">
+                <div className="col-md-12">
                  
-                <div class="row addabrch-content-box">
-                        <div class="col-md-4">
-                            <div class="form-group">
+                <div className="row addabrch-content-box">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Organization Name</label>
-                                <input type="text" name="org_name" onChange={handleChange} value={values.org_name} class="form-control" ></input>
+                                <input type="text" name="org_name" onChange={handleChange} value={values.org_name} className="form-control" ></input>
                                 {errors.org_name && <p>{errors.org_name}</p>}
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Organization Code</label>
-                                <input type="text" name="org_code" onChange={handleChange} value={values.org_code} class="form-control" ></input>
+                                <input type="text" name="org_code" onChange={handleChange} value={values.org_code} className="form-control" ></input>
                                 {errors.org_code && <p>{errors.org_code}</p>}
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Organization Type</label>
-                                <select id = "dropdown" name="org_type" onChange={handleChange} value={values.org_type}  class="form-control">
+                                <select id = "dropdown" name="org_type" onChange={handleChange} value={values.org_type}  className="form-control">
                                 { options.map((element, index) => <option key={index}>{element}</option>) }
   </select>
                                
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Category</label>
-                                <input type="text" name="org_category" onChange={handleChange} value={values.org_category} class="form-control" placeholder="IT Services" ></input>
+                                <input type="text" name="org_category" onChange={handleChange} value={values.org_category} className="form-control" placeholder="IT Services" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Organization Registration</label>
-                                <input type="text" name="org_registration" onChange={handleChange} value={values.org_registration} class="form-control" placeholder="Pvt. Ltd" ></input>
+                                <input type="text" name="org_registration" onChange={handleChange} value={values.org_registration} className="form-control" placeholder="Pvt. Ltd" ></input>
                             </div>
                         </div>
                       
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Location</label>
-                                <select id = "dropdown" name="location" onChange={handleChange} value={values.location} class="form-control">
+                                <select id = "dropdown" name="location" onChange={handleChange} value={values.location} className="form-control">
     <option value="Status">Kochi</option>
   </select>
                             </div>
@@ -138,8 +138,8 @@ export default function Addorganization(){
            
         </div>
         <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save "  > Save</button>
-            <button type="button" class="btn  btn-cancel "  onClick={closeModal} > Cancel </button> 
+            <button type="submit" className="btn  btn-save "  > Save</button>
+            <button type="button" className="btn  btn-cancel "  onClick={closeModal} > Cancel </button> 
         </div>
        
        

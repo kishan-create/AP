@@ -36,7 +36,7 @@ const Topbar = ({ toggleSidebar }) => {
 			<img src={logomob}/>
         </div>
                <Navbar>
-        <div class="  topbar-col-right">
+        <div className="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
                  <button onClick={this.logout}>Logout</button>

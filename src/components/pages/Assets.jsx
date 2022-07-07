@@ -95,10 +95,10 @@ const data = [
                                     Filter by
                                     </div>
                                     <div className="asset-right-dropdwn ">  
-                                        <select id="dropdown" class="form-control"><option value="Status">Cochin</option></select>
+                                        <select id="dropdown" className="form-control"><option value="Status">Cochin</option></select>
                                     </div>
                                     <div className="asset-right-dropdwn ">  
-                                        <select id="dropdown" class="form-control"><option value="Status">Asset Category</option></select>
+                                        <select id="dropdown" className="form-control"><option value="Status">Asset Category</option></select>
                                     </div> 
                                 </div>
                             </div>
@@ -179,7 +179,7 @@ const data = [
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -211,7 +211,7 @@ const data = [
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -242,7 +242,7 @@ const data = [
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -274,7 +274,7 @@ const data = [
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>

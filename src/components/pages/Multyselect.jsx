@@ -34,7 +34,7 @@ export default function Multyselect() {
   return (
     <div className="Multyselect">
      
-        <Multiselect  class="form-control "
+        <Multiselect  className="form-control "
           options={options} // Options to display in the dropdown
           selectedValues={items} // Preselected value to persist in dropdown
           onSelect={handleSelect} // Function will trigger on select event

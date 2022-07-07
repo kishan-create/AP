@@ -244,10 +244,10 @@ setDirection();
 
           <div>
             <div id="app">
-              <div class="tab-module">
-                <div class="tab-module__tablist" role="tablist">
+              <div className="tab-module">
+                <div className="tab-module__tablist" role="tablist">
                   <button
-                    class="tab-module__tab sub-line  employee-tab-button"
+                    className="tab-module__tab sub-line  employee-tab-button"
                     role="tab"
                     aria-selected="true"
                     aria-controls="colors-tab"
@@ -262,7 +262,7 @@ setDirection();
                     </div>
                   </button>
                   <div
-                    class="tab-module__tabcontent"
+                    className="tab-module__tabcontent"
                     tabindex="0"
                     role="tabpanel"
                     id="colors-tab"
@@ -274,11 +274,11 @@ setDirection();
                           <div className="sub-head basic-inform-main-head">
                             Employee List
                             <div className="top-right-outer add-btn-div">
-                              <button type="button" class="btn  btn-save ">
+                              <button type="button" className="btn  btn-save ">
                                 {" "}
                                 Save
                               </button>
-                              <button type="button" class="btn  btn-cancel ">
+                              <button type="button" className="btn  btn-cancel ">
                                 {" "}
                                 Cancel{" "}
                               </button>
@@ -287,7 +287,7 @@ setDirection();
                           <form onSubmit={handleSubmit} className="form" noValidate>
                           <div className="basic-inform-inner">
                             <div className="col-md-4">
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Name
                                 </label>
@@ -296,13 +296,13 @@ setDirection();
                                   name="emp_name"
                                   onChange={handleChange}
                                   value={values.emp_name}
-                                  class="form-control"
+                                  className="form-control"
                                 ></input>
                                 {errors.emp_name && (
                                   <p className="red-alert">{errors.emp_name}</p>
                                 )}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Contact Number
                                 </label>
@@ -311,7 +311,7 @@ setDirection();
                                   name="emp_number"
                                   onChange={handleChange}
                                   value={values.emp_number}
-                                  class="form-control"
+                                  className="form-control"
                                 ></input>
                                 {errors.emp_number && (
                                   <p className="red-alert">
@@ -319,7 +319,7 @@ setDirection();
                                   </p>
                                 )}
                               </div>
-                               <div class="form-group">
+                               <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Department Name
                                 </label>
@@ -328,7 +328,7 @@ setDirection();
                         name="emp_department"
                         onChange={handleChange}
                         value={values.emp_department}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Department name</option>
                         {departments.map(({ department_name, id }, index) => (
@@ -343,7 +343,7 @@ setDirection();
                               </div>
                              
 
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Company Email ID
                                 </label>
@@ -352,7 +352,7 @@ setDirection();
                                   name="emp_email"
                                   onChange={handleChange}
                                   value={values.emp_email}
-                                  class="form-control"
+                                  className="form-control"
                                 ></input>
                                 {errors.emp_email && (
                                   <p className="red-alert">
@@ -360,7 +360,7 @@ setDirection();
                                   </p>
                                 )}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Reporting Person
                                 </label>
@@ -369,7 +369,7 @@ setDirection();
                                   name="emp_reportperson"
                                   onChange={handleChange}
                                   value={values.emp_reportperson}
-                                  class="form-control"
+                                  className="form-control"
                                 ></input>
                                 {errors.emp_reportperson && (
                                   <p className="red-alert">
@@ -379,7 +379,7 @@ setDirection();
                               </div>
                             </div>
                             <div className="col-md-4">
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Employee Code
                                 </label>
@@ -388,13 +388,13 @@ setDirection();
                                   name="emp_code"
                                   onChange={handleChange}
                                   value={values.emp_code}
-                                  class="form-control"
+                                  className="form-control"
                                 ></input>
                                 {errors.emp_code && (
                                   <p className="red-alert">{errors.emp_code}</p>
                                 )}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Joining Date
                                 </label>
@@ -403,7 +403,7 @@ setDirection();
                                   name="emp_joindate"
                                   onChange={handleChange}
                                   value={values.emp_joindate}
-                                  class="form-control"
+                                  className="form-control"
                                 ></input>
                                 {errors.emp_joindate && (
                                   <p className="red-alert">
@@ -411,14 +411,14 @@ setDirection();
                                   </p>
                                 )}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                               <label>Designation</label>
                                 <select
                         id="dropdown"
                         name="emp_desigination"
                         onChange={handleChange}
                         value={values.emp_desigination}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Designation name</option>
                         {designation.map(({ designation_name, id }, index) => (
@@ -432,7 +432,7 @@ setDirection();
                                   </p>
                                 )}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Employee Gender
                                 </label>    
@@ -453,7 +453,7 @@ setDirection();
                                 <img src={myimage} alt="" />
                                 <hr />
                                 <MultipleImageUpload />
-                                <div class="file file--upload">
+                                <div className="file file--upload">
                                   <label for="input-file">
                                     <img src={uploadicon} alt="" />
                                   </label>
@@ -464,7 +464,7 @@ setDirection();
 
                             <div className="inner-middile-row">
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Transaction Date
                                   </label>
@@ -473,7 +473,7 @@ setDirection();
                                     name="emp_teamsactiondate"
                                     onChange={handleChange}
                                     value={values.emp_teamsactiondate}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_teamsactiondate && (
                                     <p className="red-alert">
@@ -483,7 +483,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Effective from
                                   </label>
@@ -492,7 +492,7 @@ setDirection();
                                     name="emp_effectivedate"
                                     onChange={handleChange}
                                     value={values.emp_effectivedate}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_effectivedate && (
                                     <p className="red-alert">
@@ -502,7 +502,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Position No
                                   </label>
@@ -511,7 +511,7 @@ setDirection();
                                     name="emp_positionno"
                                     onChange={handleChange}
                                     value={values.emp_positionno}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_positionno && (
                                     <p className="red-alert">
@@ -522,7 +522,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     OU
                                   </label>
@@ -531,7 +531,7 @@ setDirection();
                                     name="emp_ou"
                                     onChange={handleChange}
                                     value={values.emp_ou}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_ou && (
                                     <p className="red-alert">{errors.emp_ou}</p>
@@ -539,7 +539,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Parent OU
                                   </label>
@@ -548,7 +548,7 @@ setDirection();
                                     name="parent_ou"
                                     onChange={handleChange}
                                     value={values.parent_ou}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.parent_ou && (
                                     <p className="red-alert">
@@ -560,7 +560,7 @@ setDirection();
                              
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Grade
                                   </label>
@@ -569,7 +569,7 @@ setDirection();
                                     name="emp_grade"
                                     onChange={handleChange}
                                     value={values.emp_grade}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_grade && (
                                     <p className="red-alert">
@@ -579,7 +579,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Grade Band
                                   </label>
@@ -588,7 +588,7 @@ setDirection();
                                     name="  emp_grade_band"
                                     onChange={handleChange}
                                     value={values.emp_grade_band}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_grade_band && (
                                     <p className="red-alert">
@@ -598,7 +598,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Department
                                   </label>
@@ -607,7 +607,7 @@ setDirection();
                                     name="  emp_department"
                                     onChange={handleChange}
                                     value={values.emp_department}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_department && (
                                     <p className="red-alert">
@@ -618,7 +618,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Location
                                   </label>
@@ -627,7 +627,7 @@ setDirection();
                         name="emp_location"
                         onChange={handleChange}
                         value={values.emp_location}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Location name</option>
                         {employeelocation.map(({ branch_location, id }, index) => (
@@ -643,7 +643,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Country
                                   </label>
@@ -652,7 +652,7 @@ setDirection();
                                     name="emp_country"
                                     onChange={handleChange}
                                     value={values.emp_country}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_country && (
                                     <p className="red-alert">
@@ -662,7 +662,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Region
                                   </label>
@@ -671,7 +671,7 @@ setDirection();
                                     name="emp_region"
                                     onChange={handleChange}
                                     value={values.emp_region}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_region && (
                                     <p className="red-alert">
@@ -681,7 +681,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Original Hire Date
                                   </label>
@@ -690,7 +690,7 @@ setDirection();
                                     name="emp_orginal_hire_date"
                                     onChange={handleChange}
                                     value={values.emp_orginal_hire_date}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_orginal_hire_date && (
                                     <p className="red-alert">
@@ -700,14 +700,14 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label>Holiday Calander</label>
                                 <select
                         id="dropdown"
                         name="emp_holiday_calender"
                         onChange={handleChange}
                         value={values.emp_holiday_calender}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Holiday calander</option>
                         {holidaylist.map(({ hol_calendar_name, id }, index) => (
@@ -723,7 +723,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Reporting Manager
                                   </label>
@@ -732,7 +732,7 @@ setDirection();
                                     name="emp_reporting_manager"
                                     onChange={handleChange}
                                     value={values.emp_reporting_manager}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_reporting_manager && (
                                     <p className="red-alert">
@@ -742,7 +742,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Functional Manager
                                   </label>
@@ -751,7 +751,7 @@ setDirection();
                                     name="emp_functional_manager"
                                     onChange={handleChange}
                                     value={values.emp_functional_manager}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_functional_manager && (
                                     <p className="red-alert">
@@ -761,7 +761,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Employee Status
                                   </label>
@@ -770,7 +770,7 @@ setDirection();
                                     name="emp_status"
                                     onChange={handleChange}
                                     value={values.emp_status}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_status && (
                                     <p className="red-alert">
@@ -780,7 +780,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Employment Status
                                   </label>
@@ -789,7 +789,7 @@ setDirection();
                                     name="emp_employment_status"
                                     onChange={handleChange}
                                     value={values.emp_employment_status}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_employment_status && (
                                     <p className="red-alert">
@@ -799,7 +799,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Next Status
                                   </label>
@@ -808,7 +808,7 @@ setDirection();
                                     name="emp_next_status"
                                     onChange={handleChange}
                                     value={values.emp_next_status}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_next_status && (
                                     <p className="red-alert">
@@ -818,7 +818,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Next Status On
                                   </label>
@@ -827,7 +827,7 @@ setDirection();
                                     name="emp_next_statuson"
                                     onChange={handleChange}
                                     value={values.emp_next_statuson}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_next_statuson && (
                                     <p className="red-alert">
@@ -837,7 +837,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Cost Center
                                   </label>
@@ -846,7 +846,7 @@ setDirection();
                                     name="emp_cost_center"
                                     onChange={handleChange}
                                     value={values.emp_cost_center}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_cost_center && (
                                     <p className="red-alert">
@@ -856,7 +856,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Previous Experience
                                   </label>
@@ -865,7 +865,7 @@ setDirection();
                                     name="emp_prev_exp"
                                     onChange={handleChange}
                                     value={values.emp_prev_exp}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_prev_exp && (
                                     <p className="red-alert">
@@ -875,7 +875,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Primary Skill
                                   </label>
@@ -884,7 +884,7 @@ setDirection();
                                     name="emp_primary_skill"
                                     onChange={handleChange}
                                     value={values.emp_primary_skill}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_primary_skill && (
                                     <p className="red-alert">
@@ -894,7 +894,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Secondary Skill
                                   </label>
@@ -903,7 +903,7 @@ setDirection();
                                     name="emp_sec_skill"
                                     onChange={handleChange}
                                     value={values.emp_sec_skill}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.emp_sec_skill && (
                                     <p className="red-alert">
@@ -915,13 +915,13 @@ setDirection();
 
                               
                                 <div className="bottom-button-bg">
-                                  <button type="submit" class="btn  btn-save ">
+                                  <button type="submit" className="btn  btn-save ">
                                     {" "}
                                     Save
                                   </button>
                                   <button
                                     type="button"
-                                    class="btn  btn-cancel "
+                                    className="btn  btn-cancel "
                                   >
                                     {" "}
                                     Cancel{" "}
@@ -935,7 +935,7 @@ setDirection();
                     </div>
                   </div>
                   <button
-                    class="tab-module__tab  sub-line  employee-tab-button"
+                    className="tab-module__tab  sub-line  employee-tab-button"
                     role="tab"
                     aria-selected="false"
                     aria-controls="styles-tab"
@@ -951,7 +951,7 @@ setDirection();
                     </div>
                   </button>
                   <div
-                    class="tab-module__tabcontent"
+                    className="tab-module__tabcontent"
                     tabindex="0"
                     role="tabpanel"
                     id="styles-tab"
@@ -962,11 +962,11 @@ setDirection();
                         <div className="sub-head basic-inform-main-head employee-add-education-head">
                           Personal Info Details
                           <div className="top-right-outer add-btn-div">
-                            <button type="button" class="btn  btn-save ">
+                            <button type="button" className="btn  btn-save ">
                               {" "}
                               Save
                             </button>
-                            <button type="button" class="btn  btn-cancel ">
+                            <button type="button" className="btn  btn-cancel ">
                               {" "}
                               Cancel{" "}
                             </button>
@@ -985,11 +985,11 @@ setDirection();
                             </div>
 
                             <div className="subbody-background">
-                            <div class="form-group"><label for="exampleFormControlInput1">Address</label>
+                            <div className="form-group"><label for="exampleFormControlInput1">Address</label>
                             <textarea className="form-control" rows="3" spellcheck="false"> </textarea>
   {errors.personal_address && (<p className="red-alert">{errors.personal_address}</p>
    )}{" "}</div>
-                              <div class="form-group"> 
+                              <div className="form-group"> 
                                 <label for="exampleFormControlInput1">
                                   City
                                 </label>
@@ -998,7 +998,7 @@ setDirection();
                                  {errors.personal_city && (<p className="red-alert">{errors.personal_city}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Zipcode
                                 </label>
@@ -1007,7 +1007,7 @@ setDirection();
                                  {errors.personal_zipcode && (<p className="red-alert">{errors.personal_zipcode}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Contact Number
                                 </label>
@@ -1016,7 +1016,7 @@ setDirection();
                                  {errors.personal_contactnumber && (<p className="red-alert">{errors.personal_contactnumber}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Home Telephone
                                 </label>
@@ -1025,7 +1025,7 @@ setDirection();
                                  {errors.personal_hometelephone && (<p className="red-alert">{errors.personal_hometelephone}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Work Mobile
                                 </label>
@@ -1034,7 +1034,7 @@ setDirection();
                                  {errors.personal_contactnumber && (<p className="red-alert">{errors.personal_contactnumber}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Work Telephone
                                 </label>
@@ -1043,7 +1043,7 @@ setDirection();
                                  {errors.personal_workmobile && (<p className="red-alert">{errors.personal_workmobile}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Extension Number
                                 </label>
@@ -1052,7 +1052,7 @@ setDirection();
                                  {errors.personal_extensionnumber && (<p className="red-alert">{errors.personal_extensionnumber}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Preferred Email Language
                                 </label>
@@ -1061,7 +1061,7 @@ setDirection();
                                  {errors.personal_preferredemaillanguage && (<p className="red-alert">{errors.personal_preferredemaillanguage}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Work Email
                                 </label>
@@ -1070,7 +1070,7 @@ setDirection();
                                  {errors.personal_workemail && (<p className="red-alert">{errors.personal_workemail}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Personal Email
                                 </label>
@@ -1079,7 +1079,7 @@ setDirection();
                                  {errors.personal_personalemail && (<p className="red-alert">{errors.personal_personalemail}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Personal mobile Number
                                 </label>
@@ -1088,7 +1088,7 @@ setDirection();
                                  {errors.personal_mobile && (<p className="red-alert">{errors.personal_mobile}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Fax Number
                                 </label>
@@ -1110,11 +1110,11 @@ setDirection();
                             </div>
 
                             <div className="subbody-background">
-                            <div class="form-group"><label for="exampleFormControlInput1">Address</label>
+                            <div className="form-group"><label for="exampleFormControlInput1">Address</label>
                             <textarea className="form-control" rows="3" spellcheck="false"> </textarea>
   {errors.personal_address && (<p className="red-alert">{errors.personal_address}</p>
    )}{" "}</div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   City
                                 </label>
@@ -1123,7 +1123,7 @@ setDirection();
                                  {errors.personal_city && (<p className="red-alert">{errors.personal_city}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Zipcode
                                 </label>
@@ -1132,7 +1132,7 @@ setDirection();
                                  {errors.personal_zipcode && (<p className="red-alert">{errors.personal_zipcode}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Contact Number
                                 </label>
@@ -1141,7 +1141,7 @@ setDirection();
                                  {errors.personal_contactnumber && (<p className="red-alert">{errors.personal_contactnumber}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Home Telephone{" "}
                                 </label>
@@ -1150,7 +1150,7 @@ setDirection();
                                  {errors.personal_hometelephone && (<p className="red-alert">{errors.personal_hometelephone}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Work Mobile
                                 </label>
@@ -1159,7 +1159,7 @@ setDirection();
                                  {errors.personal_contactnumber && (<p className="red-alert">{errors.personal_contactnumber}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Work Telephone
                                 </label>
@@ -1168,7 +1168,7 @@ setDirection();
                                  {errors.personal_workmobile && (<p className="red-alert">{errors.personal_workmobile}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Extension Number
                                 </label>
@@ -1177,7 +1177,7 @@ setDirection();
                                  {errors.personal_extensionnumber && (<p className="red-alert">{errors.personal_extensionnumber}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Preferred Email Language
                                 </label>
@@ -1186,7 +1186,7 @@ setDirection();
                                  {errors.personal_preferredemaillanguage && (<p className="red-alert">{errors.personal_preferredemaillanguage}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Work Email
                                 </label>
@@ -1195,7 +1195,7 @@ setDirection();
                                  {errors.personal_workemail && (<p className="red-alert">{errors.personal_workemail}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Personal Email
                                 </label>
@@ -1204,7 +1204,7 @@ setDirection();
                                  {errors.personal_personalemail && (<p className="red-alert">{errors.personal_personalemail}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Personal mobile Number
                                 </label>
@@ -1213,7 +1213,7 @@ setDirection();
                                  {errors.personal_mobile && (<p className="red-alert">{errors.personal_mobile}</p>
                                  )}{" "}
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Fax Number
                                 </label>
@@ -1237,7 +1237,7 @@ setDirection();
 
                             <div className="subbody-background emergency-contact-box">
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Name
                                   </label>
@@ -1248,7 +1248,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Relationship
                                   </label>
@@ -1259,7 +1259,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4 empoloyee-width-full">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Email ID
                                   </label>
@@ -1270,7 +1270,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-12">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Relationship Addresss
                                   </label>
@@ -1281,7 +1281,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Zip Code
                                   </label>
@@ -1292,7 +1292,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Home Phone
                                   </label>
@@ -1303,7 +1303,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Mobile
                                   </label>
@@ -1328,7 +1328,7 @@ setDirection();
 
                             <div className="subbody-background emergency-contact-box">
                               <div className="col-md-4 empoloyee-width-full">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Physician Name
                                   </label>
@@ -1339,7 +1339,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-8">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Physician Address
                                   </label>
@@ -1351,7 +1351,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Zip Code
                                   </label>
@@ -1362,7 +1362,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Phone
                                   </label>
@@ -1373,7 +1373,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Work Phone
                                   </label>
@@ -1387,11 +1387,11 @@ setDirection();
                           </div>
 
                           <div className="bottom-button-bg  mrg-top-30  mrg-left-0 mrg-right-0">
-                            <button type="button" onClick={handleSubmit} class="btn  btn-save ">
+                            <button type="button" onClick={handleSubmit} className="btn  btn-save ">
                               {" "}
                               Save
                             </button>
-                            <button type="button" class="btn  btn-cancel ">
+                            <button type="button" className="btn  btn-cancel ">
                               {" "}
                               Cancel{" "}
                             </button>
@@ -1402,7 +1402,7 @@ setDirection();
                   </div>
 
                   <button
-                    class="tab-module__tab sub-line  employee-tab-button"
+                    className="tab-module__tab sub-line  employee-tab-button"
                     role="tab"
                     aria-selected="false"
                     aria-controls="options-tab"
@@ -1418,7 +1418,7 @@ setDirection();
                     </div>
                   </button>
                   <div
-                    class="tab-module__tabcontent"
+                    className="tab-module__tabcontent"
                     tabindex="0"
                     role="tabpanel"
                     id="options-tab"
@@ -1429,11 +1429,11 @@ setDirection();
                         <div className="sub-head basic-inform-main-head employee-add-education-head">
                           Employee Information
                           <div className="top-right-outer add-btn-div">
-                            <button type="button" class="btn  btn-save ">
+                            <button type="button" className="btn  btn-save ">
                               {" "}
                               Save
                             </button>
-                            <button type="button" class="btn  btn-cancel ">
+                            <button type="button" className="btn  btn-cancel ">
                               {" "}
                               Cancel{" "}
                             </button>
@@ -1452,25 +1452,25 @@ setDirection();
                             </div>
 
                             <div className="subbody-background">
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Title
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Official Name
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Place of Birth
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Date of Birth
                                 </label>
@@ -1481,55 +1481,55 @@ setDirection();
                                   name="birthday"
                                 />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Country of Birth
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Physically Challenged
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Aadhar No
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Marital Status
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   PAN Number
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Blood Group
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   RH Factor
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Ethnic Code
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Wedding Date
                                 </label>
@@ -1540,19 +1540,19 @@ setDirection();
                                   name="birthday"
                                 />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Unique Identity
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Disability
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   UAN Number
                                 </label>
@@ -1698,19 +1698,19 @@ setDirection();
                             </div>
 
                             <div className="subbody-background">
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Relationship
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Name
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Date of Birth
                                 </label>
@@ -1721,7 +1721,7 @@ setDirection();
                                   name="birthday"
                                 />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Gender
                                 </label>
@@ -1730,13 +1730,13 @@ setDirection();
                                   <Radio name="test">Female</Radio>
                                 </div>
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Dependent{" "}
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Address
                                 </label>
@@ -1748,19 +1748,19 @@ setDirection();
                                   {" "}
                                 </textarea>
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Minor
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Guardian Name
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Guardian Address
                                 </label>
@@ -1772,79 +1772,79 @@ setDirection();
                                   {" "}
                                 </textarea>
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Guardian Relation with Nominee
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Guardian Contact Number
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Name ad in Passport
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Passport Number
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Insured
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Occupation
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Graduation Date
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   SSN
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Nationality
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Passport Expiry Date
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   Place of Birth
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group">
+                              <div className="form-group">
                                 <label for="exampleFormControlInput1">
                                   ECNR Required
                                 </label>
                                 <input type="email" className="form-control" />
                               </div>
-                              <div class="form-group upload-file-bx">
+                              <div className="form-group upload-file-bx">
                                 <label for="exampleFormControlInput1">
                                   Upload
                                 </label>
@@ -1854,11 +1854,11 @@ setDirection();
                           </div>
 
                           <div className="bottom-button-bg mrg-left-0 mrg-right-0">
-                            <button type="button" class="btn  btn-save ">
+                            <button type="button" className="btn  btn-save ">
                               {" "}
                               Save
                             </button>
-                            <button type="button" class="btn  btn-cancel ">
+                            <button type="button" className="btn  btn-cancel ">
                               {" "}
                               Cancel{" "}
                             </button>
@@ -1869,7 +1869,7 @@ setDirection();
                   </div>
 
                   <button
-                    class="tab-module__tab sub-line employee-tab-button"
+                    className="tab-module__tab sub-line employee-tab-button"
                     role="tab"
                     aria-selected="false"
                     aria-controls="options-tab"
@@ -1886,7 +1886,7 @@ setDirection();
                     </div>
                   </button>
                   <div
-                    class="tab-module__tabcontent"
+                    className="tab-module__tabcontent"
                     tabindex="0"
                     role="tabpanel"
                     id="accesories-tab"
@@ -1898,11 +1898,11 @@ setDirection();
                           <div className="sub-head basic-inform-main-head">
                             Additional Info
                             <div className="top-right-outer add-btn-div">
-                              <button type="button" class="btn  btn-save ">
+                              <button type="button" className="btn  btn-save ">
                                 {" "}
                                 Save
                               </button>
-                              <button type="button" class="btn  btn-cancel ">
+                              <button type="button" className="btn  btn-cancel ">
                                 {" "}
                                 Cancel{" "}
                               </button>
@@ -1912,7 +1912,7 @@ setDirection();
                           <div className="basic-inform-inner">
                             <div className="inner-middile-row">
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Shift
                                   </label>
@@ -1923,7 +1923,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Attendance
                                   </label>
@@ -1934,7 +1934,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Part/Full Time
                                   </label>
@@ -1946,7 +1946,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Contract Type
                                   </label>
@@ -1957,7 +1957,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Contract End
                                   </label>
@@ -1968,7 +1968,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Notice Period
                                   </label>
@@ -1980,7 +1980,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Hours per week
                                   </label>
@@ -1991,7 +1991,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Secretary
                                   </label>
@@ -2002,7 +2002,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Experience Category
                                   </label>
@@ -2014,7 +2014,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Mentor
                                   </label>
@@ -2025,7 +2025,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Weekly Holiday list
                                   </label>
@@ -2044,7 +2044,7 @@ setDirection();
                           <div className="basic-inform-inner employee-attach-second-section">
                             <div className="inner-middile-row">
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Category
                                   </label>
@@ -2055,7 +2055,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Type
                                   </label>
@@ -2066,7 +2066,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Comment
                                   </label>
@@ -2077,7 +2077,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group upload-file-bx">
+                                <div className="form-group upload-file-bx">
                                   <label for="exampleFormControlInput1">
                                     Upload Details
                                   </label>{" "}
@@ -2088,11 +2088,11 @@ setDirection();
                                 </div>
                               </div>
                               <div className="bottom-button-bg">
-                                <button type="button" class="btn  btn-save ">
+                                <button type="button" className="btn  btn-save ">
                                   {" "}
                                   Save
                                 </button>
-                                <button type="button" class="btn  btn-cancel ">
+                                <button type="button" className="btn  btn-cancel ">
                                   {" "}
                                   Cancel{" "}
                                 </button>
@@ -2105,7 +2105,7 @@ setDirection();
                   </div>
 
                   <button
-                    class="tab-module__tab  sub-line  employee-tab-button"
+                    className="tab-module__tab  sub-line  employee-tab-button"
                     role="tab"
                     aria-selected="false"
                     aria-controls="accesories-tab"
@@ -2121,7 +2121,7 @@ setDirection();
                     </div>
                   </button>
                   <div
-                    class="tab-module__tabcontent"
+                    className="tab-module__tabcontent"
                     tabindex="0"
                     role="tabpanel"
                     id="accesories-tab"
@@ -2133,11 +2133,11 @@ setDirection();
                           <div className="sub-head basic-inform-main-head">
                             Education Details
                             <div className="top-right-outer add-btn-div">
-                              <button type="button" class="btn  btn-save ">
+                              <button type="button" className="btn  btn-save ">
                                 {" "}
                                 Save
                               </button>
-                              <button type="button" class="btn  btn-cancel ">
+                              <button type="button" className="btn  btn-cancel ">
                                 {" "}
                                 Cancel{" "}
                               </button>
@@ -2147,7 +2147,7 @@ setDirection();
                           <div className="basic-inform-inner">
                             <div className="inner-middile-row">
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Type of Establishment
                                   </label>
@@ -2158,7 +2158,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Name of Establishment
                                   </label>
@@ -2169,7 +2169,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Discipline
                                   </label>
@@ -2181,7 +2181,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Year of Passing
                                   </label>
@@ -2195,7 +2195,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Grade
                                   </label>
@@ -2206,7 +2206,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Level
                                   </label>
@@ -2218,7 +2218,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Subject
                                   </label>
@@ -2229,7 +2229,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Major Field
                                   </label>
@@ -2240,7 +2240,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Minor Field
                                   </label>
@@ -2252,7 +2252,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group upload-file-bx">
+                                <div className="form-group upload-file-bx">
                                   <label for="exampleFormControlInput1">
                                     Upload
                                   </label>
@@ -2263,7 +2263,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Affiliated To
                                   </label>
@@ -2274,7 +2274,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Address of Institute
                                   </label>
@@ -2285,7 +2285,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Attended From
                                   </label>
@@ -2298,7 +2298,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Attended To
                                   </label>
@@ -2311,7 +2311,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Company Sponsored
                                   </label>
@@ -2322,7 +2322,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Amount
                                   </label>
@@ -2333,7 +2333,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Reimbursement Date
                                   </label>
@@ -2346,7 +2346,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Explain Breaks During Education
                                   </label>
@@ -2357,11 +2357,11 @@ setDirection();
                                 </div>
                               </div>
                               <div className="bottom-button-bg">
-                                <button type="button" class="btn  btn-save ">
+                                <button type="button" className="btn  btn-save ">
                                   {" "}
                                   Save
                                 </button>
-                                <button type="button" class="btn  btn-cancel ">
+                                <button type="button" className="btn  btn-cancel ">
                                   {" "}
                                   Cancel{" "}
                                 </button>
@@ -2373,7 +2373,7 @@ setDirection();
                     </div>
                   </div>
                   <button
-                    class=" employee-tab-button tab-module__tab "
+                    className=" employee-tab-button tab-module__tab "
                     role="tab"
                     aria-selected="false"
                     aria-controls="accesories-tab"
@@ -2390,7 +2390,7 @@ setDirection();
                     </div>
                   </button>
                   <div
-                    class="tab-module__tabcontent"
+                    className="tab-module__tabcontent"
                     tabindex="0"
                     role="tabpanel"
                     id="accesories-tab"
@@ -2402,11 +2402,11 @@ setDirection();
                           <div className="sub-head basic-inform-main-head">
                             Payroll Info
                             <div className="top-right-outer add-btn-div">
-                              <button type="button" class="btn  btn-save ">
+                              <button type="button" className="btn  btn-save ">
                                 {" "}
                                 Save
                               </button>
-                              <button type="button" class="btn  btn-cancel ">
+                              <button type="button" className="btn  btn-cancel ">
                                 {" "}
                                 Cancel{" "}
                               </button>
@@ -2416,7 +2416,7 @@ setDirection();
                           <div className="basic-inform-inner">
                             <div className="inner-middile-row">
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Salary Hold
                                   </label>
@@ -2427,7 +2427,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Pay Process Status
                                   </label>
@@ -2438,7 +2438,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     PF Applicable
                                   </label>
@@ -2450,7 +2450,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     PF No
                                   </label>
@@ -2461,7 +2461,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     GL Code
                                   </label>
@@ -2472,7 +2472,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Pay Mode
                                   </label>
@@ -2484,7 +2484,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     PT Location
                                   </label>
@@ -2495,7 +2495,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     PT Applicable
                                   </label>
@@ -2506,7 +2506,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Applicable ESI
                                   </label>
@@ -2518,7 +2518,7 @@ setDirection();
                               </div>
 
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     ESI Number
                                   </label>
@@ -2529,7 +2529,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Applied From
                                   </label>
@@ -2540,7 +2540,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Increment from Date
                                   </label>
@@ -2553,7 +2553,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Increment Released Date
                                   </label>
@@ -2566,7 +2566,7 @@ setDirection();
                                 </div>
                               </div>
                               <div className="col-md-4">
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Pay Group
                                   </label>
@@ -2577,11 +2577,11 @@ setDirection();
                                 </div>
                               </div>
                               <div className="bottom-button-bg">
-                                <button type="button" class="btn  btn-save ">
+                                <button type="button" className="btn  btn-save ">
                                   {" "}
                                   Save
                                 </button>
-                                <button type="button" class="btn  btn-cancel ">
+                                <button type="button" className="btn  btn-cancel ">
                                   {" "}
                                   Cancel{" "}
                                 </button>

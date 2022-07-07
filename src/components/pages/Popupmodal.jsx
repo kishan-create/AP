@@ -62,7 +62,7 @@ export default function Popupmodal(){
   return (
     <div>
      
-      <button type="button" class="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
+      <button type="button" className="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
       <Modal
        className="modal"
         isOpen={modalIsOpen}
@@ -82,7 +82,7 @@ export default function Popupmodal(){
         <div className="popup-content-bg">
            
             <div class ="row">
-                <div class="col-md-12">
+                <div className="col-md-12">
                 <BasicTabs /> 
                 </div>
             </div>

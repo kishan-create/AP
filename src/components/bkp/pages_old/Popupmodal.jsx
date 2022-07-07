@@ -62,7 +62,7 @@ export default function Popupmodal(){
   return (
     <div>
      
-      <button type="button" class="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
+      <button type="button" className="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -78,19 +78,19 @@ export default function Popupmodal(){
             </div>
         </div>
         <div className="popup-content-bg">
-            <div class="row ">
-                            <div class="col-md-4">
-                            <form class="form-group btn-secondary" >
-                                <input type="text" placeholder="Search.." name="search" class="form-control"></input>
-                                <button type="submit"><i class="fa fa-search"></i></button>
+            <div className="row ">
+                            <div className="col-md-4">
+                            <form className="form-group btn-secondary" >
+                                <input type="text" placeholder="Search.." name="search" className="form-control"></input>
+                                <button type="submit"><i className="fa fa-search"></i></button>
                                 </form>
                             </div>
-                            <div class="col-md-8">
+                            <div className="col-md-8">
                            
                             </div>
             </div>
             <div class ="row">
-                <div class="col-md-12">
+                <div className="col-md-12">
                 <BasicTabs /> 
                 </div>
             </div>

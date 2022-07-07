@@ -70,7 +70,7 @@ export default function Addbranches({ method }) {
     <div>
       <button
         type="button"
-        class="btn  btn-maincolor btn-block"
+        className="btn  btn-maincolor btn-block"
         onClick={openModal}
       >
         {" "}
@@ -98,48 +98,48 @@ export default function Addbranches({ method }) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row addabrch-content-box">
-              <div class="col-md-12">
-                <div class="row ">
-                  <div class="col-md-4">
-                    <div class="form-group">
+            <div className="row addabrch-content-box">
+              <div className="col-md-12">
+                <div className="row ">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Branch Name</label>
                       <input
                         type="text"
                         name="branch_name"
                         onChange={handleChange}
                         value={values.branch_name}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.branch_name && (
                         <p className="red-alert">{errors.branch_name}</p>
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Branch Code</label>
                       <input
                         type="text"
                         name="branch_code"
                         onChange={handleChange}
                         value={values.branch_code}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.branch_code && (
                         <p className="red-alert">{errors.branch_code}</p>
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Company Name</label>
                       <select
                         id="dropdown"
                         name="branch_company"
                         onChange={handleChange}
                         value={values.branch_company}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Company name</option>
                         {listnew.map(({ org_name, id }, index) => (
@@ -152,15 +152,15 @@ export default function Addbranches({ method }) {
                     </div>
                   </div>
 
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Branch Type</label>
                       <input
                         type="text"
                         name="branch_type"
                         onChange={handleChange}
                         value={values.branch_type}
-                        class="form-control"
+                        className="form-control"
                         placeholder="Development Center"
                       ></input>
                       {errors.branch_type && (
@@ -168,15 +168,15 @@ export default function Addbranches({ method }) {
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Location</label>
                       <input
                         type="text"
                         name="branch_location"
                         onChange={handleChange}
                         value={values.branch_location}
-                        class="form-control"
+                        className="form-control"
                         placeholder="Development Center"
                       ></input>
                       {errors.branch_location && (
@@ -185,8 +185,8 @@ export default function Addbranches({ method }) {
                     </div>
                   </div>
 
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">
                         Date of Establishment
                       </label>
@@ -195,15 +195,15 @@ export default function Addbranches({ method }) {
                         name="branch_date"
                         onChange={handleChange}
                         value={values.branch_date}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.branch_date && (
                         <p className="red-alert">{errors.branch_date}</p>
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">
                         Branch Landline
                       </label>
@@ -212,22 +212,22 @@ export default function Addbranches({ method }) {
                         name="branch_landline"
                         onChange={handleChange}
                         value={values.branch_landline}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.branch_landline && (
                         <p className="red-alert">{errors.branch_landline}</p>
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Email</label>
                       <input
                         type="email"
                         name="branch_email"
                         onChange={handleChange}
                         value={values.branch_email}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.branch_email && (
                         <p className="red-alert">{errors.branch_email}</p>
@@ -239,11 +239,11 @@ export default function Addbranches({ method }) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>

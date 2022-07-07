@@ -160,22 +160,22 @@ window.addEventListener("resize", () => {
     return (
         <div>
           <div id="app">
-      <div class="tab-module">
-        <div class="tab-module__tablist" role="tablist">
-          <button class="tab-module__tab sub-line"  role="tab" aria-selected="true" aria-controls="colors-tab" id="colors">
+      <div className="tab-module">
+        <div className="tab-module__tablist" role="tablist">
+          <button className="tab-module__tab sub-line"  role="tab" aria-selected="true" aria-controls="colors-tab" id="colors">
          
           <RiFileCloudLine/>
            <div className="emp-tabhead-txt"> Basic  Information </div>
             
           </button>
-          <div class="tab-module__tabcontent" tabindex="0"  role="tabpanel" id="colors-tab" aria-labelledby="colors">
+          <div className="tab-module__tabcontent" tabindex="0"  role="tabpanel" id="colors-tab" aria-labelledby="colors">
           <section  className="main-content-area-cont">
                 <div className="main-content-area-inner-cont">
                     <div className="sub-head tab-cont-head"> Basic Information
 
                         <div className="top-right-outer add-btn-div">   
-                        <button type="button" class="btn  btn-save "  > Save</button>
-                        <button type="button" class="btn  btn-cancel "  > Cancel </button> 
+                        <button type="button" className="btn  btn-save "  > Save</button>
+                        <button type="button" className="btn  btn-cancel "  > Cancel </button> 
                        </div>
                     </div>
                     <div className="recruitment-top-right-box">                    
@@ -190,19 +190,19 @@ window.addEventListener("resize", () => {
                
             </section>
           </div>
-          <button class="tab-module__tab  sub-line" role="tab" aria-selected="false" aria-controls="styles-tab" id="styles" tabindex="-1" >
+          <button className="tab-module__tab  sub-line" role="tab" aria-selected="false" aria-controls="styles-tab" id="styles" tabindex="-1" >
  
               <RiContactsBook2Line/>
               <div className="emp-tabhead-txt"> Personal  Information</div>
           </button>
-          <div class="tab-module__tabcontent" tabindex="0" role="tabpanel" id="styles-tab" aria-labelledby="styles" >
+          <div className="tab-module__tabcontent" tabindex="0" role="tabpanel" id="styles-tab" aria-labelledby="styles" >
           <section  className="main-content-area-cont">
                 <div className="main-content-area-inner-cont">
                     <div className="sub-head tab-cont-head"> Personal Information
 
                         <div className="top-right-outer add-btn-div">   
-                        <button type="button" class="btn  btn-save "  > Save</button>
-                        <button type="button" class="btn  btn-cancel "  > Cancel </button> 
+                        <button type="button" className="btn  btn-save "  > Save</button>
+                        <button type="button" className="btn  btn-cancel "  > Cancel </button> 
                        </div>
                     </div>
                     <div className="recruitment-top-right-box">                    
@@ -217,18 +217,18 @@ window.addEventListener("resize", () => {
                
             </section>
           </div>
-          <button class="tab-module__tab sub-line" role="tab" aria-selected="false" aria-controls="hardware-tab" id="hardware" tabindex="-1" >
+          <button className="tab-module__tab sub-line" role="tab" aria-selected="false" aria-controls="hardware-tab" id="hardware" tabindex="-1" >
           <RiFolderUserLine/>
            <div className="emp-tabhead-txt"> Employee Information</div>
           </button>
-          <div  class="tab-module__tabcontent" tabindex="0" role="tabpanel" id="hardware-tab" aria-labelledby="hardware" >
+          <div  className="tab-module__tabcontent" tabindex="0" role="tabpanel" id="hardware-tab" aria-labelledby="hardware" >
           <section  className="main-content-area-cont">
                 <div className="main-content-area-inner-cont">
                     <div className="sub-head tab-cont-head"> Employee Information
 
                         <div className="top-right-outer add-btn-div">   
-                        <button type="button" class="btn  btn-save "  > Save</button>
-                        <button type="button" class="btn  btn-cancel "  > Cancel </button> 
+                        <button type="button" className="btn  btn-save "  > Save</button>
+                        <button type="button" className="btn  btn-cancel "  > Cancel </button> 
                        </div>
                     </div>
                     <div className="recruitment-top-right-box">                    
@@ -243,18 +243,18 @@ window.addEventListener("resize", () => {
                
             </section>
           </div>
-          <button class="tab-module__tab sub-line" role="tab" aria-selected="false" aria-controls="options-tab" id="options" tabindex="-1" >
+          <button className="tab-module__tab sub-line" role="tab" aria-selected="false" aria-controls="options-tab" id="options" tabindex="-1" >
           <RiBodyScanFill/>
            <div className="emp-tabhead-txt"> Additional  Info</div>
           </button>
-          <div class="tab-module__tabcontent" tabindex="0" role="tabpanel" id="options-tab" aria-labelledby="options" >
+          <div className="tab-module__tabcontent" tabindex="0" role="tabpanel" id="options-tab" aria-labelledby="options" >
           <section  className="main-content-area-cont">
                 <div className="main-content-area-inner-cont">
                     <div className="sub-head tab-cont-head"> Additional Information
 
                         <div className="top-right-outer add-btn-div">   
-                        <button type="button" class="btn  btn-save "  > Save</button>
-                        <button type="button" class="btn  btn-cancel "  > Cancel </button> 
+                        <button type="button" className="btn  btn-save "  > Save</button>
+                        <button type="button" className="btn  btn-cancel "  > Cancel </button> 
                        </div>
                     </div>
                     <div className="recruitment-top-right-box">                    
@@ -269,18 +269,18 @@ window.addEventListener("resize", () => {
                
             </section>
           </div>
-          <button class="tab-module__tab  sub-line" role="tab" aria-selected="false" aria-controls="accesories-tab" id="accesories" tabindex="-1" >
+          <button className="tab-module__tab  sub-line" role="tab" aria-selected="false" aria-controls="accesories-tab" id="accesories" tabindex="-1" >
           <MdOutlineSchool/>
            <div className="emp-tabhead-txt"> Education Info</div>
           </button>
-          <div class="tab-module__tabcontent" tabindex="0" role="tabpanel" id="accesories-tab" aria-labelledby="accesories" >
+          <div className="tab-module__tabcontent" tabindex="0" role="tabpanel" id="accesories-tab" aria-labelledby="accesories" >
           <section  className="main-content-area-cont">
                 <div className="main-content-area-inner-cont">
                     <div className="sub-head tab-cont-head"> Education Information
 
                         <div className="top-right-outer add-btn-div">   
-                        <button type="button" class="btn  btn-save "  > Save</button>
-                        <button type="button" class="btn  btn-cancel "  > Cancel </button> 
+                        <button type="button" className="btn  btn-save "  > Save</button>
+                        <button type="button" className="btn  btn-cancel "  > Cancel </button> 
                        </div>
                     </div>
                     <div className="recruitment-top-right-box">                    
@@ -295,19 +295,19 @@ window.addEventListener("resize", () => {
                
             </section>
           </div>
-          <button class="tab-module__tab " role="tab" aria-selected="false" aria-controls="accesories-tab" id="accesories" tabindex="-1" >
+          <button className="tab-module__tab " role="tab" aria-selected="false" aria-controls="accesories-tab" id="accesories" tabindex="-1" >
           <GiReceiveMoney/>
            <div className="emp-tabhead-txt"> Payroll  Info</div>
           
           </button>
-          <div class="tab-module__tabcontent" tabindex="0" role="tabpanel" id="accesories-tab" aria-labelledby="accesories" >
+          <div className="tab-module__tabcontent" tabindex="0" role="tabpanel" id="accesories-tab" aria-labelledby="accesories" >
           <section  className="main-content-area-cont">
                 <div className="main-content-area-inner-cont">
                     <div className="sub-head tab-cont-head"> Payroll Information
 
                         <div className="top-right-outer add-btn-div">   
-                        <button type="button" class="btn  btn-save "  > Save</button>
-                        <button type="button" class="btn  btn-cancel "  > Cancel </button> 
+                        <button type="button" className="btn  btn-save "  > Save</button>
+                        <button type="button" className="btn  btn-cancel "  > Cancel </button> 
                        </div>
                     </div>
                     <div className="recruitment-top-right-box">                    

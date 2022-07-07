@@ -5,15 +5,15 @@ import swal from "sweetalert";
 const Employeeditform = (id) => {
 
   const [values, SetValues] = useState({
-    adhar_no: "",
-    per_addres: "",
-    f_m_P: "",
-    temp_address: "",
-    emer_contact: "",
-    dob_date: "",
-    per_email_id: "",
-    tot_year_expr: "",
-    martial_status: "",
+    aadhar_number: "",
+    permenent_adress: "",
+    f_m_s_name: "",
+    temp_adress: "",
+    emergency_contact_number: "",
+    of_dob: "",
+    p_email_adress: "",
+    tot_exp: "",
+    m_status: "",
     fk_id:"",
     persid:id
  
@@ -53,15 +53,15 @@ const Employeeditform = (id) => {
           button: "ok",
         });
         SetValues({
-            adhar_no: "",
-            per_addres: "",
-            f_m_P: "",
-            temp_address: "",
-            emer_contact: "",
-            dob_date: "",
-            per_email_id: "",
-            total_year_exper: "",
-            martial_status: "",
+            aadhar_number: "",
+            permenent_adress: "",
+            f_m_s_name: "",
+            temp_adress: "",
+            emergency_contact_number: "",
+            of_dob: "",
+            p_email_adress: "",
+            tot_exp: "",
+            m_status: "",
             fk_id:"",
             
         });

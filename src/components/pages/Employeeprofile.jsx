@@ -25,7 +25,7 @@ const getEmployeeDetails = async (id) => {
             const emp = reponse.data.emp;
             setRows(emp);
 }
- console.log(rows[0]);
+//  console.log(rows[0]);
            
   return (
     <main className="inner-content-box">
@@ -39,7 +39,7 @@ const getEmployeeDetails = async (id) => {
                                                </div>
                     <div className="col-md-12">    
                              
-                          <div class="flex-box employee-infot-flex">
+                          <div className="flex-box employee-infot-flex">
                             <div  className="col-md-6 basic-information-card"> 
                                   <div  className="information-card-head">Basic Information
                                   </div>
@@ -112,13 +112,13 @@ const getEmployeeDetails = async (id) => {
 
                                     {(() =>{
 
-                                   if  (rows[0]?.ed_fk_emp_id==null)
+                                   if  (rows[0]?.p_fk_emp_id==null)
 
                                    {
 
                                          return(
 
-                                          <Employeprofilemodel id ={params.id}/> 
+                                          <Employeprofilemodel id ={params.id} methods={getEmployeeDetails} /> 
 
 
 
@@ -126,7 +126,7 @@ const getEmployeeDetails = async (id) => {
 
                                    else {return(
 
-                                   <Employeeditprofmodel idedvalue ={rows} />  
+                                   <Employeeditprofmodel id ={params.id} idedvalue ={rows} />  
 
 
 
@@ -148,7 +148,7 @@ const getEmployeeDetails = async (id) => {
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Aadhaar Number  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.adhar_no}
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.aadhar_number}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
@@ -172,7 +172,7 @@ const getEmployeeDetails = async (id) => {
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Emergency Contact Number   <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emp_contact_number}
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emergency_contact_number}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
@@ -203,7 +203,7 @@ const getEmployeeDetails = async (id) => {
                             </div>
                              
                           </div>  
-                          <div class="flex-box employee-infot-flex">
+                          <div className="flex-box employee-infot-flex">
                              
                             <div  className="col-md-6 education-information-card"> 
                                   <div  className="information-card-head"> Education Details

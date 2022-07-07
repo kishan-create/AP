@@ -6,7 +6,7 @@ import {
   MdOutlinePrint,
   MdPhone,
   MdCheck,
-  MdLocationPin,
+  MdLocationPin,MdStars
 } from "react-icons/md";
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -33,6 +33,7 @@ import MySelect from "./Multselectdropdown/Myselect";
 import { colourOptions } from "./Multselectdropdown/data";
 import { components } from "react-select";
 import makeAnimated from "react-select/animated";
+import ReactTooltip from 'react-tooltip';
 const Option = props => {
   return (
     <div>
@@ -365,7 +366,7 @@ export default class Emplyelist extends Component {
             </button>
           </div>
           
-          <div class=" col-md-3">
+          <div className=" col-md-3">
             <MySelect
               options={this.state.emplocation}
               isMulti
@@ -380,7 +381,7 @@ export default class Emplyelist extends Component {
               placeholder="Location" className="form-control"
             />
           </div>
-          <div class=" col-md-3 ">
+          <div className=" col-md-3 ">
           <MySelect 
               options={this.state.designation}
               isMulti
@@ -394,7 +395,7 @@ export default class Emplyelist extends Component {
               name="designation"  placeholder="Designation" className="form-control "
             />
           </div>
-          <div class=" col-md-3">
+          <div className=" col-md-3">
           <MySelect
              options={this.state.skillset}
              isMulti
@@ -438,7 +439,7 @@ export default class Emplyelist extends Component {
           </div>
           
         </div>
-       
+  
         <div className="empoyee-list-content-are ">
           <List>
             <ListItem>
@@ -450,13 +451,17 @@ export default class Emplyelist extends Component {
 
                 return (
                   <div className="emp-card">
-                    
+       
                   <div className=" ">
+        
+         
+    
                     <Link to={{
                       pathname: `/Employeeprofile/${n.empid}`, data: n.id, // your data array of objects
                     }} >
                       <Card >
                         <Card.Content className="emplyee-card-top">
+                      
                           <div className="emplyee-card-left">
                             <div className="tick-round green-bg">
                               <img src={tick} />
@@ -478,8 +483,17 @@ export default class Emplyelist extends Component {
                               <div className="m-t-rever-7"> {n.emp_code}</div>
                              <a href="" className="mail-undrln">{n.emp_company_email_id}</a> 
                             </p>
-
+                            <div className="star-rt">
+                  <button data-tip data-for= {"registerTip" + n.empid}>
+       < MdStars className={n.badge}/>
+      </button>    <ReactTooltip id={"registerTip" + n.empid} place="top" effect="solid">
+      {n.bourntecexp}  Experience
+      </ReactTooltip>
+    </div>
                           </Card.Header>
+                        
+         
+
                           <div>
                             <div className="profile-location">
 
@@ -509,7 +523,7 @@ export default class Emplyelist extends Component {
                             </div>
                             <div className="inner-section m-t-rever-10 ">
                               <div className="left">
-                                <i class="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
+                                <i className="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
                                 <span className="">{n.emp_location} </span>
                               </div>
                               <div className="right">
@@ -544,29 +558,4 @@ export default class Emplyelist extends Component {
 }
 
 
-
-// function Emplyelist(){
-//   const [,set]=useState([]);
-  
-  
-//   useEffect(()=>{
-//     set(userdata)
-//   },[]  );
-//   return(
-
-//     <div>
-//   <div>   
-// {.map((user)=>(
-
-// <div>
-// <input type="checkbox"/>
-// <label>usernames</label>
-// </div>
-// )) 
-// }
-        
-//     </div>
-//     </div> 
-//   );
-// }
 

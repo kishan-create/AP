@@ -275,30 +275,30 @@ export default function Job(props) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="row popup-content-height">
-                  <div class="col-md-4">
-                    <div class="form-group">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="row popup-content-height">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Job ID</label>
                       <input
                         type="text"
                         name="job_id"
                         onChange={handleChange}
                         value={values.job_id}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Post</label>
                       <select
                         id="dropdown"
                         name="job_post"
                         onChange={handleChange}
                         value={values.job_post}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Post</option>
                         {postvalues.map(({ post_name, id }, index) => (
@@ -307,52 +307,52 @@ export default function Job(props) {
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Skill Set</label>
                       <input
                         type="text"
                         name="job_skillset"
                         onChange={handleChange}
                         value={values.job_skillset}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">experience</label>
                       <input
                         type="text"
                         name="job_experience"
                         onChange={handleChange}
                         value={values.job_experience}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Openings</label>
                       <input
                         type="email"
                         name="job_openings"
                         onChange={handleChange}
                         value={values.job_openings}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
 
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Status</label>
                       <select
                         id="dropdown"
                         name="job_status"
                         onChange={handleChange}
                         value={values.job_status}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Choose status</option>
 
@@ -361,39 +361,39 @@ export default function Job(props) {
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Date open</label>
                       <input
                         type="date"
                         name="job_date_open"
                         onChange={handleChange}
                         value={values.job_date_open}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">date close</label>
                       <input
                         type="date"
                         name="job_date_close"
                         onChange={handleChange}
                         value={values.job_date_close}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4 mob-full">
-                    <div class="form-group">
+                  <div className="col-md-4 mob-full">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Location</label>
                       <select
                         id="job_location"
                         name="job_location"
                         onChange={handleChange}
                         value={values.job_location}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Location</option>
                         {location.map(
@@ -406,15 +406,15 @@ export default function Job(props) {
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
+                  <div className="col-md-12">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">description</label>
                       <input
                         type="email"
                         name="job_description"
                         onChange={handleChange}
                         value={values.job_description}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
@@ -424,11 +424,11 @@ export default function Job(props) {
             <input type="hidden" name="id" value={values.id} />
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>
@@ -575,7 +575,7 @@ export default function Job(props) {
                                 </div>
                               </div>{" "}
                               <div className="col-4 acc-status-change">
-                                <div class="active-status-style">0123</div>
+                                <div className="active-status-style">0123</div>
                               </div>
                             </AccordionItemButton>
                           </AccordionItemHeading>
@@ -646,7 +646,7 @@ export default function Job(props) {
                           </div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">0123</div>
+                          <div className="active-status-style">0123</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -698,7 +698,7 @@ export default function Job(props) {
                           </div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">0123</div>
+                          <div className="active-status-style">0123</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -750,7 +750,7 @@ export default function Job(props) {
                           </div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">0123</div>
+                          <div className="active-status-style">0123</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>

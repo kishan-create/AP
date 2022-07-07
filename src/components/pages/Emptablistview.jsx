@@ -137,8 +137,8 @@ const data = [
                     <FaSearch className="add-btn-icon" />
                   </button>
                 </div>
-                <div class="form-group emp-searc-location "> 
-                    <select id="dropdown" name="job_post" class="form-control">
+                <div className="form-group emp-searc-location "> 
+                    <select id="dropdown" name="job_post" className="form-control">
                           <option value="">Location</option>
                           <option value="1">Cochi</option>
                           <option value="2">Bhubaneswar</option>
@@ -146,8 +146,8 @@ const data = [
                           <option value="4">UAE</option>
                           </select>
                 </div>
-                <div class="form-group emp-searc-location "> 
-                    <select id="dropdown" name="job_post" class="form-control">
+                <div className="form-group emp-searc-location "> 
+                    <select id="dropdown" name="job_post" className="form-control">
                           <option value="">Designation</option>
                           <option value="1">Software Engineer </option>
                           <option value="2">Sr. Software Engineer</option>
@@ -274,7 +274,7 @@ const data = [
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -306,7 +306,7 @@ const data = [
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -337,7 +337,7 @@ const data = [
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -369,7 +369,7 @@ const data = [
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>

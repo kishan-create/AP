@@ -266,11 +266,11 @@ export default class OfferReleasereport extends Component {
               </div>
             </div>
             <div className="popup-content-bg">
-              <div class="row addabrch-content-box">
-                <div class="col-md-12">
-                  <div class="row ">
-                    <div class="col-md-6">
-                      <div class="form-group">
+              <div className="row addabrch-content-box">
+                <div className="col-md-12">
+                  <div className="row ">
+                    <div className="col-md-6">
+                      <div className="form-group">
                         <label for="exampleFormControlInput1">
                           Employee name
                         </label>
@@ -279,13 +279,13 @@ export default class OfferReleasereport extends Component {
                           name="e_name"
                           onChange={this.handleChangeRelease}
                           value={this.state.formData.e_name}
-                          class="form-control"
+                          className="form-control"
                         />
                       </div>
                     </div>
 
-                    <div class="col-md-6">
-                      <div class="form-group">
+                    <div className="col-md-6">
+                      <div className="form-group">
                         <label for="exampleFormControlInput1">
                           Employee ID
                         </label>
@@ -294,12 +294,12 @@ export default class OfferReleasereport extends Component {
                           name="e_id"
                           onChange={this.handleChangeRelease}
                           value={this.state.formData.e_id}
-                          class="form-control"
+                          className="form-control"
                         />
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
+                    <div className="col-md-6">
+                      <div className="form-group">
                         <label for="exampleFormControlInput1">
                           Employee Email
                         </label>
@@ -307,12 +307,12 @@ export default class OfferReleasereport extends Component {
                           type="email"
                           name="e_email"
                           onChange={this.handleChangeRelease}
-                          class="form-control"
+                          className="form-control"
                         />
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
+                    <div className="col-md-6">
+                      <div className="form-group">
                         <label for="exampleFormControlInput1">
                           Joining Date
                         </label>
@@ -321,7 +321,7 @@ export default class OfferReleasereport extends Component {
                           name="e_joining_date"
                           onChange={this.handleChangeRelease}
                           value={this.state.formData.e_joining_date}
-                          class="form-control"
+                          className="form-control"
                         />
                       </div>
                     </div>
@@ -331,20 +331,20 @@ export default class OfferReleasereport extends Component {
                       name="edit_release_id"
                       onChange={this.handleChangeRelease}
                       value={this.state.formData.edit_release_id}
-                      class="form-control"
+                      className="form-control"
                     ></input>
                   </div>
                 </div>
               </div>
             </div>
             <div className=" modal-footer-button-bg">
-              <button type="submit" class="btn  btn-save ">
+              <button type="submit" className="btn  btn-save ">
                 {" "}
                 Add
               </button>
               <button
                 type="button"
-                class="btn  btn-cancel "
+                className="btn  btn-cancel "
                 onClick={this.closeModalststua}
               >
                 {" "}
@@ -373,11 +373,11 @@ export default class OfferReleasereport extends Component {
               </div>
             </div>
             <div className="popup-content-bg">
-              <div class="row addabrch-content-box">
-                <div class="col-md-12">
-                  <div class="row ">
-                    <div class="col-md-4">
-                      <div class="form-group">
+              <div className="row addabrch-content-box">
+                <div className="col-md-12">
+                  <div className="row ">
+                    <div className="col-md-4">
+                      <div className="form-group">
                         <label for="exampleFormControlInput1">
                           Joinng Date and Time
                         </label>
@@ -386,7 +386,7 @@ export default class OfferReleasereport extends Component {
                           name="edit_release_date"
                           onChange={this.handleChangeRelease}
                           value={this.state.formData.edit_release_date}
-                          class="form-control"
+                          className="form-control"
                         ></input>
                       </div>
                     </div>
@@ -396,20 +396,20 @@ export default class OfferReleasereport extends Component {
                       name="edit_release_id"
                       onChange={this.handleChangeRelease}
                       value={this.state.formData.edit_release_id}
-                      class="form-control"
+                      className="form-control"
                     ></input>
                   </div>
                 </div>
               </div>
             </div>
             <div className=" modal-footer-button-bg">
-              <button type="submit" class="btn  btn-save ">
+              <button type="submit" className="btn  btn-save ">
                 {" "}
                 Update
               </button>
               <button
                 type="button"
-                class="btn  btn-cancel "
+                className="btn  btn-cancel "
                 onClick={this.closeModaledit}
               >
                 {" "}
@@ -517,19 +517,19 @@ export default class OfferReleasereport extends Component {
                 <div className="select">
                   <div className="select-inner">
                     <div className="left">Joining</div>
-                    <select id="dropdown" class="form-control">
+                    <select id="dropdown" className="form-control">
                       <option value="Status">Today</option>
                     </select>
                   </div>
                   <div className="select-inner">
                     <div className="left">Status</div>
-                    <select id="dropdown" class="form-control">
+                    <select id="dropdown" className="form-control">
                       <option value="Status">Onboarding Statared</option>
                     </select>
                   </div>
                   <div className="select-inner">
                     <div className="left">Sort By</div>
-                    <select id="dropdown" class="form-control">
+                    <select id="dropdown" className="form-control">
                       <option value="Status">Joining Date</option>
                     </select>
                   </div>
@@ -594,7 +594,7 @@ export default class OfferReleasereport extends Component {
                               className="width-20 inprogress-td offer-map-width"
                             >
                               <div className="emp-map-iocn-outer">
-                                <div class="inprograss-style emp-map-outer">
+                                <div className="inprograss-style emp-map-outer">
                                   EMP Mapping
                                 </div>
 
@@ -630,7 +630,7 @@ export default class OfferReleasereport extends Component {
                           <div className="desi joblocation">000000000</div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">0101</div>
+                          <div className="active-status-style">0101</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -675,7 +675,7 @@ export default class OfferReleasereport extends Component {
                           <div className="desi joblocation">000000000</div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">0101</div>
+                          <div className="active-status-style">0101</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>

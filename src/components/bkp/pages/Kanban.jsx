@@ -270,7 +270,7 @@ const Kanban = () => {
                 />
               </div>
               <div className="calendar-width ">
-                <select id="dropdown" class="form-control">
+                <select id="dropdown" className="form-control">
                   <option value="Status">Status</option>
                 </select>
               </div>
@@ -286,22 +286,22 @@ const Kanban = () => {
 
               <div className="search-icon-width mobile-search-none ">
                 <div className="top-right-outer add-btn-div">
-                  <button type="button" class="btn  btn-maincolor btn-block">
+                  <button type="button" className="btn  btn-maincolor btn-block">
                     {" "}
                     <FaSearch className="add-btn-icon" />
                   </button>
                 </div>{" "}
               </div>
               <div className="search-icon-width  mobile-seardh-show">
-                <div class="search-box add-btn-div ">
+                <div className="search-box add-btn-div ">
                   <input
                     type="text"
-                    class="search-box-input"
+                    className="search-box-input"
                     placeholder="Candidate name"
                   />
                   <button
                     type="button"
-                    class="btn  btn-maincolor search-box-btn"
+                    className="btn  btn-maincolor search-box-btn"
                   >
                     {" "}
                     <FaSearch className="add-btn-icon" />
@@ -547,7 +547,7 @@ const Kanban = () => {
                                     {column.name}
                                   </div>
 
-                                  <div class="pull-right">
+                                  <div className="pull-right">
                                     <button className="card-header-bt-rigt">
                                       40 Items
                                     </button>
@@ -633,7 +633,7 @@ const Kanban = () => {
                                                               {item.location}
                                                             </span>
                                                           </div>
-                                                          <div class="in-progress-location t-r">
+                                                          <div className="in-progress-location t-r">
                                                             NP:{" "}
                                                             {item.notice_prd}{" "}
                                                             Months

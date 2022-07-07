@@ -240,11 +240,11 @@ export default class HolidayList extends Component {
                   </div>
                 </div>
                 <div className="popup-content-bg">
-                  <div class="row addabrch-content-box">
-                    <div class="col-md-12">
-                      <div class="row ">
-                        <div class="col-md-4">
-                          <div class="form-group">
+                  <div className="row addabrch-content-box">
+                    <div className="col-md-12">
+                      <div className="row ">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Holiday Name
                             </label>
@@ -253,19 +253,19 @@ export default class HolidayList extends Component {
                               type="text"
                               onChange={this.handleInputs}
                               value={this.state.formData.hol_name}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">Date</label>
                             <input
                               name="hol_date"
                               onChange={this.handleInputs}
                               value={this.state.formData.hol_date}
                               type="date"
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
@@ -277,13 +277,13 @@ export default class HolidayList extends Component {
                   </div>
                 </div>
                 <div className=" modal-footer-button-bg">
-                  <button type="submit" class="btn  btn-save ">
+                  <button type="submit" className="btn  btn-save ">
                     {" "}
                     Update
                   </button>
                   <button
                     type="button"
-                    class="btn  btn-cancel "
+                    className="btn  btn-cancel "
                     onClick={this.closeModal}
                   >
                     {" "}

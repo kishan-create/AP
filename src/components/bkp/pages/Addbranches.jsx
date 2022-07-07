@@ -60,7 +60,7 @@ export default function Addbranches(){
   return (
     <div>
      
-      <button type="button" class="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD Branches</button> 
+      <button type="button" className="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD Branches</button> 
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -77,62 +77,62 @@ export default function Addbranches(){
         </div>
         <div className="popup-content-bg">
                   <div class ="row addabrch-content-box">
-                <div class="col-md-12">
-                <div class="row ">
-                        <div class="col-md-4">
-                            <div class="form-group">
+                <div className="col-md-12">
+                <div className="row ">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Branch Name</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Branch Code</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                     
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Company Name</label>
-                                <select id = "dropdown" class="form-control">
+                                <select id = "dropdown" className="form-control">
     <option value="Post">Post</option>
     <option value="1">1</option>
  </select>
                                
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Branch Type</label>
-                                <input type="email" class="form-control" placeholder="Development Center" ></input>
+                                <input type="email" className="form-control" placeholder="Development Center" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Location</label>
-                                <select id = "dropdown" class="form-control">
+                                <select id = "dropdown" className="form-control">
     <option value="Post">Kochi</option>
  </select>
                             </div>
                         </div>
                       
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Date of Establishment</label>
-                                <input type="date" class="form-control" ></input>
+                                <input type="date" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Brach Landline</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Email</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
                                              
@@ -143,8 +143,8 @@ export default function Addbranches(){
            
         </div>
         <div className=" modal-footer-button-bg">
-            <button type="button" class="btn  btn-save "  > Save</button>
-            <button type="button" class="btn  btn-cancel "  onClick={closeModal} > Cancel </button> 
+            <button type="button" className="btn  btn-save "  > Save</button>
+            <button type="button" className="btn  btn-cancel "  onClick={closeModal} > Cancel </button> 
         </div>
         
        

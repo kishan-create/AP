@@ -269,7 +269,7 @@ const Kanban = () => {
               </div>
               <div className="search-icon-width ">
                 <div className="top-right-outer add-btn-div">
-                  <button type="button" class="btn  btn-maincolor btn-block">
+                  <button type="button" className="btn  btn-maincolor btn-block">
                     {" "}
                     <FaSearch className="add-btn-icon" />
                   </button>
@@ -390,7 +390,7 @@ const Kanban = () => {
                                     {column.name}
                                   </div>
 
-                                  <div class="pull-right">
+                                  <div className="pull-right">
                                     <button className="card-header-bt-rigt">
                                       40 Items
                                     </button>
@@ -474,7 +474,7 @@ const Kanban = () => {
                                                               {item.location}
                                                             </span>
                                                           </div>
-                                                          <div class="in-progress-location t-r">
+                                                          <div className="in-progress-location t-r">
                                                             NP: {item.np}
                                                           </div>
                                                         </div>

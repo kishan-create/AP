@@ -46,9 +46,9 @@ import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
                         <div className="main-content-area-inner">
                             <div className="sub-head border-0">Add Category
                                 <div className="top-right-outer add-btn-div category-top-button">
-                                <a href="Addproperty"> <button type="button" class="btn  btn-large "  >Add Property</button></a>
-                                <button type="button" class="btn  btn-cancel"  > Save</button>
-            <button type="button" class="btn  btn-cancel " > Cancel </button> 
+                                <a href="Addproperty"> <button type="button" className="btn  btn-large "  >Add Property</button></a>
+                                <button type="button" className="btn  btn-cancel"  > Save</button>
+            <button type="button" className="btn  btn-cancel " > Cancel </button> 
 
                                                                    </div>
 
@@ -57,14 +57,14 @@ import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 
                             <div className="basic-inform-inner padding-top-0 categroy-top" >
                             <div className="col-md-3 padding-left-5">
-  <div class="form-group"><label for="exampleFormControlInput1">Product Name</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">Product Name</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Laptop</option>
  </select>
   </div>
   </div>
   <div className="add-category-bt">
-  <button type="button" class="btn  btn-maincolor"  onClick={() => dispatch({ type: "expand-all" })}
+  <button type="button" className="btn  btn-maincolor"  onClick={() => dispatch({ type: "expand-all" })}
            disabled={state.every((s) => s === true)}> <SiAddthis className="add-btn-icon"/></button> 
   </div>
   <div className="col-md-3 mob-category-wdth">
@@ -86,51 +86,51 @@ import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 <div className="row">
 
 <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Brand</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">Brand</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Select</option>
  </select>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">SL Numbber</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">SL Numbber</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Select</option>
  </select>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Assect ID</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">Assect ID</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Select</option>
  </select>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Location</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">Location</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Select</option>
  </select>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">RAM</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">RAM</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Select</option>
  </select>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Quantity</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">Quantity</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Select</option>
  </select>
   </div>
   </div>
 
   <div className="add-category-save-outer">
-  <button type="button" class="btn  btn-save ">  Add</button>
-            <button type="button" class="btn  btn-cancel "  onClick={() => dispatch({ type: "collapse-all" })}
+  <button type="button" className="btn  btn-save ">  Add</button>
+            <button type="button" className="btn  btn-cancel "  onClick={() => dispatch({ type: "collapse-all" })}
            disabled={state.every((s) => s === false)} > Cancel </button> 
 
   </div>

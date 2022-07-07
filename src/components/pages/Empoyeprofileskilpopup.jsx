@@ -65,11 +65,11 @@ export default function Empoyeprofileskilpopup( ) {
     <div>
       <button
         type="button"
-        class="btn  btn-maincolor btn-block emp-profl-edit-btn"
+        className="btn  btn-maincolor btn-block emp-profl-edit-btn"
         onClick={openModal}
       >
         {" "}
-        <i class="fa fa-edit"></i>
+        <i className="fa fa-edit"></i>
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -93,32 +93,32 @@ export default function Empoyeprofileskilpopup( ) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="row popup-content-height">
-                  <div class="col-md-4">
-                    <div class="form-group">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="row popup-content-height">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Primary Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
+                      <input  type="text"  name="job_id" onChange={handleChange} className="form-control" ></input>
                        
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Secondary Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
+                      <input  type="text"  name="job_id" onChange={handleChange} className="form-control" ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Additional Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
+                      <input  type="text"  name="job_id" onChange={handleChange} className="form-control" ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Year of Experience </label>
-                      <input  type="text"  name="job_id" onChange={handleChange} class="form-control" ></input>
+                      <input  type="text"  name="job_id" onChange={handleChange} className="form-control" ></input>
                     </div>
                   </div>
                  
@@ -127,10 +127,10 @@ export default function Empoyeprofileskilpopup( ) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>

@@ -102,7 +102,7 @@ export default function Holilistpopup({id,method}) {
     <div>
       <button
         type="button"
-        class="btn  btn-maincolor btn-block"
+        className="btn  btn-maincolor btn-block"
         onClick={openModal}
       >
         {" "}
@@ -127,14 +127,14 @@ export default function Holilistpopup({id,method}) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row">
-              <div class="col-md-12 m-b-25">
-                <div class="row popup-content-height">
+            <div className="row">
+              <div className="col-md-12 m-b-25">
+                <div className="row popup-content-height">
                 <input type="hidden" value={id}  onChange={handleChange} name="id"/>
-                  <div class="col-md-12 m-t-25">
+                  <div className="col-md-12 m-t-25">
                     <div className="Multyselect">
                       <Multiselect
-                        class="form-control "
+                        className="form-control "
                         options={options} // Options to display in the dropdown
                         selectedValues={items} // Preselected value to persist in dropdown
                         onSelect={handleSelect} // Function will trigger on select event
@@ -150,10 +150,10 @@ export default function Holilistpopup({id,method}) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               Update
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>

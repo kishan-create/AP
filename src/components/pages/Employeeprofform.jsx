@@ -3,10 +3,11 @@ import axios from "axios";
 import swal from "sweetalert";
 import { CompressOutlined } from "@mui/icons-material";
 // const Employeeprofform = (job_validation) => {
-const Employeeprofform = (id) => {
+const Employeeprofform = (id,methods,closeModal) => {
+  
 
   const [values, SetValues] = useState({
-    adhar_no: "",
+    aadhar_number: "",
     permenent_adress: "",
     f_m_s_name: "",
     temp_address: "",
@@ -15,9 +16,8 @@ const Employeeprofform = (id) => {
     p_email_adress: "",
     tot_exp: "",
     m_status: "",
-    fk_emp_id:id,
-    p_fk_emp_id:"",
-    p_fk_emp_id:id,
+       fk_emp_id:id,
+  p_fk_emp_id:id,
 
   });
 
@@ -56,20 +56,11 @@ const Employeeprofform = (id) => {
           icon: "success",
           button: "ok",
         });
-        SetValues({
-          adhar_no: "",
-          permenent_adress: "",
-          f_m_s_name: "",
-          temp_address: "",
-          emergency_contact_number: "",
-          of_dob: "",
-          p_email_adress: "",
-          tot_exp: "",
-          m_status: "",
-          fk_emp_id:id,
-          p_fk_emp_id:id,
-            // fk_id:"",
-        });
+
+methods(id);
+closeModal();
+        
+       
       }
     });
   };

@@ -37,7 +37,7 @@ export default function AddDepartment({ method }) {
     <div>
       <button
         type="button"
-        class="btn  btn-maincolor btn-block"
+        className="btn  btn-maincolor btn-block"
         onClick={openModal}
       >
         {" "}
@@ -65,20 +65,20 @@ export default function AddDepartment({ method }) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row addabrch-content-box">
-              <div class="col-md-12">
-                <div class="row ">
-                  <div class="col-md-6">
-                    <div class="form-group">
+            <div className="row addabrch-content-box">
+              <div className="col-md-12">
+                <div className="row ">
+                  <div className="col-md-6">
+                    <div className="form-group">
                       <label for="Department name">Department Name</label>
-                      <input type="text" name="department_name"  onChange={handleChange} value={values.department_name} class="form-control" ></input>
+                      <input type="text" name="department_name"  onChange={handleChange} value={values.department_name} className="form-control" ></input>
                       {errors.department_name && <p>{errors.department_name}</p>}
                       </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
+                  <div className="col-md-6">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Department Code</label>
-                      <input type="text"  name="department_code"  onChange={handleChange} value={values.department_code} class="form-control" ></input>
+                      <input type="text"  name="department_code"  onChange={handleChange} value={values.department_code} className="form-control" ></input>
                       {errors.department_code && <p>{errors.department_code}</p>}
                       </div>
                      
@@ -90,11 +90,11 @@ export default function AddDepartment({ method }) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel
             </button>

@@ -504,26 +504,26 @@ const Kanban = () => {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row ">
-              <div class="col-md-6 candidate-inform-search">
-                <form class="form-group btn-secondary">
+            <div className="row ">
+              <div className="col-md-6 candidate-inform-search">
+                <form className="form-group btn-secondary">
                   <input
                     type="text"
                     placeholder="Search.."
                     name="search"
-                    class="form-control"
+                    className="form-control"
                   ></input>
                   <button type="submit">
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                   </button>
                 </form>
               </div>
-              <div class="col-md-8"></div>
+              <div className="col-md-8"></div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="candidate-tab-outer">
-                  <ul class="nav nav-tabs">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="candidate-tab-outer">
+                  <ul className="nav nav-tabs">
                     <li>
                       <a href="#tab2" data-toggle="tab">
                         Candidate Joining Details
@@ -531,11 +531,11 @@ const Kanban = () => {
                     </li>
                   </ul>
 
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab2">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
+                  <div className="tab-content">
+                    <div className="tab-pane active" id="tab2">
+                      <div className="panel panel-default">
+                        <div className="panel-heading">
+                          <h4 className="panel-title">
                             <a
                               data-toggle="collapse"
                               data-parent=".tab-pane"
@@ -545,11 +545,11 @@ const Kanban = () => {
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                              <div class="col-md-4">
-                                <div class="form-group">
+                        <div id="collapseTwo" className="panel-collapse collapse">
+                          <div className="panel-body">
+                            <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Joinng Date and Time
                                   </label>
@@ -558,7 +558,7 @@ const Kanban = () => {
                                     name="edit_release_date"
                                     onChange={edithandleChange}
                                     value={editvalues.edit_release_date}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
@@ -568,14 +568,14 @@ const Kanban = () => {
                                 name="edit_release_id"
                                 onChange={edithandleChange}
                                 value={editvalues.edit_release_id}
-                                class="form-control"
+                                className="form-control"
                               ></input>
                               <input
                                 type="hidden"
                                 name="edit_basic_column_name"
                                 onChange={edithandleChange}
                                 value={editvalues.edit_basic_column_name}
-                                class="form-control"
+                                className="form-control"
                               ></input>
                             </div>
                           </div>
@@ -588,13 +588,13 @@ const Kanban = () => {
             </div>
           </div>
           <div>
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
             <button
               type="button"
-              class="btn  btn-cancel "
+              className="btn  btn-cancel "
               onClick={closeModalReleaseedit}
             >
               {" "}
@@ -628,26 +628,26 @@ const Kanban = () => {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row ">
-              <div class="col-md-6 candidate-inform-search">
-                <form class="form-group btn-secondary">
+            <div className="row ">
+              <div className="col-md-6 candidate-inform-search">
+                <form className="form-group btn-secondary">
                   <input
                     type="text"
                     placeholder="Search.."
                     name="search"
-                    class="form-control"
+                    className="form-control"
                   ></input>
                   <button type="submit">
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                   </button>
                 </form>
               </div>
-              <div class="col-md-8"></div>
+              <div className="col-md-8"></div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="candidate-tab-outer">
-                  <ul class="nav nav-tabs">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="candidate-tab-outer">
+                  <ul className="nav nav-tabs">
                     <li>
                       <a href="#tab2" data-toggle="tab">
                         Rejection Details
@@ -655,11 +655,11 @@ const Kanban = () => {
                     </li>
                   </ul>
 
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab2">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
+                  <div className="tab-content">
+                    <div className="tab-pane active" id="tab2">
+                      <div className="panel panel-default">
+                        <div className="panel-heading">
+                          <h4 className="panel-title">
                             <a
                               data-toggle="collapse"
                               data-parent=".tab-pane"
@@ -669,17 +669,17 @@ const Kanban = () => {
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                              <div class="col-md-4">
-                                <div class="form-group">
+                        <div id="collapseTwo" className="panel-collapse collapse">
+                          <div className="panel-body">
+                            <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Candidate Status
                                   </label>
 
                                   <select
-                                    class="form-control"
+                                    className="form-control"
                                     name="edit_rejectionstatus"
                                     onChange={edithandleChange}
                                     value={editvalues.edit_rejectionstatus}
@@ -695,8 +695,8 @@ const Kanban = () => {
                                 </div>
                               </div>
 
-                              <div class="col-md-8">
-                                <div class="form-group">
+                              <div className="col-md-8">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Reasons
                                   </label>
@@ -704,19 +704,19 @@ const Kanban = () => {
                                     type="text"
                                     name="edit_reason"
                                     onChange={edithandleChange}
-                                    class="form-control"
+                                    className="form-control"
                                     value={editvalues.edit_reason}
                                   ></input>
                                 </div>
                               </div>
 
-                              <div class="col-md-12">
-                                <div class="form-group">
+                              <div className="col-md-12">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Remark
                                   </label>
                                   <textarea
-                                    class="form-control"
+                                    className="form-control"
                                     type="text"
                                     name="edit_remark"
                                     onChange={edithandleChange}
@@ -732,14 +732,14 @@ const Kanban = () => {
                                 type="hidden"
                                 name="edit_r_id"
                                 onChange={edithandleChange}
-                                class="form-control"
+                                className="form-control"
                                 value={editvalues.edit_r_id}
                               ></input>
                               <input
                                 type="hidden"
                                 name="edit_basic_column_name"
                                 onChange={edithandleChange}
-                                class="form-control"
+                                className="form-control"
                                 value={editvalues.edit_basic_column_name}
                               ></input>
                             </div>
@@ -753,13 +753,13 @@ const Kanban = () => {
             </div>
           </div>
           <div>
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
             <button
               type="button"
-              class="btn  btn-cancel "
+              className="btn  btn-cancel "
               onClick={closeModalRejection}
             >
               {" "}
@@ -790,26 +790,26 @@ const Kanban = () => {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row ">
-              <div class="col-md-6 candidate-inform-search">
-                <form class="form-group btn-secondary">
+            <div className="row ">
+              <div className="col-md-6 candidate-inform-search">
+                <form className="form-group btn-secondary">
                   <input
                     type="text"
                     placeholder="Search.."
                     name="search"
-                    class="form-control"
+                    className="form-control"
                   ></input>
                   <button type="submit">
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                   </button>
                 </form>
               </div>
-              <div class="col-md-8"></div>
+              <div className="col-md-8"></div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="candidate-tab-outer">
-                  <ul class="nav nav-tabs">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="candidate-tab-outer">
+                  <ul className="nav nav-tabs">
                     <li>
                       <a href="#tab2" data-toggle="tab">
                         Schedule Details
@@ -817,11 +817,11 @@ const Kanban = () => {
                     </li>
                   </ul>
 
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab2">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
+                  <div className="tab-content">
+                    <div className="tab-pane active" id="tab2">
+                      <div className="panel panel-default">
+                        <div className="panel-heading">
+                          <h4 className="panel-title">
                             <a
                               data-toggle="collapse"
                               data-parent=".tab-pane"
@@ -831,11 +831,11 @@ const Kanban = () => {
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                              <div class="col-md-4">
-                                <div class="form-group">
+                        <div id="collapseTwo" className="panel-collapse collapse">
+                          <div className="panel-body">
+                            <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Panel Members
                                   </label>
@@ -844,12 +844,12 @@ const Kanban = () => {
                                     name="edit_panel_members"
                                     onChange={edithandleChange}
                                     value={editvalues.edit_panel_members}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Interview Date and Time
                                   </label>
@@ -858,12 +858,12 @@ const Kanban = () => {
                                     name="edit_idatetime"
                                     onChange={edithandleChange}
                                     value={editvalues.edi_idatetime}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Interview Place
                                   </label>
@@ -872,12 +872,12 @@ const Kanban = () => {
                                     name="edit_iplace"
                                     onChange={edithandleChange}
                                     value={editvalues.edit_iplace}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Position/Job title
                                   </label>
@@ -886,12 +886,12 @@ const Kanban = () => {
                                     name="edit_jobtitle"
                                     onChange={edithandleChange}
                                     value={editvalues.edit_jobtitle}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Department/team
                                   </label>
@@ -900,12 +900,12 @@ const Kanban = () => {
                                     name="edit_department_team"
                                     onChange={edithandleChange}
                                     value={editvalues.edit_department_team}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Interview Rating
                                   </label>
@@ -914,7 +914,7 @@ const Kanban = () => {
                                     name="edit_interview_rating"
                                     onChange={edithandleChange}
                                     value={editvalues.edit_interview_rating}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
@@ -923,7 +923,7 @@ const Kanban = () => {
                                 name="edit_s_id"
                                 onChange={edithandleChange}
                                 value={editvalues.s_id}
-                                class="form-control"
+                                className="form-control"
                               ></input>
 
                               <input
@@ -932,14 +932,14 @@ const Kanban = () => {
                                 onChange={edithandleChange}
                                 value={editvalues.edit_basic_column_name}
                               ></input>
-                              <div class="col-md-12">
-                                <div class="form-group">
+                              <div className="col-md-12">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Comments
                                   </label>
                                   <textarea
                                     type="text"
-                                    class="form-control"
+                                    className="form-control"
                                     name="edit_comments"
                                     onChange={edithandleChange}
                                     value={editvalues.edit_comments}
@@ -960,11 +960,11 @@ const Kanban = () => {
             </div>
           </div>
           <div>
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>
@@ -991,20 +991,20 @@ const Kanban = () => {
             </div>
           </div>
 
-          <div class="candidate-tab-outer">
-            <ul class="nav nav-tabs">
-              <li class="active">
+          <div className="candidate-tab-outer">
+            <ul className="nav nav-tabs">
+              <li className="active">
                 <a href="#tab1" data-toggle="tab">
                   Basic Information
                 </a>
               </li>
             </ul>
 
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab1">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
+            <div className="tab-content">
+              <div className="tab-pane active" id="tab1">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <h4 className="panel-title">
                       <a
                         data-toggle="collapse"
                         data-parent=".tab-pane"
@@ -1014,10 +1014,10 @@ const Kanban = () => {
                       </a>
                     </h4>
                   </div>
-                  <div id="collapseOne" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                      <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                        <div class="">
+                  <div id="collapseOne" className="panel-collapse collapse in">
+                    <div className="panel-body">
+                      <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                        <div className="">
                           Leave empty to keep the same
                           <br></br>
                           <br></br>
@@ -1026,36 +1026,36 @@ const Kanban = () => {
                             accept=".doc,.docx,application/pdf"
                             name="resume"
                             onChange={handleImage}
-                            class="form-control"
+                            className="form-control"
                           />
                         </div>
                         <br></br>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">Name</label>
                             <input
                               type="text"
                               name="username"
                               onChange={edithandleChange}
                               value={editvalues.username}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">Post</label>
                             <input
                               name="postvalue"
                               type="text"
                               onChange={edithandleChange}
                               value={editvalues.post}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Skill Set
                             </label>
@@ -1069,12 +1069,12 @@ const Kanban = () => {
                               //value={editvalues.skillset}
                               showCheckbox
                               name="skillset"
-                              class="form-control"
+                              className="form-control"
                             />
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Personal Email ID{" "}
                             </label>
@@ -1083,12 +1083,12 @@ const Kanban = () => {
                               name="p_email"
                               onChange={edithandleChange}
                               value={editvalues.p_email}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Contact Number
                             </label>
@@ -1097,12 +1097,12 @@ const Kanban = () => {
                               name="phonenumber"
                               onChange={edithandleChange}
                               value={editvalues.phonenumber}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Education
                             </label>
@@ -1111,12 +1111,12 @@ const Kanban = () => {
                               name="qualification"
                               onChange={edithandleChange}
                               value={editvalues.qualification}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Total years of experience
                             </label>
@@ -1125,24 +1125,24 @@ const Kanban = () => {
                               name="exp"
                               onChange={edithandleChange}
                               value={editvalues.exp}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">CTC</label>
                             <input
                               type="text"
                               name="current_ctc"
                               onChange={edithandleChange}
                               value={editvalues.current_ctc}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               EXP CTC
                             </label>
@@ -1151,12 +1151,12 @@ const Kanban = () => {
                               name="expect_ctc"
                               onChange={edithandleChange}
                               value={editvalues.expect_ctc}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Notice Period
                             </label>
@@ -1165,12 +1165,12 @@ const Kanban = () => {
                               name="noticeprd"
                               onChange={edithandleChange}
                               value={editvalues.noticeprd}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Date Of Birth{" "}
                             </label>
@@ -1179,12 +1179,12 @@ const Kanban = () => {
                               name="dob"
                               onChange={edithandleChange}
                               value={editvalues.dob}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Location
                             </label>
@@ -1193,12 +1193,12 @@ const Kanban = () => {
                               name="location"
                               onChange={edithandleChange}
                               value={editvalues.location}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Current Company
                             </label>
@@ -1207,12 +1207,12 @@ const Kanban = () => {
                               name="current_company"
                               onChange={edithandleChange}
                               value={editvalues.current_company}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Domain Experience
                             </label>
@@ -1221,12 +1221,12 @@ const Kanban = () => {
                               name="domain_exp"
                               onChange={edithandleChange}
                               value={editvalues.domain_exp}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Apply date
                             </label>
@@ -1235,12 +1235,12 @@ const Kanban = () => {
                               name="app_date"
                               onChange={edithandleChange}
                               value={editvalues.app_date}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
+                        <div className="col-md-6">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Primary Skills
                             </label>
@@ -1257,8 +1257,8 @@ const Kanban = () => {
                             />
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
+                        <div className="col-md-6">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Secondary Skills
                             </label>
@@ -1273,13 +1273,13 @@ const Kanban = () => {
                             />
                           </div>
                         </div>
-                        <div class="col-md-12">
-                          <div class="form-group">
+                        <div className="col-md-12">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               References
                             </label>
                             <textarea
-                              class="form-control"
+                              className="form-control"
                               name="ref"
                               onChange={edithandleChange}
                               value={editvalues.ref}
@@ -1310,13 +1310,13 @@ const Kanban = () => {
           </div>
 
           <div>
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
             <button
               type="button"
-              class="btn  btn-cancel "
+              className="btn  btn-cancel "
               onClick={closeModaledit}
             >
               {" "}
@@ -1324,7 +1324,7 @@ const Kanban = () => {
             </button>
             <a
               target="_blank"
-              class="btn  btn-save"
+              className="btn  btn-save"
               name="edit_resume"
               onChange={edithandleChange}
               href={
@@ -1359,38 +1359,38 @@ const Kanban = () => {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row ">
-              <div class="col-md-6 candidate-inform-search">
-                <form class="form-group btn-secondary">
+            <div className="row ">
+              <div className="col-md-6 candidate-inform-search">
+                <form className="form-group btn-secondary">
                   <input
                     type="text"
                     placeholder="Search.."
                     name="search"
-                    class="form-control"
+                    className="form-control"
                   ></input>
                   <button type="submit">
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                   </button>
                 </form>
               </div>
-              <div class="col-md-8"></div>
+              <div className="col-md-8"></div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="candidate-tab-outer">
-                  <ul class="nav nav-tabs">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="candidate-tab-outer">
+                  <ul className="nav nav-tabs">
                     <li>
-                      <a href="#tab2" class="Sheduletab" data-toggle="tab">
+                      <a href="#tab2" className="Sheduletab" data-toggle="tab">
                         Schedule Details Candidates
                       </a>
                     </li>
                   </ul>
 
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab2">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
+                  <div className="tab-content">
+                    <div className="tab-pane active" id="tab2">
+                      <div className="panel panel-default">
+                        <div className="panel-heading">
+                          <h4 className="panel-title">
                             <a
                               data-toggle="collapse"
                               data-parent=".tab-pane"
@@ -1400,11 +1400,11 @@ const Kanban = () => {
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                              <div class="col-md-4">
-                                <div class="form-group">
+                        <div id="collapseTwo" className="panel-collapse collapse">
+                          <div className="panel-body">
+                            <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Panel Members
                                   </label>
@@ -1413,15 +1413,15 @@ const Kanban = () => {
                                     name="panel_members"
                                     onChange={handleChange}
                                     value={values.panel_members}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errors.panel_members && (
                                     <p>{errors.panel_members}</p>
                                   )}
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Interview Date and Time
                                   </label>
@@ -1430,12 +1430,12 @@ const Kanban = () => {
                                     name="idatetime"
                                     onChange={handleChange}
                                     value={values.idatetime}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Interview Place
                                   </label>
@@ -1444,12 +1444,12 @@ const Kanban = () => {
                                     name="iplace"
                                     onChange={handleChange}
                                     value={values.iplace}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Position/Job title
                                   </label>
@@ -1458,12 +1458,12 @@ const Kanban = () => {
                                     name="jobtitle"
                                     onChange={handleChange}
                                     value={values.jobtitle}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Department/team
                                   </label>
@@ -1472,12 +1472,12 @@ const Kanban = () => {
                                     name="department_team"
                                     onChange={handleChange}
                                     value={values.department_team}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Interview Rating
                                   </label>
@@ -1486,7 +1486,7 @@ const Kanban = () => {
                                     name="interview_rating"
                                     onChange={handleChange}
                                     value={values.interview_rating}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                 </div>
                               </div>
@@ -1495,16 +1495,16 @@ const Kanban = () => {
                                 name="s_id"
                                 onChange={handleChange}
                                 value={values.s_id}
-                                class="form-control"
+                                className="form-control"
                               ></input>
-                              <div class="col-md-12">
-                                <div class="form-group">
+                              <div className="col-md-12">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Comments
                                   </label>
                                   <textarea
                                     type="text"
-                                    class="form-control"
+                                    className="form-control"
                                     name="comments"
                                     onChange={handleChange}
                                     value={values.comments}
@@ -1525,11 +1525,11 @@ const Kanban = () => {
             </div>
           </div>
           <div>
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>
@@ -1561,38 +1561,38 @@ const Kanban = () => {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row ">
-              <div class="col-md-6 candidate-inform-search">
-                <form class="form-group btn-secondary">
+            <div className="row ">
+              <div className="col-md-6 candidate-inform-search">
+                <form className="form-group btn-secondary">
                   <input
                     type="text"
                     placeholder="Search.."
                     name="search"
-                    class="form-control"
+                    className="form-control"
                   ></input>
                   <button type="submit">
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                   </button>
                 </form>
               </div>
-              <div class="col-md-8"></div>
+              <div className="col-md-8"></div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="candidate-tab-outer">
-                  <ul class="nav nav-tabs">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="candidate-tab-outer">
+                  <ul className="nav nav-tabs">
                     <li>
-                      <a href="#tab2" class="rejectiontab" data-toggle="tab">
+                      <a href="#tab2" className="rejectiontab" data-toggle="tab">
                         Rejection Details
                       </a>
                     </li>
                   </ul>
 
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab2">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
+                  <div className="tab-content">
+                    <div className="tab-pane active" id="tab2">
+                      <div className="panel panel-default">
+                        <div className="panel-heading">
+                          <h4 className="panel-title">
                             <a
                               data-toggle="collapse"
                               data-parent=".tab-pane"
@@ -1602,17 +1602,17 @@ const Kanban = () => {
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                              <div class="col-md-4">
-                                <div class="form-group">
+                        <div id="collapseTwo" className="panel-collapse collapse">
+                          <div className="panel-body">
+                            <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Candidate Status
                                   </label>
 
                                   <select
-                                    class="form-control"
+                                    className="form-control"
                                     name="rejectionstatus"
                                     onChange={handleChangerejection}
                                     value={valuesrejection.rejectionstatus}
@@ -1631,8 +1631,8 @@ const Kanban = () => {
                                 </div>
                               </div>
 
-                              <div class="col-md-8">
-                                <div class="form-group">
+                              <div className="col-md-8">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Reasons
                                   </label>
@@ -1640,7 +1640,7 @@ const Kanban = () => {
                                     type="text"
                                     name="reason"
                                     onChange={handleChangerejection}
-                                    class="form-control"
+                                    className="form-control"
                                     value={valuesrejection.reason}
                                   ></input>
                                   {errorsrejection.reason && (
@@ -1649,13 +1649,13 @@ const Kanban = () => {
                                 </div>
                               </div>
 
-                              <div class="col-md-12">
-                                <div class="form-group">
+                              <div className="col-md-12">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Remark
                                   </label>
                                   <textarea
-                                    class="form-control"
+                                    className="form-control"
                                     type="text"
                                     name="remark"
                                     onChange={handleChangerejection}
@@ -1671,7 +1671,7 @@ const Kanban = () => {
                                 type="hidden"
                                 name="r_id"
                                 onChange={handleChangerejection}
-                                class="form-control"
+                                className="form-control"
                               ></input>
                             </div>
                           </div>
@@ -1684,13 +1684,13 @@ const Kanban = () => {
             </div>
           </div>
           <div>
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
             <button
               type="button"
-              class="btn  btn-cancel "
+              className="btn  btn-cancel "
               onClick={closeModalRejection}
             >
               {" "}
@@ -1724,26 +1724,26 @@ const Kanban = () => {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row ">
-              <div class="col-md-6 candidate-inform-search">
-                <form class="form-group btn-secondary">
+            <div className="row ">
+              <div className="col-md-6 candidate-inform-search">
+                <form className="form-group btn-secondary">
                   <input
                     type="text"
                     placeholder="Search.."
                     name="search"
-                    class="form-control"
+                    className="form-control"
                   ></input>
                   <button type="submit">
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                   </button>
                 </form>
               </div>
-              <div class="col-md-8"></div>
+              <div className="col-md-8"></div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="candidate-tab-outer">
-                  <ul class="nav nav-tabs">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="candidate-tab-outer">
+                  <ul className="nav nav-tabs">
                     <li>
                       <a href="#tab2" data-toggle="tab">
                         Edit Candidate Joining Details
@@ -1751,11 +1751,11 @@ const Kanban = () => {
                     </li>
                   </ul>
 
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab2">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
+                  <div className="tab-content">
+                    <div className="tab-pane active" id="tab2">
+                      <div className="panel panel-default">
+                        <div className="panel-heading">
+                          <h4 className="panel-title">
                             <a
                               data-toggle="collapse"
                               data-parent=".tab-pane"
@@ -1765,11 +1765,11 @@ const Kanban = () => {
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                              <div class="col-md-4">
-                                <div class="form-group">
+                        <div id="collapseTwo" className="panel-collapse collapse">
+                          <div className="panel-body">
+                            <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                              <div className="col-md-4">
+                                <div className="form-group">
                                   <label for="exampleFormControlInput1">
                                     Joinng Date and Time
                                   </label>
@@ -1778,7 +1778,7 @@ const Kanban = () => {
                                     name="release_date"
                                     onChange={handleChangeRelease}
                                     value={valuesrelease.release_date}
-                                    class="form-control"
+                                    className="form-control"
                                   ></input>
                                   {errorsrelease.release_date && (
                                     <p>{errorsrelease.release_date}</p>
@@ -1790,7 +1790,7 @@ const Kanban = () => {
                                 type="hidden"
                                 name="release_id"
                                 onChange={handleChangeRelease}
-                                class="form-control"
+                                className="form-control"
                               ></input>
                             </div>
                           </div>
@@ -1803,13 +1803,13 @@ const Kanban = () => {
             </div>
           </div>
           <div>
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
             <button
               type="button"
-              class="btn  btn-cancel "
+              className="btn  btn-cancel "
               onClick={closeModalRejection}
             >
               {" "}
@@ -1849,7 +1849,7 @@ const Kanban = () => {
                       name="search_status"
                       onChange={handleSearch}
                       value={searchvalues.search_status}
-                      class="form-control"
+                      className="form-control"
                     >
                       <option value="">Status</option>
                       <option value="Inprogress">Inprogress</option>
@@ -1882,22 +1882,22 @@ const Kanban = () => {
                     <div className="top-right-outer add-btn-div">
                       <button
                         type="submit"
-                        class="btn  btn-maincolor btn-block"
+                        className="btn  btn-maincolor btn-block"
                       >
                         <FaSearch className="add-btn-icon" />
                       </button>
                     </div>{" "}
                   </div>
                   <div className="search-icon-width  mobile-seardh-show">
-                    <div class="search-box add-btn-div ">
+                    <div className="search-box add-btn-div ">
                       <input
                         type="text"
-                        class="search-box-input"
+                        className="search-box-input"
                         placeholder="Candidate name"
                       />
                       <button
                         type="button"
-                        class="btn  btn-maincolor search-box-btn"
+                        className="btn  btn-maincolor search-box-btn"
                       >
                         {" "}
                         <FaSearch className="add-btn-icon" />
@@ -2151,7 +2151,7 @@ const Kanban = () => {
                                       {column.name}
                                     </div>
 
-                                    <div class="pull-right">
+                                    <div className="pull-right">
                                       <button className="card-header-bt-rigt">
                                         {" "}
                                         {column.count}Items
@@ -2253,7 +2253,7 @@ const Kanban = () => {
                                                                 {item.location}
                                                               </span>
                                                             </div>
-                                                            <div class="in-progress-location t-r">
+                                                            <div className="in-progress-location t-r">
                                                               NP:
                                                               {
                                                                 item.notice_prd
@@ -2261,7 +2261,7 @@ const Kanban = () => {
                                                               Months
                                                             </div>
                                                           </div>
-                                                          <div class="in-progress-location t-r viewlog-button">
+                                                          <div className="in-progress-location t-r viewlog-button">
                                                             <span
                                                               onClick={() =>
                                                                 Viewlog(item.id)

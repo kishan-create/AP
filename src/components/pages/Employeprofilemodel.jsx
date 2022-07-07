@@ -25,7 +25,8 @@ const customStyles = {
   },
 };
 
-export default function Employeprofilemodel( {id}) {
+export default function Employeprofilemodel( {id,methods}) {
+  // console.log(id);
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -57,19 +58,19 @@ export default function Employeprofilemodel( {id}) {
     setValue(val);
   };
 
-  const { handleChange, values, handleSubmit, errors, post } = Employeeprofform(
-    id
+  const { handleChange, values, handleSubmit, errors, post } = Employeeprofform(id,methods,closeModal
+    
   );
 
   return (
     <div>
       <button
         type="button"
-        class="btn  btn-maincolor btn-block emp-profl-edit-btn"
+        className="btn  btn-maincolor btn-block emp-profl-edit-btn"
         onClick={openModal}
       >
         {" "}
-        <i class="fa fa-edit"></i>
+        <i className="fa fa-edit"></i>
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -93,78 +94,78 @@ export default function Employeprofilemodel( {id}) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="row popup-content-height">
-                  <div class="col-md-4">
-                    <div class="form-group">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="row popup-content-height">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Aadhaar Number</label>
-                      <input  type="text"  name="adhar_no" onChange={handleChange} value={values.adhar_no} class="form-control" ></input>
+                      <input  type="text"  name="aadhar_number" onChange={handleChange} value={values.aadhar_number} className="form-control" ></input>
                        
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Permanent Address</label>
-                      <input  type="text"  name="permenent_adress" onChange={handleChange} value={values.permenent_adress} class="form-control" ></input>
+                      <input  type="text"  name="permenent_adress" onChange={handleChange} value={values.permenent_adress} className="form-control" ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Father/Mother/Spouse Name</label>
-                      <input  type="text"  name="f_m_s_name" onChange={handleChange} value={values.f_m_s_name} class="form-control" ></input>
+                      <input  type="text"  name="f_m_s_name" onChange={handleChange} value={values.f_m_s_name} className="form-control" ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Temporary Address</label>
-                      <input  type="text"  name="temp_address" onChange={handleChange} value={values.temp_address} class="form-control" ></input>
+                      <input  type="text"  name="temp_address" onChange={handleChange} value={values.temp_address} className="form-control" ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Emergency Contact Number</label>
-                      <input  type="text"  name="emergency_contact_number" onChange={handleChange}value={values.emergency_contact_number}  class="form-control" ></input>
+                      <input  type="text"  name="emergency_contact_number" onChange={handleChange}value={values.emergency_contact_number}  className="form-control" ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Date Of Birth (Official)</label>
                       <input
                         type="date"
                         name="of_dob"
                         onChange={handleChange}
                         value={values.of_dob}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {/* {errors.job_date_open && (
                         <p className="message">{errors.job_date_open}</p>
                       )} */}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Personal Email ID</label>
-                      <input  type="text"  name="p_email_adress" onChange={handleChange} value={values.p_email_adress} class="form-control" ></input>
+                      <input  type="text"  name="p_email_adress" onChange={handleChange} value={values.p_email_adress} className="form-control" ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Total year's of experience</label>
-                      <input  type="text"  name="tot_exp" onChange={handleChange} value={values.tot_exp} class="form-control" ></input>
-                      <input  type="hidden"  name="p_fk_emp_id" onChange={handleChange} value={values.p_fk_emp_id} class="form-control" ></input>
+                      <input  type="text"  name="tot_exp" onChange={handleChange} value={values.tot_exp} className="form-control" ></input>
+                      <input  type="hidden"  name="p_fk_emp_id" onChange={handleChange} value={values.p_fk_emp_id} className="form-control" ></input>
 
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Marital Status</label>
                       <select
                         id="dropdown"
                         name="m_status"
                         onChange={handleChange}
                         value={values.m_status}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Choose status</option>
 
@@ -184,10 +185,10 @@ export default function Employeprofilemodel( {id}) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>
