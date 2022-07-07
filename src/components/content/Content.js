@@ -45,6 +45,11 @@ import Emptablistview from "../pages/Emptablistview";
 import Employeprofilemodel from "../pages/Employeprofilemodel";
 import Employeprofileeducationpopup from "../pages/Employeprofileeducationpopup";
 import Empoyeprofileskilpopup from "../pages/Empoyeprofileskilpopup";
+import Streamsettings from "../pages/Streamsettings";
+import Addstream from "../pages/Addstream";
+import Addsubstream from "../pages/Addsubstream";
+import Employeedashboard from "../pages/Employeedashboard";
+ 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
   
   <Container
@@ -79,6 +84,10 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/Employeprofilemodel" component={Employeprofilemodel} />  
     <Route exact path="/Employeprofileeducationpopup" component={Employeprofileeducationpopup} />  
     <Route exact path="/Empoyeprofileskilpopup" component={Empoyeprofileskilpopup} />  
+    <Route exact path="/Streamsettings" component={Streamsettings} />  
+    <Route exact path="/Addstream" component={Addstream} />  
+    <Route exact path="/Addsubstream" component={Addsubstream} />  
+    <Route exact path="/Employeedashboard" component={Employeedashboard} />  
         <Router path="/Addemployeetab">
         <Addemployeetab/>
         </Router> 

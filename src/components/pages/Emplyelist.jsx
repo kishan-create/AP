@@ -418,6 +418,7 @@ export default class Emplyelist extends Component {
             <div className="box-inner emp-active-box">
               <div className='left'>
                 <p>Active</p>
+               
                 <span>{this.state.employeelist.length}</span>
               </div>
               <img src={Offboarding1} />
@@ -472,6 +473,7 @@ export default class Emplyelist extends Component {
 
 
                           </div>
+                           
                           <div className="image-box" >
                           <img src={"http://auditportal.bourntec.com:3001/audit_portal/public/uploads/profile/" + n.image} />
                           </div>
