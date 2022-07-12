@@ -273,7 +273,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell>
        
           <div>
-            <Streamingmapping id={row.id}/>
+            <Streamingmapping id={row.id} stream_name={row.stream_name}/>
            
             <a href="">
               <DeleteIcon
@@ -344,6 +344,7 @@ export default function Streamsettings() {
     // const branch = res.data.branch;
     // setBranch(branch);
     setRows(stream);
+    
   };
 
   useEffect(() => {
@@ -381,9 +382,11 @@ export default function Streamsettings() {
                     <TableCell>Stream Name1</TableCell>
                     
                     <TableCell>Action</TableCell>
+                    
                   </TableRow>
                 </TableHead>
                 <TableBody>
+               
                   {rows.map((row) => (
                     <Row key={row.id} row={row} />
                   ))}

@@ -23,7 +23,8 @@ const options = [
 
 const ITEM_HEIGHT = 48;
 
-export default function Streamingmapping({id}) {
+export default function Streamingmapping({id,stream_name}) {
+  
   const [values, SetValues] = useState({
     subid: "",
     streamname:"",
@@ -32,18 +33,22 @@ export default function Streamingmapping({id}) {
    
   });
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [modalIsOpenStream, setIsOpenStream] = React.useState(false);
   const[subpotion,setSuboption]=useState([]);
   const[employee,setEmployee]=useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => { 
-    getSubstreamName(id);
-    setAnchorEl(event.currentTarget);
-  };
+ 
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleMap =async(id)=>
+  const handleMapBlank =async(id)=>
+  {
+    var val=id.split('_');
+    alert("test")
+  }
+  
+  const handleMap =async(id,)=>
   {
     var val=id.split('_');
     let data = {
@@ -51,6 +56,7 @@ export default function Streamingmapping({id}) {
       'substream':val[0]
       
     }
+    
     
     const reponse = await axios.get(
       `http://localhost:8000/api/getAllemployeesub/${id}`
@@ -75,6 +81,39 @@ export default function Streamingmapping({id}) {
     setIsOpen(false);
  
   }
+  function afterOpenModalStream() {}
+  function closeModalStream() {
+    setIsOpenStream(false);
+ 
+  }
+
+  const getStreamName =async(id)=>{
+    const reponse = await axios.get(
+      `http://localhost:8000/api/getAllemployeesub/${id}`
+    );
+    // console.log(reponse.data);
+
+
+    if(reponse.data.status===200)
+    {
+      const emp = reponse.data.emp;
+      setEmployee(emp);
+      setAnchorEl(null);
+    }
+    SetValues({
+      
+      streamid:id,
+ 
+      streamname:stream_name,
+     
+    });
+   
+    setIsOpenStream(true);
+
+    
+
+  }
+  
 const getSubstreamName =async(id)=>{
   
   
@@ -96,8 +135,57 @@ const Employeemap=async(id)=>
     data
   );
 }
+
+
+
+
+
+const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  // console.log(values.streamname);
+  // console.log(sub_stream_name);
+  // getSubstreamName();
+  
+  console.log();
+
+
+
+  <div>
+
+  {(() =>{
+
+    // if  (employee.length <=0)
+        if  (subpotion ==0)
+ 
+    {
+
+      console.log("inside"); 
+      getStreamName(id);
+      // setIsOpen(true);
+
+      // onClick={handleClick}
+ 
+
+
+      }
+
+    else {
+      console.log("test");
+      getSubstreamName(id);
+      setAnchorEl(event.currentTarget);
+    }
+
+})()}
+</div>
+
+  
+    // getSubstreamName(id);
+    // setAnchorEl();
+};
+
+
   return (
     <div>
+      {/* console.log(id); */}
       <IconButton
         aria-label="more"
         id="long-button"
@@ -108,6 +196,8 @@ const Employeemap=async(id)=>
       >
         <MoreVertIcon />
       </IconButton>
+
+
       <Menu
         id="long-menu"
         MenuListProps={{
@@ -133,6 +223,80 @@ const Employeemap=async(id)=>
         ))}
       </Menu>
       <div>
+
+
+      <Modal
+isOpen={modalIsOpenStream}
+onAfterOpen={afterOpenModalStream}
+onRequestClose={closeModalStream}
+className="job-detils-modal"
+contentLabel="Example Modal"
+>
+<form  className="form" noValidate>
+  <div className="popup-head-sty modal-button-bg">
+    <div className="popup-head-content-sty">
+      <h4>Employe Mapping-{values.streamname}</h4>
+    </div>
+    <div className="popup-head-icon-sty">
+      <MdClose className="popup-close-btn" onClick={closeModal} />
+    </div>
+  </div>
+  <div className="popup-content-bg">
+    <div class="row addabrch-content-box stable-body ">
+      <div class="col-md-12 ">
+      <Table size="small" aria-label="purchases" className="stable">
+        <TableHead>
+          <TableRow>
+            <TableCell className="width-50">Employee Name</TableCell>
+            <TableCell> Employee Code</TableCell>
+             
+            <TableCell>Action</TableCell>
+           
+          </TableRow>
+        </TableHead>
+        <TableBody className="stable-body">
+        {employee.map((historyRow) => (
+            <TableRow >
+              
+              <TableCell>{historyRow.emp_name}</TableCell>
+              <TableCell>{historyRow.emp_code}</TableCell>
+               
+              <TableCell>
+              {(() => {
+              if (historyRow.status == 1){
+                return (
+                  <input type="checkbox" id="stream_map" checked  onClick={() => Employeemap(historyRow.id+'_'+values.streamid+'_'+'0')} name="stream_map" value="0"></input>
+                );
+            }
+            else if(historyRow.status == 0) {
+              return (
+                <input type="checkbox" id="stream_map"   onClick={() => Employeemap(historyRow.id+'_'+'_'+values.streamid+'_'+'1')} name="stream_map" value="1"></input>
+              );
+            }
+            else {
+              return (
+                <input type="checkbox" id="stream_map" disabled  onClick={() => Employeemap(historyRow.id+'_'+'_'+values.streamid)} name="stream_map" checked></input>
+              );
+            }
+             
+            })()}
+            
+             
+                
+              </TableCell>
+            
+            </TableRow>
+        ))}
+        </TableBody>
+      </Table>
+      </div>
+    </div>
+  </div>
+  
+</form>
+</Modal>
+
+     
 <Modal
 isOpen={modalIsOpen}
 onAfterOpen={afterOpenModal}
@@ -202,7 +366,8 @@ contentLabel="Example Modal"
   </div>
   
 </form>
-</Modal></div>
+</Modal>
+</div>
     </div>
 
   );

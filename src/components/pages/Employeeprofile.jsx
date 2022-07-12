@@ -119,19 +119,12 @@ const getEmployeeDetails = async (id) => {
                                          return(
 
                                           <Employeprofilemodel id ={params.id} methods={getEmployeeDetails} /> 
-
-
-
                                          )}
 
                                    else {return(
 
                                    <Employeeditprofmodel id ={params.id} idedvalue ={rows} />  
-
-
-
-
-                                   )}
+                            )}
 
                               })()}
 
