@@ -25,7 +25,7 @@ const getEmployeeDetails = async (id) => {
             const emp = reponse.data.emp;
             setRows(emp);
 }
-//  console.log(rows[0]);
+ console.log(rows[0]);
            
   return (
     <main className="inner-content-box">
@@ -76,7 +76,7 @@ const getEmployeeDetails = async (id) => {
                                               <div  className="row txt-row-hght">                                                     
                                                     <div  className="col-md-6 info-card-cont "> Contact Number           <span className="dot-sty">:</span>
                                                     </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emp_number}
+                                                    <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emp_contact_number}
                                                     </div>                                
                                               </div> 
                                               <div  className="row txt-row-hght">                                                     
