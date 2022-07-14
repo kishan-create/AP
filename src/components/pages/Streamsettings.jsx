@@ -24,7 +24,7 @@ import { MdClose } from "@react-icons/all-files/md/MdClose";
 import Addstream from "./Addstream";
 import Addsubstream from "./Addsubstream";
 import Streamingmapping from "./Streamingmapping";
-
+import AddmappingStream from "./AddmappingStream";
 
 
 import {
@@ -203,6 +203,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 
     setListnew(listnewtest);
   };
+  
   Modal.setAppElement('#root');
   return (
     <React.Fragment>
@@ -273,7 +274,21 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell>
        
           <div>
-            <Streamingmapping id={row.id} stream_name={row.stream_name}/>
+          {(() => {
+              if (row.substream.length >0){
+                  return (
+                    <Streamingmapping id={row.id} stream_name={row.stream_name} />
+                  )
+              }
+              else {
+                return(
+                  <AddmappingStream  />
+                )
+              }
+              
+             
+            })()}
+          
            
             <a href="">
               <DeleteIcon
