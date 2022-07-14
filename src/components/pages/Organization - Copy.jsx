@@ -272,11 +272,11 @@ export default class Organization extends Component {
                     </div>
                   </div>
                   <div className="popup-content-bg">
-                    <div class="row addabrch-content-box">
-                      <div class="col-md-12">
-                        <div class="row ">
-                          <div class="col-md-4">
-                            <div class="form-group">
+                    <div className="row addabrch-content-box">
+                      <div className="col-md-12">
+                        <div className="row ">
+                          <div className="col-md-4">
+                            <div className="form-group">
                               <label for="exampleFormControlInput1">
                                 org Name
                               </label>
@@ -285,12 +285,12 @@ export default class Organization extends Component {
                                 type="text"
                                 onChange={this.handleInputs}
                                 value={this.state.formData.org_name}
-                                class="form-control"
+                                className="form-control"
                               ></input>
                             </div>
                           </div>
-                          <div class="col-md-4">
-                            <div class="form-group">
+                          <div className="col-md-4">
+                            <div className="form-group">
                               <label for="exampleFormControlInput1">
                                 org Code
                               </label>
@@ -299,12 +299,12 @@ export default class Organization extends Component {
                                 onChange={this.handleInputs}
                                 value={this.state.formData.org_code}
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                               ></input>
                             </div>
                           </div>
-                          <div class="col-md-4">
-                            <div class="form-group">
+                          <div className="col-md-4">
+                            <div className="form-group">
                               <label for="exampleFormControlInput1">
                                 Company Type
                               </label>
@@ -313,12 +313,12 @@ export default class Organization extends Component {
                                 onChange={this.handleInputs}
                                 value={this.state.formData.org_type}
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                               ></input>
                             </div>
                           </div>
-                          <div class="col-md-4">
-                            <div class="form-group">
+                          <div className="col-md-4">
+                            <div className="form-group">
                               <label for="exampleFormControlInput1">
                                 Category
                               </label>
@@ -327,7 +327,7 @@ export default class Organization extends Component {
                                 onChange={this.handleInputs}
                                 value={this.state.formData.org_category}
                                 name="org_category"
-                                class="form-control"
+                                className="form-control"
                               >
                                 {this.state.options.map((element, index) => (
                                   <option value={element} key={index}>
@@ -337,8 +337,8 @@ export default class Organization extends Component {
                               </select>
                             </div>
                           </div>
-                          <div class="col-md-4">
-                            <div class="form-group">
+                          <div className="col-md-4">
+                            <div className="form-group">
                               <label for="exampleFormControlInput1">
                                 Organization Registration
                               </label>
@@ -347,13 +347,13 @@ export default class Organization extends Component {
                                 onChange={this.handleInputs}
                                 value={this.state.formData.org_registration}
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Development Center"
                               ></input>
                             </div>
                           </div>
-                          <div class="col-md-4">
-                            <div class="form-group">
+                          <div className="col-md-4">
+                            <div className="form-group">
                               <label for="exampleFormControlInput1">
                                 Location
                               </label>
@@ -362,7 +362,7 @@ export default class Organization extends Component {
                                 onChange={this.handleInputs}
                                 value={this.state.formData.org_location}
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Development Center"
                               ></input>
                             </div>
@@ -378,13 +378,13 @@ export default class Organization extends Component {
                     </div>
                   </div>
                   <div className=" modal-footer-button-bg">
-                    <button type="submit" class="btn  btn-save ">
+                    <button type="submit" className="btn  btn-save ">
                       {" "}
                       Update
                     </button>
                     <button
                       type="button"
-                      class="btn  btn-cancel "
+                      className="btn  btn-cancel "
                       onClick={this.closeModal}
                     >
                       {" "}
@@ -485,7 +485,7 @@ export default class Organization extends Component {
                           </div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">DFC</div>
+                          <div className="active-status-style">DFC</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -522,7 +522,7 @@ export default class Organization extends Component {
                           </div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">ORC</div>
+                          <div className="active-status-style">ORC</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -555,7 +555,7 @@ export default class Organization extends Component {
                           </div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">AO</div>
+                          <div className="active-status-style">AO</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -592,7 +592,7 @@ export default class Organization extends Component {
                           </div>
                         </div>{" "}
                         <div className="col-4 acc-status-change">
-                          <div class="active-status-style">GH</div>
+                          <div className="active-status-style">GH</div>
                         </div>
                       </AccordionItemButton>
                     </AccordionItemHeading>

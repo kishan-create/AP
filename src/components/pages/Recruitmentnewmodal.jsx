@@ -79,7 +79,7 @@ export default function Recruitmentnewmodal({method}){
   return (
     <div>
      
-      <button type="button" class="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
+      <button type="button" className="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -94,13 +94,13 @@ export default function Recruitmentnewmodal({method}){
             </div>
         </div>
         <div className="popup-content-bg">
-            <div class="row ">
+            <div className="row ">
                             
             </div>
             <div class ="row">
-                <div class="col-md-12">
+                <div className="col-md-12">
                 <BasicTabs /> 
-                <button type="button" class="btn  btn-cancel " onClick={closeModal} > Cancel </button>
+                <button type="button" className="btn  btn-cancel " onClick={closeModal} > Cancel </button>
                 </div>
             </div>
            

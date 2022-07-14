@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
 import Modal from "react-modal";
@@ -9,7 +9,10 @@ import "react-dropdown/style.css";
 import { AppBar } from "@material-ui/core";
 import BasicTabs from "./Employeetabs";
 import job_validation from "../validation/job_validation";
-import Employeeprofform from "./Employeeprofform";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import swal from "sweetalert";
+
 import "react-tabs/style/react-tabs.css";
 const customStyles = {
   content: {
@@ -25,17 +28,17 @@ const customStyles = {
   },
 };
 
-export default function Employeprofilemodel( {id,methods}) {
-  // console.log(id);
+export default function Employeeditprofmodel( {id,idedvalue}) {
    
   const CustomTab = ({ children }) => (
     <Tab>
-      <div>{children}</div>
+      <div>{children}</div> 
     </Tab>
   );
   CustomTab.tabsRole = "Tab";
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -51,16 +54,76 @@ export default function Employeprofilemodel( {id,methods}) {
    
     // window.location.reload();
   }
-
-  const [value, setValue] = React.useState(0);
-  const handlesTabs = (e, val) => {
-    console.warn(val);
-    setValue(val);
-  };
-
-  const { handleChange, values, handleSubmit, errors, post } = Employeeprofform(id,methods,closeModal
+  const [values, SetValues] = useState({
+    aadhar_number: idedvalue[0].aadhar_number,
+    permenent_adress: idedvalue[0].permenent_adress,
+    f_m_s_name: idedvalue[0].f_m_s_name,
+    temp_adress: idedvalue[0].temp_adress,
+    emergency_contact_number: idedvalue[0].emergency_contact_number,
+    of_dob: idedvalue[0].of_dob,
+    p_email_adress: idedvalue[0].p_email_adress,
+    tot_exp: idedvalue[0].tot_exp,
+    m_status: idedvalue[0].m_status,
+    fk_emp_id:idedvalue[0].fk_emp_id,
+    fk_emp_id:id,
+    p_fk_emp_id:id,
     
+  });
+
+  const handleChange = (e) => {
+
+    const { name, value } = e.target;
+    SetValues({
+      ...values,
+      [name]: value,
+    });
+  };
+  const [value, setValues] = React.useState(0);
+  // const handlesTabs = (e, val) => {
+  //   console.warn(val);
+  //   setValues(val);
+  // };
+
+ 
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  onEditform();
+};
+
+const onEditform = async (e) => {
+
+  console.log(values);
+
+
+
+  e.preventDefault();
+
+  const res = await axios.put(
+
+    "http://localhost:8000/api/update_personaldetails",
+
+    values
+
   );
+
+  if (res.data.status == 200) {
+
+    swal({
+
+      title: "Good job!",
+
+      text: "Department Updated successfully",
+
+      icon: "success",
+
+      button: "ok",
+
+    });
+
+  }
+
+};
 
   return (
     <div>
@@ -86,7 +149,7 @@ export default function Employeprofilemodel( {id,methods}) {
                 ref={(_subtitle) => (subtitle = _subtitle)}
                 className="popup-head-h4"
               >
-               Personal Information 
+               Edit Personal Information 
               </h4>
             </div>
             <div className="popup-head-icon-sty">
@@ -119,7 +182,7 @@ export default function Employeprofilemodel( {id,methods}) {
                   <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Temporary Address</label>
-                      <input  type="text"  name="temp_address" onChange={handleChange} value={values.temp_address} className="form-control" ></input>
+                      <input  type="text"  name="temp_adress" onChange={handleChange} value={values.temp_adress} className="form-control" ></input>
                     </div>
                   </div>
                   <div className="col-md-4">
@@ -186,7 +249,7 @@ export default function Employeprofilemodel( {id,methods}) {
           </div>
           <div className=" modal-footer-button-bg">
             <button type="submit" className="btn  btn-save ">
-              Save
+              update
             </button>
             <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}

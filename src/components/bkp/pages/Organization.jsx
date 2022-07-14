@@ -146,7 +146,7 @@ const data = [
           <span>Kakkanad</span>            
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">DFC</div>
+            <div className="active-status-style">DFC</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -177,7 +177,7 @@ const data = [
           <span>Bhuvaneshwar</span>            
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">ORC</div>
+            <div className="active-status-style">ORC</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -209,7 +209,7 @@ const data = [
           <span>Hyderabad</span>            
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">AO</div>
+            <div className="active-status-style">AO</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -240,7 +240,7 @@ const data = [
           <span>US</span>            
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">GH</div>
+            <div className="active-status-style">GH</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>

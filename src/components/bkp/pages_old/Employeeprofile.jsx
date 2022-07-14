@@ -32,7 +32,7 @@ const Employeeprofile = () => {
                     </div>
                     <div className="col-md-12">    
                              
-                          <div class="flex-box ">
+                          <div className="flex-box ">
                             <div  className="col-md-6 basic-information-card"> 
                                   <div  className="information-card-head">Basic Information
                                   </div>
@@ -157,7 +157,7 @@ const Employeeprofile = () => {
                             </div>
                              
                           </div>  
-                          <div class="flex-box ">
+                          <div className="flex-box ">
                              
                             <div  className="col-md-6 education-information-card"> 
                                   <div  className="information-card-head"> Education Details

@@ -217,9 +217,9 @@ function SimpleTable(props) {
         contentLabel="Example Modal"
         className="candiate-modal-bx"
       >
-        <div class="candidate-tab-outer">
-          <ul class="nav nav-tabs">
-            <li class="active">
+        <div className="candidate-tab-outer">
+          <ul className="nav nav-tabs">
+            <li className="active">
               <a href="#tab1" data-toggle="tab">
                 Basic Information
               </a>
@@ -236,11 +236,11 @@ function SimpleTable(props) {
             </li>
           </ul>
           <form onSubmit={handleSubmit} className="form" noValidate>
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab1">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
+            <div className="tab-content">
+              <div className="tab-pane active" id="tab1">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <h4 className="panel-title">
                       <a
                         data-toggle="collapse"
                         data-parent=".tab-pane"
@@ -250,35 +250,35 @@ function SimpleTable(props) {
                       </a>
                     </h4>
                   </div>
-                  <div id="collapseOne" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                      <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                        <div class="col-md-4">
-                          <div class="form-group">
+                  <div id="collapseOne" className="panel-collapse collapse in">
+                    <div className="panel-body">
+                      <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">Name</label>
                             <input
                               type="text"
                               name="username"
                               onChange={handleChange1}
                               value={values.username}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">Post</label>
                             <input
                               name="postvalue"
                               onChange={handleChange1}
                               value={values.postvalue}
                               type="text"
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Skill Set
                             </label>
@@ -287,12 +287,12 @@ function SimpleTable(props) {
                               name="skillset"
                               onChange={handleChange1}
                               value={values.skillset}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Personal Email ID{" "}
                             </label>
@@ -301,12 +301,12 @@ function SimpleTable(props) {
                               name="p_email"
                               onChange={handleChange1}
                               value={values.p_email}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Contact Number
                             </label>
@@ -315,12 +315,12 @@ function SimpleTable(props) {
                               onChange={handleChange1}
                               value={values.phonenumber}
                               name="phonenumber"
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Education
                             </label>
@@ -329,12 +329,12 @@ function SimpleTable(props) {
                               onChange={handleChange1}
                               name="qualification"
                               value={values.qualification}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Total years of experience
                             </label>
@@ -343,24 +343,24 @@ function SimpleTable(props) {
                               onChange={handleChange1}
                               name="exp"
                               value={values.exp}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">CTC</label>
                             <input
                               type="text"
                               name="ctc"
                               onChange={handleChange1}
                               value={values.ctc}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               EXP CTC
                             </label>
@@ -369,12 +369,12 @@ function SimpleTable(props) {
                               name="expect_ctc"
                               onChange={handleChange1}
                               value={values.expect_ctc}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Notice Period
                             </label>
@@ -383,12 +383,12 @@ function SimpleTable(props) {
                               name="noticeprd"
                               onChange={handleChange1}
                               value={values.noticeprd}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Date Of Birth{" "}
                             </label>
@@ -397,12 +397,12 @@ function SimpleTable(props) {
                               name="dob"
                               onChange={handleChange1}
                               value={values.dob}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Location
                             </label>
@@ -411,12 +411,12 @@ function SimpleTable(props) {
                               name="location"
                               onChange={handleChange1}
                               value={values.location}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Current Company
                             </label>
@@ -425,12 +425,12 @@ function SimpleTable(props) {
                               name="current_company"
                               onChange={handleChange1}
                               value={values.current_company}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Domain Experience
                             </label>
@@ -439,12 +439,12 @@ function SimpleTable(props) {
                               name="domain_exp"
                               onChange={handleChange1}
                               value={values.domain_exp}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Apply date
                             </label>
@@ -453,17 +453,17 @@ function SimpleTable(props) {
                               name="app_date"
                               onChange={handleChange1}
                               value={values.app_date}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Primary Skills
                             </label>
                             <textarea
-                              class="form-control"
+                              className="form-control"
                               onChange={handleChange1}
                               name="primary_skill"
                               value={values.primary_skill}
@@ -473,13 +473,13 @@ function SimpleTable(props) {
                             </textarea>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Secondary Skills
                             </label>
                             <textarea
-                              class="form-control"
+                              className="form-control"
                               onChange={handleChange1}
                               name="secskill"
                               value={values.secskill}
@@ -489,13 +489,13 @@ function SimpleTable(props) {
                             </textarea>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               References
                             </label>
                             <textarea
-                              class="form-control"
+                              className="form-control"
                               onChange={handleChange1}
                               name="ref"
                               value={values.ref}
@@ -510,17 +510,17 @@ function SimpleTable(props) {
                           name="id"
                           onChange={handleChange1}
                           value={values.id}
-                          class="form-control"
+                          className="form-control"
                         ></input>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="tab-pane" id="tab2">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
+              <div className="tab-pane" id="tab2">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <h4 className="panel-title">
                       <a
                         data-toggle="collapse"
                         data-parent=".tab-pane"
@@ -530,11 +530,11 @@ function SimpleTable(props) {
                       </a>
                     </h4>
                   </div>
-                  <div id="collapseTwo" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                        <div class="col-md-4">
-                          <div class="form-group">
+                  <div id="collapseTwo" className="panel-collapse collapse">
+                    <div className="panel-body">
+                      <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Panel Members
                             </label>
@@ -543,12 +543,12 @@ function SimpleTable(props) {
                               name="panel_members"
                               onChange={handleChange1}
                               value={values.panel_members}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Interview Date and Time
                             </label>
@@ -557,12 +557,12 @@ function SimpleTable(props) {
                               name="idatetime"
                               onChange={handleChange1}
                               value={values.idatetime}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Interview Place
                             </label>
@@ -571,12 +571,12 @@ function SimpleTable(props) {
                               name="iplace"
                               onChange={handleChange1}
                               value={values.iplace}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Position/Job title
                             </label>
@@ -586,7 +586,7 @@ function SimpleTable(props) {
                               name="jobtitle"
                               onChange={handleChange1}
                               value={values.jobtitle}
-                              class="form-control"
+                              className="form-control"
                             >
                               <option value="">Select Job name</option>
                               {job.map(({ post_name, id }, index) => (
@@ -595,8 +595,8 @@ function SimpleTable(props) {
                             </select>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Department/team
                             </label>
@@ -605,12 +605,12 @@ function SimpleTable(props) {
                               name="department_team"
                               onChange={handleChange1}
                               value={values.department_team}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Interview Rating
                             </label>
@@ -619,18 +619,18 @@ function SimpleTable(props) {
                               name="interview_rating"
                               onChange={handleChange1}
                               value={values.interview_rating}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
 
-                        <div class="col-md-12">
-                          <div class="form-group">
+                        <div className="col-md-12">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Comments
                             </label>
                             <textarea
-                              class="form-control"
+                              className="form-control"
                               onChange={handleChange1}
                               name="comments"
                               value={values.comments}
@@ -645,10 +645,10 @@ function SimpleTable(props) {
                   </div>
                 </div>
               </div>
-              <div class="tab-pane" id="tab3">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
+              <div className="tab-pane" id="tab3">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <h4 className="panel-title">
                       <a
                         data-toggle="collapse"
                         data-parent=".tab-pane"
@@ -658,11 +658,11 @@ function SimpleTable(props) {
                       </a>
                     </h4>
                   </div>
-                  <div id="collapseThree" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <div class="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
-                        <div class="col-md-4">
-                          <div class="form-group">
+                  <div id="collapseThree" className="panel-collapse collapse">
+                    <div className="panel-body">
+                      <div className="row popup-content-height popup-row-mrg  candiate-modal-inner-tab">
+                        <div className="col-md-4">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Candidate Status
                             </label>
@@ -671,12 +671,12 @@ function SimpleTable(props) {
                               name="c_status"
                               onChange={handleChange1}
                               value={values.c_status}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
-                        <div class="col-md-8">
-                          <div class="form-group">
+                        <div className="col-md-8">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Reasons
                             </label>
@@ -685,16 +685,16 @@ function SimpleTable(props) {
                               name="reason"
                               onChange={handleChange1}
                               value={values.reason}
-                              class="form-control"
+                              className="form-control"
                             ></input>
                           </div>
                         </div>
 
-                        <div class="col-md-12">
-                          <div class="form-group">
+                        <div className="col-md-12">
+                          <div className="form-group">
                             <label for="exampleFormControlInput1">Remark</label>
                             <textarea
-                              class="form-control"
+                              className="form-control"
                               onChange={handleChange1}
                               name="remark"
                               value={values.remark}
@@ -711,13 +711,13 @@ function SimpleTable(props) {
               </div>
             </div>
             <div>
-              <button type="submit" class="btn  btn-save ">
+              <button type="submit" className="btn  btn-save ">
                 {" "}
                 Save
               </button>
               <button
                 type="button"
-                class="btn  btn-cancel "
+                className="btn  btn-cancel "
                 onClick={closeModal}
               >
                 {" "}

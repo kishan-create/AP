@@ -38,7 +38,7 @@ export default function AddDesignation({ method }) {
     <div>
       <button
         type="button"
-        class="btn  btn-maincolor btn-block"
+        className="btn  btn-maincolor btn-block"
         onClick={openModal}
       >
         {" "}
@@ -66,18 +66,18 @@ export default function AddDesignation({ method }) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row addabrch-content-box">
-              <div class="col-md-12">
-                <div class="row ">
-                  <div class="col-md-6">
-                    <div class="form-group">
+            <div className="row addabrch-content-box">
+              <div className="col-md-12">
+                <div className="row ">
+                  <div className="col-md-6">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Department Name</label>
                       <select
                         id="dropdown"
                         name="department_name"
                         onChange={handleChange}
                         value={values.department_name}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Department name</option>
                         {listnew.map(({ department_name, id }, index) => (
@@ -85,24 +85,24 @@ export default function AddDesignation({ method }) {
                         ))}
                       </select> </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
+                  <div className="col-md-6">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Designation name</label>
-                      <input type="text"  onChange={handleChange} name="designation_name" value={values.designation_name} class="form-control" />
+                      <input type="text"  onChange={handleChange} name="designation_name" value={values.designation_name} className="form-control" />
                       {errors.designation_name && <p>{errors.designation_name}</p>}
                       </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
+                  <div className="col-md-6">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1"> Designation code</label>
-                      <input type="text" onChange={handleChange} name="designation_code" value={values.designation_code} class="form-control" />
+                      <input type="text" onChange={handleChange} name="designation_code" value={values.designation_code} className="form-control" />
                       {errors.designation_code && <p>{errors.designation_code}</p>}
                        </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
+                  <div className="col-md-6">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Level Name</label>
-                      <select id="level_id" onChange={handleChange} name="level_name" value={values.level_name} class="form-control">
+                      <select id="level_id" onChange={handleChange} name="level_name" value={values.level_name} className="form-control">
                         <option value="">Choose Level</option>
                         <option value="level1">Level_1</option>
                         <option value="level2">Level_2</option>
@@ -119,11 +119,11 @@ export default function AddDesignation({ method }) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel
             </button>

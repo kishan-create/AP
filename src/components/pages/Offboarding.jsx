@@ -107,15 +107,15 @@ const data = [
 <div className='select'>
 <div className='select-inner'>
   <div className='left'>Joining</div>
-<select id="dropdown" class="form-control"><option value="Status">Today</option></select>
+<select id="dropdown" className="form-control"><option value="Status">Today</option></select>
 </div>
 <div className='select-inner'>
   <div className='left'>Status</div>
-<select id="dropdown" class="form-control"><option value="Status">Onboarding Statared</option></select>
+<select id="dropdown" className="form-control"><option value="Status">Onboarding Statared</option></select>
 </div>
 <div className='select-inner'>
   <div className='left'>Sort By</div>
-<select id="dropdown" class="form-control"><option value="Status">Joining Date</option></select>
+<select id="dropdown" className="form-control"><option value="Status">Joining Date</option></select>
 </div>
 </div>
 
@@ -197,7 +197,7 @@ const data = [
                   000000000       
             </div>
                     </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">0101</div>
+            <div className="active-status-style">0101</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -237,7 +237,7 @@ const data = [
             0000000000        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">0102</div>
+            <div className="active-status-style">0102</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -276,7 +276,7 @@ const data = [
             0000000000        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">0103</div>
+            <div className="active-status-style">0103</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>

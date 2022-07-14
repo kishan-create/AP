@@ -54,188 +54,188 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-      <div class="row popup-content-height">
-                        <div class="col-md-4">
-                            <div class="form-group">
+      <div className="row popup-content-height">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Name</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Post</label>
-                                <input type="text" class="form-control" ></input>
+                                <input type="text" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Skill Set</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Personal E </label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Contact Number</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Education</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Total years of experience</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">CTC</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">EXP CTC</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Notice Period</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Date Of Birth </label>
-                                <input type="date" class="form-control" ></input>
+                                <input type="date" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Location</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Current Company</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Domain Experience</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Apply date</label>
-                                <input type="date" class="form-control" ></input>
+                                <input type="date" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Primary Skills</label>
-                                <textarea  class="form-control" rows="2" > </textarea>
+                                <textarea  className="form-control" rows="2" > </textarea>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Secondary Skills</label>
-                                <textarea  class="form-control" rows="2" > </textarea>
+                                <textarea  className="form-control" rows="2" > </textarea>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">References</label>
-                                <textarea  class="form-control" rows="2" > </textarea>
+                                <textarea  className="form-control" rows="2" > </textarea>
                             </div>
                         </div>
                         
                      </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-      <div class="row popup-content-height">
+      <div className="row popup-content-height">
                         
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Panel Members</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Interview Date and Time</label>
-                                <input type="date" class="form-control" ></input>
+                                <input type="date" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Interview Place</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Position/Job title</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Department/team</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Interview Rating</label>
-                                <input type="date" class="form-control" ></input>
+                                <input type="date" className="form-control" ></input>
                             </div>
                         </div>
                          
-                        <div class="col-md-12">
-                            <div class="form-group">
+                        <div className="col-md-12">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Comments</label>
-                                <textarea  class="form-control" rows="3" > </textarea>
+                                <textarea  className="form-control" rows="3" > </textarea>
                             </div>
                         </div>
                         
                      </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-      <div class="row popup-content-height">
+      <div className="row popup-content-height">
                         
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Candidate Status</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="form-group">
+                        <div className="col-md-8">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Reasons</label>
-                                <input type="date" class="form-control" ></input>
+                                <input type="date" className="form-control" ></input>
                             </div>
                         </div>
                         
                          
-                        <div class="col-md-12">
-                            <div class="form-group">
+                        <div className="col-md-12">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Remark</label>
-                                <textarea  class="form-control" rows="3" > </textarea>
+                                <textarea  className="form-control" rows="3" > </textarea>
                             </div>
                         </div>
                         

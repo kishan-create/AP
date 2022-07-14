@@ -308,7 +308,7 @@ export default class Emplyelist extends Component {
    if(name!="")
    {
     const response = await axios.get(
-      `http://auditportal2.bourntec.com:3001/audit_portal/public/api/searchbyButton/${name}` );
+      `http://localhost:8000/api/searchbyButton/${name}` );
       if (response.data.status === 200) {
         this.setState({
           employeelist: response.data.emp,
@@ -366,7 +366,7 @@ export default class Emplyelist extends Component {
             </button>
           </div>
           
-          <div class=" col-md-3">
+          <div className=" col-md-3">
             <MySelect
               options={this.state.emplocation}
               isMulti
@@ -381,7 +381,7 @@ export default class Emplyelist extends Component {
               placeholder="Location" className="form-control"
             />
           </div>
-          <div class=" col-md-3 ">
+          <div className=" col-md-3 ">
           <MySelect 
               options={this.state.designation}
               isMulti
@@ -395,7 +395,7 @@ export default class Emplyelist extends Component {
               name="designation"  placeholder="Designation" className="form-control "
             />
           </div>
-          <div class=" col-md-3">
+          <div className=" col-md-3">
           <MySelect
              options={this.state.skillset}
              isMulti
@@ -525,7 +525,7 @@ export default class Emplyelist extends Component {
                             </div>
                             <div className="inner-section m-t-rever-10 ">
                               <div className="left">
-                                <i class="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
+                                <i className="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
                                 <span className="">{n.emp_location} </span>
                               </div>
                               <div className="right">
@@ -560,29 +560,4 @@ export default class Emplyelist extends Component {
 }
 
 
-
-// function Emplyelist(){
-//   const [,set]=useState([]);
-  
-  
-//   useEffect(()=>{
-//     set(userdata)
-//   },[]  );
-//   return(
-
-//     <div>
-//   <div>   
-// {.map((user)=>(
-
-// <div>
-// <input type="checkbox"/>
-// <label>usernames</label>
-// </div>
-// )) 
-// }
-        
-//     </div>
-//     </div> 
-//   );
-// }
 

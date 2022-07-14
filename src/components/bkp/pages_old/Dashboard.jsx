@@ -79,7 +79,7 @@ const Dashboard = () => {
                           CTC :  8LK/A
                           </div>
                       </div>
-                      <div class="pull-right">
+                      <div className="pull-right">
                             <div className="select-container">
                                 <select className="select-dropdow">
                                   {options.map((option) => (
@@ -106,7 +106,7 @@ const Dashboard = () => {
                           CTC :  8LK/A
                           </div>
                       </div>
-                      <div class="pull-right">
+                      <div className="pull-right">
                             <div className="select-container">
                                 <select className="select-dropdow">
                                   {options.map((option) => (
@@ -133,7 +133,7 @@ const Dashboard = () => {
                           CTC :  8LK/A
                           </div>
                       </div>
-                      <div class="pull-right">
+                      <div className="pull-right">
                             <div className="select-container">
                                 <select className="select-dropdow">
                                   {options.map((option) => (
@@ -160,7 +160,7 @@ const Dashboard = () => {
                           CTC :  8LK/A
                           </div>
                       </div>
-                      <div class="pull-right">
+                      <div className="pull-right">
                             <div className="select-container">
                                 <select className="select-dropdow">
                                   {options.map((option) => (

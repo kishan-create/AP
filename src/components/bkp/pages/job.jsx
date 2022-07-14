@@ -138,7 +138,7 @@ export default function Job(props) {
           <span>Kakkanad</span>            
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">0123</div>
+            <div className="active-status-style">0123</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -183,7 +183,7 @@ export default function Job(props) {
           <span>Kakkanad</span>            
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">0123</div>
+            <div className="active-status-style">0123</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -231,7 +231,7 @@ export default function Job(props) {
           <span>Kakkanad</span>            
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">0123</div>
+            <div className="active-status-style">0123</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -276,7 +276,7 @@ export default function Job(props) {
           <span>Kakkanad</span>            
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">0123</div>
+            <div className="active-status-style">0123</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>

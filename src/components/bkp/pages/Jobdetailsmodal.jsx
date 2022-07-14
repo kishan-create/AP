@@ -60,7 +60,7 @@ export default function Jobdetailsmodal(){
   return (
     <div>
      
-      <button type="button" class="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
+      <button type="button" className="btn  btn-maincolor btn-block" onClick={openModal} > <SiAddthis className="add-btn-icon"/> ADD</button> 
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -77,73 +77,73 @@ export default function Jobdetailsmodal(){
         </div>
         <div className="popup-content-bg">
                   <div class ="row">
-                <div class="col-md-12">
-                <div class="row popup-content-height">
-                        <div class="col-md-4">
-                            <div class="form-group">
+                <div className="col-md-12">
+                <div className="row popup-content-height">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Job ID</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Post</label>
-                                <select id = "dropdown" class="form-control">
+                                <select id = "dropdown" className="form-control">
     <option value="Post">Post</option>
     <option value="1">1</option>
  </select>
                     
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Skill Set</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">experience</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Openings</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
                       
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Status</label>
-                                <select id = "dropdown" class="form-control">
+                                <select id = "dropdown" className="form-control">
     <option value="Status">Status</option>
   </select>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Date open</label>
-                                <input type="date" class="form-control" ></input>
+                                <input type="date" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                        <div className="col-md-4">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">date close</label>
-                                <input type="date" class="form-control" ></input>
+                                <input type="date" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-4 mob-full">
-                            <div class="form-group">
+                        <div className="col-md-4 mob-full">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">Location</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
+                        <div className="col-md-12">
+                            <div className="form-group">
                                 <label for="exampleFormControlInput1">description</label>
-                                <input type="email" class="form-control" ></input>
+                                <input type="email" className="form-control" ></input>
                             </div>
                         </div>
                       
@@ -154,8 +154,8 @@ export default function Jobdetailsmodal(){
            
         </div>
         <div className=" modal-footer-button-bg">
-            <button type="button" class="btn  btn-save "  > Save</button>
-            <button type="button" class="btn  btn-cancel "  onClick={closeModal} > Cancel </button> 
+            <button type="button" className="btn  btn-save "  > Save</button>
+            <button type="button" className="btn  btn-cancel "  onClick={closeModal} > Cancel </button> 
         </div>
         
        

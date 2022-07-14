@@ -312,30 +312,30 @@ function Row(props) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row addabrch-content-box">
-              <div class="col-md-12">
-                <div class="row ">
-                  <div class="col-md-4">
-                    <div class="form-group">
+            <div className="row addabrch-content-box">
+              <div className="col-md-12">
+                <div className="row ">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Department Name</label>
                       <input
                         name="department_name"
                         type="text"
                         onChange={handleChange}
                         value={values.department_name}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Department Code</label>
                       <input
                         name="department_code"
                         type="text"
                         onChange={handleChange}
                         value={values.department_code}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
@@ -347,11 +347,11 @@ function Row(props) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Update
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>
@@ -407,22 +407,22 @@ function Row(props) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row addabrch-content-box">
-              <div class="col-md-12">
-                <div class="row ">  
+            <div className="row addabrch-content-box">
+              <div className="col-md-12">
+                <div className="row ">  
 
 
 
 
-                <div class="col-md-4">
-                    <div class="form-group">
+                <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1"> Edit Department Name</label>
                       <select
                         id="dropdown"
                         name="edit_department_name"
                         onChange={edithandleChange}
                         value={editValues.edit_department_name}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Select Department name</option>
                         {listnew.map(({ department_name, id }, index) => (
@@ -430,35 +430,35 @@ function Row(props) {
                         ))}
                       </select> </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Designation Name</label>
                       <input
                         type="text"
                         name="edit_designation_name"
                         onChange={edithandleChange}
                         value={editValues.edit_designation_name}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Designation Code</label>
                       <input
                         type="text"
                         name="edit_designation_code"
                         onChange={edithandleChange}
                         value={editValues.edit_designation_code}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
                  
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Level Name</label>
-                      <select id="level_id" onChange={edithandleChange} name="edit_level_type" value={editValues.edit_level_type} class="form-control">
+                      <select id="level_id" onChange={edithandleChange} name="edit_level_type" value={editValues.edit_level_type} className="form-control">
                         <option value="">Choose Level</option>
                         <option value="level1">Level_1</option>
                         <option value="level2">Level_2</option>
@@ -480,13 +480,13 @@ function Row(props) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Update
             </button>
             <button
               type="button"
-              class="btn  btn-cancel "
+              className="btn  btn-cancel "
               onClick={closeModalbrach}
             >
               {" "}
@@ -658,35 +658,35 @@ export default function Department() {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row addabrch-content-box">
-              <div class="col-md-12">
-                <div class="row ">
-                  <div class="col-md-4">
-                    <div class="form-group">
+            <div className="row addabrch-content-box">
+              <div className="col-md-12">
+                <div className="row ">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Branch Name</label>
                       <input
                         type="text"
                         name="branch_name"
                         onChange={handleChange}
                         value={values.branch_name}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Branch Code</label>
                       <input
                         type="text"
                         name="branch_code"
                         onChange={handleChange}
                         value={values.branch_code}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Company Name</label>
 
                       <select
@@ -694,7 +694,7 @@ export default function Department() {
                         name="branch_company"
                         onChange={handleChange}
                         value={values.branch_company}
-                        class="form-control"
+                        className="form-control"
                       >
                         {listnew.map(({ org_name, id }, index) => (
                           <option value={id}>{org_name}</option>
@@ -703,35 +703,35 @@ export default function Department() {
                     </div>
                   </div>
 
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Branch Type</label>
                       <input
                         type="text"
                         name="branch_type"
                         onChange={handleChange}
                         value={values.branch_type}
-                        class="form-control"
+                        className="form-control"
                         placeholder="Development Center"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Location</label>
                       <input
                         type="text"
                         name="branch_location"
                         onChange={handleChange}
                         value={values.branch_location}
-                        class="form-control"
+                        className="form-control"
                         placeholder="Development Center"
                       ></input>
                     </div>
                   </div>
 
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">
                         Date of Establishment
                       </label>
@@ -740,12 +740,12 @@ export default function Department() {
                         name="branch_date"
                         onChange={handleChange}
                         value={values.branch_date}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">
                         Brach Landline
                       </label>
@@ -754,19 +754,19 @@ export default function Department() {
                         name="branch_landline"
                         onChange={handleChange}
                         value={values.branch_landline}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Email</label>
                       <input
                         type="email"
                         name="branch_email"
                         onChange={handleChange}
                         value={values.branch_email}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                     </div>
                   </div>
@@ -776,13 +776,13 @@ export default function Department() {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Update
             </button>
             <button
               type="button"
-              class="btn  btn-cancel "
+              className="btn  btn-cancel "
               onClick={closeModalbrach}
             >
               {" "}

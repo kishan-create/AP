@@ -108,7 +108,7 @@ export default function Holidaypopup({method}) {
       
       <button
         type="button"
-        class="btn  btn-maincolor btn-block"
+        className="btn  btn-maincolor btn-block"
         onClick={openModal}
       >
         {" "}
@@ -134,9 +134,9 @@ export default function Holidaypopup({method}) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row">
-              <div class="col-md-12 m-b-25">
-                <div class="row popup-content-height">
+            <div className="row">
+              <div className="col-md-12 m-b-25">
+                <div className="row popup-content-height">
                   <div className=" col-md-4">
                     <label for="holiday_name">Name</label>
                     <input
@@ -144,12 +144,12 @@ export default function Holidaypopup({method}) {
                       name="holiday_name"
                       onChange={handleChange}
                       value={values.holiday_name}
-                      class="form-control"
+                      className="form-control"
                     />
                     {errors.holiday_name && <p className="message">{errors.holiday_name}</p>}
                   </div>
 
-                  <div class="col-md-4">
+                  <div className="col-md-4">
                     <label for="exampleFormControlInput1">Type</label>
                     <select
                       // onChange={handleChange}
@@ -157,7 +157,7 @@ export default function Holidaypopup({method}) {
                       value={typeDropdown}
                       id="typedropdown"
                       name="calander_type"
-                      class="form-control"
+                      className="form-control"
                     >
                       <option value="">Select</option>
                       <option value="1">Location</option>
@@ -172,7 +172,7 @@ export default function Holidaypopup({method}) {
                   <div
                     style={{ display: showProject ? "block" : "none" }}
                     id="show_project"
-                    class="col-md-4"
+                    className="col-md-4"
                   >
                     <label for="exampleFormControlInput1">Select</label>
                     <select
@@ -180,7 +180,7 @@ export default function Holidaypopup({method}) {
                       name="project_name"
                       onChange={handleChange}
                       value={values.project_name1}
-                      class="form-control"
+                      className="form-control"
                     >
                       <option value="">Select project name</option>
 
@@ -197,14 +197,14 @@ export default function Holidaypopup({method}) {
 
                   <div
                     style={{ display: showLocation ? "block" : "none" }}
-                    class="col-md-4"
+                    className="col-md-4"
                   >
                     <label for="exampleFormControlInput1">Select</label>
                     <select
                       id="dropdown_location"
                       onChange={handleChange}
                       name="location_name"
-                      class="form-control"
+                      className="form-control"
                     >
                       <option value="">Select location name</option>
                       <option value="1">Kochi</option>
@@ -216,10 +216,10 @@ export default function Holidaypopup({method}) {
 
 
                   </div>
-                  <div class="col-md-12 m-t-25">
+                  <div className="col-md-12 m-t-25">
                     <div className="Multyselect">
                       <Multiselect
-                        class="form-control "
+                        className="form-control "
                         options={options} // Options to display in the dropdown
                         selectedValues={items} // Preselected value to persist in dropdown
                         // onSelect={handleSelect}
@@ -242,10 +242,10 @@ export default function Holidaypopup({method}) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>

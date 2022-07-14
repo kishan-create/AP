@@ -29,7 +29,7 @@ class NavBar extends React.Component {
 			<img src={logomob}/>
         </div>
         <Navbar>
-        <div class="  topbar-col-right">
+        <div className="  topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
                  <span  className="topbar-icon-right"> Logout</span>

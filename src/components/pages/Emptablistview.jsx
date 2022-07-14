@@ -509,7 +509,7 @@ const animatedComponents = makeAnimated();
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -541,7 +541,7 @@ const animatedComponents = makeAnimated();
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -572,7 +572,7 @@ const animatedComponents = makeAnimated();
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>
@@ -604,7 +604,7 @@ const animatedComponents = makeAnimated();
             Logitech        
             </div>
             </div>   <div className="col-4 acc-status-change">
-            <div class="active-status-style">BTLP01</div>
+            <div className="active-status-style">BTLP01</div>
   </div></AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel>

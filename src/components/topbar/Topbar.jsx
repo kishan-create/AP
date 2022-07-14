@@ -12,12 +12,12 @@ export default function Topbar(){
     return(
       <div className=' head-style' >
       <div className='' >
-           <nav class="  ">
+           <nav className="  ">
             
-               <div class=" col-md-6 p-l-0">
-                 <a class=" topbar-icon " href="# onClick={this.props.toggle}"><FiAlignRight /> </a>
+               <div className=" col-md-6 p-l-0">
+                 <a className=" topbar-icon " href="# onClick={this.props.toggle}"><FiAlignRight /> </a>
                </div>               
-               <div class="  col-md-6 topbar-col-right">
+               <div className="  col-md-6 topbar-col-right">
                  <span className="topbar-icon-right"> <BiTimeFive/></span>
                  <span  className="topbar-icon-right"> <BsBell/></span>
                  <span> 	<img className="topbar-icon-right-img" src={Grouplog}/> <sup className="topbar-icon-right-img-txt">Ayer</sup></span>

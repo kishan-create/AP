@@ -50,7 +50,7 @@ const Assetsdetails = () => {
                                                </div>
                     <div className="col-md-12">    
                              
-                          <div class="flex-box employee-infot-flex">
+                          <div className="flex-box employee-infot-flex">
                             <div  className="col-md-6 basic-information-card"> 
                                   <div  className="information-card-head">Specification
                                   </div>
@@ -120,7 +120,7 @@ const Assetsdetails = () => {
                             </div>
                              
                           </div>  
-                          <div class="flex-box employee-infot-flex">
+                          <div className="flex-box employee-infot-flex">
                              
                             <div  className="col-md-6 education-information-card"> 
                                   <div  className="information-card-head"> purchase

@@ -6,6 +6,8 @@ import { profileimage1 } from '../../images';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 import Employeprofilemodel from "./Employeprofilemodel";
+import Employeeditprofmodel from "./Employeeditprofmodel";
+
 import Employeprofileeducationpopup from "./Employeprofileeducationpopup";
 import AddEmployeprofileeducationpopup from "./Add-Employeprofileeducationpopup";
 
@@ -27,15 +29,8 @@ const getEmployeeDetails = async (id) => {
             const emp = reponse.data.emp;
             setRows(emp);
 }
-
-
-
-
-
-
-
-
- 
+//  console.log(rows[0]);
+           
   return (
     <main className="inner-content-box">
       <header className="main-otrer-top"> Employee </header>
@@ -48,7 +43,7 @@ const getEmployeeDetails = async (id) => {
                                                </div>
                     <div className="col-md-12">    
                              
-                          <div class="flex-box employee-infot-flex">
+                          <div className="flex-box employee-infot-flex">
                             <div  className="col-md-6 basic-information-card"> 
                                   <div  className="information-card-head">Basic Information
                                   </div>
@@ -113,70 +108,99 @@ const getEmployeeDetails = async (id) => {
                             <div className="col-md-6 personal-information-card">
                            
                                   <div  className="information-card-head"> Personal Information
-                                    <div className="top-right+-outer add-btn-div">   
-                                    <Employeprofilemodel />  
+                                    <div className="top-right-outer add-btn-div"> 
+
+                                    <div>
+
+
+
+                                    {(() =>{
+
+                                   if  (rows[0]?.p_fk_emp_id==null)
+
+                                   {
+
+                                         return(
+
+                                          <Employeprofilemodel id ={params.id} methods={getEmployeeDetails} /> 
+                                         )}
+
+                                   else {return(
+
+                                   <Employeeditprofmodel id ={params.id} idedvalue ={rows} />  
+                            )}
+
+                              })()}
+
+
+
+</div>
+                                    
+                                      
+
+                                    {/* <Employeprofilemodel />   */}
                                     </div>
                                   </div>
                                   
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Aadhaar Number  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.aadhar_number}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Permanent Address <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.permenent_adress}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Father/Mother/Spouse Name  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.f_m_s_name}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Temporary Address   <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.temp_adress}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Emergency Contact Number   <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.emergency_contact_number}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Date Of Birth (Official)  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.of_dob}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont ">  Personal Email ID  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.p_email_adress}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont ">  Total year's of experience  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt ">
+                                        <div  className="col-md-6 info-card-cont-rgt "> {rows[0]?.tot_exp}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont ">  Marital Status  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt ">  {rows[0]?.m_status}
                                         </div>                                
                                   </div>
                                  
                             </div>
                              
                           </div>  
-                          <div class="flex-box employee-infot-flex">
+                          <div className="flex-box employee-infot-flex">
                              
                             <div  className="col-md-6 education-information-card"> 
                                   <div  className="information-card-head"> Education Details

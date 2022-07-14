@@ -144,7 +144,7 @@ const onDragEnd = (result, columns, setColumns) => {
                 </div>
                 <div className="search-icon-width ">  
                 <div className="top-right-outer add-btn-div ">
-                        <button type="button" class="btn  btn-maincolor btn-block"> <FaSearch className="add-btn-icon"/></button> 
+                        <button type="button" className="btn  btn-maincolor btn-block"> <FaSearch className="add-btn-icon"/></button> 
                     
                         </div>
                 </div>
@@ -248,7 +248,7 @@ const onDragEnd = (result, columns, setColumns) => {
                     <div className="card-header-sty">
                     {column.name}</div>
 
-                    <div class="pull-right"><button className="card-header-bt-rigt">40 Items</button></div>
+                    <div className="pull-right"><button className="card-header-bt-rigt">40 Items</button></div>
                     </div>
               <div >
                 <Droppable droppableId={columnId} key={columnId}>
@@ -305,7 +305,7 @@ const onDragEnd = (result, columns, setColumns) => {
                                <div className="in-progress-location ">
                                <img src={location}/>  <span>{item.location}</span> 
                                    </div>
-                                   <div class="in-progress-location t-r">
+                                   <div className="in-progress-location t-r">
                                    NP: {item.np}
                  </div>
                                 </div>

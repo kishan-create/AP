@@ -30,8 +30,8 @@ export default class  Addproperty extends Component {
                         <div className="main-content-area-inner addproperty-bg">
                             <div className="sub-head border-0">Add Property
                                 <div className="top-right-outer add-btn-div">
-                                <button type="button" class="btn  btn-save "  > Save</button>
-            <button type="button" class="btn  btn-cancel " > Cancel </button> 
+                                <button type="button" className="btn  btn-save "  > Save</button>
+            <button type="button" className="btn  btn-cancel " > Cancel </button> 
 
                                                                    </div>
 
@@ -44,56 +44,56 @@ export default class  Addproperty extends Component {
 
 
 <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Brand</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">Brand</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Laptop</option>
  </select>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Asset Tag</label>
+  <div className="form-group"><label for="exampleFormControlInput1">Asset Tag</label>
   <input type="email" className="form-control"/>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Type</label>
+  <div className="form-group"><label for="exampleFormControlInput1">Type</label>
   <input type="email" className="form-control"/></div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Serial Number</label>
+  <div className="form-group"><label for="exampleFormControlInput1">Serial Number</label>
   <input type="email" className="form-control"/>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Date of purchase</label>
+  <div className="form-group"><label for="exampleFormControlInput1">Date of purchase</label>
   <input type="email" className="form-control"/>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Location</label>
-  <select id = "dropdown" class="form-control">
+  <div className="form-group"><label for="exampleFormControlInput1">Location</label>
+  <select id = "dropdown" className="form-control">
     <option value="Post">Location</option>
  </select>
  </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Vendor Name</label>
+  <div className="form-group"><label for="exampleFormControlInput1">Vendor Name</label>
   <input type="email" className="form-control"/>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Make</label>
+  <div className="form-group"><label for="exampleFormControlInput1">Make</label>
   <input type="email" className="form-control"/>
   </div>
   </div>
   <div className="col-md-4">
-  <div class="form-group"><label for="exampleFormControlInput1">Modal</label>
+  <div className="form-group"><label for="exampleFormControlInput1">Modal</label>
   <input type="email" className="form-control"/></div>
   </div>
 
   <div className="bottom-button-bg">
-            <button type="button" class="btn  btn-save "  > Save</button>
-            <button type="button" class="btn  btn-cancel " > Cancel </button> 
+            <button type="button" className="btn  btn-save "  > Save</button>
+            <button type="button" className="btn  btn-cancel " > Cancel </button> 
         </div>
   
   </div>                

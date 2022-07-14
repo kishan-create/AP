@@ -67,7 +67,7 @@ export default function Addorganization({ method }) {
     <div>
       <button
         type="button"
-        class="btn  btn-maincolor btn-block"
+        className="btn  btn-maincolor btn-block"
         onClick={openModal}
       >
         <SiAddthis className="add-btn-icon" /> ADD Organization
@@ -95,11 +95,11 @@ export default function Addorganization({ method }) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="row addabrch-content-box">
-                  <div class="col-md-4">
-                    <div class="form-group">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="row addabrch-content-box">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">
                         Organization Name
                       </label>
@@ -108,15 +108,15 @@ export default function Addorganization({ method }) {
                         name="org_name"
                         onChange={handleChange}
                         value={values.org_name}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.org_name && (
                         <p className="red-alert">{errors.org_name}</p>
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">
                         Organization Code
                       </label>
@@ -125,15 +125,15 @@ export default function Addorganization({ method }) {
                         name="org_code"
                         onChange={handleChange}
                         value={values.org_code}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.org_code && (
                         <p className="red-alert">{errors.org_code}</p>
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">
                         Organization Type
                       </label>
@@ -142,22 +142,22 @@ export default function Addorganization({ method }) {
                         name="org_type"
                         onChange={handleChange}
                         value={values.org_type}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.org_type && (
                         <p className="red-alert">{errors.org_type}</p>
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Category</label>
                       <select
                         id="dropdown"
                         name="org_category"
                         onChange={handleChange}
                         value={values.org_category}
-                        class="form-control"
+                        className="form-control"
                       >
                         <option value="">Choose your Category</option>
                         {options.map((element, index) => (
@@ -171,8 +171,8 @@ export default function Addorganization({ method }) {
                       )}
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">
                         Organization Registration
                       </label>
@@ -181,7 +181,7 @@ export default function Addorganization({ method }) {
                         name="org_registration"
                         onChange={handleChange}
                         value={values.org_registration}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {/* </div> */}
                       {errors.org_registration && (
@@ -190,15 +190,15 @@ export default function Addorganization({ method }) {
                     </div>
                   </div>
 
-                  <div class="col-md-4">
-                    <div class="form-group">
+                  <div className="col-md-4">
+                    <div className="form-group">
                       <label for="exampleFormControlInput1">Location</label>
                       <input
                         type="text"
                         name="org_location"
                         onChange={handleChange}
                         value={values.org_location}
-                        class="form-control"
+                        className="form-control"
                       ></input>
                       {errors.org_location && (
                         <p className="red-alert">{errors.org_location}</p>
@@ -210,11 +210,11 @@ export default function Addorganization({ method }) {
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" class="btn  btn-save ">
+            <button type="submit" className="btn  btn-save ">
               {" "}
               Save
             </button>
-            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>
