@@ -35,6 +35,7 @@ export default function Streamingmapping({id,stream_name}) {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [modalIsOpenStream, setIsOpenStream] = React.useState(false);
   const[subpotion,setSuboption]=useState([]);
+  const[tt,setTt]=useState([]);
   const[employee,setEmployee]=useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -121,7 +122,10 @@ const getSubstreamName =async(id)=>{
         `http://localhost:8000/api/getSubstreamname/${id}`
       );
       const emp = reponse.data.options;
+      const emps=reponse.data;
       setSuboption(emp);
+      setTt(emps);
+
 }
 const Employeemap=async(id)=>
 {
@@ -141,11 +145,13 @@ const Employeemap=async(id)=>
 
 
 const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-  // console.log(values.streamname);
-  // console.log(sub_stream_name);
+  console.log(tt);
+  // console.log(setIsOpenStream);
   // getSubstreamName();
+  // console.log(subpotion);
+  // setTt
   
-  console.log();
+  // console.log(data.subpotionsubstream);
 
 
 
@@ -156,17 +162,12 @@ const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     // if  (employee.length <=0)
         if  (subpotion ==0)
  
-    {
-
-      console.log("inside"); 
+    {      console.log("inside"); 
       getStreamName(id);
       // setIsOpen(true);
 
       // onClick={handleClick}
- 
-
-
-      }
+       }
 
     else {
       console.log("test");
