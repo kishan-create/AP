@@ -27,13 +27,12 @@ export default function Streamingmapping({id,stream_name}) {
   
   const [values, SetValues] = useState({
     subid: "",
-    streamname:"",
+    streamname:stream_name,
     substreamname:"",
     streamid:""
    
   });
     const [modalIsOpen, setIsOpen] = React.useState(false);
-    const [modalIsOpenStream, setIsOpenstream] = React.useState(false);
   const[subpotion,setSuboption]=useState([]);
   const[employee,setEmployee]=useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -51,29 +50,15 @@ export default function Streamingmapping({id,stream_name}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleMapStream =async(val)=>
-  {
-    console.log(val)
-  
-    
-    
-    const reponse = await axios.get(
-      `http://localhost:8000/api/getAllemployeesub/${val}`
-    );
-    if(reponse.data.status===200)
-    {
-      const emp = reponse.data.emp;
-      setEmployee(emp);
-      setAnchorEl(null);
-    }
-    SetValues({
-     
-     
-     
-     
-    });
-    handleMapStream(true);
+
+  function afterOpenModal() {}
+  function closeModal() {
+    setIsOpen(false);
+ 
   }
+
+
+
   const handleMap =async(id)=>
   {
     var val=id.split('_');
@@ -101,12 +86,11 @@ export default function Streamingmapping({id,stream_name}) {
      
     });
     setIsOpen(true);
+   ;
   }
-  function afterOpenModal() {}
-  function closeModal() {
-    setIsOpen(false);
- 
-  }
+
+
+
   
 const getSubstreamName =async(id)=>{
   
@@ -210,6 +194,7 @@ contentLabel="Example Modal"
               
               <TableCell>{historyRow.emp_name}</TableCell>
               <TableCell>{historyRow.emp_code}</TableCell>
+             
                
               <TableCell>
               {(() => {
@@ -252,3 +237,14 @@ contentLabel="Example Modal"
 
   );
 }
+
+
+
+
+
+
+
+
+
+
+

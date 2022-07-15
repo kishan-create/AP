@@ -282,7 +282,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
               }
               else {
                 return(
-                  <AddmappingStream  />
+                  <AddmappingStream id={row.id} stream_name={row.stream_name} />
                 )
               }
               
