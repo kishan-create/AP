@@ -128,5 +128,6 @@ export default function AddmappingStream({ method }) {
         </form>
       </Modal>
     </div>
+    
   );
 }
