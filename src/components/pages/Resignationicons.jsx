@@ -7,6 +7,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Modal from "react-modal";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
 import axios from "axios";
+import noticeperiod_validation from "../validation/noticeperiod_validation";
+import Noticeform from "./Noticeform";
 
 const options = [
   'Resigned',
@@ -23,11 +25,7 @@ export default function Resignationicons({id,name,code}) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [values,SetValues]= React.useState({
-    emp_dateofresign: "",
-    emp_frequency: "",
-    emp_dateofrelieving: "",
-  });
+
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -46,40 +44,11 @@ export default function Resignationicons({id,name,code}) {
     setIsOpen(false);
  
   }
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    SetValues({
-      ...values,
-      [name]: value,
-    });
-  };
 
-  // useEffect = (()=>{
-  //   if (Object.keys.length === 0 && isSubmitting) {
-  //     // onSubmitform();
-  //   }
-  // }
-  // );
-  const handleSubmit = (e) => {
-    
-    setIsSubmitting(true);
-  };
-  const onSubmitform = (e) => {
-    //console.log(values)
-    const response = axios.post("http://localhost:8000/api/add_notice", values);
-    response.then(function(res) {
-      if (res.data.status === 200) {
-        //console.log(res.data.message);
-       
-        SetValues({
-          emp_dateofresign: "",
-          emp_frequency: "",
-          emp_dateofrelieving: "",
-        });
-      }
-    });
-  };
 
+  const { handleChange, values, handleSubmit, errors, post } = Noticeform(
+    noticeperiod_validation
+  );
 
 
   return (
