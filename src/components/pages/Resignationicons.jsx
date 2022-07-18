@@ -62,26 +62,27 @@ contentLabel="Example Modal"
 >
 <form onSubmit={handleSubmit} className="form" noValidate>
 
-  <div className="popup-head-sty modal-button-bg">
-    <div className="popup-head-content-sty">
-      <h4>{code+'-'+ name}</h4>
-    </div>
-    
-    <div className="popup-head-icon-sty">
-      <MdClose className="popup-close-btn" onClick={closeModal} />
-    </div>
+<div className="popup-head-sty modal-button-bg">
+            <div className="popup-head-content-sty">
+            <h4>{code+'-'+ name}</h4>
+            </div>
+            <div className="popup-head-icon-sty">
+              <MdClose className="popup-close-btn" onClick={closeModal} />
+            </div>
+          </div>
 
-    <div className="popup-content-bg">
-            <div className="row addabrch-content-box">
-              <div className="col-md-12">
-                <div className="row ">
-                  <div className="col-md-12">
+
+          <div className="popup-content-bg">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row addabrch-content-box">
+                <div className="col-md-6">
                     <div className="form-group">
                       <label for="Date of Resign">Date of Resign</label>
                       <input type="date" name="emp_dateofresign"  onChange={handleChange} value={values.emp_dateofresign} className="form-control" ></input>
                       </div>
                   </div>
-                  <div className="col-md-12">
+                  <div className="col-md-6">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Frequency</label>
                       <select
@@ -101,26 +102,21 @@ contentLabel="Example Modal"
                       </div>
                      
                   </div>
-                  <div className="col-md-12">
+                  <div className="col-md-6">
                     <div className="form-group">
                       <label for="Date of Relieving">Date of Relieving</label>
                       <input type="date" name="emp_dateofrelieving"  onChange={handleChange} value={values.emp_dateofrelieving} className="form-control" ></input>
                       </div>
                   </div>
-            
-              
+
+
+                  
+                   
                 </div>
               </div>
             </div>
           </div>
-  </div>
-  <div className="popup-content-bg">
-    <div class="row addabrch-content-box stable-body ">
-      <div class="col-md-12 ">
-     
-      </div>
-    </div>
-  </div>
+  
   <div className=" modal-footer-button-bg">
             <button type="submit" className="btn  btn-save ">
               Save
@@ -130,8 +126,13 @@ contentLabel="Example Modal"
               Cancel{" "}
             </button>
           </div>
+          
   
 </form>
+
+
+         
+         
 </Modal>
       <IconButton
         aria-label="more"
