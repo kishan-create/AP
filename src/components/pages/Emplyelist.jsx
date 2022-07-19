@@ -527,9 +527,10 @@ export default class Emplyelist extends Component {
                               <div className="left">
                                 <i className="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
                                 <span className="">{n.emp_location} </span>
+                               
                               </div>
                               <div className="right">
-
+                             <span className="np-style">  { n.Days ? n.Days+' ' +'Days' : null } </span>
 
                               </div>
                             </div>
