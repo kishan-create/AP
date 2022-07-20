@@ -92,9 +92,7 @@ export default function AddmappingStream({ stream_name,id }) {
   const handleMapStream =async(val)=>
   {
 
-  alert("rer");
 
-    console.log(val);
     let data = {
       'stream': val[1]
     

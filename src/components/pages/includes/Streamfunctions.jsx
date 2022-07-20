@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 const Streamfunctions = (stream_validation,id) => {
-  console.log(id);
+
   const [values, SetValues] = useState({
  
     // subid: "",

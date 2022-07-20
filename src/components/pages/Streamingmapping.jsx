@@ -62,7 +62,7 @@ export default function Streamingmapping({id,stream_name}) {
   const handleMap =async(id)=>
   {
     var val=id.split('_');
-    console.log(val);
+   
     let data = {
       'stream': val[1],
       'substream':val[0]

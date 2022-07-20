@@ -25,7 +25,7 @@ const getEmployeeDetails = async (id) => {
             const emp = reponse.data.emp;
             setRows(emp);
 }
- console.log(rows[0]);
+//  console.log(rows[0]);
            
   return (
     <main className="inner-content-box">
