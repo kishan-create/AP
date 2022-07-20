@@ -530,8 +530,12 @@ export default class Emplyelist extends Component {
                                
                               </div>
                               <div className="right">
-                             <span className="np-style">  { n.Days ? n.Days+' ' +'Days' : null } </span>
-
+                            
+                             <button className="btn-clr-whit" data-tip data-for= {"registerTip1" + n.empid}>
+       <i class="fa fa-bell np-style"  aria-hidden="true"></i>
+      </button>    <ReactTooltip id={"registerTip1" + n.empid} place="top" effect="solid" className="np-tooltipbox">
+      <span className="np-style">  { n.Days ? n.Days+' ' +'Days left' : null } </span> 
+      </ReactTooltip>
                               </div>
                             </div>
                           </Card.Description>
