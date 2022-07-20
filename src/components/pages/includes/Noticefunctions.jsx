@@ -6,11 +6,13 @@ const Noticefunctions = (Noticevalidation,id) => {
     emp_dateofresign: "",
     emp_frequency: "",
     emp_dateofrelieving: "",
-    emp_id:id
-  });
+    emp_id:id,
+    last_working_day:""
+  }); 
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [relisSubmitting, relsetIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,17 +52,27 @@ SetValues({
 }
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
+      // onRelivesubmitform();
       onSubmitform();
+      
     }
+    else if(relisSubmitting)  {
+      // alert("else");
+      onRelivesubmitform();
+    }
+ 
   }, [errors]);
 
   const handleSubmit = (e) => {
   
+       console.log(values);
+    alert("handlesubmit1")
     e.preventDefault();
     const test = setErrors(Noticevalidation(values));
     setIsSubmitting(true);
   };
   const onSubmitform = (e) => {
+    alert("handlesubmit")
     //console.log(values)
     const response = axios.post(
       "http://localhost:8000/api/add_notice",
@@ -86,6 +98,43 @@ SetValues({
     });
   };
 
-  return { handleChange, values, handleSubmit, errors,FrequencyChange };
+  const handleRelieveSubmit = (e) => {
+  
+    // alert("onRelivesubmitform1")
+    e.preventDefault();
+    const test = setErrors(Noticevalidation(values));
+    relsetIsSubmitting(true);
+  };
+
+  
+
+  const onRelivesubmitform = (e) => {
+    // alert("onRelivesubmitform")
+    console.log(values)
+    const response = axios.post(
+      "http://localhost:8000/api/lastworking_day",
+      values
+    );
+    response.then(function(res) {
+      if (res.data.status === 200) {
+        //console.log(res.data.message);
+
+        swal({
+          title: "Good job!",
+          text: "Notice added successfully",
+          icon: "success",
+          button: "ok",
+        });
+
+        SetValues({
+          department_name: "",
+          department_code: "",
+        });
+      }
+     
+    });
+  };
+
+  return { handleChange, values, handleSubmit,handleRelieveSubmit, errors,FrequencyChange };
 };
 export default Noticefunctions;

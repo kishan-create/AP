@@ -58,7 +58,7 @@ export default function Resignationicons({id,name,code,noticeid,resign}) {
  
  
 
-  const { handleChange, values, listnew, handleSubmit, errors,FrequencyChange  } = Noticefunctions(Noticevalidation,id);
+  const { handleChange, values, listnew, handleSubmit, handleRelieveSubmit,Submiterrors,FrequencyChange  } = Noticefunctions(Noticevalidation,id);
 
   return (
     <div>
@@ -119,8 +119,6 @@ contentLabel="Example Modal"
                       </div>
                   </div>
 
-
-                  
                    
                 </div>
               </div>
@@ -139,10 +137,7 @@ contentLabel="Example Modal"
           
   
 </form>
-
-
-         
-         
+   
 </Modal>
 
 {/* Relive Popup */}
@@ -153,7 +148,10 @@ onRequestClose={closeModalRelive}
 className="job-detils-modal"
 contentLabel="Example Modal"
 >
-<form onSubmit={handleSubmit} className="form" noValidate>
+{/* <form onSubmit={handleSubmit} className="form" noValidate> */}
+<form onSubmit={handleRelieveSubmit} className="form" noValidate>
+
+
 
 <div className="popup-head-sty modal-button-bg">
             <div className="popup-head-content-sty">
@@ -174,7 +172,8 @@ contentLabel="Example Modal"
                     <div className="form-group">
                       <label for="Date of Resign">Last working day</label>
                       <input type="date" name="last_working_day"  onChange={handleChange} value={values.last_working_day} className="form-control" ></input>
-                      </div>
+                      {/* <input type="date" name="last_working_day"  onChange={handleChange}   value={values.emp_dateofrelieving} className="form-control" ></input> */}
+                                </div>
                   </div>
                  
                  
