@@ -449,7 +449,7 @@ const animatedComponents = makeAnimated();
                     <TableCell numeric className="width-12">
                     <div className="action-outer">
                     <div className="edit-new-icon ">
-                          <Resignationicons id= {n.empid} name={n.emp_name} code = {n.emp_code} noticeid={n.notice_id}/>
+                          <Resignationicons id= {n.empid} name={n.emp_name} code = {n.emp_code} noticeid={n.notice_id} resign={n.date_of_resign} />
                           </div>
              <div className="edit-new-icon ">
                {/* <a href="`/Employeeprofile/${n.id}`,"> */}

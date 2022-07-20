@@ -20,7 +20,7 @@ const options = [
 const ITEM_HEIGHT = 48;
 
 
-export default function Resignationicons({id,name,code,noticeid}) {
+export default function Resignationicons({id,name,code,noticeid,resign}) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -87,6 +87,7 @@ contentLabel="Example Modal"
                 <div class="row addabrch-content-box">
                 <div className="col-md-6">
                     <div className="form-group">
+                      
                       <label for="Date of Resign">Date of Resign</label>
                       <input type="date" name="emp_dateofresign"  onChange={handleChange} value={values.emp_dateofresign} className="form-control" ></input>
                       </div>
@@ -169,6 +170,7 @@ contentLabel="Example Modal"
               <div class="col-md-12">
                 <div class="row addabrch-content-box">
                 <div className="col-md-6">
+                <label for="Date of Resign">Resignation Date:{resign}</label>
                     <div className="form-group">
                       <label for="Date of Resign">Last working day</label>
                       <input type="date" name="last_working_day"  onChange={handleChange} value={values.last_working_day} className="form-control" ></input>
