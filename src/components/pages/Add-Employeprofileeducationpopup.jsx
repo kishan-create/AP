@@ -8,12 +8,8 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { AppBar } from "@material-ui/core";
 import BasicTabs from "./Employeetabs";
-import job_validation from "../validation/job_validation";
-import Jobform from "./Jobform";
-import "react-tabs/style/react-tabs.css";
 import Employeprofileeducationform from "./Employeprofileeducationform";
-import Employeeskillform from "./Employeeskillform";
-
+import "react-tabs/style/react-tabs.css";
 const customStyles = {
   content: {
     top: "50%",
@@ -28,7 +24,7 @@ const customStyles = {
   },
 };
 
-export default function Empoyeprofileskilpopup(id ) {
+export default function AddEmployeprofileeducationpopup({ id,method}) {
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -44,14 +40,12 @@ export default function Empoyeprofileskilpopup(id ) {
   }
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
     subtitle.style.color = "#f00";
   }
 
   function closeModal() {
     setIsOpen(false);
    
-    // window.location.reload();
   }
 
   const [value, setValue] = React.useState(0);
@@ -60,7 +54,7 @@ export default function Empoyeprofileskilpopup(id ) {
     setValue(val);
   };
 
-  const { handleChange, values, handleSubmit, errors, post } = Employeeskillform(id
+  const { handleChange, values, handleSubmit, errors, post } = Employeprofileeducationform(id,method,closeModal
     
   );
 
@@ -68,11 +62,11 @@ export default function Empoyeprofileskilpopup(id ) {
     <div>
       <button
         type="button"
-        className="btn  btn-maincolor btn-block emp-profl-edit-btn"
+        class="btn  btn-maincolor btn-block emp-profl-edit-btn"
         onClick={openModal}
       >
         {" "}
-        <i className="fa fa-edit"></i>
+        <i class="fa fa-edit"></i>
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -88,7 +82,7 @@ export default function Empoyeprofileskilpopup(id ) {
                 ref={(_subtitle) => (subtitle = _subtitle)}
                 className="popup-head-h4"
               >
-               Add Employee Skill Details
+               Add Education Details
               </h4>
             </div>
             <div className="popup-head-icon-sty">
@@ -96,44 +90,46 @@ export default function Empoyeprofileskilpopup(id ) {
             </div>
           </div>
           <div className="popup-content-bg">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="row popup-content-height">
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label for="exampleFormControlInput1">Primary Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} className="form-control" ></input>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row popup-content-height">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Highest Level of Education Completed</label>
+                      <input  type="text"  name="employee_education" onChange={handleChange} value={values.employee_education}class="form-control" ></input>
                        
                     </div>
                   </div>
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label for="exampleFormControlInput1">Secondary Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} className="form-control" ></input>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Institution</label>
+                      <input  type="text"  name="employee_institution" onChange={handleChange} value={values.employee_institution}class="form-control" ></input>
                     </div>
                   </div>
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label for="exampleFormControlInput1">Additional Skills</label>
-                      <input  type="text"  name="job_id" onChange={handleChange} className="form-control" ></input>
+                  
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Year of Graduation </label>
+                      <input  type="text"  name="employee_yearofgrad" onChange={handleChange} value={values.employee_yearofgrad}class="form-control" ></input>
+                      
+                     
                     </div>
                   </div>
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label for="exampleFormControlInput1">Year of Experience </label>
-                      <input  type="text"  name="job_id" onChange={handleChange} className="form-control" ></input>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Specialization</label>
+                      <input  type="text"  name="employee_specialization" onChange={handleChange} value={values.employee_specialization} class="form-control" ></input>
                     </div>
                   </div>
-                 
                 </div>
               </div>
             </div>
           </div>
           <div className=" modal-footer-button-bg">
-            <button type="submit" className="btn  btn-save ">
+            <button type="submit" class="btn  btn-save ">
               Save
             </button>
-            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
+            <button type="button" class="btn  btn-cancel " onClick={closeModal}>
               {" "}
               Cancel{" "}
             </button>

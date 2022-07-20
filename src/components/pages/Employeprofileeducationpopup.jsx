@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
 import ReactDOM from "react-dom";
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
@@ -10,7 +10,12 @@ import { AppBar } from "@material-ui/core";
 import BasicTabs from "./Employeetabs";
 import job_validation from "../validation/job_validation";
 import Jobform from "./Jobform";
+import Employeprofileeducationform from "./Employeprofileeducationform";
 import "react-tabs/style/react-tabs.css";
+import axios from "axios";
+import swal from "sweetalert";
+
+
 const customStyles = {
   content: {
     top: "50%",
@@ -25,7 +30,10 @@ const customStyles = {
   },
 };
 
-export default function Employeprofileeducationpopup( ) {
+export default function Employeprofileeducationpopup({idedvalue, method, id}) {
+  console.log(idedvalue);
+
+  
    
   const CustomTab = ({ children }) => (
     <Tab>
@@ -52,14 +60,57 @@ export default function Employeprofileeducationpopup( ) {
   }
 
   const [value, setValue] = React.useState(0);
+  const [values, SetValues] = useState({
+    education_name: idedvalue[0].education_name,
+    institution: idedvalue[0].institution,
+
+    year_of_pass: idedvalue[0].year_of_pass,
+    specialization: idedvalue[0].specialization,
+    ed_fk_emp_id:idedvalue[0].ed_fk_emp_id,
+    
+    // cmid:id,
+
+
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    SetValues({
+      ...values,
+      [name]: value,
+    });
+  };
+  const [rows, setRows] = useState([]);
+
   const handlesTabs = (e, val) => {
     console.warn(val);
     setValue(val);
   };
 
-  const { handleChange, values, handleSubmit, errors, post } = Jobform(
-    job_validation
+  const { errors, post, } = Employeprofileeducationform(
   );
+
+  const updateProfileEducation = async (e) => {
+    console.log(values);
+    
+
+    e.preventDefault();
+    const res = await axios.put(
+      "http://localhost:8000/api/update_profileeducation",
+      values
+    );
+    if (res.data.status == 200) {
+      swal({
+        title: "Good job!",
+        text: "Department Updated successfully",
+        icon: "success",
+        button: "ok",
+      });
+      method(id);
+      closeModal();
+    }
+  };
+
+  
 
   return (
     <div>
@@ -78,14 +129,14 @@ export default function Employeprofileeducationpopup( ) {
         className="job-detils-modal"
         contentLabel="Example Modal"
       >
-        <form onSubmit={handleSubmit} className="form" noValidate>
+        <form onSubmit={updateProfileEducation} className="form" noValidate>
           <div className="popup-head-sty modal-button-bg">
             <div className="popup-head-content-sty">
               <h4
                 ref={(_subtitle) => (subtitle = _subtitle)}
                 className="popup-head-h4"
               >
-               Education Details
+               Edit Education Details
               </h4>
             </div>
             <div className="popup-head-icon-sty">

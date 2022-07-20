@@ -9,13 +9,17 @@ import Employeprofilemodel from "./Employeprofilemodel";
 import Employeeditprofmodel from "./Employeeditprofmodel";
 
 import Employeprofileeducationpopup from "./Employeprofileeducationpopup";
+import AddEmployeprofileeducationpopup from "./Add-Employeprofileeducationpopup";
 
 import Empoyeprofileskilpopup from "./Empoyeprofileskilpopup";  
+import EditEmployeeskillpopup from "./EditEmployeeskillpopup";
 const Employeeprofile = () => {
       const [rows, setRows] = useState([]);
       const params = useParams();
       useEffect(() => {
             getEmployeeDetails(params.id);
+
+
            },[]);
            
 const getEmployeeDetails = async (id) => {
@@ -201,31 +205,64 @@ const getEmployeeDetails = async (id) => {
                             <div  className="col-md-6 education-information-card"> 
                                   <div  className="information-card-head"> Education Details
                                     <div className="top-right-outer add-btn-div">   
+                                    {/* if (rows.length === 1) 
                                     <Employeprofileeducationpopup />  
+                                    else
+                                    <AddEmployeprofileeducationpopup/> */}
+                                    {/* {()=>{ if (rows.length === 1) 
+                                    <Employeprofileeducationpopup />  
+                                    else
+                                    <AddEmployeprofileeducationpopup/>}} */}
+
+
+                                          
+
+<div>
+
+                                    {(() =>{
+                                   if  (rows[0]?.ed_fk_emp_id==null)
+                                   {
+                                         return(
+                                          <AddEmployeprofileeducationpopup id ={params.id} method={getEmployeeDetails}/> 
+
+                                         )}
+                                   else {return(
+                                   <Employeprofileeducationpopup idedvalue ={rows} method={getEmployeeDetails} /> 
+
+
+                                   )}
+                              })()}
+
+</div>
+                  
+                                   
+
+
+                                     {/* <AddEmployeprofileeducationpopup id ={params.id}/>  */}
                                     </div>
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Highest Level of Education Completed <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt "> {rows[0]?.education_name}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Institution  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt "> {rows[0]?.institution}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Year of Graduation  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt "> {rows[0]?.year_of_pass}
                                         </div>                                
                                   </div>
                                   <div  className="row txt-row-hght"> 
                                         <div  className="col-md-6 info-card-cont "> Specialization  <span className="dot-sty">:</span>
                                         </div>
-                                        <div  className="col-md-6 info-card-cont-rgt "> 
+                                        <div  className="col-md-6 info-card-cont-rgt "> {rows[0]?.specialization}
                                         </div>                                
                                   </div>
                                    
@@ -233,7 +270,24 @@ const getEmployeeDetails = async (id) => {
                             <div className="col-md-6 employee-information-card">
                                   <div  className="information-card-head"> Employee Skills
                                   <div className="top-right-outer add-btn-div">   
-                                   <Empoyeprofileskilpopup />  
+                                 
+<div>
+
+{(() =>{
+if  (rows[0]?.fk_emp_id==null)
+{
+     return(
+      <Empoyeprofileskilpopup id ={params.id}/> 
+
+     )}
+else {return(
+<EditEmployeeskillpopup id ={params.id} idsdvalue ={rows} method = {getEmployeeDetails} />  
+
+
+)}
+})()}
+
+</div>  
                                     </div>
                                   </div>
                                   <div  className="row txt-row-hght"> 

@@ -4707,3 +4707,18 @@ li.option {
   font-size: 48px;
   color: #c6c6c6;
 } 
+.np-style {
+  color: #ed0000;
+  font-weight: 700;
+}
+.btn-clr-whit {
+  background-color: #fff !important;
+}
+.np-tooltipbox {
+  
+  border: 1px solid transparent;
+  right: 4px !important;
+  width:40%;
+  padding: 7px 5px !important; 
+  margin-top: 62% !important;
+}
