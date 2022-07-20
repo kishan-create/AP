@@ -89,6 +89,9 @@ export default class Emplyelist extends Component {
       optionSelected: null,
       optionSelectedloc: null,
       optionSelectedskill:null,
+      activecount:0,
+      noticecount:0,
+      inactivecount:0,
       selectedo: [],
       options: [{ optname: 'Option 1️⃣', id: 1 }, { optname: 'Option 2️⃣', id: 2 }],
       formData: {
@@ -160,6 +163,9 @@ export default class Emplyelist extends Component {
     if (res.data.status === 200) {
       this.setState({
         employeelist: res.data.emp,
+        activecount:res.data.countactive,
+        noticecount:res.data.countnotice,
+        inactivecount:res.data.inactivecount,
         loading: false,
       });
     
@@ -419,21 +425,21 @@ export default class Emplyelist extends Component {
               <div className='left'>
                 <p>Active</p>
                
-                <span>{this.state.employeelist.length}</span>
+                <span>{this.state.activecount}</span>
               </div>
               <img src={Offboarding1} />
             </div>
             <div className="box-inner emp-active-box onboard-ligt-violet">
               <div className='left'>
                 <p>Notice Period</p>
-                <span>00</span>
+                <span>{this.state.noticecount}</span>
               </div>
               <img src={Hirecompleted} />
             </div>
             <div className="box-inner emp-active-box onboard-ligt-blue">
               <div className='left'>
                 <p>Inactive</p>
-                <span>00</span>
+                <span>{this.state.inactivecount}</span>
               </div>
               <img src={Offboarding3} />
             </div>
@@ -527,11 +533,20 @@ export default class Emplyelist extends Component {
                               <div className="left">
                                 <i className="fa fa-map-marker map-emp-wdt " aria-hidden="true" ></i>
                                 <span className="">{n.emp_location} </span>
+                               
                               </div>
+                              
+                             
                               <div className="right">
-
-
+                              {n.Days !== null?<button className="btn-clr-whit" data-tip data-for= {"registerTip1" + n.empid}>
+       <i class="fa fa-bell np-style"  aria-hidden="true"></i>
+      </button>    : null }
+      <ReactTooltip id={"registerTip1" + n.empid} place="top" effect="solid" className="np-tooltipbox">
+      <span className="np-style">  { n.Days ? n.Days+' ' +'Days left' : null } </span> 
+      </ReactTooltip>
+                          
                               </div>
+                             
                             </div>
                           </Card.Description>
                         </Card.Content>

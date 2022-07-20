@@ -425,9 +425,7 @@ const animatedComponents = makeAnimated();
                     <Paper className="recruitment-table-outer job-outer organazation-table-top">
       <Table className="recruitment-tabele">
         <TableHead>
-        
         <TableRow>
-        
             <TableCell className="width-18">Name</TableCell>
             <TableCell className="width-12">Emp Code</TableCell>
             <TableCell className="width-12">Designation</TableCell>
@@ -435,7 +433,6 @@ const animatedComponents = makeAnimated();
             <TableCell className="width-12">Total Exp</TableCell>
             <TableCell className="width-12">Location</TableCell>
                   <TableCell className="width-12">Action</TableCell>
-           
           </TableRow>
         </TableHead>
         <TableBody>
@@ -452,7 +449,7 @@ const animatedComponents = makeAnimated();
                     <TableCell numeric className="width-12">
                     <div className="action-outer">
                     <div className="edit-new-icon ">
-                          <Resignationicons id= {n.empid} name={n.emp_name} code = {n.emp_code}/>
+                          <Resignationicons id= {n.empid} name={n.emp_name} code = {n.emp_code} noticeid={n.notice_id} resign={n.date_of_resign} />
                           </div>
              <div className="edit-new-icon ">
                {/* <a href="`/Employeeprofile/${n.id}`,"> */}
