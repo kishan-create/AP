@@ -4,6 +4,10 @@ import $ from 'jquery';
 import 'react-accessible-accordion/dist/fancy-example.css';
 import { MdOutlineFileDownload, MdOutlinePrint, MdOutlineTopic, MdGrading, MdShoppingBasket} from "react-icons/md";
 import {BsPersonBadge, BsPersonBoundingBox, BsMenuApp } from "react-icons/bs";
+import Assetform from "./includes/Assetform";
+import asset_validation from "../validation/asset_validation";
+
+
  
 
 export default function Addassets() {
@@ -162,6 +166,10 @@ window.addEventListener("resize", () => {
   timeout = setTimeout(setDirection, 200);
 });
 
+const { handleChange, values, handleSubmit, errors, post } = Assetform(
+  asset_validation
+);
+
     return (
       <main className="inner-content-box">
          <header className="main-otrer-top">Assets </header>
@@ -183,6 +191,7 @@ window.addEventListener("resize", () => {
 
     </div>
 </div>
+
 
 
         <div>
@@ -210,6 +219,7 @@ window.addEventListener("resize", () => {
   
   <div className="basic-inform-inner padding-top-0">
 
+
 <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">Asset Category</label>
   <select id = "dropdown" className="form-control">
@@ -220,7 +230,17 @@ window.addEventListener("resize", () => {
   <div className="col-md-3">
   <div className="form-group">
     <label for="exampleFormControlInput1">Asset Name</label>
-    <input type="email" className="form-control"/></div>
+    <input
+                        type="text"
+                        name="asset_name"
+                        onChange={handleChange}
+                        value={values.asset_name}
+                        className="form-control"
+                      ></input>
+                      {errors.asset_name && (
+                        <p className="message">{errors.asset_name}</p>
+                      )}
+    </div>
   </div>
   <div className="col-md-3">
       <div className="form-group">
@@ -233,13 +253,31 @@ window.addEventListener("resize", () => {
   <div className="col-md-3">
       <div className="form-group">
         <label for="exampleFormControlInput1">Asset ID</label>
-        <input type="email" className="form-control"/>
+        <input
+                        type="text"
+                        name="asset_id"
+                        onChange={handleChange}
+                        value={values.asset_id}
+                        className="form-control"
+                      ></input>
+                      {errors.asset_id && (
+                        <p className="message">{errors.asset_id}</p>
+                      )}
       </div>
   </div>
   <div className="col-md-3">
       <div className="form-group">
         <label for="exampleFormControlInput1">Model</label>
-        <input type="email" className="form-control"/>
+        <input
+                        type="text"
+                        name="asset_model"
+                        onChange={handleChange}
+                        value={values.asset_model}
+                        className="form-control"
+                      ></input>
+                      {errors.asset_model && (
+                        <p className="message">{errors.asset_model}</p>
+                      )}
       </div>
   </div>
   <div className="col-md-3">
@@ -258,14 +296,17 @@ window.addEventListener("resize", () => {
         </select>
       </div>
   </div>
+  
   <div className="bottom-button-bg">
-            <button type="button" className="btn  btn-save "  > Save</button>
+            <button type="button" onClick={handleSubmit} className="btn  btn-save "  > Save</button>
             <button type="button" className="btn  btn-cancel " > Cancel </button> 
         </div>
   
   </div>
 
+
 </div>
+
 
         </div>
 
