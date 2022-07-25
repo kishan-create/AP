@@ -52,12 +52,10 @@ SetValues({
 }
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      // onRelivesubmitform();
       onSubmitform();
       
     }
     else if(relisSubmitting)  {
-      // alert("else");
       onRelivesubmitform();
     }
  
@@ -73,14 +71,12 @@ SetValues({
   };
   const onSubmitform = (e) => {
     alert("handlesubmit")
-    //console.log(values)
     const response = axios.post(
       "http://localhost:8000/api/add_notice",
       values
     );
     response.then(function(res) {
       if (res.data.status === 200) {
-        //console.log(res.data.message);
 
         swal({
           title: "Good job!",
@@ -100,7 +96,6 @@ SetValues({
 
   const handleRelieveSubmit = (e) => {
   
-    // alert("onRelivesubmitform1")
     e.preventDefault();
     const test = setErrors(Noticevalidation(values));
     relsetIsSubmitting(true);
@@ -109,7 +104,7 @@ SetValues({
   
 
   const onRelivesubmitform = (e) => {
-    // alert("onRelivesubmitform")
+  
     console.log(values)
     const response = axios.post(
       "http://localhost:8000/api/lastworking_day",
@@ -117,7 +112,7 @@ SetValues({
     );
     response.then(function(res) {
       if (res.data.status === 200) {
-        //console.log(res.data.message);
+      
 
         swal({
           title: "Good job!",
