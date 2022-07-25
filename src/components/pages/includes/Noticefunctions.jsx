@@ -7,7 +7,8 @@ const Noticefunctions = (Noticevalidation,id) => {
     emp_frequency: "",
     emp_dateofrelieving: "",
     emp_id:id,
-    last_working_day:""
+    last_working_day:"",
+    revoke_reason:"",
   }); 
 
   const [errors, setErrors] = useState({});
@@ -41,7 +42,7 @@ var myFutureDate=new Date(myCurrentDate);
     var es = new Date(myFutureDate);
     let dates = JSON.stringify(es)
 dates = dates.slice(1,11)
-    console.log(dates);
+ 
 //var newDate = new Date(date.setTime( date.getTime() + days * 86400000 ));
 SetValues({
   emp_frequency: e.target.value,
@@ -65,14 +66,14 @@ SetValues({
 
   const handleSubmit = (e) => {
   
-       console.log(values);
-    alert("handlesubmit1")
+     
+    
     e.preventDefault();
     const test = setErrors(Noticevalidation(values));
     setIsSubmitting(true);
   };
   const onSubmitform = (e) => {
-    alert("handlesubmit")
+   
     //console.log(values)
     const response = axios.post(
       "http://localhost:8000/api/add_notice",
@@ -106,11 +107,39 @@ SetValues({
     relsetIsSubmitting(true);
   };
 
-  
+  const handleRevokeSubmit=(e) =>  { 
+    e.preventDefault();
+   onRevokeform();
+  }
+const onRevokeform=(e)=>
+{
 
+  const response = axios.post(
+    "http://localhost:8000/api/revokereason",
+    values
+  );
+  response.then(function(res) {
+    if (response.data.status === 200) {
+      //console.log(res.data.message);
+
+      swal({
+        title: "Good job!",
+        text: "Revoke added successfully",
+        icon: "success",
+        button: "ok",
+      });
+
+      SetValues({
+        revoke_reason:""
+      });
+    }
+   
+  });
+  
+}
   const onRelivesubmitform = (e) => {
     // alert("onRelivesubmitform")
-    console.log(values)
+   
     const response = axios.post(
       "http://localhost:8000/api/lastworking_day",
       values
@@ -121,7 +150,7 @@ SetValues({
 
         swal({
           title: "Good job!",
-          text: "Notice added successfully",
+          text: "Last Working added successfully",
           icon: "success",
           button: "ok",
         });
@@ -135,6 +164,6 @@ SetValues({
     });
   };
 
-  return { handleChange, values, handleSubmit,handleRelieveSubmit, errors,FrequencyChange };
+  return { handleChange, values, handleSubmit,handleRelieveSubmit, errors,FrequencyChange,handleRevokeSubmit };
 };
 export default Noticefunctions;

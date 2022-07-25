@@ -454,8 +454,7 @@ export default class Emplyelist extends Component {
 
                 // var p_image= "http://localhost/audit_portal/public/uploads/profile/" +
                 //
-
-
+              
                 return (
                   <div className="emp-card">
        
@@ -536,8 +535,9 @@ export default class Emplyelist extends Component {
                                
                               </div>
                               
-                             
+                              
                               <div className="right">
+                             
                               {n.Days !== null?<button className="btn-clr-whit" data-tip data-for= {"registerTip1" + n.empid}>
        <i class="fa fa-bell np-style"  aria-hidden="true"></i>
       </button>    : null }
