@@ -485,8 +485,12 @@ export default class Emplyelist extends Component {
                         <Card.Content className="emplyee-card-top">
                       
                           <div className="emplyee-card-left">
-                            <div className="tick-round green-bg">
-                              <img src={tick} />
+                            <div className="tick-round orange-bg">
+                             
+                              {n.Days !== null? <img src={tick}  data-tip data-for= {"registerTip1" + n.empid}/> : null }
+                              <ReactTooltip id={"registerTip1" + n.empid} place="top" effect="solid" className="np-tooltipbox">
+      <span className="np-style">  { n.Days ? n.Days+' ' +'Days left' : null } </span> 
+      </ReactTooltip>
                             </div>
                             <div className="tick-round purple-bg">
                               <MdPhone className="emp-card-phon" />
@@ -554,12 +558,7 @@ export default class Emplyelist extends Component {
                               
                               <div className="right">
                              
-                              {n.Days !== null?<button className="btn-clr-whit" data-tip data-for= {"registerTip1" + n.empid}>
-       <i class="fa fa-bell np-style"  aria-hidden="true"></i>
-      </button>    : null }
-      <ReactTooltip id={"registerTip1" + n.empid} place="top" effect="solid" className="np-tooltipbox">
-      <span className="np-style">  { n.Days ? n.Days+' ' +'Days left' : null } </span> 
-      </ReactTooltip>
+                              
                           
                               </div>
                              
