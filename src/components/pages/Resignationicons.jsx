@@ -21,7 +21,7 @@ const options = [
 const ITEM_HEIGHT = 48;
 
 
-export default function Resignationicons({ id, name, code, noticeid, resign }) {
+export default function Resignationicons({ id, name, code, noticeid, resign, method }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -42,6 +42,13 @@ export default function Resignationicons({ id, name, code, noticeid, resign }) {
     else if (noticeid !== null && option == "Relieved") {
       setIsOpenrelieve(true);
     }
+
+    else if (noticeid !==null && option == "Resigned"){
+
+      setIsOpen(false);
+
+    }
+    
     else {
       setIsOpen(true);
     }
@@ -52,17 +59,20 @@ export default function Resignationicons({ id, name, code, noticeid, resign }) {
   function afterOpenModal() { }
   function closeModal() {
     setIsOpen(false);
+    method();
 
   }
   function afterOpenModalRelive() { }
   function closeModalRelive() {
     setIsOpenrelieve(false);
+    method();
 
   }
 
   function afterOpenModalRevoke() { }
   function closeModalRevoke() {
     setIsOpenrevoke(false);
+    method();
 
   }
 

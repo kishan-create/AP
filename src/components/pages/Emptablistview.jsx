@@ -464,7 +464,7 @@ const animatedComponents = makeAnimated();
                 return (
                   <div className="action-outer">
                   <div className="edit-new-icon ">
-                        <Resignationicons id= {n.empid} name={n.emp_name} code = {n.emp_code} noticeid={n.notice_id} resign={n.date_of_resign} />
+                        <Resignationicons id= {n.empid} name={n.emp_name} code = {n.emp_code} noticeid={n.notice_id} resign={n.date_of_resign} method={this.fetchData} />
                         </div>
            <div className="edit-new-icon ">
              {/* <a href="`/Employeeprofile/${n.id}`,"> */}
