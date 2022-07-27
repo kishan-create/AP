@@ -250,8 +250,17 @@
     gap: 30px 35px;
   }
   .onboarding-top-outer .box-inner .left p {
-    font-size: 16px;
+    font-size: 12px;
   }
+  .onboarding-top-outer .box-inner-emp-leave .left span {
+    width: 100%;
+    float: left;
+    display: block;
+    font-size: 20px;
+    color: #454545;
+    line-height: 25px;
+    font-weight: 600;
+}
   .inprograss-style {
     min-width: 80px;
   }
@@ -386,7 +395,7 @@
     width: 77%;
   }
   .onboarding-top-outer .box-inner .left p {
-    font-size: 15px;
+    font-size: 12px;
   }
   .onboarding-top-outer .box-inner .left span {
     font-size: 23px;
@@ -727,6 +736,29 @@
 .emp-attentance-icon {
   font-size: 35px;
   color: #c6c6c6;
+}
+.onboarding-top-outer .box-3 {
+  width: 100%;
+  float: left;
+  display: block;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 21px 30px;
+  gap: 21px 30px;
+  grid-auto-rows: minmax(50px, auto);
+}
+.onboarding-top-outer .box-2 {
+  width: 100%;
+  float: left;
+  display: block;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 21px 30px;
+  grid-gap: 21px 30px;
+  gap: 21px 30px;
+  grid-auto-rows: minmax(50px, auto);
 }
 }
 @media only screen and (max-width: 980px) {
@@ -1102,6 +1134,17 @@
 .emp-m-l-5 {
   margin-left: 6px;
  
+}
+.onboarding-top-outer .box-3 {
+  width: 100%;
+  float: left;
+  display: block;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 21px 30px;
+  gap: 21px 30px;
+  grid-auto-rows: minmax(50px, auto);
 }
 }
 @media only screen and (max-width: 767px) {
