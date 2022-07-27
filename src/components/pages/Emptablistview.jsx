@@ -242,6 +242,7 @@ const animatedComponents = makeAnimated();
      
     }
     
+    
     onRemove(selectedList) {
       this.setState({
         formData: { ...this.state.formData, location_items: selectedList }
@@ -334,7 +335,21 @@ const animatedComponents = makeAnimated();
     }
 
 
-
+    SearchbyCountbtn =async(name)=>{
+      const res = await axios.get(
+        `http://localhost:8000/api/searchbycount/${name}` );
+        if (res.data.status === 200) {
+          this.setState({
+            employeelist: res.data.emp,
+           // activecount:res.data.countactive,
+           // noticecount:res.data.countnotice,
+           // inactivecount:res.data.inactivecount,
+            loading: false,
+          });
+        
+    }
+    
+    }
     
   render() {
     return (
@@ -408,21 +423,21 @@ const animatedComponents = makeAnimated();
   <p>Active</p>
 <span>{this.state.activecount}</span>
   </div>
-<img src={Offboarding1} />
+<img  onClick={() => this.SearchbyCountbtn('active')} src={Offboarding1} />
 </div>
 <div className="box-inner emp-active-box onboard-ligt-violet">
   <div className='left'>
   <p>Notice Period</p>
 <span>{this.state.noticecount}</span>
   </div>
-<img src={Hirecompleted} />
+<img onClick={() => this.SearchbyCountbtn('notice')} src={Hirecompleted} />
 </div>
 <div className="box-inner emp-active-box onboard-ligt-blue">
   <div className='left'>
   <p>Inactive</p>
 <span>{this.state.inactivecount}</span>
   </div>
-<img src={Offboarding3} />
+<img  onClick={() => this.SearchbyCountbtn('inactive')} src={Offboarding3} />
 </div>
 </div>
 
