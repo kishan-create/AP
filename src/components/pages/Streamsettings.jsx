@@ -54,13 +54,13 @@ function createData(
     branch: [
       {
         branch_name: "Encaps",
-        branch_code: "	DPC",
+        branch_code: "  DPC",
         branch_type: "Organization Center",
         branch_location: "cochin",
       },
       {
         branch_name: "Encaps",
-        branch_code: "	DPC",
+        branch_code: "  DPC",
         branch_type: "Organization Center",
         branch_location: "cochin",
       },
@@ -203,7 +203,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 
     setListnew(listnewtest);
   };
-  
+ 
   Modal.setAppElement('#root');
   return (
     <React.Fragment>
@@ -238,13 +238,13 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                 <TableBody>
                   {row.substream.map((historyRow) => (
                     <TableRow key={historyRow.bid}>
-                      
+                     
                       <TableCell>Akhil</TableCell>
                       <TableCell>BS0034</TableCell>
                        
                       <TableCell>
                       <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
-                        
+                       
                       </TableCell>
                     </TableRow>
                   ))}
@@ -253,10 +253,10 @@ function Row(props: { row: ReturnType<typeof createData> }) {
               </div>
             </div>
           </div>
-          
+         
         </form>
       </Modal>
-      
+     
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton
@@ -270,7 +270,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell component="th" scope="row">
           {row.stream_name}
         </TableCell>
-        
+       
         <TableCell>
        
           <div>
@@ -285,10 +285,10 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                   <AddmappingStream id={row.id} stream_name={row.stream_name} />
                 )
               }
-              
+             
              
             })()}
-          
+         
            
             <a href="">
               <DeleteIcon
@@ -312,7 +312,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                 <TableHead>
                   <TableRow>
                     <TableCell>Sub stream Name</TableCell>
-                    
+                   
                     <TableCell>Action</TableCell>
                   </TableRow>
                 </TableHead>
@@ -322,7 +322,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                       <TableCell component="td" scope="row">
                         {historyRow.sub_stream_name}
                       </TableCell>
-                    
+                   
                      
                       <TableCell>
                         <div>
@@ -359,7 +359,7 @@ export default function Streamsettings() {
     // const branch = res.data.branch;
     // setBranch(branch);
     setRows(stream);
-    
+   
   };
 
   useEffect(() => {
@@ -395,9 +395,9 @@ export default function Streamsettings() {
                   <TableRow>
                     <TableCell />
                     <TableCell>Stream Name1</TableCell>
-                    
+                   
                     <TableCell>Action</TableCell>
-                    
+                   
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -424,7 +424,7 @@ export default function Streamsettings() {
                         <AccordionItemButton>
                           <div className="accordion-head-text">
                             <div className="name notificatio-outer">
-                              
+                             
                             </div>
                             <div className="desi joblocation">
                               <img src={location} />
@@ -499,19 +499,19 @@ export default function Streamsettings() {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   <div className="accord-detals-box">
-                    <div className="left">Branch Name	</div>
+                    <div className="left">Branch Name </div>
                     <div className="right">: Bourntec</div>
                   </div>
                   <div className="accord-detals-box">
-                    <div className="left">Branch Code	 </div>
+                    <div className="left">Branch Code  </div>
                     <div className="right">: BNC</div>
                   </div>
                   <div className="accord-detals-box">
-                    <div className="left">Branch Type		 </div>
-                    <div className="right">: Development Center	</div>
+                    <div className="left">Branch Type    </div>
+                    <div className="right">: Development Center </div>
                   </div>
                   <div className="accord-detals-box">
-                    <div className="left">Location	 </div>
+                    <div className="left">Location   </div>
                     <div className="right">: Kochi</div>
                   </div>
                   <div className="accord-detals-box">

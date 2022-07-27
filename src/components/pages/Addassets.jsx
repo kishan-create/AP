@@ -1,15 +1,12 @@
 import React, { Fragment } from 'react'
-import './Employeelisttab.css'; 
+import './Employeelisttab.css';
 import $ from 'jquery';
 import 'react-accessible-accordion/dist/fancy-example.css';
 import { MdOutlineFileDownload, MdOutlinePrint, MdOutlineTopic, MdGrading, MdShoppingBasket} from "react-icons/md";
 import {BsPersonBadge, BsPersonBoundingBox, BsMenuApp } from "react-icons/bs";
 import Assetform from "./includes/Assetform";
-import asset_validation from "../validation/asset_validation";
-
-
- 
-
+// import asset_val from "../validation/asset_val";
+import asset_val from '../validation/asset_val';
 export default function Addassets() {
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
@@ -165,10 +162,24 @@ window.addEventListener("resize", () => {
   clearTimeout(timeout);
   timeout = setTimeout(setDirection, 200);
 });
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   alert("test");
+//   // const test = SetErrors(employee_val(values));
+//   // // setGender(e.target.value)
+//   // // setOptions("");
+//   // setIsSubmitting(true);
 
-const { handleChange, values, handleSubmit, errors, post } = Assetform(
-  asset_validation
+// };
+
+// const { handleChange, values, handleSubmit, errors,  options,designation,holidaylist,departments,uploadImage,myimage,employeelocation  } = Assetform(
+//   // employee_val
+// );
+
+const { values, handleSubmit,handleChange,errors  } = Assetform(
+  asset_val
 );
+
 
     return (
       <main className="inner-content-box">
@@ -193,7 +204,6 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
 </div>
 
 
-
         <div>
           <div id="app">
       <div className="tab-module">
@@ -203,7 +213,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
           <MdOutlineTopic className="basic-icon"/>
            <div className="emp-tabhead-txt">Specification </div>
            </div>
-            
+           
           </button>
           <div className="tab-module__tabcontent" tabindex="0"  role="tabpanel" id="colors-tab" aria-labelledby="colors">
           <div className="tab-outer">
@@ -211,102 +221,180 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
 <div className="row basic-inform-background ">
 <div className="sub-head basic-inform-main-head">Specification
                                 <div className="top-right-outer add-btn-div">
-                                <button type="button" className="btn  btn-save "  > Save</button>
+                                <button type="button" onClick={handleSubmit}  className="btn  btn-save "  > Save</button>
             <button type="button" className="btn  btn-cancel " > Cancel </button> 
 
                                 </div>
                             </div>
-  
+ {/* <form  className="form" noValidate></form> */}
+ 
   <div className="basic-inform-inner padding-top-0">
-
 
 <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">Asset Category</label>
-  <select id = "dropdown" className="form-control">
-    <option value="Post">Keyboard</option>
- </select>
+  <select
+                        id="dropdown"
+                        name="asset_category"
+                        onChange={handleChange}
+                        value={values.asset_category}
+                        className="form-control"
+                      >
+
+                      {/* </select> */}
+
+
+
+        {/* <select id = "dropdown" className="form-control"> */}
+          <option value="Post">Logitech</option>
+        </select>
+        {errors.asset_category && (
+                                  <p className="red-alert">{errors.asset_category}</p>
+                                )}
   </div>
   </div>
   <div className="col-md-3">
   <div className="form-group">
     <label for="exampleFormControlInput1">Asset Name</label>
     <input
-                        type="text"
-                        name="asset_name"
-                        onChange={handleChange}
-                        value={values.asset_name}
-                        className="form-control"
-                      ></input>
-                      {errors.asset_name && (
-                        <p className="message">{errors.asset_name}</p>
-                      )}
+                                  type="text"
+                                  name="asset_name"
+                                  onChange={handleChange}
+                                  value={values.asset_name}
+                                  className="form-control"
+                                ></input>
+                                  {errors.asset_name && (
+                                  <p className="red-alert">{errors.asset_name}</p>
+                                )}
+                                 
+    {/* <input type="email" className="form-control"/> */}
     </div>
   </div>
   <div className="col-md-3">
       <div className="form-group">
         <label for="exampleFormControlInput1">Brand</label>
-        <select id = "dropdown" className="form-control">
+        <select
+                        id="dropdown"
+                        name="brand_name"
+                        onChange={handleChange}
+                        value={values.brand_name}
+                        className="form-control"
+                      >
+
+                      {/* </select> */}
+
+
+
+        {/* <select id = "dropdown" className="form-control"> */}
           <option value="Post">Logitech</option>
         </select>
+        {errors.brand_name && (
+                                  <p className="red-alert">
+                                    {errors.brand_name}
+                                  </p>
+                                )}
       </div>
   </div>
   <div className="col-md-3">
       <div className="form-group">
         <label for="exampleFormControlInput1">Asset ID</label>
+
         <input
-                        type="text"
-                        name="asset_id"
-                        onChange={handleChange}
-                        value={values.asset_id}
-                        className="form-control"
-                      ></input>
-                      {errors.asset_id && (
-                        <p className="message">{errors.asset_id}</p>
-                      )}
+                                  type="text"
+                                  name="asset_id"
+                                  onChange={handleChange}
+                                  value={values.asset_id}
+                                  className="form-control"
+                                ></input>
+                               
+        {/* <input type="email" className="form-control"/> */}
+        {errors.asset_id && (
+                                  <p className="red-alert">
+                                    {errors.asset_id}
+                                  </p>
+                                )}
+     
       </div>
   </div>
   <div className="col-md-3">
       <div className="form-group">
         <label for="exampleFormControlInput1">Model</label>
+
         <input
-                        type="text"
-                        name="asset_model"
-                        onChange={handleChange}
-                        value={values.asset_model}
-                        className="form-control"
-                      ></input>
-                      {errors.asset_model && (
-                        <p className="message">{errors.asset_model}</p>
-                      )}
+                                  type="text"
+                                  name="model_name"
+                                  onChange={handleChange}
+                                  value={values.model_name}
+                                  className="form-control"
+                                ></input>
+        {/* <input type="email" className="form-control"/> */}
+   
+        {errors.model_name && (
+                                  <p className="red-alert">
+                                    {errors.model_name}
+                                  </p>
+                                )}
       </div>
   </div>
   <div className="col-md-3">
       <div className="form-group">
         <label for="exampleFormControlInput1">Location</label>
-        <select id = "dropdown" className="form-control">
+ <select
+                        id="dropdown"
+                        name="location"
+                        onChange={handleChange}
+                       value={values.location}
+                        className="form-control"
+                      >
+
+                      {/* </select> */}
+
+        {/* <select id = "dropdown" className="form-control"> */}
           <option value="Post">Headquarters</option>
+          <option value="Post">Headquarters1</option>
         </select>
+        {errors.location && (
+                                  <p className="red-alert">
+                                    {errors.location}
+                                  </p>
+                                )}
+       
       </div>
   </div>
   <div className="col-md-3">
       <div className="form-group">
         <label for="exampleFormControlInput1">Individual or Bulk Order ?</label>
-        <select id = "dropdown" className="form-control">
+{/* {values.location} */}
+        <select
+                        id="dropdown"
+                        name="individual_bulk"
+                        onChange={handleChange}
+                        value={values.individual_bulk}
+                        className="form-control"
+                      >
+                       
+                      {/* </select> */}
+       
+       
+        {/* <select id = "dropdown" className="form-control"> */}
           <option value="Post">Individual</option>
         </select>
+        {errors.individual_bulk && (
+                                  <p className="red-alert">
+                                    {errors.individual_bulk}
+                                  </p>
+                                )}
+       
       </div>
   </div>
-  
+ 
   <div className="bottom-button-bg">
-            <button type="button" onClick={handleSubmit} className="btn  btn-save "  > Save</button>
+            <button type="button" onClick={handleSubmit}  className="btn  btn-save "  > Save</button>
             <button type="button" className="btn  btn-cancel " > Cancel </button> 
         </div>
-  
+ 
   </div>
 
-
 </div>
-
 
         </div>
 
@@ -330,7 +418,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
 
                                 </div>
                             </div>
-  
+ 
   <div className="basic-inform-inner  padding-top-0">
 
 <div className="col-md-3">
@@ -342,7 +430,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
   <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">Keyboard Description</label><input type="email" className="form-control"/></div>
   </div>
-  
+ 
   <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">Number of Keys</label><input type="email" className="form-control"/></div>
   </div>
@@ -352,7 +440,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
             <button type="button" className="btn  btn-save "  > Save</button>
             <button type="button" className="btn  btn-cancel " > Cancel </button> 
         </div>
-  
+ 
   </div>
 
 </div>
@@ -362,7 +450,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
     </div>
 
            </div>
-          
+         
           <button className="tab-module__tab sub-line  Candidate-tab-button" role="tab" aria-selected="false" aria-controls="options-tab" id="options" tabindex="-1" >
           <div className="innver-box"  >
           <MdShoppingBasket className="employee-icon "/>
@@ -370,7 +458,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
            </div>
           </button>
           <div className="tab-module__tabcontent" tabindex="0" role="tabpanel" id="options-tab" aria-labelledby="options" >
-    
+   
           <div className="tab-outer">
       <div className="basic-inform-outer ">
 <div className="row basic-inform-background ">
@@ -381,7 +469,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
 
                                 </div>
                             </div>
-  
+ 
   <div className="basic-inform-inner padding-top-0">
 
 <div className="col-md-3">
@@ -393,14 +481,14 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
   <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">Purchase order Number</label><input type="email" className="form-control"/></div>
   </div>
-  
+ 
   <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">vendor</label><input type="email" className="form-control"/></div>
   </div>
   <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">vendor Contact number</label><input type="email" className="form-control"/></div>
   </div>
-  
+ 
   <div className="col-md-9">
   <div className="form-group"><label for="exampleFormControlInput1">vendor Address</label><input type="email" className="form-control"/></div>
   </div>
@@ -411,7 +499,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
             <button type="button" className="btn  btn-save "  > Save</button>
             <button type="button" className="btn  btn-cancel " > Cancel </button> 
         </div>
-  
+ 
   </div>
 
 </div>
@@ -438,7 +526,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
 
                                 </div>
                             </div>
-  
+ 
   <div className="basic-inform-inner padding-top-0">
 
 <div className="col-md-3">
@@ -450,7 +538,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
   <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">Assigne to</label><input type="email" className="form-control"/></div>
   </div>
-  
+ 
   <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">Series</label><input type="email" className="form-control"/></div>
   </div>
@@ -460,7 +548,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
   <div className="col-md-3">
   <div className="form-group"><label for="exampleFormControlInput1">Warranty Service Type</label><input type="email" className="form-control"/></div>
   </div>
-  
+ 
   <div className="col-md-6">
   <div className="form-group"><label for="exampleFormControlInput1">Warranty Summary</label><input type="email" className="form-control"/></div>
   </div>
@@ -471,7 +559,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
             <button type="button" className="btn  btn-save "  > Save</button>
             <button type="button" className="btn  btn-cancel " > Cancel </button> 
         </div>
-  
+ 
   </div>
 
 </div>
@@ -480,7 +568,7 @@ const { handleChange, values, handleSubmit, errors, post } = Assetform(
 
     </div>
             </div>
-          
+         
               </div>
       </div>
     </div>  
