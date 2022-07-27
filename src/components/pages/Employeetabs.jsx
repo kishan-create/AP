@@ -115,9 +115,7 @@ export default function BasicTabs({setColumns}) {
             </a>
           </h4>
         </div>
-        
-       
-        
+
        
         <div id="collapseOne" className="panel-collapse collapse">
        
@@ -410,10 +408,7 @@ export default function BasicTabs({setColumns}) {
                                     <label for="exampleFormControlInput1">Remark</label>
                                     <textarea className="form-control"  onChange={handleChange1} name="remark" value={values.remark} rows="3" > </textarea>
                                 </div>
-                            </div>
-
-                        
-                        
+                            </div>                      
                      </div>
         </div>
       </div>

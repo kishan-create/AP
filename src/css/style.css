@@ -4367,6 +4367,7 @@ li.option {
 .onboarding-top-outer .box-inner img {
   width: 51px;
   padding-top: 5px;
+  cursor: pointer;
 }
 .emp-card-phon {
   width: 18px;
@@ -4713,13 +4714,10 @@ li.option {
 .btn-clr-whit {
   background-color: #fff !important;
 }
-.np-tooltipbox {
-  
-  border: 1px solid transparent;
-  right: 4px !important;
-  width:40%;
-  padding: 7px 5px !important; 
-  margin-top: 62% !important;
+.np-tooltipbox {left: 12px !important;
+  width: 40%;
+  padding: 7px 5px !important;
+  margin-top: -3% !important;
 }
 .m-r-15 {
   margin-right: 15px;

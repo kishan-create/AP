@@ -64,7 +64,7 @@ const data = [
       <header className="main-otrer-top"> HR Dashboard </header>
              <section  className="main-content-area">
                 <div className="main-content-area-inner">
-                    <div className="sub-head organization-sub-head"> HR Employee Profile
+                    <div className="sub-head organization-sub-head"> HR  Profile
                     <div className="top-right-outer add-btn-div onboar-main-top-right">
                               <div className="offer-release-top">
                                     <input className="form-control" type="text" id=" " name=" " placeholder="Search " />
