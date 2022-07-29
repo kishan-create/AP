@@ -57,7 +57,7 @@ const Assetform = (asset_val) => {
   
   };
   const onSubmitform = (e) => {
-    alert("onsubmit");  
+ 
  
     const formData = new FormData();
 
