@@ -101,10 +101,15 @@ const $ = window.$;
           </NavLink>
         </NavItem>
         <NavItem>
-        <NavLink tag={nlink} to={"/Employeedashboard"} className="mob-menu-clik" activeClassName="active" >
+            <NavLink tag={nlink} to={"/Employeedashboard"} className="mob-menu-clik" activeClassName="active" >
                       Employee Dashboard< MdLibraryBooks/>
-                      </NavLink>
-                      </NavItem>
+            </NavLink>
+        </NavItem>
+        <NavItem>
+            <NavLink tag={nlink} to={"/Hrmployeedashboard"} className="mob-menu-clik" activeClassName="active" >
+                    HR   Dashboard< MdLibraryBooks/>
+            </NavLink>
+        </NavItem>
         {/* <NavItem>
           <NavLink active={window.location.pathname === "/"} tag={Link} to={"/"} className="mob-menu-clik" >
           <FaFileAlt/>

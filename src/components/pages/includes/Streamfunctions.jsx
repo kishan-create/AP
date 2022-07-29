@@ -25,7 +25,7 @@ const Streamfunctions = (stream_validation,id) => {
   };
 
   useEffect(() => {
-    getDepartmentName();
+    //getDepartmentName();
 
     if (Object.keys(errors).length === 0 && isSubmitting) {
       onSubmitform();
@@ -33,18 +33,7 @@ const Streamfunctions = (stream_validation,id) => {
   }, [errors]);
 
 
-  const getDepartmentName = async () => {
-    const response = await fetch(
-      "http://localhost:8000/api/getDepartmentName"
-    );
-    const data = await response.json();
-
-    const listnewtest = data.department;
-
-
-
-    setListnew(listnewtest);
-  };
+ 
 
 
   const handleSubmit = (e) => {
