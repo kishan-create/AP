@@ -48,22 +48,20 @@ const Assetform = (asset_val) => {
 
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("test in");
+    
     const test = SetErrors(asset_val(values));
-    // // setGender(e.target.value)
-    // // setOptions("");
+  
     setIsSubmitting(true);
   
   };
   const onSubmitform = (e) => {
-    alert("onsubmit");  
  
-    const formData = new FormData();
+ 
+   // const formData = new FormData();
 
     const response = axios.post(
       "http://localhost:8000/api/add_asset",
-      formData
+      values
     );
     response.then(function(res) {
       if (res.data.status === 200) {
@@ -74,9 +72,7 @@ const Assetform = (asset_val) => {
           icon: "success",
           button: "ok",
         });
-    setOptions("");
     
-    setOptions('');
 
         SetValues({
           asset_category:"",
