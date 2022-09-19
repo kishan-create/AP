@@ -54,9 +54,12 @@ SetValues({
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       onSubmitform();
+      // onRelivesubmitform();
       
     }
-  
+    // else if(relisSubmitting)  {
+    //   onRelivesubmitform();
+    // }
  
   }, [errors]);
 
@@ -97,9 +100,9 @@ SetValues({
   const handleRelieveSubmit = (e) => {
   
     e.preventDefault();
-    onRelivesubmitform();
     // const test = setErrors(Noticevalidation(values));
     // relsetIsSubmitting(true);
+    onRelivesubmitform();
   };
 
   const handleRevokeSubmit=(e) =>  { 
@@ -108,7 +111,8 @@ SetValues({
   }
 const onRevokeform=(e)=>
 {
-
+  // alert("test");
+// console.log("test relieveS")
   const response = axios.post(
     "http://localhost:8000/api/revokereason",
     values

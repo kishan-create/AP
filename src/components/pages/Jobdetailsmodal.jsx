@@ -255,7 +255,7 @@ export default function Jobdetailsmodal({ location, method }) {
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Description</label>
                       <input
-                        type="email"
+                        type="text area"
                         name="job_description"
                         onChange={handleChange}
                         value={values.job_description}

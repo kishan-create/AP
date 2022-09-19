@@ -34,16 +34,16 @@ const Streamfunctions = (stream_validation,id) => {
 
 
   const getDepartmentName = async () => {
-    const response = await fetch(
-      "http://localhost:8000/api/getDepartmentName"
-    );
-    const data = await response.json();
+    // const response = await fetch(
+    //   "http://localhost:8000/api/getDepartmentName"
+    // );
+    // const data = await response.json();
 
-    const listnewtest = data.department;
+    // const listnewtest = data.department;
 
 
 
-    setListnew(listnewtest);
+    // setListnew(listnewtest);
   };
 
 

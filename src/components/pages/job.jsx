@@ -250,6 +250,7 @@ export default function Job(props) {
 
   function closeModal() {
     setIsOpen(false);
+    loadJobs();
   }
   const data = [
     { id: 1, name: "John Doe" },

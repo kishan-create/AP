@@ -21,6 +21,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { location } from "../../images";
 import Modal from "react-modal";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
+import swal from "sweetalert";
+
 import {
   Accordion,
   AccordionItem,
@@ -64,10 +66,13 @@ function createData(
 
 function Row(props: { row: ReturnType<typeof createData> }) {
   const { row } = props;
+  const [rows, setRows] = useState([]);
+
   const [open, setOpen] = React.useState(false);
   useEffect(() => {
     getCompanyName();
-  }, []);
+    fetchData();
+  },[]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [modalState, setModalState] = React.useState(false);
   const [options, setOptions] = useState(["IT service", "Design"]);
@@ -97,11 +102,30 @@ function Row(props: { row: ReturnType<typeof createData> }) {
     });
   };
 
+  const fetchData = async () => {
+    const res = await axios.get("http://localhost:8000/api/getOrganizationvalues");
+    const org = res.data.org;
+    // const branch = res.data.branch;
+    // setBranch(branch);
+    setRows(org);
+  };
+
   function closeModal() {
+    fetchData();
+
     setIsOpen(false);
+
+
+
   }
   function closeModalbrach() {
+    fetchData();
+    // getCompanyName();
     setModalState(false);
+
+
+
+
   }
   function afterOpenModalbrach() {}
   function afterOpenModal() {}
@@ -148,11 +172,20 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   };
   const updateOrganization = async (e) => {
     e.preventDefault();
+    
     const res = await axios.put(
       "http://localhost:8000/api/update_organization",
       values
     );
-    alert("Organization updated successfully");
+    if (res.data.status == 200) {
+      swal({
+        title: "Good job!",
+        text: "Department Updated successfully",
+        icon: "success",
+        button: "ok",
+      });
+    }
+    
   };
   const updateBranch = async (e) => {
     e.preventDefault();
@@ -160,7 +193,14 @@ function Row(props: { row: ReturnType<typeof createData> }) {
       "http://localhost:8000/api/update_branch",
       values
     );
-    alert("Branch updated successfully");
+    if (res.data.status == 200) {
+      swal({
+        title: "Good job!",
+        text: "Department Updated successfully",
+        icon: "success",
+        button: "ok",
+      });
+    }
   };
   const deleteOrganization = async (e, id) => {
     const thisclickrow = e.currentTarget;

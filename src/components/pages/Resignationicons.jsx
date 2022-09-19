@@ -49,6 +49,13 @@ export default function Resignationicons({ id, name, code, noticeid, resign, met
     else if (noticeid !==null && option == "Resigned"){
       setIsOpen(false);
     }
+
+    else if (noticeid !==null && option == "Resigned"){
+
+      setIsOpen(false);
+
+    }
+    
     else {
       setIsOpen(true);
     }
@@ -67,14 +74,12 @@ export default function Resignationicons({ id, name, code, noticeid, resign, met
     setIsOpenrelieve(false);
     method();
 
-
   }
 
   function afterOpenModalRevoke() { }
   function closeModalRevoke() {
     setIsOpenrevoke(false);
     method();
-
 
   }
 

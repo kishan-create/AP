@@ -524,7 +524,7 @@ export default class OfferReleasereport extends Component {
                   <div className="select-inner">
                     <div className="left">Status</div>
                     <select id="dropdown" className="form-control">
-                      <option value="Status">Onboarding Statared</option>
+                      <option value="Status">Onboarding Started</option>
                     </select>
                   </div>
                   <div className="select-inner">

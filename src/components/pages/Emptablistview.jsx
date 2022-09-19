@@ -465,7 +465,7 @@ const animatedComponents = makeAnimated();
                     <TableCell numeric className=" width-12">{n.designation_name} </TableCell>
                     {/* <TableCell numeric className=" width-12">{n.designation_status} </TableCell> */}
                     <TableCell numeric className=" width-18">{n.emp_company_email_id} </TableCell>
-                    <TableCell numeric className="width-12">{n.fk_emp_previous_exp}</TableCell>
+                    <TableCell numeric className="width-12">{n.exp}</TableCell>
                     <TableCell numeric className="width-12">{n.emp_location}</TableCell>
                     <TableCell numeric className="width-12">
                     

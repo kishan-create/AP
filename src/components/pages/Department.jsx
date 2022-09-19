@@ -600,6 +600,10 @@ export default function Department() {
   };
   function afterOpenModalbrach() {}
   function afterOpenModal() {}
+  
+  useEffect(() => {
+    fetchData();
+  },[]);
  
   const fetchData = async () => {
     const res = await axios.get(
@@ -613,9 +617,6 @@ export default function Department() {
 
 
   
-  useEffect(() => {
-    fetchData();
-  });
   function closeModalbrach() {
     setIsOpen(false);
     
