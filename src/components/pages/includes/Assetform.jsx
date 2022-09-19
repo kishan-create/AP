@@ -57,6 +57,7 @@ const Assetform = (asset_val) => {
   const onSubmitform = (e) => {
  
  
+ 
    // const formData = new FormData();
 
     const response = axios.post(
