@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
+
 const Assetform = (asset_val) => {
   const [values, SetValues] = useState({
   asset_category:"",
@@ -16,7 +17,8 @@ const Assetform = (asset_val) => {
 
 
   });
-
+  const [postvalues, SetPostvalues] = useState([]);
+  
   const [errors, SetErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [options, setOptions] = useState(["Male", "Female"]);
@@ -49,7 +51,7 @@ const Assetform = (asset_val) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("test in");
+    // alert("test in");
     const test = SetErrors(asset_val(values));
     // // setGender(e.target.value)
     // // setOptions("");

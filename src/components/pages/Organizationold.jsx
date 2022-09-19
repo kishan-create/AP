@@ -21,6 +21,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { location } from "../../images";
 import Modal from "react-modal";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
+import swal from "sweetalert";
 import {
   Accordion,
   AccordionItem,
@@ -63,11 +64,16 @@ function createData(
 }
 
 function Row(props: { row: ReturnType<typeof createData> }) {
+  const [rows, setRows] = useState([]);
+
   const { row } = props;
   const [open, setOpen] = React.useState(false);
   useEffect(() => {
+    
+    // updateOrganization();
+    fetchData();
     getCompanyName();
-  }, []);
+  },[]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [modalState, setModalState] = React.useState(false);
   const [options, setOptions] = useState(["IT service", "Design"]);
@@ -98,13 +104,49 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   };
 
   function closeModal() {
+ 
+   
+    fetchData();
+    getCompanyName();
     setIsOpen(false);
   }
   function closeModalbrach() {
+    fetchData();
+    getCompanyName();
     setModalState(false);
+   
   }
   function afterOpenModalbrach() {}
   function afterOpenModal() {}
+
+
+  const fetchData = async () => {
+    const res = await axios.get("http://localhost:8000/api/getOrganizationvalues");
+    const org = res.data.org;
+    console.log(org);
+    // const branch = res.data.branch;
+    // setBranch(branch);
+    setRows(org);
+  };
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+
+  const getCompanyName = async () => {
+    const response = await fetch(
+      "http://localhost:8000/api/getOrgnaizationname"
+    );
+    const data = await response.json();
+
+    const listnewtest = data.org;
+
+    //const lo=JSON.stringify(listnew);
+
+    setListnew(listnewtest);
+  };
+
   const editbranch = async (id) => {
     const branch_id = id;
     const reponse = await axios.get(
@@ -123,6 +165,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         b_id: reponse.data.branch.id,
       });
       setModalState(true);
+      
     }
 
     //setModalState(true);
@@ -146,13 +189,28 @@ function Row(props: { row: ReturnType<typeof createData> }) {
       setIsOpen(true);
     }
   };
+
   const updateOrganization = async (e) => {
     e.preventDefault();
     const res = await axios.put(
       "http://localhost:8000/api/update_organization",
       values
     );
-    alert("Organization updated successfully");
+    fetchData();
+    // getCompanyName();
+    SetValues({
+   
+    });
+    fetchData();
+    getCompanyName();
+
+    swal({
+      title: "Good job!",
+      text: "organization updated  successfully",
+      icon: "success",
+      button: "ok",
+    });
+    
   };
   const updateBranch = async (e) => {
     e.preventDefault();
@@ -160,7 +218,15 @@ function Row(props: { row: ReturnType<typeof createData> }) {
       "http://localhost:8000/api/update_branch",
       values
     );
-    alert("Branch updated successfully");
+    fetchData();
+
+    // alert("Branch updated successfully");
+    swal({
+      title: "Good job!",
+      text: "Branch updated  successfully",
+      icon: "success",
+      button: "ok",
+    });
   };
   const deleteOrganization = async (e, id) => {
     const thisclickrow = e.currentTarget;
@@ -182,21 +248,28 @@ function Row(props: { row: ReturnType<typeof createData> }) {
     );
     if (res.data.status == 200) {
       thisclickrow.closest("tr").remove();
-      alert("Branch Deleted successfully");
+      // alert("Branch Deleted successfully");
+      swal({
+        title: "Good job!",
+        text: "Branch Deleted  successfully",
+        icon: "success",
+        button: "ok",
+      });
+      
     }
   };
-  const getCompanyName = async () => {
-    const response = await fetch(
-      "http://localhost:8000/api/getOrgnaizationname"
-    );
-    const data = await response.json();
+  // const getCompanyName = async () => {
+  //   const response = await fetch(
+  //     "http://localhost:8000/api/getOrgnaizationname"
+  //   );
+  //   const data = await response.json();
 
-    const listnewtest = data.org;
+  //   const listnewtest = data.org;
 
-    //const lo=JSON.stringify(listnew);
+  //   //const lo=JSON.stringify(listnew);
 
-    setListnew(listnewtest);
-  };
+  //   setListnew(listnewtest);
+  // };
   return (
     <React.Fragment>
       <Modal
@@ -733,45 +806,7 @@ export default function Organizationold() {
                 );
               })}
 
-              {/* <AccordionItem uuid="b">
-                <AccordionItemHeading className="accordion-inactive-status">
-                  <AccordionItemButton>  <div className="accordion-head-text">
-                    <div className="name notificatio-outer">Bourntec</div>
-                    <div className="desi joblocation">
-                      <img src={location} />
-                      <span>Bhuvaneshwar</span>
-                    </div>
-                  </div>   <div className="col-4 acc-status-change">
-                      <div className="active-status-style">BNC</div>
-                    </div></AccordionItemButton>
-                </AccordionItemHeading>
-                <AccordionItemPanel>
-                  <div className="accord-detals-box">
-                    <div className="left">Branch Name	</div>
-                    <div className="right">: Bourntec</div>
-                  </div>
-                  <div className="accord-detals-box">
-                    <div className="left">Branch Code	 </div>
-                    <div className="right">: BNC</div>
-                  </div>
-                  <div className="accord-detals-box">
-                    <div className="left">Branch Type		 </div>
-                    <div className="right">: Development Center	</div>
-                  </div>
-                  <div className="accord-detals-box">
-                    <div className="left">Location	 </div>
-                    <div className="right">: Kochi</div>
-                  </div>
-                  <div className="accord-detals-box">
-                    <div className="accordion-bottom-button">
-                      <div className="more-button">View</div>
-                      <div className="more-button more-outer">Edit</div>
-                      <div className="more-button more-outer">Delete</div>
-                    </div>
-                  </div>
-                </AccordionItemPanel>
-              </AccordionItem>
- */}
+             
             </Accordion>
           </div>
         </div>{" "}

@@ -17,7 +17,7 @@ import { components } from "react-select";
 import makeAnimated from "react-select/animated";
 
 
-import swal from "sweetalert";
+// import swal from "sweetalert";
 import Resignationicons from './Resignationicons';
 import {
   Accordion,
@@ -29,34 +29,34 @@ import {
 import {Offboarding1, Offboarding3, Hirecompleted} from '../../images';
 // Demo styles, see 'Styles' section below for some notes on use.
 import 'react-accessible-accordion/dist/fancy-example.css';
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'hide',
-  },
-  table: {
-    minWidth: 340,
-  },
-  tableCell: {
-    paddingRight: 4,
-    paddingLeft: 5
-  }
-});
+// const styles = theme => ({ 
+//   root: {
+//     display: 'flex',
+//     marginTop: theme.spacing.unit * 3,
+//     overflowX: 'hide',
+//   },
+//   table: {
+//     minWidth: 340,
+//   },
+//   tableCell: {
+//     paddingRight: 4,
+//     paddingLeft: 5
+//   }
+// });
 
-let id = 0;
-function createData(Name, EmployeeCode , Designation, MailID, Experience,Location, action) {
-  id += 1;
-  return {Name, EmployeeCode , Designation, MailID, Experience,Location, action };
-}
+// let id = 0;
+// function createData(Name, EmployeeCode , Designation, MailID, Experience,Location, action) {
+//   id += 1;
+//   return {Name, EmployeeCode , Designation, MailID, Experience,Location, action };
+// }
 
-const data = [
-  createData('Shanu', '050','Sr. Software Engineer ', 'shanu@bourntec.com', '7.5','Cochi', ''),  
-  createData('Manu', '050','Sr. Software Engineer ', 'manu@bourntec.com', '7.5','Cochi', ''),
-  createData('Manju', '050','Sr. Software Engineer ', 'manju@bourntec.com', '7.5','Cochi', ''),
-  createData('Vipin', '050','Sr. Software Engineer ', 'vipin@bourntec.com', '7.5','Cochi', ''),
-  createData('linto', '050','Sr. Software Engineer ', 'linto@bourntec.com', '7.5','Cochi', ''),
-];
+// const data = [
+//   createData('Shanu', '050','Sr. Software Engineer ', 'shanu@bourntec.com', '7.5','Cochi', ''),  
+//   createData('Manu', '050','Sr. Software Engineer ', 'manu@bourntec.com', '7.5','Cochi', ''),
+//   createData('Manju', '050','Sr. Software Engineer ', 'manju@bourntec.com', '7.5','Cochi', ''),
+//   createData('Vipin', '050','Sr. Software Engineer ', 'vipin@bourntec.com', '7.5','Cochi', ''),
+//   createData('linto', '050','Sr. Software Engineer ', 'linto@bourntec.com', '7.5','Cochi', ''),
+// ];
 
 const Option = props => {
   return (

@@ -74,7 +74,6 @@ export default function Holidaypopup({method}) {
     setIsOpen(false);
     method();
 
-    
 
   }
   
