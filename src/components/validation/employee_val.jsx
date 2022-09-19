@@ -2,7 +2,7 @@ import React from "react";
 
 export default function employee_val(values) {
   let errors = {};
-
+ /* Confirm 
  if (!values.emp_name.trim()) {
     errors.emp_name = "employee name reqiured";
   }
@@ -123,9 +123,10 @@ export default function employee_val(values) {
  /* if (!values.emp_number.trim()) {
     errors.emp_number = "employee number reqiured";
   }*/
+  /*
  if (!values.emp_gender.trim()) {
    errors.emp_gender = "employee gender reqiured";
- }
+ }*/
 
  /* if (!values.personal_address.trim()) {
     errors.personal_address = "Address name required";

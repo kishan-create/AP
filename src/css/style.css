@@ -1664,7 +1664,7 @@ a.download-bt svg {
 }
 
 .job-detils-modal .popup-content-height {
-  height: auto;
+ 
   overflow: auto;
   padding-top: 0;
   padding-bottom: 0;
@@ -3828,6 +3828,14 @@ input[type="radio"]:focus {
   padding: 9px;
   min-height: 22px;
   position: relative;
+
+}
+.searchWrapper {
+  border-radius: unset !important;
+  height: 31px;
+  padding-top: 2px;
+  font-size: 14px;
+  border: 0px !important;
 }
 .location-outer span view {
   padding: left 11;
@@ -3874,7 +3882,7 @@ li.option {
 .searchWrapper {
   border-radius: unset !important;
   height: 39px;
-  padding-top: 5px;
+  padding-top: 1px;
   font-size: 14px;
 }
 
@@ -4810,3 +4818,11 @@ animation-delay: 5s;
   box-shadow: 2px 2px 7px #e0e0e0;
   margin-bottom: 15px;
 }
+.red-bg {
+
+  background: #940101;
+  
+  }
+  .popup-select-p-l-0{
+    padding: 6px 0px;
+  }

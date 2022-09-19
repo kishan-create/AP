@@ -43,7 +43,6 @@ var myFutureDate=new Date(myCurrentDate);
     let dates = JSON.stringify(es)
 dates = dates.slice(1,11)
  
-//var newDate = new Date(date.setTime( date.getTime() + days * 86400000 ));
 SetValues({
   emp_frequency: e.target.value,
   emp_dateofrelieving:dates,
@@ -72,8 +71,7 @@ SetValues({
     setIsSubmitting(true);
   };
   const onSubmitform = (e) => {
-   
-    //console.log(values)
+ 
     const response = axios.post(
       "http://localhost:8000/api/add_notice",
       values
@@ -100,8 +98,7 @@ SetValues({
   const handleRelieveSubmit = (e) => {
   
     e.preventDefault();
-    // const test = setErrors(Noticevalidation(values));
-    // relsetIsSubmitting(true);
+
     onRelivesubmitform();
   };
 
@@ -111,15 +108,13 @@ SetValues({
   }
 const onRevokeform=(e)=>
 {
-  // alert("test");
-// console.log("test relieveS")
+
   const response = axios.post(
     "http://localhost:8000/api/revokereason",
     values
   );
   response.then(function(res) {
     if (response.data.status === 200) {
-      //console.log(res.data.message);
 
       swal({
         title: "Good job!",

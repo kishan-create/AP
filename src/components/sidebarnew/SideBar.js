@@ -100,7 +100,7 @@ const $ = window.$;
              Asset
           </NavLink>
         </NavItem>
-        <NavItem>
+       {/* <NavItem>
             <NavLink tag={nlink} to={"/Employeedashboard"} className="mob-menu-clik" activeClassName="active" >
                       Employee Dashboard< MdLibraryBooks/>
             </NavLink>

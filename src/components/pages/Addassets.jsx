@@ -162,19 +162,7 @@ window.addEventListener("resize", () => {
   clearTimeout(timeout);
   timeout = setTimeout(setDirection, 200);
 });
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   alert("test");
-//   // const test = SetErrors(employee_val(values));
-//   // // setGender(e.target.value)
-//   // // setOptions("");
-//   // setIsSubmitting(true);
 
-// };
-
-// const { handleChange, values, handleSubmit, errors,  options,designation,holidaylist,departments,uploadImage,myimage,employeelocation  } = Assetform(
-//   // employee_val
-// );
 
 const { values, handleSubmit,handleChange,errors  } = Assetform(
   asset_val
@@ -245,7 +233,9 @@ const { values, handleSubmit,handleChange,errors  } = Assetform(
 
 
         {/* <select id = "dropdown" className="form-control"> */}
-          <option value="Post">Logitech</option>
+        <option value="">Choose Category</option>
+          <option value="cat A">Cat A</option>
+          <option value="cat B">Cat B</option>
         </select>
         {errors.asset_category && (
                                   <p className="red-alert">{errors.asset_category}</p>
@@ -285,7 +275,9 @@ const { values, handleSubmit,handleChange,errors  } = Assetform(
 
 
         {/* <select id = "dropdown" className="form-control"> */}
-          <option value="Post">Logitech</option>
+        <option value="">Choose Brand</option>
+          <option value="Brand A">Brand A</option>
+          <option value="Brand B">Brand B</option>
         </select>
         {errors.brand_name && (
                                   <p className="red-alert">
@@ -349,8 +341,9 @@ const { values, handleSubmit,handleChange,errors  } = Assetform(
                       {/* </select> */}
 
         {/* <select id = "dropdown" className="form-control"> */}
-          <option value="Post">Headquarters</option>
-          <option value="Post">Headquarters1</option>
+        <option value="">Choose Location</option>
+          <option value="kochi">Kochi</option>
+          <option value="Hydarabad">Hydarabad</option>
         </select>
         {errors.location && (
                                   <p className="red-alert">
@@ -360,32 +353,7 @@ const { values, handleSubmit,handleChange,errors  } = Assetform(
         
       </div>
   </div>
-  <div className="col-md-3">
-      <div className="form-group">
-        <label for="exampleFormControlInput1">Individual or Bulk Order ?</label>
-{/* {values.location} */}
-        <select
-                        id="dropdown"
-                        name="individual_bulk"
-                        onChange={handleChange}
-                        value={values.individual_bulk}
-                        className="form-control"
-                      >
-                        
-                      {/* </select> */}
-       
-       
-        {/* <select id = "dropdown" className="form-control"> */}
-          <option value="Post">Individual</option>
-        </select>
-        {errors.individual_bulk && (
-                                  <p className="red-alert">
-                                    {errors.individual_bulk}
-                                  </p>
-                                )}
-        
-      </div>
-  </div>
+
   
   <div className="bottom-button-bg">
             <button type="button" onClick={handleSubmit}  className="btn  btn-save "  > Save</button>
