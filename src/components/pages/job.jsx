@@ -18,7 +18,7 @@ import { profilei } from "../../images/profilei.svg";
 import axios from "axios";
 import swal from "sweetalert";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import Multiselect from "multiselect-react-dropdown";
 import EditIcon from "@mui/icons-material/Edit";
 import {
   Accordion,
@@ -155,6 +155,7 @@ export default function Job(props) {
   const [location, SetLocation] = useState([]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [postvalues, SetPostvalues] = useState([]);
+  const [editskill, seteditedSkill] = useState(0);
   const [values, SetValues] = useState({
     job_id: "",
     job_post: "",
@@ -251,11 +252,17 @@ export default function Job(props) {
   function closeModal() {
     setIsOpen(false);
   }
+  const editedskill = (event) => {
+    seteditedSkill(event);
+
+   
+  };
   const data = [
     { id: 1, name: "John Doe" },
     { id: 2, name: "Victor Wayne" },
     { id: 3, name: "Jane Doe" },
   ];
+  const [skill, setSkill] = useState(["PHP", "JAVA", "MYSQL","HTML","PYTHON","JAVASCRIPT","JQUERY","ANGULAR",".NET","POWERAPPS","SALESFORCE"]);
   return (
     <div>
       <Modal
@@ -308,17 +315,25 @@ export default function Job(props) {
                     </div>
                   </div>
                   <div className="col-md-4">
-                    <div className="form-group">
-                      <label for="exampleFormControlInput1">Skill Set</label>
-                      <input
-                        type="text"
-                        name="job_skillset"
-                        onChange={handleChange}
-                        value={values.job_skillset}
-                        className="form-control"
-                      ></input>
-                    </div>
-                  </div>
+                          <div className="form-group">
+                            <label for="exampleFormControlInput1">
+                              Skill Set
+                            </label>
+                            <Multiselect
+                              isObject={false}
+                              onRemove={editedskill}
+                              //onSelect={edithandleChange}
+                              onSelect={editedskill}
+                              options={skill}
+                              selectedValues={values.job_skillset.split(",")}
+                              //value={editvalues.skillset}
+                              showCheckbox
+                              name="ob_skillset"
+                              className="form-control"
+                            />
+                          </div>
+                        </div>
+                 
                   <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">experience</label>
@@ -492,9 +507,9 @@ export default function Job(props) {
                               {n.job_date_close}
                             </TableCell>
 
-                            <TableCell numeric className="width-12">
+                            <TableCell data-title={n.job_description} numeric className="width-12">
                               {" "}
-                              {n.job_description}
+                              {n.job_description.substring(0, 7)+'..'}
                             </TableCell>
                             <TableCell
                               numeric
