@@ -5077,3 +5077,31 @@ animation-delay: 5s;
 .switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
   opacity: 1;
 }
+  [data-title] {
+    font-size: 14px;
+    position: relative;
+    cursor: help;
+}
+  
+[data-title]:hover::before {
+  content: attr(data-title);
+  opacity: 1;
+  position: absolute;
+  margin-top:33px;
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  width:300px;
+  word-break: break-word;
+  z-index:9;
+}
+[data-title]:hover::after {
+    content: '';
+    position: absolute;
+  opacity: 1;
+    bottom: -12px;
+    left: 8px;
+    border: 8px solid transparent;    
+    border-bottom: 8px solid #000;
+}

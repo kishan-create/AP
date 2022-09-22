@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useState, useEffect } from "react";
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
 import Modal from "react-modal";
@@ -11,6 +12,7 @@ import BasicTabs from "./Employeetabs";
 import job_validation from "../validation/job_validation";
 import Jobform from "./Jobform";
 import "react-tabs/style/react-tabs.css";
+import Multiselect from "multiselect-react-dropdown";
 const customStyles = {
   content: {
     top: "50%",
@@ -26,7 +28,7 @@ const customStyles = {
 };
 
 export default function Jobdetailsmodal({ location, method }) {
-  console.log(location);
+  const [skill, setSkill] = useState(["PHP", "JAVA", "MYSQL","HTML","PYTHON","JAVASCRIPT","JQUERY","ANGULAR",".NET","POWERAPPS","SALESFORCE"]);
   const CustomTab = ({ children }) => (
     <Tab>
       <div>{children}</div>
@@ -57,7 +59,7 @@ export default function Jobdetailsmodal({ location, method }) {
     setValue(val);
   };
 
-  const { handleChange, values, handleSubmit, errors, post } = Jobform(
+  const { handleChange, values, handleSubmit, errors, post,onSelect } = Jobform(
     job_validation
   );
 
@@ -131,7 +133,7 @@ export default function Jobdetailsmodal({ location, method }) {
                       )}
                     </div>
                   </div>
-                  <div className="col-md-4">
+                 {/* <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Skill Set</label>
                       <input
@@ -146,6 +148,27 @@ export default function Jobdetailsmodal({ location, method }) {
                       )}
                     </div>
                   </div>
+                      */}
+                  <div className="col-md-4">
+                                <div className="form-group">
+                                    <label for="exampleFormControlInput1">Skill Set</label>
+
+                                    <Multiselect
+        isObject={false}
+        onRemove={(event) => {
+    
+        }}
+        onSelect={onSelect}
+        options={skill}
+        className="form-control"
+        showCheckbox
+        name="job_skillset"
+      
+      />
+                       {errors.job_skillset && <p className="EmptabValidation">{errors.job_skillset}</p>}            
+                                </div>
+                              
+                            </div>
                   <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Experience</label>
