@@ -503,14 +503,14 @@ export default function Job(props) {
               </div>
 
               <div className="col-md-12 job-main-tb-outer">
-                <Paper className="recruitment-table-outer job-outer job-new-outer">
+                <Paper className="recruitment-table-outer job-outer job-new-outer job-new-table-outer">
                   <Table className="recruitment-tabele">
                     <TableHead>
                       <TableRow>
                         <TableCell className="width-8">Job ID</TableCell>
                         <TableCell className="width-15">Post</TableCell>
                         <TableCell className="width-15">Skill Set</TableCell>
-                        <TableCell className="width-8">Exp</TableCell>
+                        <TableCell className="width-5">Exp</TableCell>
                         <TableCell className="width-8">Openings</TableCell>
                         <TableCell className="width-8">Location</TableCell>
                         <TableCell className="width-12">Posted Date </TableCell>
@@ -530,7 +530,7 @@ export default function Job(props) {
                             <TableCell numeric className=" width-15">
                               {n.job_skillset}{" "}
                             </TableCell>
-                            <TableCell numeric className="width-8">
+                            <TableCell numeric className="width-5">
                               {n.job_experience}
                             </TableCell>
                             <TableCell numer ic className="width-8">
@@ -548,7 +548,7 @@ export default function Job(props) {
 
                             <TableCell data-title={n.job_description} numeric className="width-15">
                               {" "}
-                              {n.job_description.substring(0, 7)+'..'}
+                              {n.job_description.substring(0, 12)+'..'}
                             </TableCell>
                             <TableCell
                               numeric
