@@ -26,6 +26,7 @@
   font-size: 35px;
   color: #c6c6c6;
 }
+ 
 }
 @media only screen and (max-width: 1700px) {
   .in-progress-name-thre-colm {
@@ -130,6 +131,10 @@
   padding: 2px 7px;
   margin-left: 5px;
 }
+
+.job-table-elips { 
+  width: 130px; 
+}
 }
 .ReactModal__Overlay {
   position: fixed;
@@ -156,6 +161,26 @@
 .profile-name span {
   font-size: 13px;
   padding-bottom: 2px;
+}
+.job-edit-icon {
+  margin-left: 3px;
+  font-size: 11px;
+  padding: 2px 6px;
+}
+.job-delete-icon{
+  margin-left: 3px;
+  font-size: 11px;
+  padding: 2px 7px;
+}
+.job-table-elips { 
+  width: 120px; 
+}
+.recruitment-tabele th, .recruitment-tabele td {
+  font-size: 13px;
+  line-height: 18px; 
+}
+.width-15 {
+  width: 14%;
 }
 [data-title]:hover::before {
   width: 264px;
@@ -249,7 +274,12 @@
     padding-right: 10px;
   }
   .job-edit-icon {
-    margin-left: 4px;
+    margin-left: 3px;
+    font-size: 11px;
+  }
+  .job-delete-icon{
+    margin-left:3px;
+    font-size: 12px;
   }
   .offer-map-width .inprograss-style {
     font-size: 12px;
@@ -349,6 +379,12 @@
   font-size: 35px;
   color: #c6c6c6;
 }
+.job-table-elips { 
+  width: 125px; 
+}
+.width-15 {
+  width: 13%;
+}
 [data-title]:hover::before {
   width: 240px;
   right: -129px;
@@ -401,7 +437,12 @@
     width: 28.9%;
   }
   .job-edit-icon {
-    padding: 2px 8px;
+    padding: 2px 6px;
+    margin-left: 3px;
+  }
+  .job-delete-icon{
+    margin-left: 3px;
+    padding: 2px 7px;
   }
   .offer-map-width {
     width: 24%;
@@ -503,6 +544,15 @@
 [data-title]:hover::before {
   width: 240px;
   right: -115px;
+}
+.job-table-elips { 
+  width: 105px; 
+}
+.width-15 {
+  width: 12%;
+}
+.width-12 {
+  width: 10%;
 }
 }
 @media only screen and (max-width: 1300px) {
@@ -613,7 +663,10 @@
     width: 112px;
   }
   .job-edit-icon {
-    margin-left: 8px;
+    margin-left: 4px;
+  }
+  .job-delete-icon{
+    margin-left:4px;
   }
   .organazation-new-table table th:last-child,
   .organazation-new-table table td:last-child {
@@ -830,6 +883,12 @@
   grid-gap: 21px 30px;
   gap: 21px 30px;
   grid-auto-rows: minmax(50px, auto);
+}
+.job-edit-icon {
+  margin-left: 3px;
+}
+.job-delete-icon{
+  margin-left:3px;
 }
 }
 @media only screen and (max-width: 980px) {
@@ -1216,6 +1275,12 @@
   grid-gap: 21px 30px;
   gap: 21px 30px;
   grid-auto-rows: minmax(50px, auto);
+}
+.job-edit-icon {
+  margin-left:3px;
+}
+.job-delete-icon{
+  margin-left:3px;
 }
 }
 @media only screen and (max-width: 767px) {

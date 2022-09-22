@@ -1347,7 +1347,9 @@ a.download-bt svg {
   margin-top: 5px;
   margin-left: 4px;
 }
-
+.red-bg {
+  background: #940101;
+}
 .green-bg {
   background: #028254;
 }
@@ -3243,11 +3245,11 @@ input[type="radio"]:focus {
   box-sizing: border-box;
   border-radius: 13px;
   width: auto;
-  padding: 2px 10px;
+  padding: 2px 7px;
   text-align: center;
   float: left;
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   margin-left: 10px;
   /* border-radius: 36%; */
@@ -3919,7 +3921,7 @@ li.option {
 }
 
 .btn-active {
-  min-width: 65px;
+  min-width: 60px;
 }
 .tf {
   width: 13%;
@@ -3940,11 +3942,11 @@ li.option {
   box-sizing: border-box;
   border-radius: 13px;
   width: auto;
-  padding: 2px 10px;
+  padding: 2px 8px;
   text-align: center;
   float: left;
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   margin-left: 10px;
   /* border-radius: 36%; */
@@ -4824,6 +4826,257 @@ animation-delay: 5s;
   .popup-select-p-l-0{
     padding: 6px 0px;
   }
+  .job-table-elips {
+    white-space: nowrap;
+    width: 144px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.job-table-toggle-box { 
+  float: left;
+  margin-top: -2px;
+}
+.eDsrts {
+  width: 54px !important;
+  height: 29px !important;
+  position: relative;
+  cursor: pointer;
+  border-radius: 25px;
+  outline: none;
+  background-color: #23b40c !important;
+  border: 3px solid white;
+}
+.eDsrts::after {
+  content: "";
+  position: absolute;
+  top: -0.5px !important;
+  will-change: transform;
+  -webkit-transform: translate(5.5px);
+  -ms-transform: translate(5.5px);
+  transform: translate(5.5px);
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  width: 23px !important;
+  height: 23px !important;
+  background: white;
+  border: 2px solid #01a671 !important;
+  outline: none;
+  border-radius: 50%;
+}
+.hjXsCW {
+  width: 54px !important;
+  height: 29px !important;
+  position: relative;
+  cursor: pointer;
+  border-radius: 25px;
+  outline: none;
+  background-color: #353b48;
+  border: 3px solid white;
+}
+.hjXsCW::after {
+  content: "";
+  position: absolute;
+  top: -0.5px !important;
+  will-change: transform;
+  -webkit-transform: translate(-44px);
+  -ms-transform: translate(-44px);
+  transform: translate(-44px);
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  width: 23px !important;
+  height: 23px !important;
+  background: white;
+  border: 2px solid #63666b !important;
+  outline: none;
+  border-radius: 50%;
+  left: 46px;
+}
+
+.new-drop-down__button{
+  font-size: 12px;
+  width: 300px;
+  text-align: left;
+  padding: 2px 10px;
+  background-color: #fff;
+  border: 1px solid #c2c2c2;
+  border-radius: 5px;
+  
+}
+
+.drop-down-icon {
+  float: right;
+}
+.job-multi-dropselec {
+  float: left;
+  padding-left: 20px;
+  margin-top: -30px;
+}
+.job-open-head {
+  float: left; 
+}
+.new-drop-down__list-wrapper{
+  position: absolute;
+  z-index: 11;
+  width: 300px;
+  background-color: #fff;
+  padding: 10px 15px;
+  margin-top: 1px;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 20%);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.job-check-drop{ 
+  padding-left: 10px;
+}
+.btn-job-switch {
+  background-color: #4a54d1;
+  background-position: 0 -15px;
+ color: #fff;
+}
+.btn-job-switch:focus, .btn-job-switch:hover {
+  background-color: #ac4782;
+  background-position: 0 -15px;
+}
+ 
+
+
+
+.btn.btn-job-switch {
+  color: #fff;
+  background-color: #4a54d1;
+  border-color: #4a54d1;
+}
+.btn.btn-job-switch.focus,
+.btn.btn-job-switch:focus {
+  color: #fff;
+  background-color: #ac4782;
+  border-color: #ac4782;
+  outline: none;
+  box-shadow: none;
+}
+.btn.btn-job-switch:hover {
+  color: #fff;
+  background-color: #ac4782;
+  border-color: #ac4782;
+  outline: none;
+  box-shadow: none;
+}
+.btn.btn-job-switch.active,
+.btn.btn-job-switch:active {
+  color: #fff;
+  background-color: #ac4782;
+  border-color: #ac4782;
+  outline: none;
+}
+.btn.btn-job-switch.active.focus,
+.btn.btn-job-switch.active:focus,
+.btn.btn-job-switch.active:hover,
+.btn.btn-job-switch:active.focus,
+.btn.btn-job-switch:active:focus,
+.btn.btn-job-switch:active:hover {
+  color: #fff;
+  background-color: #ac4782;
+  border-color: #ac4782;
+  outline: none;
+  box-shadow: none;
+}
+
+
+
+/* container for all of the switch elements 
+    - adjust "width" to fit the content accordingly 
+*/
+.switches-container {
+  width: 16rem;
+  position: relative;
+  display: flex;
+  padding: 0;
+  position: relative;
+  background: #4a54d1;
+  line-height: 3rem;
+  border-radius: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* input (radio) for toggling. hidden - use labels for clicking on */
+.switches-container input {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+/* labels for the input (radio) boxes - something to click on */
+.switches-container label {
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* switch highlighters wrapper (sliding left / right) 
+  - need wrapper to enable the even margins around the highlight box
+*/
+.switch-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  padding: 0.15rem;
+  z-index: 3;
+  transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+  /* transition: transform 1s; */
+}
+
+/* switch box highlighter */
+.switch {
+  border-radius: 3rem;
+  background: #ac4782;
+  height: 100%;
+}
+
+/* switch box labels
+  - default setup
+  - toggle afterwards based on radio:checked status 
+*/
+.switch div {
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  display: block;
+  color: var(--switch-text-color) ;
+  transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+  will-change: opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* slide the switch box from right to left */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper {
+  transform: translateX(0%);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper {
+  transform: translateX(100%);
+}
+
+/* toggle the switch box labels - first checkbox:checked - show first switch div */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch div:nth-of-type(1) {
+  opacity: 1;
+}
+
+/* toggle the switch box labels - second checkbox:checked - show second switch div */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
+  opacity: 1;
+}
   [data-title] {
     font-size: 14px;
     position: relative;
@@ -4834,18 +5087,18 @@ animation-delay: 5s;
   content: attr(data-title);
   opacity: 1;
   position: absolute;
-  margin-top:34px;
+  margin-top: 34px;
   padding: 10px 15px;
   background: #d5d8f5;
   color: #000;
   font-size: 12px;
-  width:300px;
+  width: 300px;
   word-break: break-word;
-  z-index:9;
+  z-index: 9;
   max-height: 110px;
   height: auto;
   overflow-x: auto;
-  right: -158px;
+  right: -129px;
 }
 
 
