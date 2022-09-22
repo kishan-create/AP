@@ -4827,28 +4827,49 @@ animation-delay: 5s;
   [data-title] {
     font-size: 14px;
     position: relative;
-    cursor: help;
+    cursor: auto;
 }
   
 [data-title]:hover::before {
   content: attr(data-title);
   opacity: 1;
   position: absolute;
-  margin-top:33px;
-  padding: 10px;
-  background: #000;
-  color: #fff;
-  font-size: 14px;
+  margin-top:34px;
+  padding: 10px 15px;
+  background: #d5d8f5;
+  color: #000;
+  font-size: 12px;
   width:300px;
   word-break: break-word;
   z-index:9;
+  max-height: 110px;
+  height: auto;
+  overflow-x: auto;
+  right: -158px;
 }
+
+
 [data-title]:hover::after {
-    content: '';
-    position: absolute;
+  content: '';
+  position: absolute;
   opacity: 1;
-    bottom: -12px;
-    left: 8px;
-    border: 8px solid transparent;    
-    border-bottom: 8px solid #000;
+  bottom: 0px;
+  left: 24px;
+  border: 8px solid transparent;
+  border-bottom: 8px solid #d5d8f5;
+} .job-new-outer th {
+  padding: 10px 7px 9px !important;
+}
+.job-new-table-outer  .width-5{
+  width: 6%;
+}
+.candidatename-list .css-1fdw1ke-MuiAutocomplete-root {
+  width: 100%;
+  margin-right: 0;
+}
+.candidatename-list .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 1px 4px 1px 6px !important;
+}
+.candidatename-list .MuiAutocomplete-hasPopupIcon.css-1fdw1ke-MuiAutocomplete-root .MuiOutlinedInput-root{
+  background: #fff;
 }

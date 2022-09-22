@@ -120,6 +120,16 @@
   font-size: 35px;
   color: #c6c6c6;
 }
+.job-edit-icon {
+  border-radius: 50%;
+  padding: 2px 7px;
+  margin-left: 5px;
+}
+.job-delete-icon {
+  border-radius: 50%;
+  padding: 2px 7px;
+  margin-left: 5px;
+}
 }
 .ReactModal__Overlay {
   position: fixed;
@@ -146,6 +156,10 @@
 .profile-name span {
   font-size: 13px;
   padding-bottom: 2px;
+}
+[data-title]:hover::before {
+  width: 264px;
+  right: -143px;
 }
   }
 @media only screen and (max-width: 1500px) {
@@ -335,6 +349,10 @@
   font-size: 35px;
   color: #c6c6c6;
 }
+[data-title]:hover::before {
+  width: 240px;
+  right: -129px;
+}
 }
 
 @media only screen and (max-width: 1360px) {
@@ -432,6 +450,59 @@
 .emp-attentance-icon {
   font-size: 35px;
   color: #c6c6c6;
+}
+.job-new-table-outer {
+  width: 97%;
+  float: left;
+  display: block;
+  overflow: scroll;
+  display: block;
+  display: block !important;
+  flex-wrap: nowrap !important;
+  overflow: auto !important;
+}
+.job-new-table-outer table {
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
+  width: 100% !important;
+  float: left;
+  margin-top: 0;
+  width: auto;
+}
+.job-new-table-outer table thead {
+  width: auto;
+}
+.job-new-table-outer table tbody {
+  width: 100%;
+  float: left;
+  display: grid;
+}
+.job-new-table-outer table tr {
+  width: auto;
+  display: flex;
+}
+.job-new-table-outer .width-8 {
+  width: 100px;
+}
+.job-new-table-outer .width-12 {
+  width: 140px;
+}
+.job-new-table-outer .width-15 {
+  width: 180px;
+}
+.job-new-table-outer  .width-10{
+  width: 120px;
+}
+.job-new-table-outer  .width-5{
+  width: 50px;
+}
+.job-new-table-outer  td:last-child.tf, .job-new-table-outer  th:last-child.tf {
+  width: 130px;
+}
+[data-title]:hover::before {
+  width: 240px;
+  right: -115px;
 }
 }
 @media only screen and (max-width: 1300px) {
