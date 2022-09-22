@@ -1079,7 +1079,7 @@ const Kanban = () => {
                         <div className="col-md-4">
                           <div className="form-group">
                             <label for="exampleFormControlInput1">
-                               Email ID{" "}
+                              Personal Email ID{" "}
                             </label>
                             <input
                               type="email"

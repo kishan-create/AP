@@ -25,6 +25,7 @@
     "awesome-react-icons": "^1.4.8",
     "axios": "^0.24.0",
     "bootstrap": "^3.4.1",
+    "bootstrap-switch-button": "^1.1.0",
     "chakra-ui-autocomplete": "^1.4.5",
     "chakra-ui-simple-autocomplete": "^1.0.0",
     "datasource": "0.0.1",
