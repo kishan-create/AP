@@ -17,9 +17,11 @@ import { location } from "../../images";
 import { profilei } from "../../images/profilei.svg";
 import axios from "axios";
 import swal from "sweetalert";
-import DeleteIcon from "@mui/icons-material/Delete";
-
+import DeleteIcon from "@mui/icons-material/Delete"; 
 import EditIcon from "@mui/icons-material/Edit";
+import Togbtn from "./Togbtn";
+import Multidropselect from "./Multidropselect";
+import Jobswitchbuttons from "./Jobswitchbuttons";
 import {
   Accordion,
   AccordionItem,
@@ -271,7 +273,7 @@ export default function Job(props) {
               <h4 className="popup-head-h4"> Edit Job Settings</h4>
             </div>
             <div className="popup-head-icon-sty">
-              <MdClose className="popup-close-btn" onClick={closeModal} />
+             <MdClose className="popup-close-btn" onClick={closeModal} />
             </div>
           </div>
           <div className="popup-content-bg">
@@ -442,9 +444,11 @@ export default function Job(props) {
             <div className="main-content-area-inner">
               <div className="sub-head">
                 {" "}
-                Job Openings
+                <div className="job-open-head">Job Openings </div> 
+                <Multidropselect  />
+                <Jobswitchbuttons />
                 <div className="top-right-outer add-btn-div">
-                  <Jobdetailsmodal location={location} method={loadJobs} />
+                <Jobdetailsmodal location={location} method={loadJobs}  className="col-md-3"/>
                 </div>
               </div>
 
@@ -454,14 +458,14 @@ export default function Job(props) {
                     <TableHead>
                       <TableRow>
                         <TableCell className="width-8">Job ID</TableCell>
-                        <TableCell className="width-12">Post</TableCell>
+                        <TableCell className="width-15">Post</TableCell>
                         <TableCell className="width-15">Skill Set</TableCell>
                         <TableCell className="width-8">Exp</TableCell>
                         <TableCell className="width-8">Openings</TableCell>
                         <TableCell className="width-8">Location</TableCell>
-                        <TableCell className="width-10">Posted Date </TableCell>
-                        <TableCell className="width-10">Post Close</TableCell>
-                        <TableCell className="width-12">Description</TableCell>
+                        <TableCell className="width-12">Posted Date </TableCell>
+                        <TableCell className="width-12">Post Close</TableCell>
+                        <TableCell className="width-15">Description</TableCell>
                         <TableCell className="width-15 tf">Status</TableCell>
                       </TableRow>
                     </TableHead>
@@ -470,7 +474,7 @@ export default function Job(props) {
                         return (
                           <TableRow key={n.id}>
                             <TableCell className="width-8"> {n.id}</TableCell>
-                            <TableCell numeric className="width-12">
+                            <TableCell numeric className="width-15">
                               {n.post_name}
                             </TableCell>
                             <TableCell numeric className=" width-15">
@@ -485,23 +489,23 @@ export default function Job(props) {
                             <TableCell numeric className="width-8">
                               {n.job_location}
                             </TableCell>
-                            <TableCell numeric className="width-10">
+                            <TableCell numeric className="width-12">
                               {n.job_date_open}
                             </TableCell>
-                            <TableCell numeric className="width-10">
+                            <TableCell numeric className="width-12">
                               {n.job_date_close}
                             </TableCell>
 
-                            <TableCell numeric className="width-12">
-                              {" "}
-                              {n.job_description}
+                            <TableCell numeric className="width-15">
+                             <div className="job-table-elips">{" "}
+                              {n.job_description}</div> 
                             </TableCell>
                             <TableCell
                               numeric
                               className="width-15 inprogress-td tf"
                             >
-                              <div className="inprograss-style btn-active ">
-                                Active
+                              <div className="job-table-toggle-box ">
+                              <Togbtn/>
                               </div>
 
                               <button
@@ -513,7 +517,7 @@ export default function Job(props) {
                                   width="8"
                                   height="8"
                                   viewBox="0 0 10 10"
-                                  fill="none"
+                                  fill="#ac4782" color="#ac4782"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <path

@@ -49,7 +49,8 @@ import Streamsettings from "../pages/Streamsettings";
 import Addstream from "../pages/Addstream";
 import Addsubstream from "../pages/Addsubstream";
 import Employeedashboard from "../pages/Employeedashboard";
-import Hrdashboard from "../pages/Hrmployeedashboard";
+import Hrdashboard from "../pages/Hrmployeedashboard";  
+import Togbtn from "../pages/Togbtn";
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
   
   <Container
@@ -88,6 +89,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/Addstream" component={Addstream} />  
     <Route exact path="/Addsubstream" component={Addsubstream} />  
     <Route exact path="/Employeedashboard" component={Employeedashboard} />  
+    <Route exact path="/Togbtn" component={Togbtn} />  
     <Route exact path="/Hrmployeedashboard" component={Hrdashboard} />  
         <Router path="/Addemployeetab">
         <Addemployeetab/>
