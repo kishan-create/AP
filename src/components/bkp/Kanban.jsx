@@ -42,7 +42,7 @@ const options = [
     value: "Waiting",
   },
 ]; 
-const Kanban = () => {
+const  = () => {
   const [value, setValue]=React .useState(0)
   const handlesTabs=(e, val)=>{
     console.warn(val)
@@ -125,7 +125,7 @@ const Kanban = () => {
       <DndProvider backend={HTML5Backend}>
         <section  className="main-content-area">
             <div className="main-content-area-inner">
-            <div className="sub-head">Candidate Information 
+            <div className="sub-head"> 
     <div className="top-right-outer add-btn-div">
    <Popupmodal/>   
     </div>
@@ -344,9 +344,9 @@ const Kanban = () => {
   );
 };
 
-export default Kanban;
+export default ;
 
-const KanbanColumn = ({ status, changeTaskStatus, children }) => {
+const Column = ({ status, changeTaskStatus, children }) => {
   const ref = useRef(null);
   const [, drop] = useDrop({
     accept: "card",
@@ -358,7 +358,7 @@ const KanbanColumn = ({ status, changeTaskStatus, children }) => {
   return <div ref={ref} className="drag-boxs"> {children}</div>;
 };
 
-const KanbanItem = ({ id, children }) => {
+const Item = ({ id, children }) => {
   const ref = useRef(null);
   const [{ isDragging }, drag] = useDrag({
     item: { id },

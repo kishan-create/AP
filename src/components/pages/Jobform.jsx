@@ -13,6 +13,7 @@ const Jobform = (job_validation) => {
     job_date_close: "",
     job_location: "",
     job_description: "",
+    selectedOption:"",
   });
 
   const [errors, setErrors] = useState({});
@@ -38,6 +39,9 @@ const Jobform = (job_validation) => {
     const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
     setOrg(orgresponse.data);
   }*/
+
+  const [selectedOption, setSelectedOption] = useState(0);
+
   const getPostname = async () => {
     const response = await fetch("http://localhost:8000/api/getposttype");
     const data = await response.json();
@@ -51,6 +55,9 @@ const Jobform = (job_validation) => {
     setIsSubmitting(true);
   };
   const onSubmitform = (e) => {
+    const formData = new FormData();
+    formData.append("skillset_input", selectedOption);
+    formData.append("skillset", values.skillset);
     //console.log(values)
     const response = axios.post("http://localhost:8000/api/add_jobs", values);
     response.then(function(res) {
@@ -69,6 +76,8 @@ const Jobform = (job_validation) => {
           org_category: "",
           org_registration: "",
           org_location: "",
+          selectedOption:"",
+          
         });
       }
     });

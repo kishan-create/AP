@@ -1,4 +1,6 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
 import ReactDOM from "react-dom";
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
@@ -10,6 +12,8 @@ import { AppBar } from "@material-ui/core";
 import BasicTabs from "./Employeetabs";
 import job_validation from "../validation/job_validation";
 import Jobform from "./Jobform";
+import Multiselect from "multiselect-react-dropdown";
+
 import "react-tabs/style/react-tabs.css";
 const customStyles = {
   content: {
@@ -27,6 +31,19 @@ const customStyles = {
 
 export default function Jobdetailsmodal({ location, method }) {
   console.log(location);
+  const [skill, setSkill] = useState([
+    "PHP",
+    "JAVA",
+    "MYSQL",
+    "HTML",
+    "PYTHON",
+    "JAVASCRIPT",
+    "JQUERY",
+  ]);
+  const [selectedOption, setSelectedOption] = useState(0);
+
+
+
   const CustomTab = ({ children }) => (
     <Tab>
       <div>{children}</div>
@@ -57,9 +74,8 @@ export default function Jobdetailsmodal({ location, method }) {
     setValue(val);
   };
 
-  const { handleChange, values, handleSubmit, errors, post } = Jobform(
-    job_validation
-  );
+  const { handleChange, values, handleSubmit, errors, post } =
+    Jobform(job_validation);
 
   return (
     <div>
@@ -131,21 +147,30 @@ export default function Jobdetailsmodal({ location, method }) {
                       )}
                     </div>
                   </div>
+
                   <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Skill Set</label>
-                      <input
-                        type="text"
-                        name="job_skillset"
+
+                      <Multiselect
+                        isObject={false}
+                        onRemove={(event) => {}}
+                        // onSelect={(event) => {}}
+                        // onSelect={onSelect}
                         onChange={handleChange}
-                        value={values.job_skillset}
+                        options={skill}
                         className="form-control"
-                      ></input>
-                      {errors.job_skillset && (
-                        <p className="message">{errors.job_skillset}</p>
+                        showCheckbox
+                        name="skillset"
+                      />
+                      {errors.Skillsetvalue && (
+                        <p className="EmptabValidation">
+                          {errors.Skillsetvalue}
+                        </p>
                       )}
                     </div>
                   </div>
+
                   <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Experience</label>
@@ -274,7 +299,11 @@ export default function Jobdetailsmodal({ location, method }) {
             <button type="submit" className="btn  btn-save ">
               Save
             </button>
-            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
+            <button
+              type="button"
+              className="btn  btn-cancel "
+              onClick={closeModal}
+            >
               {" "}
               Cancel{" "}
             </button>

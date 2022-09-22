@@ -19,7 +19,7 @@ import {
 } from "react-router-dom";
 import Board from './components/pages/Board';
 import Employee from "./components/pages/Employee";
-import Kanban from "./components/pages/Kanban";
+import  from "./components/pages/";
 
 class App extends React.Component {
   constructor(props) {

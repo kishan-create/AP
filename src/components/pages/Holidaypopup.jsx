@@ -95,8 +95,9 @@ export default function Holidaypopup({method}) {
     const res = await fetch("http://localhost:8000/api/getHolidayslist");
 
     const data = await res.json();
-
+   
     const list = data.holiday;
+   
     setOptions(list);
   };
 
@@ -215,10 +216,11 @@ export default function Holidaypopup({method}) {
 
 
                   </div>
+                  
                   <div className="col-md-12 m-t-25">
                     <div className="Multyselect">
                       <Multiselect
-                        className="form-control "
+                        className="form-control popup-select-p-l-0"
                         options={options} // Options to display in the dropdown
                         selectedValues={items} // Preselected value to persist in dropdown
                         // onSelect={handleSelect}

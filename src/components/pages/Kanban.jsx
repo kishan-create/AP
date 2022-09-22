@@ -84,6 +84,9 @@ const Kanban = () => {
     "PYTHON",
     "JAVASCRIPT",
     "JQUERY",
+    "ANGULAR",
+    "REACT JS",
+
   ]);
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -995,7 +998,7 @@ const Kanban = () => {
             <ul className="nav nav-tabs">
               <li className="active">
                 <a href="#tab1" data-toggle="tab">
-                  Basic Information
+                  {/* Basic Information */}
                 </a>
               </li>
             </ul>
@@ -1054,7 +1057,7 @@ const Kanban = () => {
                             ></input>
                           </div>
                         </div>
-                        <div className="col-md-4">
+                        {/* <div className="col-md-4">
                           <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Skill Set
@@ -1072,11 +1075,11 @@ const Kanban = () => {
                               className="form-control"
                             />
                           </div>
-                        </div>
+                        </div> */}
                         <div className="col-md-4">
                           <div className="form-group">
                             <label for="exampleFormControlInput1">
-                              Personal Email ID{" "}
+                               Email ID{" "}
                             </label>
                             <input
                               type="email"
@@ -1214,7 +1217,7 @@ const Kanban = () => {
                         <div className="col-md-4">
                           <div className="form-group">
                             <label for="exampleFormControlInput1">
-                              Domain Experience
+                              {/* Domain Experience */}
                             </label>
                             <input
                               type="text"
@@ -2154,7 +2157,7 @@ const Kanban = () => {
                                     <div className="pull-right">
                                       <button className="card-header-bt-rigt">
                                         {" "}
-                                        {column.count}Items
+                                        {column.count}Item
                                       </button>
                                     </div>
                                   </div>

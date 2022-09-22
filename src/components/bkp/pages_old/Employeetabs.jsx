@@ -143,7 +143,7 @@ export default function BasicTabs() {
                             </div>
                             <div className="col-md-4">
                                 <div className="form-group">
-                                    <label for="exampleFormControlInput1">Domain Experience</label>
+                                    {/* <label for="exampleFormControlInput1">Domain Experience</label> */}
                                     <input type="text" name="domain_exp"  onChange={handleChange1} value={values.domain_exp} className="form-control" ></input>
                                 </div>
                             </div>

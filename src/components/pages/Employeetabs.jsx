@@ -1,6 +1,5 @@
 import React, { Fragment} from 'react';
 import { useState, useEffect } from "react";
-
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -111,7 +110,7 @@ export default function BasicTabs({setColumns}) {
         <div className="panel-heading">
           <h4 className="panel-title">
             <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseOne">
-            Basic Information
+         
             </a>
           </h4>
         </div>
@@ -151,30 +150,31 @@ export default function BasicTabs({setColumns}) {
                                 </div>
                                
                             </div>
+                            
                             <div className="col-md-4">
                                 <div className="form-group">
                                     <label for="exampleFormControlInput1">Skill Set</label>
 
                                     <Multiselect
-        isObject={false}
-        onRemove={(event) => {
-    
-        }}
-        onSelect={onSelect}
-        options={skill}
-        className="form-control"
-        showCheckbox
-        name="skillset"
-      
-      />
-                       {errors.Skillsetvalue && <p className="EmptabValidation">{errors.Skillsetvalue}</p>}            
+                                            isObject={false}
+                                            onRemove={(event) => {
+                                        
+                                            }}
+                                            onSelect={onSelect}
+                                            options={skill}
+                                            className="form-control"
+                                            showCheckbox
+                                            name="skillset"
+                                          
+                                          />
+                                              {errors.Skillsetvalue && <p className="EmptabValidation">{errors.Skillsetvalue}</p>}            
                                 </div>
                               
                             </div>
                             
                             <div className="col-md-4">
                                 <div className="form-group">
-                                    <label for="exampleFormControlInput1">Personal E </label>
+                                    <label for="exampleFormControlInput1">Personal Email </label>
                                     <input type="email" name="p_email"  onChange={handleChange1} value={values.p_email} className="form-control" ></input>
                                     {errors.Emailvalue && <p className="EmptabValidation">{errors.Emailvalue}</p>}  
                                 </div>

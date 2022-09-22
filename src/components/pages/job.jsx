@@ -10,6 +10,8 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
+import Multiselect from "multiselect-react-dropdown";
+
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Jobdetailsmodal from "./Jobdetailsmodal";
@@ -46,6 +48,13 @@ const styles = (theme) => ({
   },
 });
 
+
+this.state = {
+  options: [{name: 'Option 1', id: 1},{name: 'Option 2', id: 2}]
+};
+
+
+
 let id = 0;
 function createData(
   jobid,
@@ -74,6 +83,7 @@ function createData(
     action,
   };
 }
+
 
 const data = [
   createData(
@@ -150,6 +160,8 @@ const data = [
   ),
 ];
 
+
+
 export default function Job(props) {
   const [joblist, SetJoblist] = useState([]);
   const [location, SetLocation] = useState([]);
@@ -167,6 +179,21 @@ export default function Job(props) {
     job_location: "",
     job_description: "",
   });
+  const [errors, setErrors] = useState({});
+  const [selectedOption, setSelectedOption] = useState(0);
+  const [skill, setSkill] = useState([
+    "PHP",
+    "JAVA",
+    "MYSQL",
+    "HTML",
+    "PYTHON",
+    "JAVASCRIPT",
+    "JQUERY",
+    "ANGULAR",
+    "REACT JS",
+
+  ]);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetValues({
@@ -174,6 +201,13 @@ export default function Job(props) {
       [name]: value,
     });
   };
+
+  const onSelect = (event) => {
+    // console.log(event);
+    setSelectedOption(event);
+  };
+
+
 
   useEffect(() => {
     loadJobs();
@@ -290,35 +324,87 @@ export default function Job(props) {
                       ></input>
                     </div>
                   </div>
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label for="exampleFormControlInput1">Post</label>
-                      <select
-                        id="dropdown"
-                        name="job_post"
-                        onChange={handleChange}
-                        value={values.job_post}
-                        className="form-control"
-                      >
-                        <option value="">Select Post</option>
-                        {postvalues.map(({ post_name, id }, index) => (
-                          <option value={id}>{post_name}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label for="exampleFormControlInput1">Skill Set</label>
-                      <input
-                        type="text"
-                        name="job_skillset"
-                        onChange={handleChange}
-                        value={values.job_skillset}
-                        className="form-control"
-                      ></input>
-                    </div>
-                  </div>
+                 
+                 
+                  {/* <div className="col-md-4">
+                                <div className="form-group">
+                                    <label for="exampleFormControlInput1">Skill Set</label>
+
+                                    <Multiselect
+                            isObject={false}
+                            onRemove={(event) => {
+                        
+                            }}
+                            onSelect={onSelect}
+                            options={skill}
+                            className="form-control"
+                            showCheckbox
+                            name="skillset"
+      
+      />
+                       {errors.Skillsetvalue && <p className="EmptabValidation">{errors.Skillsetvalue}</p>}            
+                                </div>
+                              
+                            </div> */}
+              
+                            <Multiselect
+  displayValue="key"
+  onKeyPressFn={(event)=>{console.log(event);}}
+  onRemove={(event)=>{console.log(event);}}
+  onSearch={(event)=>{console.log(event);}}
+  onSelect={(event)=>{console.log(event);}}
+  options={[
+    {
+      cat: 'Group 1',
+      key: 'Option 1'
+    },
+    {
+      cat: 'Group 1',
+      key: 'Option 2'
+    },
+    {
+      cat: 'Group 1',
+      key: 'Option 3'
+    },
+    {
+      cat: 'Group 2',
+      key: 'Option 4'
+    },
+    {
+      cat: 'Group 2',
+      key: 'Option 5'
+    },
+    {
+      cat: 'Group 2',
+      key: 'Option 6'
+    },
+    {
+      cat: 'Group 2',
+      key: 'Option 7'
+    }
+  ]}
+  showCheckbox
+/>  
+
+                  {/* <div className="col-md-4">
+                          <div className="form-group">
+                            <label for="exampleFormControlInput1">
+                              Skill Set
+                            </label>
+                            <Multiselect
+                              isObject={false}
+                              // onRemove={editedskill}
+                              //onSelect={edithandleChange}
+                              // onSelect={editedskill}
+                              options={skill}
+                              // selectedValues={editvalues.skillset.split(",")}
+                              //value={editvalues.skillset}
+                              showCheckbox
+                              name="skillset"
+                              className="form-control"
+                            />
+                          </div>
+                        </div> */}
                   <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">experience</label>
