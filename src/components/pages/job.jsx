@@ -462,7 +462,7 @@ export default function Job(props) {
                 {" "}
                 <div className="job-open-head">Job Openings </div> 
                 <Multidropselect  />
-                <Jobswitchbuttons />
+                
                 <div className="top-right-outer add-btn-div">
                 <Jobdetailsmodal location={location} method={loadJobs}  className="col-md-3"/>
                 </div>

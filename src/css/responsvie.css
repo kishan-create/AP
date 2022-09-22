@@ -1282,6 +1282,16 @@
 .job-delete-icon{
   margin-left:3px;
 }
+.job-multi-dropselec {
+  float: left;
+  padding-left: 0px;
+  margin-top: -20px;
+  margin-bottom: 15px;
+  width: 91%;
+}
+.add-btn-div {
+  float: left;
+}
 }
 @media only screen and (max-width: 767px) {
   .calendar-width {
