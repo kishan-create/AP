@@ -184,7 +184,7 @@
 }
 [data-title]:hover::before {
   width: 264px;
-  right: -143px;
+  right: -126px;
 }
   }
 @media only screen and (max-width: 1500px) {
@@ -543,7 +543,7 @@
 }
 [data-title]:hover::before {
   width: 240px;
-  right: -115px;
+  right: -71px;
 }
 .job-table-elips { 
   width: 105px; 
@@ -553,6 +553,9 @@
 }
 .width-12 {
   width: 10%;
+}
+[data-title]:hover::after {
+  bottom: 2px;
 }
 }
 @media only screen and (max-width: 1300px) {
