@@ -135,7 +135,7 @@ export default function BasicTabs() {
                         </div>
                         <div className="col-md-4">
                             <div className="form-group">
-                                <label for="exampleFormControlInput1">Domain Experience</label>
+                                {/* <label for="exampleFormControlInput1">Domain Experience</label> */}
                                 <input type="email" className="form-control" ></input>
                             </div>
                         </div>

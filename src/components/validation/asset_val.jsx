@@ -5,19 +5,19 @@ export default function asset_val(values) {
  
 
  if (!values.asset_name.trim()) {
-    errors.asset_name = "asset name reqiured";
+    errors.asset_name = "asset name required ";
   }
   if (!values.brand_name.trim()) {
-    errors.brand_name = "brand name reqiured";
+    errors.brand_name = "brand name required ";
   }
   if (!values.asset_category.trim()) {
-    errors.asset_category = "asset category reqiured";
+    errors.asset_category = "asset category required ";
   }
   if (!values.asset_id.trim()) {
-    errors.asset_id = "asset id reqiured";
+    errors.asset_id = "asset id required ";
   }
   if (!values.model_name.trim()) {
-    errors.model_name = "model name reqiured";
+    errors.model_name = "model name required ";
   }
   if (!values.location.trim()) {
     errors.location = "location required";
@@ -26,14 +26,7 @@ export default function asset_val(values) {
      errors.individual_bulk = "individual_bulk";
   }
   
-//  if (!values.emp_location.trim()) {
-//   errors.emp_location = "Choose Location";
-// }
- 
- 
-//  if (!values.emp_gender.trim()) {
-//    errors.emp_gender = "employee gender reqiured";
-//  }
+
 
  
   return errors;

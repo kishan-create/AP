@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import Board, { moveCard } from "@lourenci/react-kanban";
-import "@lourenci/react-kanban/dist/styles.css";
+import Board, { moveCard } from "@lourenci/react-";
+import "@lourenci/react-/dist/styles.css";
 
 // Use your own styles to override the default styles
 // import "./styles.css";

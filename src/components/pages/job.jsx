@@ -10,6 +10,8 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
+ 
+
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Jobdetailsmodal from "./Jobdetailsmodal";
@@ -49,6 +51,8 @@ const styles = (theme) => ({
   },
 });
 
+ 
+
 let id = 0;
 function createData(
   jobid,
@@ -77,6 +81,7 @@ function createData(
     action,
   };
 }
+
 
 const data = [
   createData(
@@ -153,6 +158,8 @@ const data = [
   ),
 ];
 
+
+
 export default function Job(props) {
   const [joblist, SetJoblist] = useState([]);
   const [location, SetLocation] = useState([]);
@@ -171,6 +178,21 @@ export default function Job(props) {
     job_location: "",
     job_description: "",
   });
+  const [errors, setErrors] = useState({});
+  const [selectedOption, setSelectedOption] = useState(0);
+  const [skill, setSkill] = useState([
+    "PHP",
+    "JAVA",
+    "MYSQL",
+    "HTML",
+    "PYTHON",
+    "JAVASCRIPT",
+    "JQUERY",
+    "ANGULAR",
+    "REACT JS",
+
+  ]);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetValues({
@@ -178,6 +200,13 @@ export default function Job(props) {
       [name]: value,
     });
   };
+
+  const onSelect = (event) => {
+    // console.log(event);
+    setSelectedOption(event);
+  };
+
+
 
   useEffect(() => {
     loadJobs();
@@ -265,7 +294,7 @@ export default function Job(props) {
     { id: 2, name: "Victor Wayne" },
     { id: 3, name: "Jane Doe" },
   ];
-  const [skill, setSkill] = useState(["PHP", "JAVA", "MYSQL","HTML","PYTHON","JAVASCRIPT","JQUERY","ANGULAR",".NET","POWERAPPS","SALESFORCE"]);
+ 
   return (
     <div>
       <Modal

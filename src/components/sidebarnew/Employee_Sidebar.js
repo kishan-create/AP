@@ -1,27 +1,14 @@
 import React from "react";
 import './Sidebar.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faBriefcase,
-  faPaperPlane,
-  faQuestion,
-  faImage,
-  faCopy
-} from "@fortawesome/free-solid-svg-icons";
+
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
-import { Link , useLocation } from "react-router-dom";
-import {dashboard,asste,logonew} from '../../images';
-import {FaThLarge, FaChartLine, FaTools } from "react-icons/fa";
-import { FaUserTie } from "@react-icons/all-files/fa/FaUserTie";
-import { FaFileAlt } from "@react-icons/all-files/fa/FaFileAlt";
-import { IconName } from "react-icons/ai";
-import { MdPersonSearch, MdOutlineScreenSearchDesktop, MdBusinessCenter, MdOutlineAccountTree } from "react-icons/md";
-import SubMenu from "./SubMenu";
-import logout_new from "../login/Logout_new";
-import Employeeprofile from "../pages/Employeeprofile";
-import Employee_Dashboard from "../pages/Employee_Dashboard";
+import { Link  } from "react-router-dom";
+import {logonew} from '../../images';
+// import {FaTools } from "react-icons/fa";
+
+import {  MdBusinessCenter } from "react-icons/md";
+
 const $ = window.$;
  var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
   $('.side-menu .nav-item a').each(function() {
@@ -88,7 +75,7 @@ const $ = window.$;
       <div className="nav-taxt">Navigation</div>
    
          <NavItem>
-          <NavLink exact tag={Link} to={"/Employee_Dashboard"} exact activeClassName="active" className="mob-menu-clik" >
+          <NavLink exact tag={Link} to={"/Employee_Dashboard"}  activeClassName="active" className="mob-menu-clik" >
           < MdBusinessCenter/>
             Dashboard  
           </NavLink>
@@ -109,52 +96,52 @@ const $ = window.$;
   </div>
 );
 
-const submenus = [
-  [
-    {
-      title: "Home 1",
-      target: "Home-1"
-    },
-    {
-      title: "Home 2",
-      target: "Home-2"
-    },
-    {
-      itle: "Home 3",
-      target: "Home-3"
-    }
-  ],
-  [
-    {
-      icon: <MdPersonSearch/>,
-         title: "Recruitment",  
-      target: "Kanban",
+// const submenus = [
+//   [
+//     {
+//       title: "Home 1",
+//       target: "Home-1"
+//     },
+//     {
+//       title: "Home 2",
+//       target: "Home-2"
+//     },
+//     {
+//       itle: "Home 3",
+//       target: "Home-3"
+//     }
+//   ],
+//   [
+//     {
+//       icon: <MdPersonSearch/>,
+//          title: "Recruitment",  
+//       target: "Kanban",
   
-    },
-    {
-      icon:< FaTools/>,
-      title: "Onboarding",
-      target: "OfferReleasereport"
-    },
-    {
-      icon:< FaTools/>,
-      title: "Offboarding",
-      target: "Offboarding"
-    }
-  ],
-  [
-    {
-      icon: < MdOutlineAccountTree/>,
-         title: "Organization",  
-      target: "Organization",
+//     },
+//     {
+//       icon:< FaTools/>,
+//       title: "Onboarding",
+//       target: "OfferReleasereport"
+//     },
+//     {
+//       icon:< FaTools/>,
+//       title: "Offboarding",
+//       target: "Offboarding"
+//     }
+//   ],
+//   [
+//     {
+//       icon: < MdOutlineAccountTree/>,
+//          title: "Organization",  
+//       target: "Organization",
   
-    },
-    {
-      icon:< FaTools/>,
-      title: "Configuration",
-      target: "Addcategory"
-    }
-  ]
-];
+//     },
+//     {
+//       icon:< FaTools/>,
+//       title: "Configuration",
+//       target: "Addcategory"
+//     }
+//   ]
+// ];
 
 export default Employee_Sidebar;

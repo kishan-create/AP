@@ -246,7 +246,7 @@ function SimpleTable(props) {
                         data-parent=".tab-pane"
                         href="#collapseOne"
                       >
-                        Basic Information
+                     
                       </a>
                     </h4>
                   </div>
@@ -432,7 +432,7 @@ function SimpleTable(props) {
                         <div className="col-md-4">
                           <div className="form-group">
                             <label for="exampleFormControlInput1">
-                              Domain Experience
+                              {/* Domain Experience */}
                             </label>
                             <input
                               type="text"

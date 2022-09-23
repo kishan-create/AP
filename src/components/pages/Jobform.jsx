@@ -13,10 +13,10 @@ const Jobform = (job_validation) => {
     job_date_close: "",
     job_location: "",
     job_description: "",
+    selectedOption:"",
   });
 
   const [errors, setErrors] = useState({});
-  const [selectedOption, setSelectedOption] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [options, setOptions] = useState(["IT service", "Design"]);
   const [post, SetPost] = useState([]);
@@ -43,6 +43,9 @@ const Jobform = (job_validation) => {
     const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
     setOrg(orgresponse.data);
   }*/
+
+  const [selectedOption, setSelectedOption] = useState(0);
+
   const getPostname = async () => {
     const response = await fetch("http://localhost:8000/api/getposttype");
     const data = await response.json();
@@ -87,6 +90,8 @@ const Jobform = (job_validation) => {
           org_category: "",
           org_registration: "",
           org_location: "",
+          selectedOption:"",
+          
         });
       }
     });

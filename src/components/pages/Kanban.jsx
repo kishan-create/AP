@@ -998,7 +998,7 @@ const Kanban = () => {
             <ul className="nav nav-tabs">
               <li className="active">
                 <a href="#tab1" data-toggle="tab">
-                  Basic Information
+                  {/* Basic Information */}
                 </a>
               </li>
             </ul>
@@ -1057,7 +1057,7 @@ const Kanban = () => {
                             ></input>
                           </div>
                         </div>
-                        <div className="col-md-4">
+                        {/* <div className="col-md-4">
                           <div className="form-group">
                             <label for="exampleFormControlInput1">
                               Skill Set
@@ -1075,7 +1075,7 @@ const Kanban = () => {
                               className="form-control"
                             />
                           </div>
-                        </div>
+                        </div> */}
                         <div className="col-md-4">
                           <div className="form-group">
                             <label for="exampleFormControlInput1">
@@ -1217,7 +1217,7 @@ const Kanban = () => {
                         <div className="col-md-4">
                           <div className="form-group">
                             <label for="exampleFormControlInput1">
-                              Domain Experience
+                              {/* Domain Experience */}
                             </label>
                             <input
                               type="text"

@@ -162,7 +162,19 @@ window.addEventListener("resize", () => {
   clearTimeout(timeout);
   timeout = setTimeout(setDirection, 200);
 });
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   alert("test");
+//   // const test = SetErrors(employee_val(values));
+//   // // setGender(e.target.value)
+//   // // setOptions("");
+//   // setIsSubmitting(true);
 
+// };
+
+// const { handleChange, values, handleSubmit, errors,  options,designation,holidaylist,departments,uploadImage,myimage,employeelocation  } = Assetform(
+//   // employee_val
+// );
 
 const { values, handleSubmit,handleChange,errors  } = Assetform(
   asset_val
@@ -353,7 +365,6 @@ const { values, handleSubmit,handleChange,errors  } = Assetform(
         
       </div>
   </div>
-
   
   <div className="bottom-button-bg">
             <button type="button" onClick={handleSubmit}  className="btn  btn-save "  > Save</button>
