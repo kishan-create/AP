@@ -156,6 +156,9 @@ const animatedComponents = makeAnimated();
       if (response.data.status === 200) {
         this.setState({
           employeelist: response.data.emp,
+          activecount:response.data.countactive,
+        noticecount:response.data.countnotice,
+        inactivecount:response.data.inactivecount,
           loading: false,
         });
   
@@ -323,6 +326,9 @@ const animatedComponents = makeAnimated();
         if (response.data.status === 200) {
           this.setState({
             employeelist: response.data.emp,
+            activecount:response.data.countactive,
+            noticecount:response.data.countnotice,
+            inactivecount:response.data.inactivecount,
             loading: false,
           });
     

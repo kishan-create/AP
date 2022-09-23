@@ -153,6 +153,9 @@ export default class Emplyelist extends Component {
     if (response.data.status === 200) {
       this.setState({
         employeelist: response.data.emp,
+        activecount:response.data.countactive,
+        noticecount:response.data.countnotice,
+        inactivecount:response.data.inactivecount,
         loading: false,
       });
 
@@ -319,6 +322,9 @@ export default class Emplyelist extends Component {
       if (response.data.status === 200) {
         this.setState({
           employeelist: response.data.emp,
+          activecount:response.data.countactive,
+          noticecount:response.data.countnotice,
+          inactivecount:response.data.inactivecount,
           loading: false,
         });
   
@@ -465,14 +471,24 @@ export default class Emplyelist extends Component {
   
         <div className="empoyee-list-content-are ">
           <List>
-            <ListItem>
+            <ListItem key="1">
               {this.state.employeelist.map((n) => {
-
+               if(n.status=='active')
+               {
+                  var divclass="green-bg";
+               }
+               else if(n.status=='notice')
+               {
+                var divclass="orange-bg";
+               }
+               else {
+                var divclass="red-bg";
+               }
                 // var p_image= "http://localhost/audit_portal/public/uploads/profile/" +
                 //
               
                 return (
-                  <div className="emp-card">
+                  <div className="emp-card" key={n.empid}>
        
                   <div className=" ">
         
@@ -485,13 +501,16 @@ export default class Emplyelist extends Component {
                         <Card.Content className="emplyee-card-top">
                       
                           <div className="emplyee-card-left">
-                            <div className="tick-round green-bg">
-                              <img src={tick} />
+                            <div className={`tick-round ${divclass}`}>
+                            {n.status == "notice"? <img src={tick}  data-tip data-for= {"registerTip1_" + n.empid}/> :<img src={tick} /> }
+                              <ReactTooltip id={"registerTip1_" + n.empid} place="top" effect="solid" className="np-tooltipbox">
+      <span className="np-style">  { n.Days ? n.Days+' ' +'Days left' : null } </span> 
+      </ReactTooltip>
                             </div>
                             <div className="tick-round purple-bg">
                               <MdPhone className="emp-card-phon" />
                             </div>
-
+                          
 
                           </div>
                            
@@ -554,12 +573,7 @@ export default class Emplyelist extends Component {
                               
                               <div className="right">
                              
-                              {n.Days !== null?<button className="btn-clr-whit" data-tip data-for= {"registerTip1" + n.empid}>
-       <i class="fa fa-bell np-style"  aria-hidden="true"></i>
-      </button>    : null }
-      <ReactTooltip id={"registerTip1" + n.empid} place="top" effect="solid" className="np-tooltipbox">
-      <span className="np-style">  { n.Days ? n.Days+' ' +'Days left' : null } </span> 
-      </ReactTooltip>
+                              
                           
                               </div>
                              

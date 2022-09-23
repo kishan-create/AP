@@ -254,13 +254,14 @@ export default function Jobdetailsmodal({ location, method }) {
                   <div className="col-md-12">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Description</label>
-                      <input
+                      <textarea
+
                         type="text area"
                         name="job_description"
                         onChange={handleChange}
                         value={values.job_description}
                         className="form-control"
-                      ></input>
+                      />
                       {errors.job_description && (
                         <p className="message">{errors.job_description}</p>
                       )}

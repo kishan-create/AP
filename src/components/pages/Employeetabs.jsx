@@ -174,7 +174,7 @@ export default function BasicTabs({setColumns}) {
                             
                             <div className="col-md-4">
                                 <div className="form-group">
-                                    <label for="exampleFormControlInput1">Personal E </label>
+                                    <label for="exampleFormControlInput1">Personal Email </label>
                                     <input type="email" name="p_email"  onChange={handleChange1} value={values.p_email} className="form-control" ></input>
                                     {errors.Emailvalue && <p className="EmptabValidation">{errors.Emailvalue}</p>}  
                                 </div>

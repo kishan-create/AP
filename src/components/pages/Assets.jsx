@@ -57,6 +57,16 @@ const data = [
 
 
   export default class Assets extends Component {
+    constructor() {
+      super();
+      this.state = {
+        assetlist: [],
+        }
+      };
+      componentDidMount()
+   {
+     this.getallHolidays(this.props.match.params.id);
+   }
   render() {
     return (
         <main className="inner-content-box">

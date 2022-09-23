@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LinesEllipsis from 'react-lines-ellipsis'
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import Modal from "react-modal";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
@@ -17,6 +18,7 @@ import { location } from "../../images";
 import { profilei } from "../../images/profilei.svg";
 import axios from "axios";
 import swal from "sweetalert";
+import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import EditIcon from "@mui/icons-material/Edit";
@@ -149,6 +151,16 @@ const data = [
     ""
   ),
 ];
+// const OverflowTip = props => {
+//   // Create Ref
+//   const textElementRef = useRef();
+
+//   const compareSize = () => {
+//     const compare =
+//       textElementRef.current.scrollWidth > textElementRef.current.clientWidth;
+//     console.log('compare: ', compare);
+//     setHover(compare);
+//   };
 
 export default function Job(props) {
   const [joblist, SetJoblist] = useState([]);
@@ -174,6 +186,8 @@ export default function Job(props) {
       [name]: value,
     });
   };
+
+
 
   useEffect(() => {
     loadJobs();
@@ -203,7 +217,7 @@ export default function Job(props) {
     const reponse = await axios.get(
       `http://localhost:8000/api/editfecthjobdata/${job_id}`
     );
-   
+
     if (reponse.data.status == 200) {
       SetValues({
         job_id: reponse.data.job[0].job_id,
@@ -244,9 +258,20 @@ export default function Job(props) {
       });
     }
   };
+
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
   const { classes } = props;
 
-  function afterOpenModal() {}
+  function afterOpenModal() { }
 
   function closeModal() {
     setIsOpen(false);
@@ -322,7 +347,7 @@ export default function Job(props) {
                   </div>
                   <div className="col-md-4">
                     <div className="form-group">
-                      <label for="exampleFormControlInput1">experience</label>
+                      <label for="exampleFormControlInput1">Experience</label>
                       <input
                         type="text"
                         name="job_experience"
@@ -376,7 +401,7 @@ export default function Job(props) {
                   </div>
                   <div className="col-md-4">
                     <div className="form-group">
-                      <label for="exampleFormControlInput1">date close</label>
+                      <label for="exampleFormControlInput1">Date close</label>
                       <input
                         type="date"
                         name="job_date_close"
@@ -409,14 +434,14 @@ export default function Job(props) {
                   </div>
                   <div className="col-md-12">
                     <div className="form-group">
-                      <label for="exampleFormControlInput1">description</label>
-                      <input
-                        type="email"
+                      <label for="exampleFormControlInput1">Description</label>
+                      <textarea
+                        type="textarea"
                         name="job_description"
                         onChange={handleChange}
                         value={values.job_description}
                         className="form-control"
-                      ></input>
+                      />
                     </div>
                   </div>
                 </div>
@@ -493,9 +518,12 @@ export default function Job(props) {
                               {n.job_date_close}
                             </TableCell>
 
-                            <TableCell numeric className="width-12">
-                              {" "}
-                              {n.job_description}
+                            <TableCell numeric className="width-12" data-title={n.job_description}>
+                            {n.job_description.substring(0, 12)+'...'}
+
+                              
+
+                            
                             </TableCell>
                             <TableCell
                               numeric

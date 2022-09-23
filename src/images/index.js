@@ -32,3 +32,4 @@ export const india = require('./india.png').default;
 export const us = require('./us.png').default; 
 export const wnc = require('./wnc.png').default; 
 export const rand = require('./rand.png').default; 
+export const projectover = require('./projectover.png').default; 

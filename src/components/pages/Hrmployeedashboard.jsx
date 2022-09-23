@@ -15,7 +15,7 @@ import {location, PencilNew, DeferTime, Offboarding1, Offboarding2, Offboarding3
 import {profilei,  } from '../../images/profilei.svg'; 
 import Addorganization from './Addorgaization';
 import Addbranches from './Addbranches';
-import { profileimage1, profileimage2 } from '../../images';
+import { profileimage1, profileimage2, projectover } from '../../images';
 import {
   Accordion,
   AccordionItem,
@@ -48,20 +48,23 @@ function createData(JobId, CandidateName , Department, Post, JoiningDate, Releas
 }
 
 const data = [
-  createData('Casual leave', 'Half Day','17/01/2022', '21/01/2022', 'Reeba', 'Personal reason',  '000000000', ''),  
-  createData('Earned Leave', 'Full Day','17/01/2022', '21/01/2022', 'Varun', 'Personal reason',  '000000000', ''),  
-  createData('Maternity Leave', 'Multiple day','17/01/2022', '21/01/2022', 'Reeba', 'Personal reason',  '000000000', ''),  
+  createData('BS001', 'Varun ','09:30 Am	', '06:30 Pm',  ''),  
+  createData('BS021', 'Shanu','09:30 Am	', '06:30 Pm', ''),  
+  createData('BS034', 'Manju','09:30 Am	', '06:30 Pm', ''),  
+  createData('BS101', 'Linto ','09:30 Am	', '06:30 Pm',  ''),  
+  createData('BS135', 'Kiran','09:30 Am	', '06:30 Pm', ''),  
+  createData('BS137', 'Kishan','09:30 Am	', '06:30 Pm', ''),  
 ];
 
 
-  export default class Employeedashboard extends Component {
+  export default class Hrdashboard extends Component {
   render() {
     return (
         <main className="inner-content-box">
-      <header className="main-otrer-top"> Employee </header>
+      <header className="main-otrer-top"> HR Dashboard </header>
              <section  className="main-content-area">
                 <div className="main-content-area-inner">
-                    <div className="sub-head organization-sub-head">  Employee Dashboard
+                    <div className="sub-head organization-sub-head"> HR  Profile
                     <div className="top-right-outer add-btn-div onboar-main-top-right">
                               <div className="offer-release-top">
                                     <input className="form-control" type="text" id=" " name=" " placeholder="Search " />
@@ -76,129 +79,27 @@ const data = [
                                     
                                 </div>
                     </div>
-                    <div  className="onboarding-top-outer"> 
-                            <div  className="box-2"> 
-                                <div  className="box-inner-empdash"> 
-                                  <div  className="information-card-head">Basic Information
-                                  </div>
-                                  <div  className="row txt-row-hght border-0 employee-basic-outer"> 
-                                        <div  className="col-md-4  "> 
-                                              <div className="profilepic"> <img src={profileimage1} /></div>
-                                              <div className="info-card-prfl-txt "> 
-                                              <div className='m-b-15'>Linto Thomas </div>
-                                                            <a href="Employeeprofile/1" className="blue-button empl-das-viewmore">
-                                                                View More
-                                                            </a> 
-                                              </div>                                   
-                                        </div> 
-                                        <div  className="col-md-8 profile-basic-right">
-                                                <div  className="row txt-row-hght">                                                     
-                                                    <div  className="col-md-6 info-card-cont "> Employee Code             <span className="dot-sty">:</span>
-                                                    </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt "> BOS060
-                                                    </div>                                
-                                              </div> 
-                                              <div  className="row txt-row-hght">                                                     
-                                                    <div  className="col-md-6 info-card-cont "> Designation            <span className="dot-sty">:</span>
-                                                    </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt ">Software Engineer
-                                                    </div>                                
-                                              </div> 
-                                             
-                                              <div  className="row txt-row-hght">                                                     
-                                                    <div  className="col-md-6 info-card-cont "> Company Email ID           <span className="dot-sty">:</span>
-                                                    </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt "> linto.bourntec.com
-                                                    </div>                                
-                                              </div> 
-                                              <div  className="row txt-row-hght">                                                     
-                                                    <div  className="col-md-6 info-card-cont "> Contact Number           <span className="dot-sty">:</span>
-                                                    </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt "> 9946086904
-                                                    </div>                                
-                                              </div> 
-                                              <div  className="row txt-row-hght">                                                     
-                                                    <div  className="col-md-6 info-card-cont "> Total Experience  <span className="dot-sty">:</span>
-                                                    </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt "> 9 years
-                                                    </div>                                
-                                              </div> 
-                                              <div  className="row txt-row-hght">                                                     
-                                                    <div  className="col-md-6 info-card-cont "> Joining Date <span className="dot-sty">:</span>
-                                                    </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt "> 2013-02-08
-                                                    </div>                                
-                                              </div> 
-                                              <div  className="row txt-row-hght">                                                     
-                                                    <div  className="col-md-6 info-card-cont "> Location <span className="dot-sty">:</span>
-                                                    </div>
-                                                    <div  className="col-md-6 info-card-cont-rgt "> Kochi
-                                                    </div>                                
-                                              </div> 
-                                               
-                                        </div>
-                                                                    
-                                  </div>
-                            </div>
-                            <div  className="box-inner-empdash"> 
-                            <div  className="onboarding-top-outer"> 
-                            <div  className="box-2"> 
-                                <div  className="box-inner box-inner-emp-leave">  
-                                      <div className='left'>
-                                      <p>Total Attendance</p>
-                                      <span>168</span>
-                                      </div>
-                                      <i class="fa fa-user-plus emp-attentance-icon" aria-hidden="true"></i>
-                                </div>
-                                <div  className="box-inner box-inner-emp-leave">  
-                                      <div className='left'>
-                                      <p>Absent</p>
-                                      <span>05</span>
-                                      </div>
-                                      <i class="fa fa-user-times emp-attentance-icon" aria-hidden="true"></i>
-                                </div>
-                                <div  className="box-inner box-inner-emp-leave">  
-                                      <div className='left'>
-                                      <p>Awards</p>
-                                      <span>01</span>
-                                      </div>
-                                      <i class="fa fa-trophy emp-attentance-icon" aria-hidden="true"></i>
-                                </div>
-                                <div  className="box-inner box-inner-emp-leave">  
-                                      <div className='left'>
-                                      <p className='m-b-15'>Leaves Overview</p>
-                                      
-                                      <a href="Employeeprofile/1" className="blue-button empl-das-viewmore">
-                                                                Apply
-                                                            </a> 
-                                      </div>
-                                      <i class="fa fa-paper-plane emp-attentance-icon" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                            </div>
-                            </div>
-                        </div>
+                    
             <div className='onboarding-top-outer'>
                 <div className='box'>
                         <div className="box-inner">
                             <div className='left'>
-                            <p>Projects Assigned</p>
-                            <span>08</span>
+                            <p>Total Employees </p>
+                            <span>123</span>
                             </div>
                             <img src={Offboarding3} />
                         </div>
                         <div className="box-inner onboard-ligt-violet">
                             <div className='left'>
-                            <p>Projects Completed</p>
-                            <span>03</span>
+                            <p>Total Projects</p>
+                            <span>23</span>
                             </div>
                             <img src={Offboarding2} />
                         </div>
                         <div className="box-inner onboard-ligt-blue">
                             <div className='left'>
-                            <p>Projects Inprogress</p>
-                            <span>05</span>
+                            <p>All Department</p>
+                            <span>15</span>
                             </div>
                             <img src={Offboarding1} />
                         </div>
@@ -223,19 +124,19 @@ const data = [
                                                     
                                                     </TableCell>
                                                     <TableCell className=" holiday-name-sty"> 
-                                                        <div className="holiday-datesty">01 <br></br>Apr</div>  
+                                                        <div className="holiday-datesty1">01 <br></br>Apr</div>  
                                                     </TableCell>   
                                             </TableRow>
                                             <TableRow  className=" " >
                                                     <TableCell > <div className="holiday-sub-name-sty">Deepavali</div><div className='holiday-sub-txt'>62 days to left</div></TableCell>
                                                     <TableCell className=" holiday-name-sty"> 
-                                                        <div className="holiday-datesty">14 <br></br>May</div>  
+                                                        <div className="holiday-datesty1">14 <br></br>May</div>  
                                                     </TableCell>   
                                             </TableRow>
                                             <TableRow  className=" " >
                                                     <TableCell > <div className="holiday-sub-name-sty">Christmas</div><div className='holiday-sub-txt'>94 days to left</div></TableCell>
                                                     <TableCell className=" holiday-name-sty"> 
-                                                        <div className="holiday-datesty">25 <br></br>Dec</div>  
+                                                        <div className="holiday-datesty1">25 <br></br>Dec</div>  
                                                     </TableCell>   
                                             </TableRow> 
                                         </TableBody>
@@ -249,7 +150,7 @@ const data = [
                                             <TableCell className=" "></TableCell> 
                                         </TableRow>
                                         </TableHead>
-                                        <TableBody> 
+                                        <TableBody className=''> 
                                             <TableRow  className=" " >
                                                     <TableCell > <div className='upcoming-birthday-img'><img src={profileimage2} className="m-r-15" /></div> 
                                                     <span className='upcoming-birthday-txt1'>Jennifer Kerr<br></br>
@@ -283,66 +184,165 @@ const data = [
                                         </TableBody>
                                     </Table>
                                 </div>
-                                <div  className="box-inner-empdash"> 
-                                <Table className="leave-tabele m-tb-empdash">
+                                <div  className="box-inner-empdash events-scroll-box "> 
+                                <Table className="leave-tabele m-tb-empdash scroll-head-sty ">
                                         <TableHead> 
                                         <TableRow> 
                                             <TableCell className="f-16">Recent Events</TableCell>
                                             <TableCell className=" "></TableCell> 
                                         </TableRow>
                                         </TableHead>
+                                         
+                                    </Table>
+                                    <div  className="upcomming-events-box"> 
+                                <Table className="leave-tabele m-tb-empdash  upcomming-events-box-cont">
+                                         
                                         <TableBody>  
                                             <TableRow  className=" " >
-                                                    <TableCell > 
-                                                    <span className='upcoming-birthday-txt1'>2 people will be away tomorrow<br></br>
+                                                    <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1 scroll-ent-1'>2 people will be away tomorrow<br></br>
                                                     <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
                                                     </span> 
                                                     </TableCell>
-                                                    <TableCell className=" ">  
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                    <div className="holiday-datesty">01 <br></br>Apr</div>  
                                                     </TableCell>   
                                             </TableRow>
                                             <TableRow  className=" " >
-                                                    <TableCell > 
+                                                   <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1 scroll-ent-2'>
+                                                      Your first day is going to be on Thursday 
+                                                      <br></br>
+                                                    <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
+                                                    </span> 
+                                                    </TableCell>
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">14 <br></br>May</div>  
+                                                    </TableCell>    
+                                            </TableRow>
+                                            <TableRow  className=" " >
+                                                  <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1 scroll-ent-1'>Richard Miles is off sick today
+
+<br></br>
+                                                    <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
+                                                    </span> 
+                                                    </TableCell>
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">25 <br></br>Dec</div>  
+                                                    </TableCell>    
+                                            </TableRow>
+                                            <TableRow  className=" " >
+                                                  <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1 scroll-ent-2'>2 people will be away tomorrow<br></br>
+                                                    <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
+                                                    </span> 
+                                                    </TableCell>
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">214 <br></br>May</div>  
+                                                    </TableCell>    
+                                            </TableRow>
+                                            <TableRow  className=" " >
+                                                   <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1 scroll-ent-1'>
+                                                      Your first day is going to be on Thursday 
+                                                      <br></br>
+                                                    <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
+                                                    </span> 
+                                                    </TableCell>
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">21 <br></br>Apr</div>  
+                                                    </TableCell>    
+                                            </TableRow>
+                                            <TableRow  className=" " >
+                                                  <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1 scroll-ent-2'>Richard Miles is off sick today
+
+<br></br>
+                                                    <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
+                                                    </span> 
+                                                    </TableCell>
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">14 <br></br>May</div>  
+                                                    </TableCell>    
+                                            </TableRow>
+                                            <TableRow  className=" " >
+                                                  <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1 scroll-ent-1'>2 people will be away tomorrow<br></br>
+                                                    <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
+                                                    </span> 
+                                                    </TableCell>
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">14 <br></br>Dec</div>  
+                                                    </TableCell>     
+                                            </TableRow>
+                                            <TableRow  className=" " >
+                                                  <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1 scroll-ent-2'>2 people will be away tomorrow<br></br>
+                                                    <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
+                                                    </span> 
+                                                    </TableCell>
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">25 <br></br>Dec</div>  
+                                                    </TableCell>    
+                                            </TableRow>
+                                            <TableRow  className=" " >
+                                                   <TableCell  className="scrollCell-root " > 
                                                     <span className='upcoming-birthday-txt1'>
                                                       Your first day is going to be on Thursday 
                                                       <br></br>
                                                     <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
                                                     </span> 
                                                     </TableCell>
-                                                    <TableCell className=" ">  
-                                                    </TableCell>   
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">24 <br></br>May</div>  
+                                                    </TableCell>    
                                             </TableRow>
                                             <TableRow  className=" " >
-                                                    <TableCell > 
+                                                  <TableCell  className="scrollCell-root " > 
                                                     <span className='upcoming-birthday-txt1'>Richard Miles is off sick today
 
 <br></br>
                                                     <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
                                                     </span> 
                                                     </TableCell>
-                                                    <TableCell className=" ">  
-                                                    </TableCell>   
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">25 <br></br>Dec</div>  
+                                                    </TableCell>    
+                                            </TableRow>
+                                            <TableRow  className=" " >
+                                                  <TableCell  className="scrollCell-root " > 
+                                                    <span className='upcoming-birthday-txt1'>2 people will be away tomorrow<br></br>
+                                                    <span className='upcoming-birthday-txt2'>19 Feb 2020 </span>
+                                                    </span> 
+                                                    </TableCell>
+                                                    <TableCell className=" holiday-name-sty scrollCell-root "> 
+                                                        <div className="holiday-datesty">14 <br></br>May</div>  
+                                                    </TableCell>    
                                             </TableRow>
                                         </TableBody>
                                     </Table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                    <div className="col-md-12 job-main-tb-outer">    
+                        <div  className="onboarding-top-outer"> 
+                            <div  className="box-2"> 
+                                <div  className="box-inner-empdash"> 
+                                  <div  className="hr-card-head">Attendance
+                                  </div>
+                                  
                     <Paper className="recruitment-table-outer job-outer organazation-table-top">
       <Table className="recruitment-tabele">
         <TableHead>
         
         <TableRow>
         
-            <TableCell className="width-12">Leave Type</TableCell>
-            <TableCell className="width-20">Leave Days</TableCell>
-            <TableCell className="width-20">From date </TableCell>
-            <TableCell className="width-20">To date</TableCell>
-            <TableCell className="width-15">Approved By</TableCell>
-            <TableCell className="width-15">Reason</TableCell> 
-            <TableCell className="width-12 ">Action</TableCell>
+            <TableCell className="width-20">Emp Code</TableCell>
+            <TableCell className="width-20">Name</TableCell>
+            <TableCell className="width-20">CheckIn</TableCell>
+            <TableCell className="width-20">CheckOut</TableCell>
+            <TableCell className="width-20">Status</TableCell> 
            
           </TableRow>
         </TableHead>
@@ -350,31 +350,12 @@ const data = [
         {data.map(n => {
             return (
               <TableRow  key={n.id} >
-                    <TableCell  className="width-12"> {n.JobId}</TableCell>
+                    <TableCell  className="width-20"> {n.JobId}</TableCell>
                     <TableCell numeric className="width-20">{n.CandidateName}</TableCell>                          
                     <TableCell numeric className=" width-20">{n.Department} </TableCell>
                     <TableCell numeric className=" width-20">{n.Post} </TableCell>
-                    <TableCell numeric className="width-15">{n.JoiningDate}</TableCell>
-                    <TableCell numeric className="width-15">{n.ReleaseDate}</TableCell> 
-                    <TableCell numeric className="width-12 inprogress-td ">
-                    <div className="emp-map-iocn-outer">
-                                     
-
-                       <div className="emp-edit-new-icon ">
-                            <a href="/Assetsdetails">
-                            <img src={PencilNew} />                        
-                            </a>
-                        </div>
-                        <div className="emp-defer-icon ">
-                            <a href="">
-                            <img src={DeferTime}/>
-                            </a>
-                        </div>
-
-
-                             </div>
-
-                    </TableCell>
+                    <TableCell numeric className="width-20"><span class="badge bg-success-transparent">Present</span></TableCell>
+                     
                                       </TableRow>
              
             );
@@ -386,7 +367,19 @@ const data = [
       </Table>
        
        </Paper>          
-                    </div>
+                     
+                            </div>
+                            <div  className="box-inner-empdash"> 
+                            <div  className="onboarding-top-outer"> 
+                            <div  className="hr-card-head">Project Overview
+
+                                  </div>
+                                  <img src={projectover}  />
+                        </div>
+                            </div>
+                            </div>
+                        </div>
+                   
 
                     <div className="accrodion-mob-outer">
   <Accordion preExpanded={"a"} className="job-accrodion">
