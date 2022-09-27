@@ -184,7 +184,7 @@
 }
 [data-title]:hover::before {
   width: 264px;
-  right: -143px;
+  right: -126px;
 }
   }
 @media only screen and (max-width: 1500px) {
@@ -195,7 +195,7 @@
   }
   .recruitment-tabele th,
   .recruitment-tabele td {
-    font-size: 13px;
+    font-size: 12px;
     padding: 11px 8px;
   }
   .in-progress-card--bt-top {
@@ -543,7 +543,7 @@
 }
 [data-title]:hover::before {
   width: 240px;
-  right: -115px;
+  right: -71px;
 }
 .job-table-elips { 
   width: 105px; 
@@ -553,6 +553,9 @@
 }
 .width-12 {
   width: 10%;
+}
+[data-title]:hover::after {
+  bottom: 2px;
 }
 }
 @media only screen and (max-width: 1300px) {
