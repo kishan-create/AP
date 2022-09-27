@@ -24,7 +24,7 @@ const [holidaylist,SetHolidaylist]=useState();
   const handleRemove = (selectedList) => {
     setItems(selectedList);
   };
-  const handleClick = (e) => {
+  const handleClick = (e) => {  
     var id = e.target.value;
     if (id == 1) {
       setShowLocation(true);
@@ -71,7 +71,7 @@ const [holidaylist,SetHolidaylist]=useState();
     const data = await response.json();
     const list = data.holidaylist; 
     SetHolidaylist(list);
-    console.log("test ",list[0]);
+    // console.log("test ",list[0]);
   
   }
 

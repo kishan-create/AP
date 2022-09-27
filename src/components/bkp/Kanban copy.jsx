@@ -513,7 +513,7 @@ const Kanban = () => {
   );
 };
 
-export default Kanban;
+export default ;
 
 function TabPanel(props) {
   const { children, value, index } = props;

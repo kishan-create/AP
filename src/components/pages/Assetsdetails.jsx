@@ -13,7 +13,7 @@ import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
  
 
   
-const Assetsdetails = () => {
+const details = () => {
    
  
   return (
@@ -26,7 +26,7 @@ const Assetsdetails = () => {
                             <div className="sub-head profile-sub">Asset Details
                             <div className="top-right-outer add-btn-div">
                                     <div className="buttons-outer">
-                                        <a href="Assetsdetails" className="blue-button">
+                                        <a href="details" className="blue-button">
                                          <CreateOutlinedIcon className="add-btn-icon" />
                                              
                                             Edit
@@ -223,5 +223,5 @@ const Assetsdetails = () => {
   );
 };
 
-export default Assetsdetails;
+export default details;
  

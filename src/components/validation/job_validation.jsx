@@ -8,9 +8,9 @@ export default function job_validation(values) {
   if (!values.job_post.trim()) {
     errors.job_post = "Job Post required";
   }
-  if (!values.job_skillset.trim()) {
+  /*if (!values.job_skillset.trim()) {
     errors.job_skillset = "Job Skillset required";
-  }
+  }*/
   if (!values.job_experience.trim()) {
     errors.job_experience = "Job Experience required";
   }

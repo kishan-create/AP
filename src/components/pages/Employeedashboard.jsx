@@ -68,7 +68,7 @@ const data = [
                                     <button type="button"> <FaSearch className="add-btn-icon" /></button>
                                 </div>
                                     <div className="buttons-outer">
-                                        <a href="Addassets" className="blue-button">
+                                        <a href="Add" className="blue-button">
                                             Export
                                         </a>
                                     </div>
@@ -361,7 +361,7 @@ const data = [
                                      
 
                        <div className="emp-edit-new-icon ">
-                            <a href="/Assetsdetails">
+                            <a href="/details">
                             <img src={PencilNew} />                        
                             </a>
                         </div>

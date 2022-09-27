@@ -13,6 +13,7 @@ const Jobform = (job_validation) => {
     job_date_close: "",
     job_location: "",
     job_description: "",
+    selectedOption:"",
   });
 
   const [errors, setErrors] = useState({});
@@ -26,9 +27,13 @@ const Jobform = (job_validation) => {
       [name]: value,
     });
   };
-
+  const onSelect = (event) => {
+    // console.log(event);
+    setSelectedOption(event);
+  };
   useEffect(() => {
     getPostname();
+    //console.log(Object.keys(errors).length);
     if (Object.keys(errors).length === 0 && isSubmitting) {
       onSubmitform();
     }
@@ -38,6 +43,9 @@ const Jobform = (job_validation) => {
     const orgresponse=await fetch("http://localhost:8000/api/getOrganization/");
     setOrg(orgresponse.data);
   }*/
+
+  const [selectedOption, setSelectedOption] = useState(0);
+
   const getPostname = async () => {
     const response = await fetch("http://localhost:8000/api/getposttype");
     const data = await response.json();
@@ -51,8 +59,21 @@ const Jobform = (job_validation) => {
     setIsSubmitting(true);
   };
   const onSubmitform = (e) => {
-    //console.log(values)
-    const response = axios.post("http://localhost:8000/api/add_jobs", values);
+   // console.log(values);
+   const formData = new FormData();
+    formData.append("job_skillset", selectedOption);
+    formData.append("job_id", values.job_id);
+    formData.append("job_experience", values.job_experience);
+    formData.append("job_post", values.job_post);
+    formData.append("job_location", values.job_location);
+    formData.append("job_date_open", values.job_date_open);
+    formData.append("job_date_close", values.job_date_close);
+    formData.append("job_description", values.job_description);
+    formData.append("job_status", values.job_location);
+    formData.append("job_openings", values.job_location);
+    
+    
+    const response = axios.post("http://localhost:8000/api/add_jobs", formData);
     response.then(function(res) {
       if (res.data.status === 200) {
         //console.log(res.data.message);
@@ -69,11 +90,13 @@ const Jobform = (job_validation) => {
           org_category: "",
           org_registration: "",
           org_location: "",
+          selectedOption:"",
+          
         });
       }
     });
   };
 
-  return { handleChange, values, handleSubmit, errors, post };
+  return { handleChange, values, handleSubmit, errors, post,onSelect };
 };
 export default Jobform;

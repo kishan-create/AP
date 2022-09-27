@@ -11,17 +11,21 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
+ 
+
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Jobdetailsmodal from "./Jobdetailsmodal";
 import { location } from "../../images";
 import { profilei } from "../../images/profilei.svg";
 import axios from "axios";
-import swal from "sweetalert";
-import Tooltip from '@material-ui/core/Tooltip';
+import swal from "sweetalert"; 
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import Multiselect from "multiselect-react-dropdown";
 import EditIcon from "@mui/icons-material/Edit";
+import Togbtn from "./Togbtn";
+import Multidropselect from "./Multidropselect";
+import Jobswitchbuttons from "./Jobswitchbuttons";
 import {
   Accordion,
   AccordionItem,
@@ -47,6 +51,8 @@ const styles = (theme) => ({
     paddingLeft: 5,
   },
 });
+
+ 
 
 let id = 0;
 function createData(
@@ -76,6 +82,7 @@ function createData(
     action,
   };
 }
+
 
 const data = [
   createData(
@@ -162,11 +169,14 @@ const data = [
 //     setHover(compare);
 //   };
 
+
+
 export default function Job(props) {
   const [joblist, SetJoblist] = useState([]);
   const [location, SetLocation] = useState([]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [postvalues, SetPostvalues] = useState([]);
+  const [editskill, seteditedSkill] = useState(0);
   const [values, SetValues] = useState({
     job_id: "",
     job_post: "",
@@ -179,12 +189,32 @@ export default function Job(props) {
     job_location: "",
     job_description: "",
   });
+  const [errors, setErrors] = useState({});
+  const [selectedOption, setSelectedOption] = useState(0);
+  const [skill, setSkill] = useState([
+    "PHP",
+    "JAVA",
+    "MYSQL",
+    "HTML",
+    "PYTHON",
+    "JAVASCRIPT",
+    "JQUERY",
+    "ANGULAR",
+    "REACT JS",
+
+  ]);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetValues({
       ...values,
       [name]: value,
     });
+  };
+
+  const onSelect = (event) => {
+    // console.log(event);
+    setSelectedOption(event);
   };
 
 
@@ -277,11 +307,17 @@ export default function Job(props) {
     setIsOpen(false);
     loadJobs();
   }
+  const editedskill = (event) => {
+    seteditedSkill(event);
+
+   
+  };
   const data = [
     { id: 1, name: "John Doe" },
     { id: 2, name: "Victor Wayne" },
     { id: 3, name: "Jane Doe" },
   ];
+ 
   return (
     <div>
       <Modal
@@ -297,7 +333,7 @@ export default function Job(props) {
               <h4 className="popup-head-h4"> Edit Job Settings</h4>
             </div>
             <div className="popup-head-icon-sty">
-              <MdClose className="popup-close-btn" onClick={closeModal} />
+             <MdClose className="popup-close-btn" onClick={closeModal} />
             </div>
           </div>
           <div className="popup-content-bg">
@@ -334,17 +370,25 @@ export default function Job(props) {
                     </div>
                   </div>
                   <div className="col-md-4">
-                    <div className="form-group">
-                      <label for="exampleFormControlInput1">Skill Set</label>
-                      <input
-                        type="text"
-                        name="job_skillset"
-                        onChange={handleChange}
-                        value={values.job_skillset}
-                        className="form-control"
-                      ></input>
-                    </div>
-                  </div>
+                          <div className="form-group">
+                            <label for="exampleFormControlInput1">
+                              Skill Set
+                            </label>
+                            <Multiselect
+                              isObject={false}
+                              onRemove={editedskill}
+                              //onSelect={edithandleChange}
+                              onSelect={editedskill}
+                              options={skill}
+                              selectedValues={values.job_skillset.split(",")}
+                              //value={editvalues.skillset}
+                              showCheckbox
+                              name="ob_skillset"
+                              className="form-control"
+                            />
+                          </div>
+                        </div>
+                 
                   <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Experience</label>
@@ -468,26 +512,28 @@ export default function Job(props) {
             <div className="main-content-area-inner">
               <div className="sub-head">
                 {" "}
-                Job Openings
+                <div className="job-open-head">Job Openings </div> 
+                <Multidropselect  />
+                
                 <div className="top-right-outer add-btn-div">
-                  <Jobdetailsmodal location={location} method={loadJobs} />
+                <Jobdetailsmodal location={location} method={loadJobs}  className="col-md-3"/>
                 </div>
               </div>
 
               <div className="col-md-12 job-main-tb-outer">
-                <Paper className="recruitment-table-outer job-outer job-new-outer">
+                <Paper className="recruitment-table-outer job-outer job-new-outer job-new-table-outer">
                   <Table className="recruitment-tabele">
                     <TableHead>
                       <TableRow>
                         <TableCell className="width-8">Job ID</TableCell>
-                        <TableCell className="width-12">Post</TableCell>
+                        <TableCell className="width-15">Post</TableCell>
                         <TableCell className="width-15">Skill Set</TableCell>
-                        <TableCell className="width-8">Exp</TableCell>
+                        <TableCell className="width-5">Exp</TableCell>
                         <TableCell className="width-8">Openings</TableCell>
                         <TableCell className="width-8">Location</TableCell>
-                        <TableCell className="width-10">Posted Date </TableCell>
-                        <TableCell className="width-10">Post Close</TableCell>
-                        <TableCell className="width-12">Description</TableCell>
+                        <TableCell className="width-12">Posted Date </TableCell>
+                        <TableCell className="width-12">Post Close</TableCell>
+                        <TableCell className="width-15">Description</TableCell>
                         <TableCell className="width-15 tf">Status</TableCell>
                       </TableRow>
                     </TableHead>
@@ -496,13 +542,13 @@ export default function Job(props) {
                         return (
                           <TableRow key={n.id}>
                             <TableCell className="width-8"> {n.id}</TableCell>
-                            <TableCell numeric className="width-12">
+                            <TableCell numeric className="width-15">
                               {n.post_name}
                             </TableCell>
                             <TableCell numeric className=" width-15">
                               {n.job_skillset}{" "}
                             </TableCell>
-                            <TableCell numeric className="width-8">
+                            <TableCell numeric className="width-5">
                               {n.job_experience}
                             </TableCell>
                             <TableCell numer ic className="width-8">
@@ -511,26 +557,23 @@ export default function Job(props) {
                             <TableCell numeric className="width-8">
                               {n.job_location}
                             </TableCell>
-                            <TableCell numeric className="width-10">
+                            <TableCell numeric className="width-12">
                               {n.job_date_open}
                             </TableCell>
-                            <TableCell numeric className="width-10">
+                            <TableCell numeric className="width-12">
                               {n.job_date_close}
                             </TableCell>
 
-                            <TableCell numeric className="width-12" data-title={n.job_description}>
-                            {n.job_description.substring(0, 12)+'...'}
-
-                              
-
-                            
+                            <TableCell data-title={n.job_description} numeric className="width-15">
+                              {" "}
+                              {n.job_description.substring(0, 12)+'..'}
                             </TableCell>
                             <TableCell
                               numeric
                               className="width-15 inprogress-td tf"
                             >
-                              <div className="inprograss-style btn-active ">
-                                Active
+                              <div className="job-table-toggle-box ">
+                              <Togbtn/>
                               </div>
 
                               <button
@@ -542,7 +585,7 @@ export default function Job(props) {
                                   width="8"
                                   height="8"
                                   viewBox="0 0 10 10"
-                                  fill="none"
+                                  fill="#ac4782" color="#ac4782"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <path

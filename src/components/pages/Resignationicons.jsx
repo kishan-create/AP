@@ -6,10 +6,10 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import Modal from "react-modal";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
-import axios from "axios";
+// import axios from "axios";
 import Noticefunctions from "./includes/Noticefunctions";
 import Noticevalidation from "../validation/Noticevalidation";
-import { ExitToAppTwoTone } from "@material-ui/icons";
+// import { ExitToAppTwoTone } from "@material-ui/icons";
 const options = [
   'Resigned',
   'Relieved',
@@ -27,7 +27,7 @@ export default function Resignationicons({ id, name, code, noticeid, resign, met
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [modalIsOpenRelive, setIsOpenrelieve] = React.useState(false);
   const [modalIsOpenRevoke, setIsOpenrevoke] = React.useState(false);
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  // const [isSubmitting, setIsSubmitting] = React.useState(false);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -84,7 +84,7 @@ export default function Resignationicons({ id, name, code, noticeid, resign, met
   }
 
 
-  const { handleChange, values, listnew, handleSubmit, handleRelieveSubmit, Submiterrors, FrequencyChange,handleRevokeSubmit } = Noticefunctions(Noticevalidation, id);
+  const { handleChange, values,  handleSubmit, handleRelieveSubmit,  FrequencyChange,handleRevokeSubmit } = Noticefunctions(Noticevalidation, id);
 
   return (
     <div>

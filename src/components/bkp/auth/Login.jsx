@@ -76,12 +76,12 @@ export default class Login extends Component {
   };
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/Kanban" />;
+      return <Redirect to="/" />;
     }
     // const login = localStorage.getItem("isLoggedIn");
     const login = sessionStorage.getItem("isLoggedIn");
     if (login) {
-      return <Redirect to="/Kanban" />;
+      return <Redirect to="/" />;
     }
     const isLoading = this.state.isLoading;
     return (
