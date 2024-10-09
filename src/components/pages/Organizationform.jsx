@@ -41,12 +41,14 @@ const Organizationform = (org_validation) => {
     const list = data.list;
   };
   const handleSubmit = (e) => {
+    console.log(values)
+
     e.preventDefault();
     const test = setErrors(org_validation(values));
     setIsSubmitting(true);
   };
   const onSubmitform = (e) => {
-    //console.log(values)
+    console.log(values)
     const response = axios.post(
       "http://localhost:8000/api/add_organization",
       values

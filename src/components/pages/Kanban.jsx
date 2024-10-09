@@ -285,6 +285,7 @@ const Kanban = () => {
   function closeModalRelease() {
     setIsShowingreleasepopup(false);
   }
+  
   function closeModalReleaseedit() {
     setIsShowingreleasepopupEdit(false);
   }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import LinesEllipsis from 'react-lines-ellipsis'
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import Modal from "react-modal";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
@@ -11,17 +10,15 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
- 
-
+import Multiselect from "multiselect-react-dropdown";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Jobdetailsmodal from "./Jobdetailsmodal";
 import { location } from "../../images";
 import { profilei } from "../../images/profilei.svg";
 import axios from "axios";
-import swal from "sweetalert"; 
+import swal from "sweetalert";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Multiselect from "multiselect-react-dropdown";
 import EditIcon from "@mui/icons-material/Edit";
 import Togbtn from "./Togbtn";
 import Multidropselect from "./Multidropselect";
@@ -158,16 +155,6 @@ const data = [
     ""
   ),
 ];
-// const OverflowTip = props => {
-//   // Create Ref
-//   const textElementRef = useRef();
-
-//   const compareSize = () => {
-//     const compare =
-//       textElementRef.current.scrollWidth > textElementRef.current.clientWidth;
-//     console.log('compare: ', compare);
-//     setHover(compare);
-//   };
 
 
 
@@ -175,6 +162,8 @@ export default function Job(props) {
   const [joblist, SetJoblist] = useState([]);
   const [location, SetLocation] = useState([]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [vmodalIsOpen, vsetIsOpen] = React.useState(false);
+
   const [postvalues, SetPostvalues] = useState([]);
   const [editskill, seteditedSkill] = useState(0);
   const [values, SetValues] = useState({
@@ -188,6 +177,7 @@ export default function Job(props) {
     job_date_close: "",
     job_location: "",
     job_description: "",
+    post_name:"",
   });
   const [errors, setErrors] = useState({});
   const [selectedOption, setSelectedOption] = useState(0);
@@ -203,7 +193,7 @@ export default function Job(props) {
     "REACT JS",
 
   ]);
-  
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetValues({
@@ -247,7 +237,7 @@ export default function Job(props) {
     const reponse = await axios.get(
       `http://localhost:8000/api/editfecthjobdata/${job_id}`
     );
-
+   
     if (reponse.data.status == 200) {
       SetValues({
         job_id: reponse.data.job[0].job_id,
@@ -263,6 +253,29 @@ export default function Job(props) {
         id: reponse.data.job[0].id,
       });
       setIsOpen(true);
+    }
+  };
+  const View_job = async (id) => {
+    const job_id = id;
+    const reponse = await axios.get(
+      `http://localhost:8000/api/editfecthjobdata/${job_id}`
+    );
+   
+    if (reponse.data.status == 200) {
+      SetValues({
+        job_id: reponse.data.job[0].job_id,
+        job_post: reponse.data.job[0].job_post,
+        job_skillset: reponse.data.job[0].job_skillset,
+        job_openings: reponse.data.job[0].job_openings,
+        job_experience: reponse.data.job[0].job_experience,
+        job_status: reponse.data.job[0].job_status,
+        job_date_open: reponse.data.job[0].job_date_open,
+        job_date_close: reponse.data.job[0].job_date_close,
+        job_location: reponse.data.job[0].job_location,
+        job_description: reponse.data.job[0].job_description,
+        post_name:reponse.data.job[0].post_name,
+      });
+      vsetIsOpen(true);
     }
   };
 
@@ -288,24 +301,19 @@ export default function Job(props) {
       });
     }
   };
+  // const { classes } = props;
 
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseOver = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
-
-  const { classes } = props;
-
-  function afterOpenModal() { }
+  function afterOpenModal() {}
 
   function closeModal() {
     setIsOpen(false);
     loadJobs();
+  }
+
+  function vafterOpenModal() {}
+
+  function vcloseModal() {
+    vsetIsOpen(false);
   }
   const editedskill = (event) => {
     seteditedSkill(event);
@@ -317,9 +325,11 @@ export default function Job(props) {
     { id: 2, name: "Victor Wayne" },
     { id: 3, name: "Jane Doe" },
   ];
- 
+  // const [skill, setSkill] = useState(["PHP", "JAVA", "MYSQL","HTML","PYTHON","JAVASCRIPT","JQUERY","ANGULAR",".NET","POWERAPPS","SALESFORCE"]);
   return (
+   
     <div>
+     
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -391,7 +401,7 @@ export default function Job(props) {
                  
                   <div className="col-md-4">
                     <div className="form-group">
-                      <label for="exampleFormControlInput1">Experience</label>
+                      <label for="exampleFormControlInput1">experience</label>
                       <input
                         type="text"
                         name="job_experience"
@@ -445,7 +455,7 @@ export default function Job(props) {
                   </div>
                   <div className="col-md-4">
                     <div className="form-group">
-                      <label for="exampleFormControlInput1">Date close</label>
+                      <label for="exampleFormControlInput1">date close</label>
                       <input
                         type="date"
                         name="job_date_close"
@@ -478,7 +488,7 @@ export default function Job(props) {
                   </div>
                   <div className="col-md-12">
                     <div className="form-group">
-                      <label for="exampleFormControlInput1">Description</label>
+                      <label for="exampleFormControlInput1">description</label>
                       <textarea
                         type="textarea"
                         name="job_description"
@@ -514,7 +524,7 @@ export default function Job(props) {
                 {" "}
                 <div className="job-open-head">Job Openings </div> 
                 <Multidropselect  />
-                
+               
                 <div className="top-right-outer add-btn-div">
                 <Jobdetailsmodal location={location} method={loadJobs}  className="col-md-3"/>
                 </div>
@@ -573,7 +583,7 @@ export default function Job(props) {
                               className="width-15 inprogress-td tf"
                             >
                               <div className="job-table-toggle-box ">
-                              <Togbtn/>
+                              <Togbtn id={n.id} status={n.job_status}/>
                               </div>
 
                               <button
@@ -596,6 +606,24 @@ export default function Job(props) {
                                     d="M9.59266 9.98866L6.0791 9.04722L9.04722 6.0791L9.98866 9.59266C10.053 9.83311 9.83311 10.053 9.59266 9.98866Z"
                                     fill="#4A54D1"
                                   />
+                                </svg>
+                              </button>
+
+                              <button
+                                onClick={() => View_job(n.id)}
+                                className="job-edit-icon"
+                              >
+                                {" "}
+                                <svg
+                                  width="8"
+                                  height="8"
+                                  viewBox="0 0 10 10"
+                                  fill="#ac4782" color="#ac4782"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                 <path d="M0.957514 3.64635L3.25493 1.55779C5.53914 -0.519262 9.25705 -0.519262 11.5413 1.55779L13.8387 3.64635C14.0538 3.84189 14.0538 4.15798 13.8387 4.35353L11.5413 6.44209C10.3992 7.48037 8.8989 8 7.39811 8C5.89731 8 4.39706 7.48037 3.25496 6.44209L0.95754 4.35353C0.742414 4.15798 0.742414 3.84189 0.957514 3.64635ZM7.39811 6.50061C8.91486 6.50061 10.1489 5.3788 10.1489 3.99993C10.1489 2.62106 8.91486 1.49925 7.39811 1.49925C5.88135 1.49925 4.64736 2.62106 4.64736 3.99993C4.64736 5.3788 5.88135 6.50061 7.39811 6.50061Z" fill="#B93E86"/>
+
+                                  <path d="M7.39802 2.49902C8.30795 2.49902 9.04846 3.17221 9.04846 3.99943C9.04846 4.82664 8.30795 5.49983 7.39802 5.49983C6.48808 5.49983 5.74757 4.82664 5.74757 3.99943C5.74757 3.17221 6.48805 2.49902 7.39802 2.49902Z" fill="#B93E86"/>
                                 </svg>
                               </button>
 
@@ -628,242 +656,227 @@ export default function Job(props) {
 
               <div className="accrodion-mob-outer">
                 <Accordion preExpanded="0" className="job-accrodion">
-                  {joblist.map((res_data, i) => {
-                    return (
-                      <div>
-                        <AccordionItem uuid={i}>
-                          <AccordionItemHeading className="accordion-active-status">
-                            <AccordionItemButton>
-                              <div className="accordion-head-text">
-                                <div className="name notificatio-outer">
-                                  {res_data.post_name}
-                                  <div className="notification-label">
-                                    {res_data.job_openings}
-                                  </div>
-                                </div>
-                                <div className="desi joblocation">
-                                  <img src={location} />
-                                  <span>{res_data.job_location}</span>
-                                </div>
-                              </div>{" "}
-                              <div className="col-4 acc-status-change">
-                                <div className="active-status-style">0123</div>
-                              </div>
-                            </AccordionItemButton>
-                          </AccordionItemHeading>
-                          <AccordionItemPanel>
-                            <div className="accord-detals-box">
-                              <div className="left">Job ID</div>
-                              <div className="right">{res_data.id}</div>
-                            </div>
-                            <div className="accord-detals-box">
-                              <div className="left">Skill Set </div>
-                              <div className="right">
-                                {res_data.job_skillset}
-                              </div>
-                            </div>
-                            <div className="accord-detals-box">
-                              <div className="left">Exp </div>
-                              <div className="right">
-                                {res_data.job_experience}
-                              </div>
-                            </div>
-                            <div className="accord-detals-box">
-                              <div className="left">Posted Date</div>
-                              <div className="right">
-                                {res_data.job_date_open}
-                              </div>
-                            </div>
-                            <div className="accord-detals-box">
-                              <div className="left">Post Close</div>
-                              <div className="right">
-                                {res_data.job_date_close}
-                              </div>
-                            </div>
-                            <div className="accord-detals-box">
-                              <div className="accordion-bottom-button">
-                                <div className="more-button">View</div>
-                                <div
-                                  onClick={() => Edit_job(res_data.id)}
-                                  className="more-button more-outer"
-                                >
-                                  Edit
-                                </div>
-                                <div
-                                  onClick={() => Delete_job(res_data.id)}
-                                  className="more-button more-outer"
-                                >
-                                  Delete
-                                </div>
-                              </div>
-                            </div>
-                          </AccordionItemPanel>
-                        </AccordionItem>
-                      </div>
-                    );
-                  })}
+               
 
-                  {/* <AccordionItem uuid="b">
-                    <AccordionItemHeading className="accordion-inactive-status">
-                      <AccordionItemButton>
-                        {" "}
-                        <div className="accordion-head-text">
-                          <div className="name notificatio-outer">
-                            Java developer{" "}
-                            <div className="notification-label">12</div>
-                          </div>
-                          <div className="desi joblocation">
-                            <img src={location} />
-                            <span>Kakkanad</span>
-                          </div>
-                        </div>{" "}
-                        <div className="col-4 acc-status-change">
-                          <div className="active-status-style">0123</div>
-                        </div>
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <div className="accord-detals-box">
-                        <div className="left">Job ID</div>
-                        <div className="right">{n.id}</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Skill Set </div>
-                        <div className="right">
-                          HTML, CSS, JavaScript, Figma
-                        </div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Exp </div>
-                        <div className="right">{n.job_experience}</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Posted Date</div>
-                        <div className="right">{n.job_date_open}</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Post Close</div>
-                        <div className="right">{n.job_date_close}</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="accordion-bottom-button">
-                          <div className="more-button">View</div>
-                          <div className="more-button more-outer"><button onClick={() => Edit_job(n.id)} className="mobile-job-edit-icon" > Edit 
-                                                           
-                                                        </button></div>
-                          <div className="more-button more-outer">Delete</div>
-                        </div>
-                      </div>
-                    </AccordionItemPanel>
-                  </AccordionItem> */}
-                  {/* <AccordionItem uuid="c">
-                    <AccordionItemHeading className="accordion-active-status">
-                      <AccordionItemButton>
-                        <div className="accordion-head-text">
-                          <div className="name notificatio-outer">
-                            Java developer
-                            <div className="notification-label">12</div>
-                          </div>
-                          <div className="desi joblocation">
-                            <img src={location} />
-                            <span>Kakkanad</span>
-                          </div>
-                        </div>{" "}
-                        <div className="col-4 acc-status-change">
-                          <div className="active-status-style">0123</div>
-                        </div>
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <div className="accord-detals-box">
-                        <div className="left">Job ID</div>
-                        <div className="right">123</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Skill Set </div>
-                        <div className="right">
-                          HTML, CSS, JavaScript, Figma
-                        </div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Exp </div>
-                        <div className="right">10 Years</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Posted Date</div>
-                        <div className="right">20-10-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Post Close</div>
-                        <div className="right">10-11-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="accordion-bottom-button">
-                          <div className="more-button">View</div>
-                          <div className="more-button more-outer">Edit</div>
-                          <div className="more-button more-outer">Delete</div>
-                        </div>
-                      </div>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-
-                  <AccordionItem uuid="d">
-                    <AccordionItemHeading className="accordion-inactive-status">
-                      <AccordionItemButton>
-                        {" "}
-                        <div className="accordion-head-text">
-                          <div className="name notificatio-outer">
-                            Java developer{" "}
-                            <div className="notification-label">12</div>
-                          </div>
-                          <div className="desi joblocation">
-                            <img src={location} />
-                            <span>Kakkanad</span>
-                          </div>
-                        </div>{" "}
-                        <div className="col-4 acc-status-change">
-                          <div className="active-status-style">0123</div>
-                        </div>
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <div className="accord-detals-box">
-                        <div className="left">Job ID</div>
-                        <div className="right">1234</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Skill Set </div>
-                        <div className="right">
-                          HTML, CSS, JavaScript, Figma
-                        </div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Exp </div>
-                        <div className="right">10 Years</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Posted Date</div>
-                        <div className="right">20-10-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="left">Post Close</div>
-                        <div className="right">10-11-2021</div>
-                      </div>
-                      <div className="accord-detals-box">
-                        <div className="accordion-bottom-button">
-                          <div className="more-button">View</div>
-                          <div className="more-button more-outer">Edit</div>
-                          <div className="more-button more-outer">Delete</div>
-                        </div>
-                      </div>
-                    </AccordionItemPanel>
-                  </AccordionItem> */}
+                 
                 </Accordion>
               </div>
             </div>
           </section>
         </DndProvider>
       </main>
+   
+      <Modal
+        isOpen={vmodalIsOpen}
+        onAfterOpen={vafterOpenModal}
+        onRequestClose={vcloseModal}
+        className="job-detils-modal"
+        contentLabel="Example Modal"
+      >
+        <form onSubmit={updateOrganization} className="form" noValidate>
+          <div className="popup-head-sty modal-button-bg">
+            <div className="popup-head-content-sty">
+              <h4 className="popup-head-h4"> view Job Settings</h4>
+            </div>
+            <div className="popup-head-icon-sty">
+             <MdClose className="popup-close-btn" onClick={vcloseModal} />
+            </div>
+          </div>
+          <div className="popup-content-bg">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="row popup-content-height">
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      {/* <label for="exampleFormControlInput1">Job ID</label> */}
+                      {/* <input
+                        type="text"
+                        name="job_id"
+                        onChange={handleChange}
+                        value={values.job_id}
+                        className="form-control"
+                      ></input> */}
+
+Post:{values.post_name}
+{/* console.lo */}
+
+{/* <select
+                        id="dropdown"
+                        name="job_post"
+                        onChange={handleChange}
+                        value={values.job_post}
+                        className="form-control"
+                      >
+                        <option value="">Select Post</option>
+                        {postvalues.map(({ post_name, id }, index) => (
+                          <option value={id}>{post_name}</option>
+                        ))}
+                      </select> */}
+
+                    </div>
+                  </div>
+                  <br/>
+                  <div className="col-md-4">
+                    <div className="form-group new-line">
+                      {/* <label for="exampleFormControlInput1">Post</label> */}
+                      {/* <select
+                        id="dropdown"
+                        name="job_post"
+                        onChange={handleChange}
+                        value={values.job_post}
+                        className="form-control"
+                      >
+                        <option value="">Select Post</option>
+                        {postvalues.map(({ post_name, id }, index) => (
+                          <option value={id}>{post_name}</option>
+                        ))}
+                      </select> */}
+                        <label for="exampleFormControlInput1">date close:{values.job_date_close} </label>
+                   
+                    </div>
+                   
+                  </div>
+                  <div className="col-md-4">
+                          <div className="form-group">
+                            <label for="exampleFormControlInput1">
+                              Skill Set:{values.job_skillset} 
+                            </label> 
+                            {/* <Multiselect
+                              isObject={false}
+                              onRemove={editedskill}
+                              //onSelect={edithandleChange}
+                              onSelect={editedskill}
+                              options={skill}
+                              selectedValues={values.job_skillset.split(",")}
+                              //value={editvalues.skillset}
+                              showCheckbox
+                              name="ob_skillset"
+                              className="form-control"
+                            /> */}
+                          </div>
+                        </div>
+                 
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      {/* <label for="exampleFormControlInput1">experience</label>
+                      <input
+                        type="text"
+                        name="job_experience"
+                        onChange={handleChange}
+                        value={values.job_experience}
+                        className="form-control"
+                      ></input> */}
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      {/* <label for="exampleFormControlInput1">Openings</label>
+                      <input
+                        type="email"
+                        name="job_openings"
+                        onChange={handleChange}
+                        value={values.job_openings}
+                        className="form-control"
+                      ></input> */}
+                    </div>
+                  </div>
+
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      {/* <label for="exampleFormControlInput1">Status</label>
+                      <select
+                        id="dropdown"
+                        name="job_status"
+                        onChange={handleChange}
+                        value={values.job_status}
+                        className="form-control"
+                      >
+                        <option value="">Choose status</option>
+
+                        <option value="1">open</option>
+                        <option value="0">close</option>
+                      </select> */}
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      {/* <label for="exampleFormControlInput1">Date open</label>
+                      <input
+                        type="date"
+                        name="job_date_open"
+                        onChange={handleChange}
+                        value={values.job_date_open}
+                        className="form-control"
+                      ></input> */}
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      {/* <label for="exampleFormControlInput1">date close</label>
+                      <input
+                        type="date"
+                        name="job_date_close"
+                        onChange={handleChange}
+                        value={values.job_date_close}
+                        className="form-control"
+                      ></input> */}
+                    </div>
+                  </div>
+                  <div className="col-md-4 mob-full">
+                    <div className="form-group">
+                      {/* <label for="exampleFormControlInput1">Location</label>
+                      <select
+                        id="job_location"
+                        name="job_location"
+                        onChange={handleChange}
+                        value={values.job_location}
+                        className="form-control"
+                      >
+                        <option value="">Select Location</option>
+                        {location.map(
+                          ({ branch_name, id, branch_location }, index) => (
+                            <option value={id}>
+                              {branch_name}-{branch_location}
+                            </option>
+                          )
+                        )}
+                      </select> */}
+                    </div>
+                  </div>
+                  <div className="col-md-12">
+                    <div className="form-group">
+                      <label for="exampleFormControlInput1">description</label>
+                      <input
+                        type="email"
+                        name="job_description"
+                        onChange={handleChange}
+                        value={values.job_description}
+                        className="form-control"
+                      ></input>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="id" value={values.id} />
+          </div>
+          <div className=" modal-footer-button-bg">
+            {/* <button type="submit" className="btn  btn-save ">
+              {" "}
+              Save
+            </button>
+            <button type="button" className="btn  btn-cancel " onClick={closeModal}>
+              {" "}
+              Cancel{" "}
+            </button> */}
+          </div>
+        </form>
+      </Modal>
+   
     </div>
+   
+   
   );
+ 
+
 }

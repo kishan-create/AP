@@ -113,6 +113,7 @@ const useForm = (validate) => {
     // console.log(event);
     setSelectedOption(event);
   };
+
   const onSelectPrimarySkill = (event) => {
     setSelectedPrimaryskill(event);
   };
@@ -199,6 +200,7 @@ const useForm = (validate) => {
     job,
     handleImage,
     onSelect,
+    selectedOption,
     onSelectPrimarySkill,
     onSelectSecondaryskill,
   };

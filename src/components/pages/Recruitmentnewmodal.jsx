@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState, useEffect } from "react";
+
 import ReactDOM from 'react-dom'; 
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
@@ -33,6 +35,8 @@ const customStyles = {
 
 
 export default function Recruitmentnewmodal({method}){
+
+  const [skill, setSkill] = useState([]);
   //const{columns}=LoadDatafile();
    
     const CustomTab = ({ children }) => (
@@ -45,6 +49,8 @@ export default function Recruitmentnewmodal({method}){
     const [modalIsOpen, setIsOpen] = React.useState(false);
     // console.log(columns);
     function openModal() {
+      console.log(skill);
+      getSkillName();
       setIsOpen(true);
     }
     const [myimage, setMyImage] = React.useState(null);
@@ -69,6 +75,23 @@ export default function Recruitmentnewmodal({method}){
       method();
     
     }
+    const getSkillName= async()=> {
+      // alert("hi");
+      const response = await fetch("http://localhost:8000/api/getskillset");
+      const data = await response.json();
+      const list = data.skill;
+      // const list1 =  JSON.stringify(list);
+
+      // const der = Object.values(list); 
+
+
+
+
+      setSkill(list);
+  
+  
+  
+      }
  
     const [value, setValue]=React .useState(0)
     const handlesTabs=(e, val)=>{
@@ -99,7 +122,7 @@ export default function Recruitmentnewmodal({method}){
             </div>
             <div class ="row">
                 <div className="col-md-12">
-                <BasicTabs /> 
+                <BasicTabs skill={skill} /> 
                 <button type="button" className="btn  btn-cancel " onClick={closeModal} > Cancel </button>
                 </div>
             </div>

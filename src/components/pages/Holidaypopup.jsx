@@ -61,6 +61,8 @@ export default function Holidaypopup({method}) {
   function openModal() {
     getOptionName();
     setIsOpen(true);
+    console.log(options);
+
     
 
   }

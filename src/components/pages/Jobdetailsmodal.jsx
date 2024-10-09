@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import ReactDOM from "react-dom"; 
+import ReactDOM from "react-dom";
 import { SiAddthis } from "@react-icons/all-files/si/SiAddthis";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
 import Modal from "react-modal";
@@ -12,7 +12,9 @@ import { AppBar } from "@material-ui/core";
 import BasicTabs from "./Employeetabs";
 import job_validation from "../validation/job_validation";
 import Jobform from "./Jobform";
- 
+import axios from "axios";
+import MySelect from "./Multselectdropdown/Myselect";
+
 
 import "react-tabs/style/react-tabs.css";
 import Multiselect from "multiselect-react-dropdown";
@@ -31,7 +33,7 @@ const customStyles = {
 };
 
 export default function Jobdetailsmodal({ location, method }) {
-  const [skill, setSkill] = useState(["PHP", "JAVA", "MYSQL","HTML","PYTHON","JAVASCRIPT","JQUERY","ANGULAR",".NET","POWERAPPS","SALESFORCE"]);
+  const [skill, setSkill] = useState([]);
   const CustomTab = ({ children }) => (
     <Tab>
       <div>{children}</div>
@@ -41,8 +43,24 @@ export default function Jobdetailsmodal({ location, method }) {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
+  const getSkillName = async () => {
+    // alert("hi");
+    const response = await fetch("http://localhost:8000/api/getskillset");
+    const data = await response.json();
+    const list = data.skill;
+    setSkill(list);
+
+
+
+  }
+  console.log(skill);
+
+
+
   function openModal() {
+    getSkillName();
     setIsOpen(true);
+
   }
 
   function afterOpenModal() {
@@ -62,7 +80,7 @@ export default function Jobdetailsmodal({ location, method }) {
     setValue(val);
   };
 
-  const { handleChange, values, handleSubmit, errors, post,onSelect } = Jobform(
+  const { handleChange, values, handleSubmit, errors, post, onSelect } = Jobform(
     job_validation
   );
 
@@ -136,7 +154,7 @@ export default function Jobdetailsmodal({ location, method }) {
                       )}
                     </div>
                   </div>
-                 {/* <div className="col-md-4">
+                  {/* <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Skill Set</label>
 
@@ -160,9 +178,9 @@ export default function Jobdetailsmodal({ location, method }) {
                   </div>
                       */}
                   <div className="col-md-4">
-                                <div className="form-group">
-                                    <label for="exampleFormControlInput1">Skill Set</label>
-
+                    <div className="form-group">
+                      <label for="exampleFormControlInput1">Skill Set</label>
+                      {/* 
                                     <Multiselect
         isObject={false}
         onRemove={(event) => {
@@ -174,11 +192,32 @@ export default function Jobdetailsmodal({ location, method }) {
         showCheckbox
         name="job_skillset"
       
-      />
-                       {errors.job_skillset && <p className="EmptabValidation">{errors.job_skillset}</p>}            
-                                </div>
-                              
-                            </div>
+      /> */}
+                      <MySelect
+
+                        isMulti
+
+
+
+                        onSelect={onSelect}
+
+                        options={skill}
+
+                        className="form-control"
+
+                        showCheckbox
+
+                        name="job_skillset"
+
+
+
+
+
+                      />
+                      {errors.job_skillset && <p className="EmptabValidation">{errors.job_skillset}</p>}
+                    </div>
+
+                  </div>
                   <div className="col-md-4">
                     <div className="form-group">
                       <label for="exampleFormControlInput1">Experience</label>
